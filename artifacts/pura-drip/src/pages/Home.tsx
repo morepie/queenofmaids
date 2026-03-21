@@ -30,7 +30,7 @@ export default function Home() {
     <div className="w-full">
       {/* HERO SECTION */}
       <section className="relative min-h-[95vh] flex items-center pt-24 pb-12 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(192,30%,92%)] via-[hsl(35,40%,95%)] to-background"></div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
