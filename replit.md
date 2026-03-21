@@ -94,3 +94,16 @@ Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHea
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.
+
+### `artifacts/pura-drip` (`@workspace/pura-drip`)
+
+Marketing website for Pura Drip mobile IV therapy. React + Vite + Tailwind CSS.
+
+- **Pages**: Home, Treatments (catalog with category filters), TreatmentDetail (product page), Memberships
+- **Color palette**: primary = bubblegum pink `#FC6471`, teal accent `#4BA8A8` for Popular badges
+- **Font**: Inter
+- **Data**: Static treatment data in `src/data/content.ts` — 24 treatments across 6 categories (Hydration, Wellness, Performance, Beauty, Relief, Specialty)
+- **Layout**: `overflow-x: clip` on Layout (NOT `overflow-x: hidden`) to preserve CSS sticky positioning
+- **Mini-cart**: `CartContext` tracks selected treatments; items appear in the booking modal with quantity controls and total price; cart badge shown in navbar; "Add to Cart" buttons on treatment cards and detail pages
+- **Booking**: `BookingContext` renders a modal with phone CTA; preselects cart items when available
+- **Images**: `public/images/pura-iv-placeholder.png` (product), `public/images/iv-bag.png` (hero)

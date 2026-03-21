@@ -1,9 +1,10 @@
 import { useParams } from 'wouter';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
-import { Clock, Droplets, ArrowLeft, CheckCircle, Beaker, Users, Star } from 'lucide-react';
+import { Clock, Droplets, ArrowLeft, CheckCircle, Beaker, Users, Star, ShoppingBag, Check } from 'lucide-react';
 import { treatments } from '@/data/content';
 import { useBooking } from '@/context/BookingContext';
+import { useCart } from '@/context/CartContext';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -17,6 +18,7 @@ const stagger = {
 export default function TreatmentDetail() {
   const params = useParams<{ id: string }>();
   const { openBookingModal } = useBooking();
+  const { addItem, isInCart } = useCart();
   const treatment = treatments.find(t => t.id === params.id);
 
   if (!treatment) {
@@ -169,17 +171,43 @@ export default function TreatmentDetail() {
             </motion.div>
 
             <motion.div variants={fadeIn} className="mt-10 pt-8 border-t border-border">
-              <div className="bg-primary/5 border border-primary/15 rounded-2xl p-6 text-center">
-                <h3 className="text-lg font-bold text-foreground mb-2">Ready to Book?</h3>
-                <p className="text-muted-foreground text-sm mb-5">
+              <div className="bg-primary/5 border border-primary/15 rounded-2xl p-6">
+                <h3 className="text-lg font-bold text-foreground mb-2 text-center">Ready to Book?</h3>
+                <p className="text-muted-foreground text-sm mb-5 text-center">
                   Our registered nurses come to you — home, hotel, or office.
                 </p>
-                <button
-                  onClick={openBookingModal}
-                  className="w-full sm:w-auto px-12 py-4 rounded-full bg-primary text-primary-foreground text-lg font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
-                >
-                  Book {treatment.name} — ${treatment.price}
-                </button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => { if (!isInCart(treatment.id)) addItem(treatment); }}
+                    disabled={isInCart(treatment.id)}
+                    className={`flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-base transition-all duration-300 ${
+                      isInCart(treatment.id)
+                        ? 'bg-[#4BA8A8] text-white shadow-lg cursor-default'
+                        : 'bg-white border-2 border-primary text-primary hover:bg-primary/5'
+                    }`}
+                  >
+                    {isInCart(treatment.id) ? (
+                      <>
+                        <Check className="w-5 h-5" />
+                        Added to Cart
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingBag className="w-5 h-5" />
+                        Add to Cart — ${treatment.price}
+                      </>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => {
+                      if (!isInCart(treatment.id)) addItem(treatment);
+                      openBookingModal();
+                    }}
+                    className="flex-1 px-6 py-4 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
+                  >
+                    Book Now
+                  </button>
+                </div>
               </div>
             </motion.div>
           </motion.div>
