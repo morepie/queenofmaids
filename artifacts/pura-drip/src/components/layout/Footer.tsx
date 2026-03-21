@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
           <div className="space-y-4">
-            <h3 className="text-2xl font-display font-bold text-background">Pura Drip</h3>
+            <h3 className="text-2xl font-sans font-bold text-background">Pura Drip</h3>
             <p className="text-background/70 text-sm leading-relaxed max-w-xs">
               Premium mobile IV therapy delivered directly to your door. Elevate your health, recovery, and wellness with our customized treatments.
             </p>

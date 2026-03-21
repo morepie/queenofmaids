@@ -22,7 +22,7 @@ export default function Treatments() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" animate="visible" variants={fadeIn}>
             <span className="text-secondary font-bold tracking-widest uppercase mb-4 block">The Catalog</span>
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-foreground mb-8">
+            <h1 className="text-5xl md:text-7xl font-sans font-bold text-foreground mb-8">
               Premium IV Blends
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">

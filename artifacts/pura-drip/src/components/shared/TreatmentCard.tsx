@@ -24,7 +24,7 @@ export default function TreatmentCard({ treatment }: { treatment: Treatment }) {
           )}
         </div>
 
-        <h3 className="text-2xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+        <h3 className="text-2xl font-sans font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
           {treatment.name}
         </h3>
         <p className="text-muted-foreground text-base mb-8 leading-relaxed">

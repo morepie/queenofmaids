@@ -38,7 +38,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl font-display font-bold text-primary group-hover:text-primary/80 transition-colors">
+            <span className="text-2xl font-sans font-bold text-primary group-hover:text-primary/80 transition-colors">
               Pura Drip
             </span>
           </Link>

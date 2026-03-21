@@ -58,7 +58,7 @@ export const BookingProvider = ({ children }: { children: ReactNode }) => {
                   <Calendar className="w-10 h-10" />
                 </div>
                 
-                <h2 className="text-3xl font-display font-bold text-foreground mb-4">
+                <h2 className="text-3xl font-sans font-bold text-foreground mb-4">
                   Online Booking Coming Soon
                 </h2>
                 

@@ -49,7 +49,7 @@ export default function Home() {
             <span className="inline-block py-1.5 px-4 rounded-full bg-secondary/40 text-primary text-sm font-bold tracking-widest uppercase mb-8 border border-secondary/50 shadow-sm">
               Luxury Wellness Delivered
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display font-bold text-foreground leading-[1.1] mb-8 drop-shadow-sm">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-sans font-bold text-foreground leading-[1.1] mb-8 drop-shadow-sm">
               Elevate Your Health With <span className="text-primary block mt-2">Premium IV Therapy</span>
             </h1>
             <p className="text-lg md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
@@ -81,7 +81,7 @@ export default function Home() {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeIn}
             className="text-center max-w-3xl mx-auto mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Seamless Wellness</h2>
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-6">Seamless Wellness</h2>
             <p className="text-xl text-muted-foreground">Four simple steps to feeling your absolute best, without leaving your location.</p>
           </motion.div>
 
@@ -102,7 +102,7 @@ export default function Home() {
                 <div className="w-24 h-24 rounded-full bg-background border-2 border-border shadow-lg flex items-center justify-center mb-8 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground text-primary transition-all duration-500 group-hover:scale-110">
                   <step.icon className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-display font-bold mb-3">{step.title}</h3>
+                <h3 className="text-2xl font-sans font-bold mb-3">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
@@ -115,7 +115,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Signature Blends</h2>
+              <h2 className="text-4xl md:text-5xl font-sans font-bold mb-6">Signature Blends</h2>
               <p className="text-xl text-muted-foreground">Expertly formulated treatments designed for targeted results and optimal hydration.</p>
             </motion.div>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
@@ -142,7 +142,7 @@ export default function Home() {
       <section className="py-24 bg-card border-y border-border overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Client Experiences</h2>
+            <h2 className="text-4xl md:text-5xl font-sans font-bold mb-6">Client Experiences</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Discover why thousands trust Pura Drip for their ongoing wellness needs.</p>
           </motion.div>
 
@@ -160,7 +160,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-lg text-foreground mb-8 italic leading-relaxed">"{t.quote}"</p>
-                <p className="font-display font-bold text-xl text-primary">— {t.name}</p>
+                <p className="font-sans font-bold text-xl text-primary">— {t.name}</p>
               </motion.div>
             ))}
           </div>
@@ -177,7 +177,7 @@ export default function Home() {
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-primary-foreground mb-8 drop-shadow-md">
+            <h2 className="text-5xl md:text-6xl font-sans font-bold text-primary-foreground mb-8 drop-shadow-md">
               Ready to Feel Your Best?
             </h2>
             <p className="text-xl md:text-2xl text-primary-foreground/90 mb-12 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
