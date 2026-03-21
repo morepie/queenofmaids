@@ -30,7 +30,7 @@ export default function Home() {
     <div className="w-full">
       {/* HERO SECTION */}
       <section className="relative min-h-[95vh] flex items-center pt-24 pb-12 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(200,40%,92%)] via-[hsl(210,30%,96%)] to-background"></div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(192,30%,92%)] via-[hsl(35,40%,95%)] to-background"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -72,13 +72,20 @@ export default function Home() {
               transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
               className="hidden lg:flex items-center justify-center relative"
             >
-              <div className="relative w-full max-w-md mx-auto">
-                <div className="absolute -inset-8 bg-primary/5 rounded-full blur-3xl"></div>
-                <div className="absolute -inset-4 bg-secondary/30 rounded-full blur-2xl"></div>
+              <div className="relative w-full max-w-lg mx-auto">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-primary/10 animate-pulse"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border-2 border-dashed border-primary/20"></div>
+                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-accent/20 blur-sm"></div>
+                <div className="absolute -bottom-6 -left-6 w-28 h-28 rounded-full bg-secondary/40 blur-sm"></div>
+                <div className="absolute top-12 -left-8 w-12 h-12 rounded-full bg-muted/80 border border-primary/10"></div>
+                <div className="absolute -bottom-2 right-8 w-16 h-16 rounded-full bg-primary/8 border border-primary/15"></div>
+                <div className="absolute top-1/4 -right-6 w-3 h-3 rounded-full bg-accent/60"></div>
+                <div className="absolute bottom-1/4 -left-3 w-2 h-2 rounded-full bg-primary/50"></div>
+                <div className="absolute top-8 right-1/4 w-4 h-4 rounded-full bg-secondary/60"></div>
                 <img 
                   src={`${import.meta.env.BASE_URL}images/iv-bag.png`} 
                   alt="Premium IV therapy bag" 
-                  className="relative z-10 w-full h-auto drop-shadow-2xl"
+                  className="relative z-10 w-full h-auto drop-shadow-2xl max-w-sm mx-auto"
                 />
               </div>
             </motion.div>
