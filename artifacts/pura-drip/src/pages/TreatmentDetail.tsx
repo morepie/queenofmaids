@@ -109,16 +109,7 @@ export default function TreatmentDetail() {
               <span className="text-muted-foreground">per session</span>
             </motion.div>
 
-            <motion.div variants={fadeIn}>
-              <button
-                onClick={openBookingModal}
-                className="w-full sm:w-auto px-12 py-4 rounded-full bg-primary text-primary-foreground text-lg font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
-              >
-                Book Now
-              </button>
-            </motion.div>
-
-            <motion.div variants={fadeIn} className="mt-10 pt-8 border-t border-border">
+            <motion.div variants={fadeIn} className="pt-4 border-t border-border">
               <h2 className="text-xl font-bold text-foreground mb-4">About This Treatment</h2>
               <p className="text-muted-foreground leading-relaxed">{treatment.longDescription}</p>
             </motion.div>
@@ -184,7 +175,7 @@ export default function TreatmentDetail() {
                 </p>
                 <button
                   onClick={openBookingModal}
-                  className="px-10 py-3.5 rounded-full bg-primary text-primary-foreground font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300"
+                  className="w-full sm:w-auto px-12 py-4 rounded-full bg-primary text-primary-foreground text-lg font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
                 >
                   Book {treatment.name} — ${treatment.price}
                 </button>
