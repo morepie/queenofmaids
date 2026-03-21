@@ -71,23 +71,6 @@ export default function TreatmentDetail() {
               />
             </div>
 
-            <div className="grid grid-cols-3 gap-4 mt-6">
-              <div className="bg-card border border-border rounded-2xl p-4 text-center">
-                <Clock className="w-5 h-5 text-primary mx-auto mb-2" />
-                <p className="text-xs text-muted-foreground font-medium">Duration</p>
-                <p className="text-sm font-bold text-foreground">{treatment.duration}</p>
-              </div>
-              <div className="bg-card border border-border rounded-2xl p-4 text-center">
-                <Droplets className="w-5 h-5 text-primary mx-auto mb-2" />
-                <p className="text-xs text-muted-foreground font-medium">Volume</p>
-                <p className="text-sm font-bold text-foreground">{treatment.volume}</p>
-              </div>
-              <div className="bg-card border border-border rounded-2xl p-4 text-center">
-                <Beaker className="w-5 h-5 text-primary mx-auto mb-2" />
-                <p className="text-xs text-muted-foreground font-medium">Ingredients</p>
-                <p className="text-sm font-bold text-foreground">{treatment.ingredients.length}</p>
-              </div>
-            </div>
           </motion.div>
           </div>
 
@@ -104,9 +87,27 @@ export default function TreatmentDetail() {
               <p className="text-lg text-muted-foreground italic mb-6">{treatment.tagline}</p>
             </motion.div>
 
-            <motion.div variants={fadeIn} className="flex items-baseline gap-2 mb-8">
+            <motion.div variants={fadeIn} className="flex items-baseline gap-2 mb-6">
               <span className="text-4xl font-bold text-foreground">${treatment.price}</span>
               <span className="text-muted-foreground">per session</span>
+            </motion.div>
+
+            <motion.div variants={fadeIn} className="grid grid-cols-3 gap-3 mb-8">
+              <div className="bg-card border border-border rounded-2xl p-3 text-center">
+                <Clock className="w-4 h-4 text-primary mx-auto mb-1.5" />
+                <p className="text-xs text-muted-foreground font-medium">Duration</p>
+                <p className="text-sm font-bold text-foreground">{treatment.duration}</p>
+              </div>
+              <div className="bg-card border border-border rounded-2xl p-3 text-center">
+                <Droplets className="w-4 h-4 text-primary mx-auto mb-1.5" />
+                <p className="text-xs text-muted-foreground font-medium">Volume</p>
+                <p className="text-sm font-bold text-foreground">{treatment.volume}</p>
+              </div>
+              <div className="bg-card border border-border rounded-2xl p-3 text-center">
+                <Beaker className="w-4 h-4 text-primary mx-auto mb-1.5" />
+                <p className="text-xs text-muted-foreground font-medium">Ingredients</p>
+                <p className="text-sm font-bold text-foreground">{treatment.ingredients.length}</p>
+              </div>
             </motion.div>
 
             <motion.div variants={fadeIn} className="pt-4 border-t border-border">
