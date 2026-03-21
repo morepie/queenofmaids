@@ -43,7 +43,7 @@ export default function Home() {
               Luxury Wellness Delivered
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-8xl font-sans font-bold text-foreground leading-[1.1] mb-8 drop-shadow-sm">
-              Elevate Your Health With <span className="text-primary block mt-2">Premium IV Therapy</span>
+              Wellness Delivered <span className="text-primary block mt-2">To Your Door</span>
             </h1>
             <p className="text-lg md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
               On-demand hydration, vitamins, and fast recovery delivered directly to your home, hotel, or office by registered nurses.
