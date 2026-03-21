@@ -23,7 +23,7 @@ export default function Treatments() {
               Premium IV Blends
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Explore our complete menu of 14 scientifically formulated treatments. From rapid hydration to supreme cellular repair, find exactly what your body needs.
+              Explore our complete menu of scientifically formulated treatments. From rapid hydration to supreme cellular repair, find exactly what your body needs.
             </p>
           </motion.div>
         </div>

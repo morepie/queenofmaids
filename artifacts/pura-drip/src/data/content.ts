@@ -311,6 +311,227 @@ export const treatments: Treatment[] = [
     ],
     benefits: ['Cellular repair and regeneration', 'Enhanced cognitive function and mental clarity', 'Increased physical energy and endurance', 'Slowed biological aging process'],
     idealFor: ['Anti-aging enthusiasts', 'Cognitive optimization', 'Addiction recovery support', 'Chronic fatigue and fibromyalgia']
+  },
+  {
+    id: 'altitude-sickness',
+    name: 'Altitude Sickness',
+    popular: false,
+    uses: ['Altitude Adjustment', 'Headache Relief', 'Nausea & Dizziness', 'Travel Wellness'],
+    description: "Prevent or relieve altitude sickness symptoms with targeted hydration, anti-nausea medication, and anti-inflammatory support.",
+    price: 249,
+    duration: '45-60 min',
+    volume: '1000 mL',
+    tagline: 'Conquer Any Elevation',
+    longDescription: "Heading to the mountains? Altitude sickness can turn an amazing trip into a miserable experience. Our Altitude Sickness IV is specifically formulated to help your body acclimate faster by optimizing hydration, delivering anti-nausea and anti-inflammatory medications, and replenishing the electrolytes your body burns through at higher elevations. Whether you're skiing in Colorado or hiking in the Rockies, this treatment helps you enjoy every moment.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '1000 mL', benefit: 'Optimizes hydration for altitude acclimation' },
+      { name: 'Ondansetron (Zofran)', amount: '4 mg', benefit: 'Relieves altitude-related nausea' },
+      { name: 'Ketorolac (Toradol)', amount: '30 mg', benefit: 'Reduces headaches and body aches' },
+      { name: 'Dexamethasone', amount: '4 mg', benefit: 'Steroid to reduce inflammation and swelling' },
+      { name: 'Vitamin B Complex', amount: 'Standard dose', benefit: 'Supports energy and metabolism at altitude' },
+      { name: 'Magnesium', amount: '500 mg', benefit: 'Prevents muscle cramps common at elevation' }
+    ],
+    benefits: ['Faster altitude acclimation', 'Relief from headaches and nausea', 'Reduced fatigue and dizziness', 'Prevention of worsening symptoms'],
+    idealFor: ['Ski trips', 'Mountain hiking', 'High-altitude travel', 'Arriving in Denver, Colorado Springs, or similar cities']
+  },
+  {
+    id: 'anti-inflammatory',
+    name: 'Anti-Inflammatory',
+    popular: false,
+    uses: ['Chronic Pain', 'Joint Inflammation', 'Post-Surgery Recovery', 'Autoimmune Support'],
+    description: "Reduce systemic inflammation and oxidative stress with powerful antioxidants and targeted anti-inflammatory support.",
+    price: 299,
+    duration: '45-60 min',
+    volume: '1000 mL',
+    tagline: 'Calm Inflammation From the Inside',
+    longDescription: "Chronic inflammation is at the root of many modern health issues — from joint pain and autoimmune conditions to cardiovascular disease and premature aging. Our Anti-Inflammatory IV delivers a potent combination of glutathione, NAC (N-Acetyl Cysteine), and a steroid to combat inflammation at the cellular level. This treatment is ideal for anyone dealing with chronic pain, post-surgical recovery, or autoimmune flare-ups.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '1000 mL', benefit: 'Hydration to support detox pathways' },
+      { name: 'Glutathione', amount: '1500 mg', benefit: 'Master antioxidant to reduce oxidative stress' },
+      { name: 'NAC (N-Acetyl Cysteine)', amount: '1000 mg', benefit: 'Precursor to glutathione, supports liver and lungs' },
+      { name: 'Dexamethasone', amount: '4 mg', benefit: 'Powerful anti-inflammatory steroid' },
+      { name: 'Vitamin C', amount: '2000 mg', benefit: 'Supports immune function and tissue repair' }
+    ],
+    benefits: ['Reduced systemic inflammation', 'Pain relief for joints and muscles', 'Support for autoimmune conditions', 'Enhanced recovery from surgery or injury'],
+    idealFor: ['Chronic pain sufferers', 'Autoimmune flare-ups', 'Post-surgery recovery', 'Athletes with overuse injuries']
+  },
+  {
+    id: 'food-poisoning',
+    name: 'Food Poisoning',
+    popular: false,
+    uses: ['Dehydration', 'Nausea & Vomiting', 'Stomach Cramps', 'Electrolyte Imbalance'],
+    description: "Rapid relief from food poisoning symptoms with aggressive hydration, anti-nausea medication, and electrolyte restoration.",
+    price: 229,
+    duration: '45-60 min',
+    volume: '1000 mL',
+    tagline: 'Fast Recovery From Food-Borne Illness',
+    longDescription: "Food poisoning can leave you completely debilitated — unable to keep down food or water, experiencing severe nausea, vomiting, and cramping. Our Food Poisoning IV bypasses your upset stomach entirely, delivering hydration, electrolytes, and anti-nausea medication directly into your bloodstream. Most clients start feeling significantly better within 30 minutes of starting their infusion.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '1000 mL', benefit: 'Combats severe dehydration from vomiting and diarrhea' },
+      { name: 'Ondansetron (Zofran)', amount: '4 mg', benefit: 'Stops nausea and vomiting fast' },
+      { name: 'Famotidine', amount: '20 mg', benefit: 'Reduces stomach acid and heartburn' },
+      { name: 'Magnesium', amount: '500 mg', benefit: 'Relieves stomach cramping' },
+      { name: 'Vitamin B Complex', amount: 'Standard dose', benefit: 'Supports recovery and energy' },
+      { name: 'Electrolyte Complex', amount: 'Custom blend', benefit: 'Replaces minerals lost from GI distress' }
+    ],
+    benefits: ['Immediate nausea relief', 'Rapid rehydration without oral intake', 'Stomach cramp reduction', 'Faster return to normal eating'],
+    idealFor: ['Acute food poisoning', 'Traveler\'s stomach', 'Severe stomach bugs', 'Any GI distress preventing oral hydration']
+  },
+  {
+    id: 'jet-lag',
+    name: 'Jet Lag',
+    popular: false,
+    uses: ['Fatigue & Brain Fog', 'Sleep Disruption', 'Travel Recovery', 'Dehydration'],
+    description: "Combat travel fatigue with targeted hydration, B-vitamins, and immune support to reset your body after long flights.",
+    price: 199,
+    duration: '45-60 min',
+    volume: '1000 mL',
+    tagline: 'Reset Your Body Clock Fast',
+    longDescription: "Air travel is incredibly dehydrating — cabin air has humidity levels as low as 10-20%, and crossing time zones disrupts your circadian rhythm. Our Jet Lag IV is formulated to address both issues: aggressive hydration to counteract the drying effects of flight, combined with B-vitamins for energy, vitamin C for immune protection (airports are germ hotspots), and magnesium to help your muscles relax and your body reset.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '1000 mL', benefit: 'Counteracts flight-induced dehydration' },
+      { name: 'Vitamin B Complex', amount: 'High dose', benefit: 'Restores energy and mental alertness' },
+      { name: 'Vitamin B12', amount: '1000 mcg', benefit: 'Combats fatigue and brain fog' },
+      { name: 'Vitamin C', amount: '2000 mg', benefit: 'Immune protection after airport exposure' },
+      { name: 'Magnesium', amount: '500 mg', benefit: 'Promotes relaxation and muscle recovery' },
+      { name: 'Zinc', amount: '10 mg', benefit: 'Additional immune system support' }
+    ],
+    benefits: ['Rapid rehydration after flights', 'Mental clarity and focus restored', 'Immune protection', 'Faster adjustment to new time zone'],
+    idealFor: ['Business travelers', 'International flights', 'Red-eye recovery', 'Frequent flyers']
+  },
+  {
+    id: 'morning-sickness',
+    name: 'Morning Sickness',
+    popular: false,
+    uses: ['Pregnancy Nausea', 'Dehydration', 'Nutrient Replenishment', 'First Trimester Support'],
+    description: "Safe, pregnancy-approved relief from morning sickness with gentle hydration and targeted anti-nausea support.",
+    price: 219,
+    duration: '45-60 min',
+    volume: '1000 mL',
+    tagline: 'Gentle Relief for Expecting Mothers',
+    longDescription: "Morning sickness affects up to 80% of pregnant women, and severe cases can lead to dangerous dehydration and nutrient depletion. Our Morning Sickness IV uses only pregnancy-safe medications and vitamins to provide relief. Vitamin B6 is clinically proven to reduce pregnancy-related nausea, and our gentle hydration formula helps you stay nourished even when you can't keep anything down. All ingredients are approved for use during pregnancy.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '1000 mL', benefit: 'Gentle hydration safe for pregnancy' },
+      { name: 'Vitamin B6 (Pyridoxine)', amount: '100 mg', benefit: 'Clinically proven to reduce pregnancy nausea' },
+      { name: 'Ondansetron (Zofran)', amount: '4 mg', benefit: 'Safe anti-nausea medication for pregnancy' },
+      { name: 'Famotidine', amount: '20 mg', benefit: 'Reduces pregnancy-related heartburn' },
+      { name: 'Magnesium', amount: '500 mg', benefit: 'Supports fetal development and reduces cramping' }
+    ],
+    benefits: ['Pregnancy-safe nausea relief', 'Hydration when oral intake is impossible', 'Essential nutrient replenishment', 'Reduced heartburn and cramping'],
+    idealFor: ['First trimester nausea', 'Hyperemesis gravidarum', 'Dehydrated expecting mothers', 'Pregnancy wellness support']
+  },
+  {
+    id: 'weight-management',
+    name: 'Weight Management',
+    popular: false,
+    uses: ['GLP-1 Medication Support', 'Metabolism Boost', 'Nausea Relief', 'Nutritional Support'],
+    description: "Support your weight loss journey with hydration, nausea relief for GLP-1 users, and metabolism-boosting nutrients.",
+    price: 279,
+    duration: '45-60 min',
+    volume: '1000 mL',
+    tagline: 'Support Your Weight Loss Journey',
+    longDescription: "Whether you're on GLP-1 medications (like Ozempic or Mounjaro) and experiencing side effects, or simply looking for metabolic support on your weight loss journey, this IV is designed for you. The treatment addresses common GLP-1 side effects like severe nausea while delivering metabolism-boosting B-vitamins, amino acids that support fat burning, and hydration that keeps your body functioning optimally during caloric restriction.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '1000 mL', benefit: 'Essential hydration during caloric restriction' },
+      { name: 'Vitamin B Complex', amount: 'High dose', benefit: 'Boosts metabolism and energy production' },
+      { name: 'Vitamin B12', amount: '2000 mcg', benefit: 'Supports fat metabolism and prevents fatigue' },
+      { name: 'Ondansetron (Zofran)', amount: '4 mg', benefit: 'Relieves GLP-1 related nausea' },
+      { name: 'Famotidine', amount: '20 mg', benefit: 'Reduces heartburn from medications' },
+      { name: 'L-Carnitine', amount: '1000 mg', benefit: 'Amino acid that supports fat burning' },
+      { name: 'Taurine', amount: '1000 mg', benefit: 'Supports metabolic function and energy' }
+    ],
+    benefits: ['Relief from GLP-1 medication side effects', 'Boosted metabolism', 'Sustained energy during weight loss', 'Prevention of nutrient depletion'],
+    idealFor: ['GLP-1 medication users (Ozempic, Mounjaro)', 'Active weight loss programs', 'Metabolic support', 'Anyone experiencing weight-loss related fatigue']
+  },
+  {
+    id: 'recovery',
+    name: 'Recovery',
+    popular: false,
+    uses: ['Post-Surgery', 'Post-Event Recovery', 'Physical Exhaustion', 'Mental Burnout'],
+    description: "Comprehensive recovery blend to restore, replenish, and rehydrate after physical or mental strain.",
+    price: 229,
+    duration: '45-60 min',
+    volume: '1000 mL',
+    tagline: 'Restore, Replenish, Rebound',
+    longDescription: "Life pushes us hard — whether it's a marathon, a big conference, a weekend festival, or surgery recovery. Our Recovery IV is a comprehensive blend designed to help your body bounce back from any type of physical or mental strain. Amino acids support muscle repair, B-vitamins restore energy, antioxidants combat oxidative stress, and aggressive hydration gets your fluid levels back to optimal.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '1000 mL', benefit: 'Aggressive rehydration for faster recovery' },
+      { name: 'Amino Acid Complex', amount: 'Recovery dose', benefit: 'Supports muscle repair and tissue healing' },
+      { name: 'Vitamin B Complex', amount: 'High dose', benefit: 'Restores energy depleted by stress' },
+      { name: 'Vitamin C', amount: '2000 mg', benefit: 'Reduces oxidative stress and supports healing' },
+      { name: 'Glutathione', amount: '1000 mg', benefit: 'Master antioxidant for cellular recovery' },
+      { name: 'Magnesium', amount: '1000 mg', benefit: 'Relieves muscle tension and promotes relaxation' }
+    ],
+    benefits: ['Accelerated physical recovery', 'Reduced muscle soreness and stiffness', 'Mental clarity after exhaustion', 'Immune support during vulnerable recovery period'],
+    idealFor: ['Post-marathon or athletic event', 'Conference and travel recovery', 'Post-surgery healing support', 'Festival and event recovery']
+  },
+  {
+    id: 'pre-game',
+    name: 'Pre-Game',
+    popular: false,
+    uses: ['Event Preparation', 'Energy & Stamina', 'Hydration Optimization', 'Performance Readiness'],
+    description: "Prepare your body for peak performance before a big event, competition, or night out with optimized hydration and energy.",
+    price: 199,
+    duration: '30-45 min',
+    volume: '1000 mL',
+    tagline: 'Start Strong, Stay Strong',
+    longDescription: "Don't wait until you're feeling rough — get ahead of it. Our Pre-Game IV optimizes your hydration, loads you up with energy-boosting B-vitamins and amino acids, and prepares your body to perform at its best. Whether you're gearing up for a big race, a wedding weekend, or a Vegas trip, starting with a Pre-Game IV means you'll have more energy, better endurance, and a head start on hydration.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '1000 mL', benefit: 'Pre-loads hydration for optimal performance' },
+      { name: 'Vitamin B Complex', amount: 'High dose', benefit: 'Maximizes energy production' },
+      { name: 'Vitamin B12', amount: '2000 mcg', benefit: 'Provides sustained mental and physical energy' },
+      { name: 'Vitamin C', amount: '1000 mg', benefit: 'Antioxidant protection during exertion' },
+      { name: 'Amino Acid Complex', amount: 'Standard dose', benefit: 'Supports stamina and endurance' }
+    ],
+    benefits: ['Optimized hydration before exertion', 'Sustained energy throughout your event', 'Better physical endurance', 'Prevention of next-day fatigue'],
+    idealFor: ['Pre-race or competition', 'Before a big night out', 'Wedding weekend prep', 'Music festival preparation']
+  },
+  {
+    id: 'premium-package',
+    name: 'Premium Package',
+    popular: false,
+    uses: ['Full-Spectrum Wellness', 'Maximum Recovery', 'VIP Treatment', 'Comprehensive Health'],
+    description: "Our most comprehensive all-in-one IV treatment with maximum doses of vitamins, antioxidants, amino acids, and hydration.",
+    price: 549,
+    duration: '90-120 min',
+    volume: '1000 mL',
+    tagline: 'The Ultimate Wellness Experience',
+    longDescription: "For those who want nothing but the best, our Premium Package is the most comprehensive single-session IV treatment we offer. This elite blend combines high-dose vitamins, the master antioxidant glutathione, amino acids for muscle support, and a full spectrum of minerals — all in one extended session. It's the equivalent of combining multiple treatments into one powerful infusion. Popular with executives, celebrities, and anyone who demands peak performance from their body.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '1000 mL', benefit: 'Premium hydration foundation' },
+      { name: 'Vitamin C', amount: '5000 mg', benefit: 'Maximum antioxidant and immune support' },
+      { name: 'Glutathione', amount: '1500 mg', benefit: 'Master antioxidant and liver support' },
+      { name: 'Vitamin B Complex', amount: 'Double dose', benefit: 'Maximum energy and metabolic support' },
+      { name: 'Vitamin B12', amount: '2000 mcg', benefit: 'Enhanced neurological function' },
+      { name: 'Magnesium', amount: '1500 mg', benefit: 'Deep relaxation and cardiovascular support' },
+      { name: 'Zinc', amount: '20 mg', benefit: 'Immune defense and tissue repair' },
+      { name: 'Amino Acid Complex', amount: 'Performance dose', benefit: 'Muscle repair and recovery' },
+      { name: 'Taurine', amount: '1000 mg', benefit: 'Energy and metabolic optimization' },
+      { name: 'NAC (N-Acetyl Cysteine)', amount: '500 mg', benefit: 'Additional antioxidant support' }
+    ],
+    benefits: ['The most complete IV treatment available', 'Maximum vitamin and mineral delivery', 'Full-spectrum recovery and wellness', 'Noticeable results lasting 1-2 weeks'],
+    idealFor: ['VIP wellness seekers', 'Quarterly deep-health investment', 'Post-major event full recovery', 'Health optimization enthusiasts']
+  },
+  {
+    id: 'kids-iv',
+    name: 'Kids IV',
+    popular: false,
+    uses: ['Pediatric Hydration', 'Childhood Illness', 'Sports Recovery', 'Immune Support'],
+    description: "Age-appropriate IV hydration and nutrient support for children, administered by pediatric-experienced nurses.",
+    price: 179,
+    duration: '30-45 min',
+    volume: '500 mL',
+    tagline: 'Gentle Care for Little Ones',
+    longDescription: "Kids get dehydrated and sick too — sometimes even faster than adults. Our Kids IV is specifically formulated with age-appropriate dosing and a smaller fluid volume, making it safe and comfortable for younger patients. Our pediatric-experienced nurses are gentle, patient, and skilled at making the experience as stress-free as possible. This treatment is available for children ages 5 and up with parental consent.",
+    ingredients: [
+      { name: 'Normal Saline', amount: '500 mL', benefit: 'Gentle hydration appropriate for pediatric patients' },
+      { name: 'Vitamin B Complex', amount: 'Pediatric dose', benefit: 'Supports energy and immune function' },
+      { name: 'Vitamin C', amount: '500 mg', benefit: 'Immune support with age-appropriate dosing' },
+      { name: 'Zinc', amount: '5 mg', benefit: 'Supports growth and immune defense' },
+      { name: 'Magnesium', amount: '250 mg', benefit: 'Supports hydration and muscle function' }
+    ],
+    benefits: ['Age-appropriate hydration', 'Gentle immune support', 'Faster recovery from childhood illness', 'Administered by pediatric-experienced nurses'],
+    idealFor: ['Dehydrated children (ages 5+)', 'Kids with stomach bugs', 'Young athletes needing recovery', 'Children who can\'t keep fluids down']
   }
 ];
 
