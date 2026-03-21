@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Menu, X, ShoppingBag } from 'lucide-react';
-import { useBooking } from '@/context/BookingContext';
 import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -9,8 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [location] = useLocation();
-  const { openBookingModal } = useBooking();
+  const [location, setLocation] = useLocation();
   const { totalItems } = useCart();
 
   useEffect(() => {
@@ -45,7 +43,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map(link => (
               <Link 
@@ -59,8 +56,8 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <button
-              onClick={openBookingModal}
+            <Link
+              href="/cart"
               className="relative p-2.5 text-foreground/80 hover:text-primary transition-colors"
               aria-label="View cart"
             >
@@ -70,9 +67,9 @@ export default function Navbar() {
                   {totalItems}
                 </span>
               )}
-            </button>
+            </Link>
             <button 
-              onClick={openBookingModal}
+              onClick={() => setLocation('/cart')}
               className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               Book Now
@@ -80,8 +77,8 @@ export default function Navbar() {
           </nav>
 
           <div className="md:hidden flex items-center gap-1">
-            <button
-              onClick={openBookingModal}
+            <Link
+              href="/cart"
               className="relative p-2 text-foreground/80 hover:text-primary transition-colors"
               aria-label="View cart"
             >
@@ -91,7 +88,7 @@ export default function Navbar() {
                   {totalItems}
                 </span>
               )}
-            </button>
+            </Link>
             <button 
               className="p-2 text-foreground"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -103,7 +100,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Nav */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div 
@@ -125,12 +121,12 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <button 
-                onClick={openBookingModal}
-                className="mt-4 px-4 py-4 rounded-xl bg-primary text-primary-foreground font-semibold shadow-md w-full"
+              <Link 
+                href="/cart"
+                className="mt-4 px-4 py-4 rounded-xl bg-primary text-primary-foreground font-semibold shadow-md w-full text-center"
               >
                 Book Now
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}

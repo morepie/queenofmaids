@@ -9,6 +9,7 @@ import Home from "@/pages/Home";
 import Treatments from "@/pages/Treatments";
 import TreatmentDetail from "@/pages/TreatmentDetail";
 import Memberships from "@/pages/Memberships";
+import Cart from "@/pages/Cart";
 import NotFound from "@/pages/not-found";
 
 // Use a long stale time since our data is completely static/hardcoded for this site
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/treatments" component={Treatments} />
       <Route path="/treatments/:id" component={TreatmentDetail} />
       <Route path="/memberships" component={Memberships} />
+      <Route path="/cart" component={Cart} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -38,14 +40,14 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <CartProvider>
-          <BookingProvider>
-            <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <BookingProvider>
               <Layout>
                 <Router />
               </Layout>
-            </WouterRouter>
-            <Toaster />
-          </BookingProvider>
+            </BookingProvider>
+          </WouterRouter>
+          <Toaster />
         </CartProvider>
       </TooltipProvider>
     </QueryClientProvider>
