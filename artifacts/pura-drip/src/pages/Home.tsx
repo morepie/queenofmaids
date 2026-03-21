@@ -29,41 +29,60 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* HERO SECTION */}
-      <section className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-12 overflow-hidden">
+      <section className="relative min-h-[95vh] flex items-center pt-24 pb-12 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(200,40%,92%)] via-[hsl(210,30%,96%)] to-background"></div>
 
-        <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            className="max-w-4xl mx-auto"
-          >
-            <span className="inline-block py-1.5 px-4 rounded-full bg-secondary/40 text-primary text-sm font-bold tracking-widest uppercase mb-8 border border-secondary/50 shadow-sm">
-              Luxury Wellness Delivered
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-sans font-bold text-foreground leading-[1.1] mb-8 drop-shadow-sm">
-              Wellness Delivered <span className="text-primary block mt-2">To Your Door</span>
-            </h1>
-            <p className="text-lg md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
-              On-demand hydration, vitamins, and fast recovery delivered directly to your home, hotel, or office by registered nurses.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-              <button 
-                onClick={openBookingModal} 
-                className="w-full sm:w-auto px-10 py-5 rounded-full bg-primary text-primary-foreground text-lg font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
-              >
-                Book Your Treatment
-              </button>
-              <Link 
-                href="/treatments" 
-                className="w-full sm:w-auto px-10 py-5 rounded-full bg-card text-foreground text-lg font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 transition-all duration-300 border border-border flex items-center justify-center gap-2 group"
-              >
-                Explore Menu
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </motion.div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              className="text-center lg:text-left"
+            >
+              <span className="inline-block py-1.5 px-4 rounded-full bg-secondary/40 text-primary text-sm font-bold tracking-widest uppercase mb-8 border border-secondary/50 shadow-sm">
+                Premium Mobile IV Therapy
+              </span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-foreground leading-[1.1] mb-8">
+                Wellness Delivered <span className="text-primary block mt-2">To Your Door</span>
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed font-medium">
+                On-demand hydration, vitamins, and fast recovery delivered directly to your home, hotel, or office by registered nurses.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
+                <button 
+                  onClick={openBookingModal} 
+                  className="w-full sm:w-auto px-10 py-4 rounded-full bg-primary text-primary-foreground text-lg font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
+                >
+                  Book Your Treatment
+                </button>
+                <Link 
+                  href="/treatments" 
+                  className="w-full sm:w-auto px-10 py-4 rounded-full bg-card text-foreground text-lg font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 transition-all duration-300 border border-border flex items-center justify-center gap-2 group"
+                >
+                  Explore Menu
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, x: 40 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+              className="hidden lg:flex items-center justify-center relative"
+            >
+              <div className="relative w-full max-w-md mx-auto">
+                <div className="absolute -inset-8 bg-primary/5 rounded-full blur-3xl"></div>
+                <div className="absolute -inset-4 bg-secondary/30 rounded-full blur-2xl"></div>
+                <img 
+                  src={`${import.meta.env.BASE_URL}images/iv-bag.png`} 
+                  alt="Premium IV therapy bag" 
+                  className="relative z-10 w-full h-auto drop-shadow-2xl"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
