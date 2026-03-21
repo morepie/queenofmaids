@@ -9,7 +9,7 @@ export default function TreatmentCard({ treatment }: { treatment: Treatment }) {
     >
       <div className="relative bg-secondary/20 flex items-center justify-center py-6 px-4">
         {treatment.popular && (
-          <span className="absolute top-4 right-4 px-3 py-1.5 bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase rounded-full shadow-sm z-10">
+          <span className="absolute top-4 right-4 px-3 py-1.5 bg-white text-[#4BA8A8] border border-[#4BA8A8] text-xs font-bold tracking-widest uppercase rounded-full z-10">
             Popular
           </span>
         )}

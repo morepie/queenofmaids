@@ -59,7 +59,7 @@ export default function TreatmentDetail() {
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
               {treatment.popular && (
-                <span className="absolute top-6 left-6 px-4 py-2 bg-primary text-primary-foreground text-sm font-bold tracking-wider uppercase rounded-full shadow-lg z-10 flex items-center gap-1.5">
+                <span className="absolute top-6 left-6 px-4 py-2 bg-white text-[#4BA8A8] border border-[#4BA8A8] text-sm font-bold tracking-wider uppercase rounded-full shadow-sm z-10 flex items-center gap-1.5">
                   <Star className="w-3.5 h-3.5 fill-current" />
                   Popular
                 </span>
