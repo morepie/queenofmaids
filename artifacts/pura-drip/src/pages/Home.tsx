@@ -30,14 +30,7 @@ export default function Home() {
     <div className="w-full">
       {/* HERO SECTION */}
       <section className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-12 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={`${import.meta.env.BASE_URL}images/hero-bg.png`} 
-            alt="Premium IV Therapy" 
-            className="w-full h-full object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/70 to-background backdrop-blur-[4px]"></div>
-        </div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(200,40%,92%)] via-[hsl(210,30%,96%)] to-background"></div>
 
         <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
           <motion.div 
@@ -169,11 +162,7 @@ export default function Home() {
 
       {/* CTA BANNER */}
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img src={`${import.meta.env.BASE_URL}images/spa-relax.png`} alt="Relax in luxury" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-primary/90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
-        </div>
+        <div className="absolute inset-0 z-0 bg-primary"></div>
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
