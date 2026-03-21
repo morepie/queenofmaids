@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Pura Drip"
+version = "1.0.0"
+id = "artifacts/pura-drip"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24825
+
+[services.development]
+run = "pnpm --filter @workspace/pura-drip run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/pura-drip", "run", "build" ]
+publicDir = "artifacts/pura-drip/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24825"
+BASE_PATH = "/"

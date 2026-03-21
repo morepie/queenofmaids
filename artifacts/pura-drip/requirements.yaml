@@ -1,0 +1,20 @@
+packages:
+  "framer-motion": "For premium, smooth entrance animations and scroll reveals"
+  "lucide-react": "For beautiful crisp icons"
+  "clsx": "For merging class names conditionally"
+  "tailwind-merge": "For merging tailwind classes safely"
+
+images:
+  - path: "artifacts/pura-drip/public/images/hero-bg.png"
+    description: "Luxurious, soft, blurred abstract background in deep elegant teal and champagne gold colors, wellness aesthetics, very premium, airy, and calming"
+    aspect_ratio: "16:9"
+  - path: "artifacts/pura-drip/public/images/spa-relax.png"
+    description: "A beautiful elegant woman relaxing in a high-end bright luxury spa or wellness clinic, soft natural light, clean white and gold aesthetics, very premium"
+    aspect_ratio: "16:9"
+  - path: "artifacts/pura-drip/public/images/iv-bag.png"
+    description: "Minimalist aesthetic artistic 3D render of a medical IV drip bag in a luxury wellness setting with soft studio lighting, muted teal background"
+    aspect_ratio: "4:3"
+
+notes:
+  - Frontend only marketing site for Pura Drip.
+  - Using hardcoded static data for treatments and memberships since there is no backend required.
