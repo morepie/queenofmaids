@@ -4,10 +4,17 @@ export interface TreatmentIngredient {
   benefit: string;
 }
 
+export type TreatmentCategory = 'Hydration' | 'Wellness' | 'Performance' | 'Beauty' | 'Relief' | 'Specialty';
+
+export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
+  'Hydration', 'Wellness', 'Performance', 'Beauty', 'Relief', 'Specialty'
+];
+
 export interface Treatment {
   id: string;
   name: string;
   popular: boolean;
+  category: TreatmentCategory;
   uses: string[];
   description: string;
   price: number;
@@ -25,6 +32,7 @@ export const treatments: Treatment[] = [
     id: 'just-fluids',
     name: 'Just Fluids',
     popular: false,
+    category: 'Hydration',
     uses: ['Dehydration', 'Hangover Recovery', 'Heat Exhaustion', 'Post-Workout Recovery'],
     description: "Simple, effective hydration to restore your body's natural fluid balance. Perfect for quick recovery without added vitamins.",
     price: 99,
@@ -42,6 +50,7 @@ export const treatments: Treatment[] = [
     id: 'dehydration',
     name: 'Dehydration',
     popular: true,
+    category: 'Hydration',
     uses: ['Dehydration', 'Heat Exhaustion', 'Post-Workout Recovery', 'Travel Fatigue'],
     description: "Rapidly replenish fluids and essential electrolytes to bounce back fast from travel, heat, or exertion.",
     price: 179,
@@ -62,6 +71,7 @@ export const treatments: Treatment[] = [
     id: 'nausea-rescue',
     name: 'Nausea Rescue',
     popular: false,
+    category: 'Relief',
     uses: ['Food Poisoning', 'Morning Sickness', 'Motion Sickness', 'Stomach Flu'],
     description: "Calm your stomach and rehydrate your body when you can't keep liquids down. Includes targeted anti-nausea medication.",
     price: 199,
@@ -82,6 +92,7 @@ export const treatments: Treatment[] = [
     id: 'hangover-rescue',
     name: 'Hangover Rescue',
     popular: true,
+    category: 'Hydration',
     uses: ['Dehydration', 'Fatigue & Brain Fog', 'Hangover Recovery', 'Nausea & Headaches'],
     description: "The ultimate recovery blend to eliminate headaches, nausea, and dehydration after a long night out.",
     price: 219,
@@ -103,6 +114,7 @@ export const treatments: Treatment[] = [
     id: 'headache-rescue',
     name: 'Headache Rescue',
     popular: false,
+    category: 'Relief',
     uses: ['Chronic Migraines', 'Dehydration-Related Headaches', 'Stress Headaches', 'Tension Headaches'],
     description: "Targeted, fast-acting relief for severe headaches and migraines to get you back to your day pain-free.",
     price: 219,
@@ -123,6 +135,7 @@ export const treatments: Treatment[] = [
     id: 'myers-cocktail',
     name: 'Myers Cocktail',
     popular: true,
+    category: 'Wellness',
     uses: ['Chronic Fatigue', 'Immune Support', 'Migraine Relief', 'Post-Workout Recovery'],
     description: "The gold standard of IV therapy. A comprehensive blend of essential vitamins and minerals for overall systemic wellness.",
     price: 249,
@@ -145,6 +158,7 @@ export const treatments: Treatment[] = [
     id: 'athletic-performance',
     name: 'Athletic Performance',
     popular: false,
+    category: 'Performance',
     uses: ['Boosting Endurance', 'Muscle Recovery', 'Pre-Workout Hydration', 'Reducing Cramps & Soreness'],
     description: "Optimize your physical performance, reduce muscle fatigue, and significantly accelerate your recovery time.",
     price: 249,
@@ -167,6 +181,7 @@ export const treatments: Treatment[] = [
     id: 'beauty',
     name: 'Beauty',
     popular: false,
+    category: 'Beauty',
     uses: ['Anti-Aging Benefits', 'Detox & Liver Support', 'Hair & Nail Health', 'Skin Hydration & Glow'],
     description: "Nourish your body from the inside out with a powerful blend that promotes a radiant, youthful glow.",
     price: 249,
@@ -188,6 +203,7 @@ export const treatments: Treatment[] = [
     id: 'energy-boost',
     name: 'Energy Boost',
     popular: false,
+    category: 'Performance',
     uses: ['Fatigue & Brain Fog', 'Low Energy Levels', 'Midday Slumps', 'Stress & Burnout'],
     description: "Recharge your batteries and clear brain fog with essential B-vitamins designed for sustained energy.",
     price: 199,
@@ -209,6 +225,7 @@ export const treatments: Treatment[] = [
     id: 'flu-rescue',
     name: 'Flu Rescue',
     popular: true,
+    category: 'Relief',
     uses: ['Dehydration', 'Fever & Body Aches', 'Flu Symptoms', 'Nausea & Headaches'],
     description: "Fight off illness faster and alleviate symptoms with high-dose vitamin C, zinc, and premium hydration.",
     price: 249,
@@ -231,6 +248,7 @@ export const treatments: Treatment[] = [
     id: 'detox',
     name: 'Detox',
     popular: false,
+    category: 'Wellness',
     uses: ['Boosting Immune Function', 'Detox & Liver Support', 'Hydration & Energy', 'Reducing Inflammation'],
     description: "Flush out built-up toxins and deeply support your liver function with powerful systemic antioxidants.",
     price: 249,
@@ -252,6 +270,7 @@ export const treatments: Treatment[] = [
     id: 'immunity',
     name: 'Immunity',
     popular: false,
+    category: 'Wellness',
     uses: ['Cold & Flu Prevention', 'Immune Support', 'Post-Illness Recovery', 'Travel Wellness'],
     description: "Fortify your immune system before upcoming travel or during cold and flu season to stay healthy.",
     price: 229,
@@ -274,6 +293,7 @@ export const treatments: Treatment[] = [
     id: 'mega-myers',
     name: 'Mega Myers Cocktail',
     popular: false,
+    category: 'Wellness',
     uses: ['Anti-Aging Benefits', 'Chronic Fatigue', 'Immune Defense', 'Overall Wellness'],
     description: "An amplified version of the classic Myers formulation, delivering maximum nutrient density for profound health benefits.",
     price: 349,
@@ -298,6 +318,7 @@ export const treatments: Treatment[] = [
     id: 'nad',
     name: 'NAD+',
     popular: false,
+    category: 'Beauty',
     uses: ['Athletic Performance & Recovery', 'Brain Function', 'Cellular Repair', 'Chronic Fatigue'],
     description: "The ultimate anti-aging coenzyme therapy to repair cells, boost cognitive clarity, and restore youthful energy.",
     price: 499,
@@ -316,6 +337,7 @@ export const treatments: Treatment[] = [
     id: 'altitude-sickness',
     name: 'Altitude Sickness',
     popular: false,
+    category: 'Specialty',
     uses: ['Altitude Adjustment', 'Headache Relief', 'Nausea & Dizziness', 'Travel Wellness'],
     description: "Prevent or relieve altitude sickness symptoms with targeted hydration, anti-nausea medication, and anti-inflammatory support.",
     price: 249,
@@ -338,6 +360,7 @@ export const treatments: Treatment[] = [
     id: 'anti-inflammatory',
     name: 'Anti-Inflammatory',
     popular: false,
+    category: 'Relief',
     uses: ['Chronic Pain', 'Joint Inflammation', 'Post-Surgery Recovery', 'Autoimmune Support'],
     description: "Reduce systemic inflammation and oxidative stress with powerful antioxidants and targeted anti-inflammatory support.",
     price: 299,
@@ -359,6 +382,7 @@ export const treatments: Treatment[] = [
     id: 'food-poisoning',
     name: 'Food Poisoning',
     popular: false,
+    category: 'Relief',
     uses: ['Dehydration', 'Nausea & Vomiting', 'Stomach Cramps', 'Electrolyte Imbalance'],
     description: "Rapid relief from food poisoning symptoms with aggressive hydration, anti-nausea medication, and electrolyte restoration.",
     price: 229,
@@ -381,6 +405,7 @@ export const treatments: Treatment[] = [
     id: 'jet-lag',
     name: 'Jet Lag',
     popular: false,
+    category: 'Specialty',
     uses: ['Fatigue & Brain Fog', 'Sleep Disruption', 'Travel Recovery', 'Dehydration'],
     description: "Combat travel fatigue with targeted hydration, B-vitamins, and immune support to reset your body after long flights.",
     price: 199,
@@ -403,6 +428,7 @@ export const treatments: Treatment[] = [
     id: 'morning-sickness',
     name: 'Morning Sickness',
     popular: false,
+    category: 'Specialty',
     uses: ['Pregnancy Nausea', 'Dehydration', 'Nutrient Replenishment', 'First Trimester Support'],
     description: "Safe, pregnancy-approved relief from morning sickness with gentle hydration and targeted anti-nausea support.",
     price: 219,
@@ -424,6 +450,7 @@ export const treatments: Treatment[] = [
     id: 'weight-management',
     name: 'Weight Management',
     popular: false,
+    category: 'Specialty',
     uses: ['GLP-1 Medication Support', 'Metabolism Boost', 'Nausea Relief', 'Nutritional Support'],
     description: "Support your weight loss journey with hydration, nausea relief for GLP-1 users, and metabolism-boosting nutrients.",
     price: 279,
@@ -447,6 +474,7 @@ export const treatments: Treatment[] = [
     id: 'recovery',
     name: 'Recovery',
     popular: false,
+    category: 'Performance',
     uses: ['Post-Surgery', 'Post-Event Recovery', 'Physical Exhaustion', 'Mental Burnout'],
     description: "Comprehensive recovery blend to restore, replenish, and rehydrate after physical or mental strain.",
     price: 229,
@@ -469,6 +497,7 @@ export const treatments: Treatment[] = [
     id: 'pre-game',
     name: 'Pre-Game',
     popular: false,
+    category: 'Performance',
     uses: ['Event Preparation', 'Energy & Stamina', 'Hydration Optimization', 'Performance Readiness'],
     description: "Prepare your body for peak performance before a big event, competition, or night out with optimized hydration and energy.",
     price: 199,
@@ -490,6 +519,7 @@ export const treatments: Treatment[] = [
     id: 'premium-package',
     name: 'Premium Package',
     popular: false,
+    category: 'Wellness',
     uses: ['Full-Spectrum Wellness', 'Maximum Recovery', 'VIP Treatment', 'Comprehensive Health'],
     description: "Our most comprehensive all-in-one IV treatment with maximum doses of vitamins, antioxidants, amino acids, and hydration.",
     price: 549,
@@ -516,6 +546,7 @@ export const treatments: Treatment[] = [
     id: 'kids-iv',
     name: 'Kids IV',
     popular: false,
+    category: 'Specialty',
     uses: ['Pediatric Hydration', 'Childhood Illness', 'Sports Recovery', 'Immune Support'],
     description: "Age-appropriate IV hydration and nutrient support for children, administered by pediatric-experienced nurses.",
     price: 179,
