@@ -49,12 +49,12 @@ export default function TreatmentDetail() {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="sticky top-28"
-          >
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
             <div className="bg-secondary/20 rounded-3xl p-8 lg:p-12 flex items-center justify-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -89,6 +89,7 @@ export default function TreatmentDetail() {
               </div>
             </div>
           </motion.div>
+          </div>
 
           <motion.div
             initial="hidden"
