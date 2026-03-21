@@ -1,11 +1,12 @@
-import { useBooking } from '@/context/BookingContext';
+import { Link } from 'wouter';
 import { type Treatment } from '@/data/content';
 
 export default function TreatmentCard({ treatment }: { treatment: Treatment }) {
-  const { openBookingModal } = useBooking();
-
   return (
-    <div className="group bg-card rounded-3xl shadow-sm hover:shadow-xl shadow-black/5 border border-border hover:border-primary/30 transition-all duration-500 flex flex-col h-full relative overflow-hidden">
+    <Link
+      href={`/treatments/${treatment.id}`}
+      className="group bg-card rounded-3xl shadow-sm hover:shadow-xl shadow-black/5 border border-border hover:border-primary/30 transition-all duration-500 flex flex-col h-full relative overflow-hidden cursor-pointer"
+    >
       <div className="relative bg-secondary/20 flex items-center justify-center py-6 px-4">
         {treatment.popular && (
           <span className="absolute top-4 right-4 px-3 py-1.5 bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase rounded-full shadow-sm z-10">
@@ -23,28 +24,20 @@ export default function TreatmentCard({ treatment }: { treatment: Treatment }) {
         <h3 className="text-xl font-sans font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
           {treatment.name}
         </h3>
-        <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+        <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
           {treatment.description}
         </p>
 
         <div className="mt-auto">
-          <div className="flex flex-wrap gap-1.5 mb-6">
-            {treatment.uses.map((use: string) => (
-              <span key={use} className="px-2.5 py-1 bg-muted text-muted-foreground text-xs font-medium rounded-lg border border-border/50">
-                {use}
-              </span>
-            ))}
+          <div className="flex items-center justify-between">
+            <span className="text-2xl font-bold text-foreground">${treatment.price}</span>
+            <span className="px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-bold text-sm group-hover:shadow-lg group-hover:shadow-primary/20 transition-all">
+              View Details
+            </span>
           </div>
-
-          <button
-            onClick={openBookingModal}
-            className="w-full py-3.5 px-6 rounded-2xl border-2 border-primary text-primary font-bold tracking-wide hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
-          >
-            Book Treatment
-          </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

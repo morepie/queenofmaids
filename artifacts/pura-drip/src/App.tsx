@@ -6,6 +6,7 @@ import { BookingProvider } from "@/context/BookingContext";
 import Layout from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 import Treatments from "@/pages/Treatments";
+import TreatmentDetail from "@/pages/TreatmentDetail";
 import Memberships from "@/pages/Memberships";
 import NotFound from "@/pages/not-found";
 
@@ -24,6 +25,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/treatments" component={Treatments} />
+      <Route path="/treatments/:id" component={TreatmentDetail} />
       <Route path="/memberships" component={Memberships} />
       <Route component={NotFound} />
     </Switch>
