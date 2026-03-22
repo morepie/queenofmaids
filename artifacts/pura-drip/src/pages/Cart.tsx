@@ -130,7 +130,17 @@ export default function Cart() {
           ))}
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        {items.length > 0 && (
+          <div className="md:hidden bg-card border border-border rounded-xl p-4 mb-6 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <ShoppingBag className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-foreground">{totalItems} item{totalItems !== 1 ? 's' : ''}</span>
+            </div>
+            <span className="text-lg font-bold text-foreground">${totalPrice}</span>
+          </div>
+        )}
+
+        <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1 min-w-0">
             <AnimatePresence mode="wait">
               {step === 0 && (
@@ -279,8 +289,8 @@ export default function Cart() {
             </div>
           </div>
 
-          <div className="w-full lg:w-80 shrink-0">
-            <div className="lg:sticky lg:top-28">
+          <div className="w-full md:w-72 lg:w-80 shrink-0">
+            <div className="md:sticky md:top-28">
               <OrderSummary
                 items={items}
                 totalPrice={totalPrice}
