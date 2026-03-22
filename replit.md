@@ -104,7 +104,7 @@ Marketing website for Pura Drip mobile IV therapy. React + Vite + Tailwind CSS.
 - **Font**: Inter
 - **Data**: Static treatment data in `src/data/content.ts` — 24 treatments across 6 categories (Hydration, Wellness, Performance, Beauty, Relief, Specialty)
 - **Layout**: `overflow-x: clip` on Layout (NOT `overflow-x: hidden`) to preserve CSS sticky positioning
-- **Cart page**: `/cart` — dedicated page showing selected treatments with quantity controls, per-item pricing, order summary sidebar with total and phone CTA; empty state directs to treatments catalog
+- **Booking page**: `/cart` — multi-step booking form: Select Treatments → Date/Time → Personal Info → Payment → Confirm; cart items pre-selected; inline treatment browser to add more; mock form (no real backend)
 - **Cart state**: `CartContext` tracks selected treatments; cart badge shown in navbar; "Add to Cart" buttons on treatment cards and detail pages
-- **Booking**: `BookingContext` navigates to `/cart` page (no modal); all "Book Now" buttons across the site navigate to cart
+- **Booking**: `BookingContext` navigates to `/cart` page; all "Book Now" buttons across the site navigate to booking
 - **Images**: `public/images/pura-iv-placeholder.png` (product + hero)
