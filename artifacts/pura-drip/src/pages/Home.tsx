@@ -46,10 +46,10 @@ export default function Home() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-foreground leading-[1.1] mb-5">
                 Wellness Delivered <span className="text-primary block mt-1">To Your Door</span>
               </h1>
-              <p className="text-base md:text-lg text-muted-foreground mb-7 max-w-xl leading-relaxed font-medium">
+              <p className="text-base md:text-lg text-muted-foreground mb-7 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
                 On-demand hydration, vitamins, and fast recovery delivered directly to your home, hotel, or office by registered nurses.
               </p>
-              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-3">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
                 <button 
                   onClick={openBookingModal} 
                   className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
