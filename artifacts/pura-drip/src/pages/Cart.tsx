@@ -333,7 +333,7 @@ function StepTreatments({
   isInCart: (id: string) => boolean;
   totalPrice: number;
 }) {
-  const [showBrowser, setShowBrowser] = useState(false);
+  const [showBrowser, setShowBrowser] = useState(items.length === 0);
 
   return (
     <div>
@@ -342,7 +342,7 @@ function StepTreatments({
           <ShoppingBag className="w-6 h-6 text-primary" />
           Select Your Treatments
         </h2>
-        {!showBrowser && (
+        {!showBrowser && items.length > 0 && (
           <button
             onClick={() => setShowBrowser(true)}
             className="text-sm text-primary font-semibold hover:text-primary/80 transition-colors flex items-center gap-1"
@@ -401,26 +401,15 @@ function StepTreatments({
         </div>
       )}
 
-      {items.length === 0 && !showBrowser && (
-        <div className="text-center py-12 bg-card border border-dashed border-border rounded-2xl mb-6">
-          <ShoppingBag className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
-          <p className="text-muted-foreground mb-4">No treatments selected yet. Browse and add what you need.</p>
-          <button
-            onClick={() => setShowBrowser(true)}
-            className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm"
-          >
-            Browse Treatments
-          </button>
-        </div>
-      )}
-
-      {showBrowser && (
+      {(showBrowser || items.length === 0) && (
         <div className="mt-4">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">All Treatments</h3>
-            <button onClick={() => setShowBrowser(false)} className="text-xs text-muted-foreground hover:text-foreground">
-              Hide
-            </button>
+            {items.length > 0 && (
+              <button onClick={() => setShowBrowser(false)} className="text-xs text-muted-foreground hover:text-foreground">
+                Hide
+              </button>
+            )}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-80 overflow-y-auto pr-1">
             {allTreatments.map(t => {
