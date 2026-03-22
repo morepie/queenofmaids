@@ -29,36 +29,36 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* HERO SECTION */}
-      <section className="relative min-h-[95vh] flex items-center pt-24 pb-12 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center pt-20 pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <motion.div 
               initial="hidden"
               animate="visible"
               variants={fadeIn}
               className="text-center lg:text-left"
             >
-              <span className="inline-block py-1.5 px-4 rounded-full bg-secondary/40 text-primary text-sm font-bold tracking-widest uppercase mb-8 border border-secondary/50 shadow-sm">
+              <span className="inline-block py-1.5 px-4 rounded-full bg-secondary/40 text-primary text-sm font-bold tracking-widest uppercase mb-5 border border-secondary/50 shadow-sm">
                 Premium Mobile IV Therapy
               </span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-foreground leading-[1.1] mb-8">
-                Wellness Delivered <span className="text-primary block mt-2">To Your Door</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-foreground leading-[1.1] mb-5">
+                Wellness Delivered <span className="text-primary block mt-1">To Your Door</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed font-medium">
+              <p className="text-base md:text-lg text-muted-foreground mb-7 max-w-xl leading-relaxed font-medium">
                 On-demand hydration, vitamins, and fast recovery delivered directly to your home, hotel, or office by registered nurses.
               </p>
-              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
+              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-3">
                 <button 
                   onClick={openBookingModal} 
-                  className="w-full sm:w-auto px-10 py-4 rounded-full bg-primary text-primary-foreground text-lg font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
                 >
                   Book Your Treatment
                 </button>
                 <Link 
                   href="/treatments" 
-                  className="w-full sm:w-auto px-10 py-4 rounded-full bg-card text-foreground text-lg font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 transition-all duration-300 border border-border flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-card text-foreground text-base font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 transition-all duration-300 border border-border flex items-center justify-center gap-2 group"
                 >
                   Explore Menu
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -72,20 +72,20 @@ export default function Home() {
               transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
               className="hidden lg:flex items-center justify-center relative"
             >
-              <div className="relative w-full max-w-lg mx-auto">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-primary/10 animate-pulse"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border-2 border-dashed border-primary/20"></div>
-                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-accent/20 blur-sm"></div>
-                <div className="absolute -bottom-6 -left-6 w-28 h-28 rounded-full bg-secondary/40 blur-sm"></div>
-                <div className="absolute top-12 -left-8 w-12 h-12 rounded-full bg-muted/80 border border-primary/10"></div>
-                <div className="absolute -bottom-2 right-8 w-16 h-16 rounded-full bg-primary/8 border border-primary/15"></div>
-                <div className="absolute top-1/4 -right-6 w-3 h-3 rounded-full bg-accent/60"></div>
-                <div className="absolute bottom-1/4 -left-3 w-2 h-2 rounded-full bg-primary/50"></div>
-                <div className="absolute top-8 right-1/4 w-4 h-4 rounded-full bg-secondary/60"></div>
+              <div className="relative w-full max-w-md mx-auto">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full bg-primary/10 animate-pulse"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[290px] h-[290px] rounded-full border-2 border-dashed border-primary/20"></div>
+                <div className="absolute -top-2 -right-2 w-16 h-16 rounded-full bg-accent/20 blur-sm"></div>
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full bg-secondary/40 blur-sm"></div>
+                <div className="absolute top-10 -left-6 w-10 h-10 rounded-full bg-muted/80 border border-primary/10"></div>
+                <div className="absolute -bottom-1 right-6 w-14 h-14 rounded-full bg-primary/8 border border-primary/15"></div>
+                <div className="absolute top-1/4 -right-4 w-3 h-3 rounded-full bg-accent/60"></div>
+                <div className="absolute bottom-1/4 -left-2 w-2 h-2 rounded-full bg-primary/50"></div>
+                <div className="absolute top-6 right-1/4 w-4 h-4 rounded-full bg-secondary/60"></div>
                 <img 
                   src={`${import.meta.env.BASE_URL}images/pura-iv-placeholder.png`} 
                   alt="Premium IV therapy bag" 
-                  className="relative z-10 w-full h-auto drop-shadow-2xl max-w-sm mx-auto"
+                  className="relative z-10 w-full h-auto drop-shadow-2xl max-w-xs mx-auto"
                 />
               </div>
             </motion.div>
