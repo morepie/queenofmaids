@@ -107,4 +107,4 @@ Marketing website for Pura Drip mobile IV therapy. React + Vite + Tailwind CSS.
 - **Cart page**: `/cart` — dedicated page showing selected treatments with quantity controls, per-item pricing, order summary sidebar with total and phone CTA; empty state directs to treatments catalog
 - **Cart state**: `CartContext` tracks selected treatments; cart badge shown in navbar; "Add to Cart" buttons on treatment cards and detail pages
 - **Booking**: `BookingContext` navigates to `/cart` page (no modal); all "Book Now" buttons across the site navigate to cart
-- **Images**: `public/images/pura-iv-placeholder.png` (product), `public/images/iv-bag.png` (hero)
+- **Images**: `public/images/pura-iv-placeholder.png` (product + hero)

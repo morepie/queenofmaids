@@ -83,7 +83,7 @@ export default function Home() {
                 <div className="absolute bottom-1/4 -left-3 w-2 h-2 rounded-full bg-primary/50"></div>
                 <div className="absolute top-8 right-1/4 w-4 h-4 rounded-full bg-secondary/60"></div>
                 <img 
-                  src={`${import.meta.env.BASE_URL}images/iv-bag.png`} 
+                  src={`${import.meta.env.BASE_URL}images/pura-iv-placeholder.png`} 
                   alt="Premium IV therapy bag" 
                   className="relative z-10 w-full h-auto drop-shadow-2xl max-w-sm mx-auto"
                 />
