@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMemberships } from '@/hooks/use-app-data';
 import { useBooking } from '@/context/BookingContext';
-import { CheckCircle, ChevronDown, Award, Clock, DollarSign, CalendarHeart } from 'lucide-react';
+import { CheckCircle, ChevronDown, Award, Clock, DollarSign, CalendarHeart, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const fadeIn = {
@@ -45,15 +45,14 @@ export default function Memberships() {
   const { openBookingModal } = useBooking();
 
   const faqs = [
-    { q: "What treatments are covered in my membership?", a: "Each membership tier includes specific treatments. Classic covers basic hydration and recovery, while Myers includes our premium blends. See the specific plan details above for exact inclusions." },
+    { q: "What treatments are covered in my membership?", a: "Each membership tier includes specific treatments. Basic covers hydration and recovery essentials, Plus adds popular drips like Hangover and Headache, and Premium unlocks our full menu including Myers Cocktail and specialty blends." },
     { q: "Do unused treatments roll over?", a: "To encourage consistent wellness, unused treatments do not roll over to the next month. We recommend booking your session in advance to ensure you get your monthly IV." },
-    { q: "Can I share my membership?", a: "Our Duo plans allow you to share your treatments with a friend or family member at the same location. Standard individual plans cannot be shared." },
+    { q: "Can I upgrade my plan?", a: "Absolutely! You can upgrade your membership tier at any time. The price difference will be prorated for the current billing cycle. Contact our concierge team to make the switch." },
     { q: "What is the cancellation policy?", a: "All memberships require a minimum 3-month commitment to see true biological results. After the 3rd month, you may cancel at any time with no penalty by contacting our concierge team." }
   ];
 
   return (
     <div className="w-full bg-background pb-24">
-      {/* HEADER */}
       <section className="bg-card pt-40 pb-20 border-b border-border text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" animate="visible" variants={fadeIn}>
@@ -68,96 +67,80 @@ export default function Memberships() {
         </div>
       </section>
 
-      {/* PLANS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12">
         {isLoading ? (
           <div className="flex justify-center py-20"><div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div></div>
         ) : (
-          <>
-            {/* Classic Tier */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="mb-24">
-              <h2 className="text-4xl font-sans font-bold text-center mb-12">Classic Memberships</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {memberships?.classic.map((plan, i) => (
-                  <div key={plan.name} className="bg-card rounded-3xl p-8 border border-border shadow-lg flex flex-col h-full hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
-                    <div className="absolute top-0 left-0 w-full h-2 bg-secondary group-hover:bg-primary transition-colors"></div>
-                    <h3 className="text-2xl font-sans font-bold mb-4">{plan.name}</h3>
-                    <div className="flex items-baseline mb-2">
-                      <span className="text-4xl font-bold text-primary">${plan.price}</span>
-                      <span className="text-muted-foreground ml-2">/mo</span>
-                    </div>
-                    <p className="text-sm font-semibold text-secondary mb-8 uppercase tracking-wider">{plan.ivsPerMonth} IV{plan.ivsPerMonth > 1 ? 's' : ''} per month</p>
-                    
-                    <ul className="space-y-4 mb-10 flex-1">
-                      {plan.choices.map((choice, j) => (
-                        <li key={j} className="flex gap-3 text-muted-foreground text-sm">
-                          <CheckCircle className="w-5 h-5 text-secondary shrink-0" />
-                          <span>{choice}</span>
-                        </li>
-                      ))}
-                      <li className="flex gap-3 text-muted-foreground text-sm font-medium pt-4 border-t border-border/50">
-                        <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                        <span>{plan.discount}</span>
-                      </li>
-                      <li className="flex gap-3 text-muted-foreground text-sm font-medium">
-                        <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                        <span>Priority booking</span>
-                      </li>
-                    </ul>
-                    
-                    <button onClick={openBookingModal} className="w-full py-4 rounded-xl bg-muted text-foreground font-bold hover:bg-primary hover:text-primary-foreground transition-colors border border-border hover:border-transparent mt-auto">
-                      Select Plan
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {memberships?.map((plan) => {
+                const isPop = plan.popular;
+                return (
+                  <div
+                    key={plan.name}
+                    className={cn(
+                      "rounded-3xl p-8 flex flex-col h-full transition-all duration-300 relative overflow-hidden group",
+                      isPop
+                        ? "bg-primary text-primary-foreground shadow-2xl shadow-primary/30 scale-[1.03] z-10 border-2 border-primary"
+                        : "bg-card border border-border shadow-lg hover:-translate-y-2 hover:shadow-2xl"
+                    )}
+                  >
+                    {isPop && (
+                      <div className="absolute top-5 right-5 flex items-center gap-1.5 bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                        <Star className="w-3.5 h-3.5 fill-current" />
+                        Most Popular
+                      </div>
+                    )}
+                    {!isPop && <div className="absolute top-0 left-0 w-full h-1.5 bg-secondary group-hover:bg-primary transition-colors"></div>}
+                    {isPop && <div className="absolute -top-24 -right-24 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>}
 
-            {/* Myers Tier */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-              <h2 className="text-4xl font-sans font-bold text-center mb-12">Myers Memberships</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {memberships?.myers.map((plan, i) => (
-                  <div key={plan.name} className="bg-primary text-primary-foreground rounded-3xl p-8 shadow-xl flex flex-col h-full hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
-                    {/* Glow effect */}
-                    <div className="absolute -top-24 -right-24 w-48 h-48 bg-secondary/20 rounded-full blur-3xl group-hover:bg-secondary/40 transition-colors"></div>
-                    
                     <h3 className="text-2xl font-sans font-bold mb-4">{plan.name}</h3>
                     <div className="flex items-baseline mb-2">
-                      <span className="text-4xl font-bold">${plan.price}</span>
-                      <span className="text-primary-foreground/70 ml-2">/mo</span>
+                      <span className="text-5xl font-bold">${plan.price}</span>
+                      <span className={cn("ml-2", isPop ? "text-primary-foreground/70" : "text-muted-foreground")}>/mo</span>
                     </div>
-                    <p className="text-sm font-semibold text-secondary mb-8 uppercase tracking-wider">{plan.ivsPerMonth} IV{plan.ivsPerMonth > 1 ? 's' : ''} per month</p>
-                    
-                    <ul className="space-y-4 mb-10 flex-1 relative z-10">
+                    <p className={cn(
+                      "text-sm font-semibold mb-8 uppercase tracking-wider",
+                      isPop ? "text-secondary" : "text-secondary"
+                    )}>
+                      {plan.ivsPerMonth} IV per month
+                    </p>
+
+                    <ul className={cn("space-y-3 mb-10 flex-1 relative z-10")}>
                       {plan.choices.map((choice, j) => (
-                        <li key={j} className="flex gap-3 text-primary-foreground/90 text-sm">
-                          <CheckCircle className="w-5 h-5 text-secondary shrink-0" />
+                        <li key={j} className={cn("flex gap-3 text-sm", isPop ? "text-primary-foreground/90" : "text-muted-foreground")}>
+                          <CheckCircle className={cn("w-5 h-5 shrink-0", isPop ? "text-secondary" : "text-secondary")} />
                           <span>{choice}</span>
                         </li>
                       ))}
-                      <li className="flex gap-3 text-primary-foreground text-sm font-medium pt-4 border-t border-primary-foreground/20">
-                        <CheckCircle className="w-5 h-5 text-secondary shrink-0" />
+                      <li className={cn(
+                        "flex gap-3 text-sm font-medium pt-3 border-t",
+                        isPop ? "text-primary-foreground border-primary-foreground/20" : "text-muted-foreground border-border/50"
+                      )}>
+                        <CheckCircle className={cn("w-5 h-5 shrink-0", isPop ? "text-secondary" : "text-primary")} />
                         <span>{plan.discount}</span>
                       </li>
-                      <li className="flex gap-3 text-primary-foreground text-sm font-medium">
-                        <CheckCircle className="w-5 h-5 text-secondary shrink-0" />
-                        <span>Priority booking</span>
-                      </li>
                     </ul>
-                    
-                    <button onClick={openBookingModal} className="w-full py-4 rounded-xl bg-card text-foreground font-bold hover:bg-secondary hover:text-secondary-foreground transition-colors mt-auto relative z-10">
+
+                    <button
+                      onClick={openBookingModal}
+                      className={cn(
+                        "w-full py-4 rounded-xl font-bold transition-colors mt-auto relative z-10",
+                        isPop
+                          ? "bg-white text-primary hover:bg-secondary hover:text-secondary-foreground"
+                          : "bg-muted text-foreground hover:bg-primary hover:text-primary-foreground border border-border hover:border-transparent"
+                      )}
+                    >
                       Select Plan
                     </button>
                   </div>
-                ))}
-              </div>
-            </motion.div>
-          </>
+                );
+              })}
+            </div>
+          </motion.div>
         )}
       </section>
 
-      {/* WHY BECOME A MEMBER */}
       <section className="py-24 bg-card mt-24 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="text-center mb-16">
@@ -184,7 +167,6 @@ export default function Memberships() {
         </div>
       </section>
 
-      {/* FAQS */}
       <section className="py-24 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-sans font-bold mb-6">Frequently Asked Questions</h2>

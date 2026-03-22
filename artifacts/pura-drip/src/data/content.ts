@@ -571,23 +571,15 @@ export interface MembershipPlan {
   price: number;
   ivsPerMonth: number;
   discount: string;
+  popular: boolean;
   choices: string[];
 }
 
-export const memberships = {
-  classic: [
-    { name: 'Basic Plan', price: 149, ivsPerMonth: 1, discount: '5% off additional IVs & add-ons', choices: ['Basic Fluids', 'Dehydration', 'Nausea Bag', 'Any bag with 1 add-on'] },
-    { name: 'Basic Duo', price: 280, ivsPerMonth: 2, discount: '5% off additional IVs & add-ons', choices: ['Basic Fluids', 'Dehydration', 'Nausea Bag', 'Any bag with 1 add-on'] },
-    { name: 'Plus Plan', price: 200, ivsPerMonth: 1, discount: '10% off additional IVs & add-ons', choices: ['Hangover Drip', 'Headache Drip', 'Any bag with 2 add-ons'] },
-    { name: 'Plus Duo', price: 380, ivsPerMonth: 2, discount: '10% off additional IVs & add-ons', choices: ['Hangover Drip', 'Headache Drip', 'Any bag with 2 add-ons'] }
-  ],
-  myers: [
-    { name: 'Myers Plan', price: 225, ivsPerMonth: 1, discount: '10% off additional IVs & add-ons', choices: ['Myers Cocktail', 'Detox or Immunity', 'Athletic Performance', 'Energy Boost', 'Beauty', 'Any bag with 3 add-ons'] },
-    { name: 'Myers Duo', price: 425, ivsPerMonth: 2, discount: '10% off additional IVs & add-ons', choices: ['Myers Cocktail', 'Detox or Immunity', 'Athletic Performance', 'Energy Boost', 'Beauty', 'Any bag with 3 add-ons'] },
-    { name: 'Mega Myers Plan', price: 299, ivsPerMonth: 1, discount: '15% off additional IVs & add-ons', choices: ['Includes 1 Mega Myers IV per month'] },
-    { name: 'Mega Duo', price: 580, ivsPerMonth: 2, discount: '15% off additional IVs & add-ons', choices: ['Includes 2 Mega Myers IVs per month'] }
-  ]
-};
+export const memberships = [
+  { name: 'Basic', price: 149, ivsPerMonth: 1, discount: '5% off additional IVs & add-ons', popular: false, choices: ['Basic Fluids', 'Dehydration', 'Nausea Bag', 'Any bag with 1 add-on', 'Priority booking'] },
+  { name: 'Plus', price: 200, ivsPerMonth: 1, discount: '10% off additional IVs & add-ons', popular: true, choices: ['Hangover Drip', 'Headache Drip', 'Any bag with 2 add-ons', 'Priority booking', 'Free vitamin B12 shot'] },
+  { name: 'Premium', price: 225, ivsPerMonth: 1, discount: '10% off additional IVs & add-ons', popular: false, choices: ['Myers Cocktail', 'Detox or Immunity', 'Athletic Performance', 'Energy Boost', 'Beauty', 'Any bag with 3 add-ons', 'Priority booking', 'Free vitamin B12 shot'] }
+];
 
 export const testimonials = [
   { id: 1, name: "Sarah J.", rating: 5, quote: "Absolutely amazing experience. The nurse was so professional and I felt instantly better after the Hangover Rescue." },
