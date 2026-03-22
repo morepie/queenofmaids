@@ -112,7 +112,7 @@ export default function Home() {
             <div className="hidden lg:block absolute top-12 left-24 right-24 h-0.5 bg-gradient-to-r from-transparent via-border to-transparent z-0"></div>
 
             {[
-              { icon: Search, title: "1. Choose", desc: "Browse our menu of 14 premium IV blends." },
+              { icon: Search, title: "1. Choose", desc: "Browse our menu of premium IV blends." },
               { icon: CalendarCheck, title: "2. Book", desc: "Schedule your preferred time and location." },
               { icon: HeartPulse, title: "3. Relax", desc: "A registered nurse arrives at your door." },
               { icon: Sparkles, title: "4. Revive", desc: "Feel instantly refreshed and energized." }
@@ -139,7 +139,7 @@ export default function Home() {
             </motion.div>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
               <Link href="/treatments" className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary/80 transition-colors text-lg group border-b-2 border-transparent hover:border-primary pb-1">
-                View All 14 Treatments <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                View All Treatments <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </Link>
             </motion.div>
           </div>
