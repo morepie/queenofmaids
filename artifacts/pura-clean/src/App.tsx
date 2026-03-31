@@ -5,6 +5,7 @@ import HowToBook from '@/components/sections/HowToBook';
 import CleaningPlans from '@/components/sections/CleaningPlans';
 import ServiceAreaMap from '@/components/sections/ServiceAreaMap';
 import Reviews from '@/components/sections/Reviews';
+import FAQ from '@/components/sections/FAQ';
 import CTA from '@/components/sections/CTA';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <CleaningPlans />
       <ServiceAreaMap />
       <Reviews />
+      <FAQ />
       <CTA />
     </Layout>
   );
