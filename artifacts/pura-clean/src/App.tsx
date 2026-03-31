@@ -12,9 +12,9 @@ function App() {
   return (
     <Layout>
       <Hero />
+      <CleaningPlans />
       <OurServices />
       <HowToBook />
-      <CleaningPlans />
       <ServiceAreaMap />
       <Reviews />
       <FAQ />
