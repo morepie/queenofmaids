@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Check, Star } from 'lucide-react';
+import { Check, Star, ArrowRight } from 'lucide-react';
 import { cleaningPlans } from '@/data/content';
 import { cn } from '@/lib/utils';
 
@@ -98,18 +98,28 @@ export default function CleaningPlans() {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <p className="text-muted-foreground text-sm">
-            Need a one-time clean? We offer single-session deep cleans as well.{' '}
-            <button
-              className="text-primary font-semibold hover:underline"
-              onClick={() => window.location.href = 'tel:6025551234'}
-            >
-              Call us
-            </button>{' '}
-            for pricing.
-          </p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" as const }}
+          className="mt-10 rounded-2xl border border-border bg-card shadow-sm p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5"
+        >
+          <div>
+            <p className="text-base font-bold text-foreground">
+              Not ready for a plan? One-time cleans are available too.
+            </p>
+            <p className="text-sm text-muted-foreground mt-1">
+              But plan members save up to 25% per clean and get priority scheduling.
+            </p>
+          </div>
+          <a
+            href="tel:6025551234"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+          >
+            Book One-Time Clean <ArrowRight className="w-4 h-4" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
