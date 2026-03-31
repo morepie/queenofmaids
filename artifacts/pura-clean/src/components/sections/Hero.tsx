@@ -53,14 +53,14 @@ export default function Hero() {
               onClick={scrollToPlans}
               className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
-              View Cleaning Plans
+              Get a Quote
             </button>
-            <a
-              href="tel:6025551234"
+            <button
+              onClick={scrollToPlans}
               className="px-8 py-4 rounded-full border-2 border-primary/20 text-foreground font-semibold text-base hover:bg-primary/5 transition-all duration-200"
             >
-              Call (602) 555-1234
-            </a>
+              View Plans
+            </button>
           </motion.div>
 
           <motion.div

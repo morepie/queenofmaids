@@ -97,6 +97,19 @@ export default function CleaningPlans() {
             </motion.div>
           ))}
         </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-muted-foreground text-sm">
+            Need a one-time clean? We offer single-session deep cleans as well.{' '}
+            <button
+              className="text-primary font-semibold hover:underline"
+              onClick={() => window.location.href = 'tel:6025551234'}
+            >
+              Call us
+            </button>{' '}
+            for pricing.
+          </p>
+        </div>
       </div>
     </section>
   );
