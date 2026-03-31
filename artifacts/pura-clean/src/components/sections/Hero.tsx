@@ -12,7 +12,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center pt-20 pb-8 overflow-hidden">
+    <section className="relative flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

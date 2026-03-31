@@ -20,6 +20,7 @@ export default function Navbar() {
   };
 
   const navLinks = [
+    { name: 'Services', id: 'services' },
     { name: 'Plans', id: 'plans' },
     { name: 'Service Areas', id: 'service-areas' },
     { name: 'Reviews', id: 'reviews' },
