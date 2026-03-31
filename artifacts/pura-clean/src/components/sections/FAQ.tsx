@@ -9,12 +9,12 @@ const faqs = [
     answer: 'We serve the entire Phoenix metro area including Phoenix, Scottsdale, Tempe, Mesa, Chandler, Gilbert, Glendale, Peoria, Surprise, Queen Creek, Avondale, Goodyear, and Fountain Hills. If you\'re unsure whether we cover your area, give us a call and we\'ll let you know.',
   },
   {
-    question: 'How does biweekly pricing work?',
-    answer: 'Our listed prices are per visit on a biweekly (every two weeks) schedule. You\'re billed after each cleaning — no upfront contracts. You can pause or cancel anytime with at least 48 hours\' notice before your next scheduled visit.',
+    question: 'How does membership pricing work?',
+    answer: 'Our listed prices are per month on a recurring membership. You\'re billed monthly — start with a 3-month commitment, then stay as long as you like. You can pause or cancel anytime with at least 48 hours\' notice before your next scheduled visit.',
   },
   {
     question: 'Do you offer one-time or deep cleanings?',
-    answer: 'Yes! In addition to our recurring biweekly plans, we offer one-time deep cleans for move-ins, move-outs, post-renovation, or special occasions. One-time pricing varies based on home size and condition — call us for a custom quote.',
+    answer: 'Yes! In addition to our monthly memberships, we offer one-time deep cleans for move-ins, move-outs, post-renovation, or special occasions. One-time pricing varies based on home size and condition — call us for a custom quote.',
   },
   {
     question: 'What cleaning products do you use?',

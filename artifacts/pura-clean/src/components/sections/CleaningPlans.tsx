@@ -5,17 +5,17 @@ import { cn } from '@/lib/utils';
 
 export default function CleaningPlans() {
   return (
-    <section id="plans" className="py-20 md:py-28 bg-background">
+    <section id="memberships" className="py-20 md:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-            Our Plans
+            Our Memberships
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Choose Your Cleaning Plan
+            Choose Your Membership
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            All plans include biweekly service by our trained, background-checked professionals. No contracts — cancel anytime.
+            All memberships include monthly service by our trained, background-checked professionals. Start with a 3-month commitment, then stay as long as you like.
           </p>
         </div>
 

@@ -64,7 +64,7 @@ export default function ServiceLanding() {
   const faqs = [
     {
       q: `How much does ${service.title.toLowerCase()} cost?`,
-      a: `Our ${service.title.toLowerCase()} pricing depends on the size of your home and specific needs. Our recurring cleaning plans start at $99/biweekly for a Partial Clean, $149/biweekly for our most popular Full Clean, and $179/biweekly for Full Premium. One-time and specialty services are quoted based on home size and scope. Call us for a free, no-obligation quote.`,
+      a: `Our ${service.title.toLowerCase()} pricing depends on the size of your home and specific needs. Monthly memberships start at $99/month for a Partial Clean, $149/month for our most popular Full Clean, and $179/month for Full Premium. One-time and specialty services are quoted based on home size and scope. Call us for a free, no-obligation quote.`,
     },
     {
       q: `What's included in your ${service.title.toLowerCase()} service?`,
@@ -131,11 +131,11 @@ export default function ServiceLanding() {
                   Get a Free Quote
                 </a>
                 <a
-                  href={base + '/plans'}
-                  onClick={(e) => { e.preventDefault(); setLocation(base + '/plans'); }}
+                  href={base + '/memberships'}
+                  onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
                   className="px-8 py-3.5 rounded-full bg-card text-foreground text-base font-bold shadow-lg border border-border flex items-center gap-2 group hover:-translate-y-1 transition-all duration-300"
                 >
-                  View Plans
+                  View Memberships
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
@@ -236,10 +236,10 @@ export default function ServiceLanding() {
               Pricing
             </span>
             <h2 className="text-3xl font-bold tracking-tight">
-              Cleaning Plans & Pricing
+              Memberships & Pricing
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-              All recurring plans include biweekly service. No contracts — cancel anytime.
+              All memberships include monthly service. Start with a 3-month commitment, then stay as long as you like.
             </p>
           </div>
 
@@ -289,11 +289,11 @@ export default function ServiceLanding() {
 
           <div className="mt-6 text-center">
             <a
-              href={base + '/plans'}
-              onClick={(e) => { e.preventDefault(); setLocation(base + '/plans'); }}
+              href={base + '/memberships'}
+              onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
               className="text-sm font-semibold text-primary hover:underline"
             >
-              View full plan comparison &rarr;
+              View all memberships &rarr;
             </a>
           </div>
         </div>

@@ -147,13 +147,13 @@ export default function Navbar() {
             </div>
 
             <button
-              onClick={() => navigate('/plans')}
+              onClick={() => navigate('/memberships')}
               className={cn(
                 "text-sm font-semibold transition-colors hover:text-primary",
-                location === base + '/plans' ? "text-primary" : "text-foreground/80"
+                location === base + '/memberships' ? "text-primary" : "text-foreground/80"
               )}
             >
-              Plans
+              Memberships
             </button>
             <button
               onClick={() => navigate('/service-areas')}
@@ -172,7 +172,7 @@ export default function Navbar() {
               Reviews
             </button>
             <button
-              onClick={() => navigate('/plans')}
+              onClick={() => navigate('/memberships')}
               className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               Get a Quote
@@ -243,10 +243,10 @@ export default function Navbar() {
               </AnimatePresence>
 
               <button
-                onClick={() => navigate('/plans')}
+                onClick={() => navigate('/memberships')}
                 className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left"
               >
-                Plans
+                Memberships
               </button>
               <button
                 onClick={() => navigate('/service-areas')}
@@ -261,7 +261,7 @@ export default function Navbar() {
                 Reviews
               </button>
               <button
-                onClick={() => navigate('/plans')}
+                onClick={() => navigate('/memberships')}
                 className="mt-4 px-4 py-4 rounded-xl bg-primary text-primary-foreground font-semibold shadow-md w-full text-center"
               >
                 Get a Quote

@@ -1,9 +1,9 @@
-import { Route, Switch } from 'wouter';
+import { Route, Switch, Redirect } from 'wouter';
 import Layout from '@/components/layout/Layout';
 import Home from '@/pages/Home';
 import Services from '@/pages/Services';
 import ServiceLanding from '@/pages/ServiceLanding';
-import Plans from '@/pages/Plans';
+import Memberships from '@/pages/Memberships';
 import ServiceAreas from '@/pages/ServiceAreas';
 import CityLanding from '@/pages/CityLanding';
 
@@ -15,7 +15,8 @@ function App() {
       <Switch>
         <Route path={base + '/services/:service'} component={ServiceLanding} />
         <Route path={base + '/services'} component={Services} />
-        <Route path={base + '/plans'} component={Plans} />
+        <Route path={base + '/memberships'} component={Memberships} />
+        <Route path={base + '/plans'}>{() => <Redirect to={base + '/memberships'} />}</Route>
         <Route path={base + '/service-areas'} component={ServiceAreas} />
         <Route path={base + '/house-cleaning/:city'} component={CityLanding} />
         <Route path={base + '/'} component={Home} />

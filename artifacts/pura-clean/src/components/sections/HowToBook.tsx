@@ -5,8 +5,8 @@ const steps = [
   {
     number: '1',
     icon: MousePointerClick,
-    title: 'Choose Your Plan',
-    description: 'Browse our Partial, Full, or Premium cleaning plans and pick the one that fits your home.',
+    title: 'Choose Your Membership',
+    description: 'Browse our Partial, Full, or Premium monthly memberships and pick the one that fits your home.',
   },
   {
     number: '2',
@@ -23,8 +23,8 @@ const steps = [
 ];
 
 export default function HowToBook() {
-  const scrollToPlans = () => {
-    document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToMemberships = () => {
+    document.getElementById('memberships')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -79,13 +79,13 @@ export default function HowToBook() {
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-xl font-bold text-foreground mb-2">Book Online</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Choose a cleaning plan below and we'll follow up within the hour to confirm your appointment.
+              Choose a membership below and we'll follow up within the hour to confirm your appointment.
             </p>
             <button
-              onClick={scrollToPlans}
+              onClick={scrollToMemberships}
               className="mt-5 px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
-              View Plans & Get a Quote
+              View Memberships & Get a Quote
             </button>
           </div>
 

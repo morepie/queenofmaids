@@ -28,7 +28,7 @@ export const cleaningPlans: CleaningPlan[] = [
     id: 'partial',
     name: 'Partial Clean',
     price: 99,
-    frequency: 'biweekly',
+    frequency: 'month',
     description: 'Essential cleaning for high-traffic areas',
     features: [
       'Kitchen & Dining',
@@ -41,7 +41,7 @@ export const cleaningPlans: CleaningPlan[] = [
     id: 'full',
     name: 'Full Clean',
     price: 149,
-    frequency: 'biweekly',
+    frequency: 'month',
     popular: true,
     description: 'Comprehensive cleaning for the whole home',
     features: [
@@ -55,7 +55,7 @@ export const cleaningPlans: CleaningPlan[] = [
     id: 'premium',
     name: 'Full Premium',
     price: 179,
-    frequency: 'biweekly',
+    frequency: 'month',
     description: 'White-glove service with extra attention to detail',
     features: [
       'Everything in Full Clean',

@@ -73,7 +73,7 @@ const services = [
   { name: 'Standard House Cleaning', desc: 'Regular upkeep for a consistently clean home' },
   { name: 'Deep Cleaning', desc: 'Thorough top-to-bottom cleaning of every room' },
   { name: 'Move In/Out Cleaning', desc: 'Get your deposit back or start fresh' },
-  { name: 'Recurring Cleaning', desc: 'Weekly, biweekly, or monthly service' },
+  { name: 'Recurring Cleaning', desc: 'Weekly or monthly membership service' },
   { name: 'Vacation Rental Cleaning', desc: 'Turnover cleaning between guests' },
   { name: 'Custom Cleanings', desc: 'Tailored to your specific needs' },
 ];
@@ -119,7 +119,7 @@ export default function CityLanding() {
   const faqs = [
     {
       q: `How much does house cleaning cost in ${city.name}?`,
-      a: `Our house cleaning plans in ${city.name}, ${metro.stateAbbr} start at $99/biweekly for a Partial Clean. Our most popular plan is the Full Clean at $149/biweekly, which covers every room top to bottom. We also offer a Full Premium plan at $179/biweekly with extras like oven, fridge, and window cleaning. One-time deep cleans and move in/out cleans are quoted based on home size.`,
+      a: `Our monthly memberships in ${city.name}, ${metro.stateAbbr} start at $99/month for a Partial Clean. Our most popular membership is the Full Clean at $149/month, which covers every room top to bottom. We also offer a Full Premium membership at $179/month with extras like deep detailing, ceiling fans, and priority scheduling. One-time deep cleans and move in/out cleans are quoted based on home size.`,
     },
     {
       q: `Do you provide cleaning supplies and equipment in ${city.name}?`,
@@ -135,7 +135,7 @@ export default function CityLanding() {
     },
     {
       q: `What is your cancellation policy for ${city.name} cleanings?`,
-      a: `We understand plans change. You can cancel or reschedule your ${city.name} cleaning with at least 24 hours' notice at no charge. Our recurring plans have no long-term contracts — you can pause or cancel anytime.`,
+      a: `We understand things change. You can cancel or reschedule your ${city.name} cleaning with at least 24 hours' notice at no charge. Our memberships start with a 3-month commitment, then you can pause or cancel anytime.`,
     },
     {
       q: `What does your Happiness Guarantee cover in ${city.name}?`,
@@ -143,7 +143,7 @@ export default function CityLanding() {
     },
     {
       q: `Do you offer one-time cleaning services in ${city.name}?`,
-      a: `Yes! While many ${city.name} homeowners choose our recurring biweekly plans, we also offer one-time deep cleans, move in/out cleans, post-construction cleans, and vacation rental turnovers. Call us for a custom quote based on your home size and needs.`,
+      a: `Yes! While many ${city.name} homeowners choose our monthly memberships, we also offer one-time deep cleans, move in/out cleans, post-construction cleans, and vacation rental turnovers. Call us for a custom quote based on your home size and needs.`,
     },
     {
       q: `Will I get the same cleaner each visit in ${city.name}?`,
@@ -193,11 +193,11 @@ export default function CityLanding() {
                   Get a Free Quote
                 </a>
                 <a
-                  href={base + '/plans'}
-                  onClick={(e) => { e.preventDefault(); setLocation(base + '/plans'); }}
+                  href={base + '/memberships'}
+                  onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
                   className="px-8 py-3.5 rounded-full bg-card text-foreground text-base font-bold shadow-lg border border-border flex items-center gap-2 group hover:-translate-y-1 transition-all duration-300"
                 >
-                  View Plans
+                  View Memberships
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
@@ -325,10 +325,10 @@ export default function CityLanding() {
               Pricing
             </span>
             <h2 className="text-3xl font-bold tracking-tight">
-              Cleaning Plans for {city.name} Homes
+              Memberships for {city.name} Homes
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-              All plans include biweekly service. No contracts — cancel anytime.
+              All memberships include monthly service. Start with a 3-month commitment, then stay as long as you like.
             </p>
           </div>
 
@@ -380,11 +380,11 @@ export default function CityLanding() {
 
           <div className="mt-6 text-center">
             <a
-              href={base + '/plans'}
-              onClick={(e) => { e.preventDefault(); setLocation(base + '/plans'); }}
+              href={base + '/memberships'}
+              onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
               className="text-sm font-semibold text-primary hover:underline"
             >
-              View full plan comparison &rarr;
+              View all memberships &rarr;
             </a>
           </div>
         </div>

@@ -25,7 +25,7 @@ export default function CTA() {
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={() => document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('memberships')?.scrollIntoView({ behavior: 'smooth' })}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-semibold text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               Get a Quote <ArrowRight className="w-4 h-4" />

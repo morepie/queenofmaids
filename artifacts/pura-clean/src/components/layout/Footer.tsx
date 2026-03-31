@@ -16,7 +16,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-secondary mb-6 tracking-wider uppercase text-sm">Quick Links</h4>
             <ul className="space-y-4">
-              <li><button onClick={() => document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth' })} className="text-background/70 hover:text-secondary transition-colors text-sm">Cleaning Plans</button></li>
+              <li><button onClick={() => document.getElementById('memberships')?.scrollIntoView({ behavior: 'smooth' })} className="text-background/70 hover:text-secondary transition-colors text-sm">Memberships</button></li>
               <li><button onClick={() => document.getElementById('service-areas')?.scrollIntoView({ behavior: 'smooth' })} className="text-background/70 hover:text-secondary transition-colors text-sm">Service Areas</button></li>
               <li><button onClick={() => document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' })} className="text-background/70 hover:text-secondary transition-colors text-sm">Reviews</button></li>
             </ul>
