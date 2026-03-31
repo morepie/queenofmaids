@@ -1,10 +1,46 @@
 import { motion } from 'framer-motion';
-import { Sparkles, Shield, Clock, ArrowRight, Star } from 'lucide-react';
+import { Sparkles, Shield, Clock, ArrowRight, Star, CheckCircle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
 };
+
+const platforms = [
+  { name: 'Google', rating: 4.9 },
+  { name: 'Yelp', rating: 4.5 },
+  { name: 'Facebook', rating: 4.9 },
+  { name: 'Thumbtack', rating: 4.8 },
+  { name: 'Nextdoor', rating: 4.9 },
+];
+
+const trustBadges = [
+  '14+ Years Trusted',
+  '200% Happiness Guarantee',
+  'Background-Checked & Insured',
+];
+
+function MiniStars({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'md' }) {
+  const w = size === 'md' ? 'w-5 h-5' : 'w-3 h-3';
+  return (
+    <div className="flex items-center gap-0.5">
+      {[...Array(5)].map((_, i) => (
+        <Star
+          key={i}
+          className={cn(
+            w,
+            i < Math.floor(rating)
+              ? "text-yellow-400 fill-yellow-400"
+              : i < rating
+              ? "text-yellow-400 fill-yellow-400/50"
+              : "text-yellow-400/30"
+          )}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function Hero() {
   const scrollToPlans = () => {
@@ -12,10 +48,10 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+    <section className="relative flex flex-col pt-28 pb-0 md:pt-36 md:pb-0 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <motion.div
             initial="hidden"
@@ -115,6 +151,46 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" as const }}
+        className="relative z-10 w-full border-t border-border bg-white/70 backdrop-blur-sm"
+      >
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+          <div className="flex flex-col items-center gap-5">
+            <div className="flex items-center gap-3">
+              <MiniStars rating={4.9} size="md" />
+              <span className="text-2xl font-bold text-foreground">4.9/5</span>
+              <span className="text-muted-foreground text-sm">from 1,500+ verified reviews</span>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+              {platforms.map((p) => (
+                <div key={p.name} className="flex flex-col items-center gap-1">
+                  <span className="text-sm font-semibold text-foreground">{p.name}</span>
+                  <div className="flex items-center gap-1.5">
+                    <MiniStars rating={p.rating} />
+                    <span className="text-xs font-medium text-muted-foreground">{p.rating}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="w-full border-t border-border pt-4 mt-1">
+              <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+                {trustBadges.map((badge) => (
+                  <div key={badge} className="flex items-center gap-1.5">
+                    <CheckCircle className="w-4 h-4 text-teal flex-shrink-0" />
+                    <span className="text-sm font-medium text-muted-foreground">{badge}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

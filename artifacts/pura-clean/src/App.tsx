@@ -1,6 +1,5 @@
 import Layout from '@/components/layout/Layout';
 import Hero from '@/components/sections/Hero';
-import SocialProof from '@/components/sections/SocialProof';
 import OurServices from '@/components/sections/OurServices';
 import HowToBook from '@/components/sections/HowToBook';
 import CleaningPlans from '@/components/sections/CleaningPlans';
@@ -13,7 +12,6 @@ function App() {
   return (
     <Layout>
       <Hero />
-      <SocialProof />
       <CleaningPlans />
       <OurServices />
       <HowToBook />
