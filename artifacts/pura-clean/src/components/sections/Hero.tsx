@@ -84,7 +84,7 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8">
+            <div className="mt-10 grid grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0">
               {[
                 { icon: Shield, text: 'Insured & Bonded' },
                 { icon: Sparkles, text: 'Happiness Guarantee' },
@@ -92,7 +92,7 @@ export default function Hero() {
                 { icon: Clock, text: 'Flexible Scheduling' },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 text-muted-foreground">
-                  <div className="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
                     <Icon className="w-5 h-5 text-teal" />
                   </div>
                   <span className="text-sm font-medium">{text}</span>
