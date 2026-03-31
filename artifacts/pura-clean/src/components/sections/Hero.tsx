@@ -157,9 +157,9 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" as const }}
-        className="relative z-10 w-full border-t border-border/60 bg-white/80 backdrop-blur-sm"
+        className="relative z-10 w-full"
       >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 md:pb-14 pt-4">
           <div className="flex flex-col items-center gap-5">
             <div className="flex items-center gap-3">
               <MiniStars rating={4.9} size="md" />
