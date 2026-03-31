@@ -1,10 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, ChevronDown } from 'lucide-react';
 import { useLocation } from 'wouter';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { metros, type MetroArea } from '@/data/metros';
+import USMap from '@/components/USMap';
 import CTA from '@/components/sections/CTA';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -58,10 +59,19 @@ function MetroMap({ metro }: { metro: MetroArea }) {
 
 export default function ServiceAreas() {
   const [, setLocation] = useLocation();
+  const [activeMetro, setActiveMetro] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const scrollToMetro = (slug: string) => {
+    setActiveMetro(slug);
+    const el = document.getElementById(`metro-${slug}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <>
@@ -79,23 +89,66 @@ export default function ServiceAreas() {
               Service Areas Across the <span className="text-primary">West</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              PuraClean proudly serves four major metro areas. Each location is staffed with trained, vetted cleaning professionals ready to make your home sparkle.
+              PuraClean proudly serves four major metro areas. Click a pin on the map to explore our coverage.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-10 md:py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <USMap onMetroClick={scrollToMetro} />
+
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+              {metros.map(metro => (
+                <button
+                  key={metro.slug}
+                  onClick={() => scrollToMetro(metro.slug)}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
+                    activeMetro === metro.slug
+                      ? 'bg-primary text-primary-foreground border-primary shadow-md'
+                      : 'bg-card text-foreground/80 border-border hover:border-primary hover:text-primary'
+                  }`}
+                >
+                  <MapPin className="w-3.5 h-3.5" />
+                  {metro.name}, {metro.stateAbbr}
+                </button>
+              ))}
+            </div>
+
+            <div className="text-center mt-6">
+              <button
+                onClick={() => {
+                  const el = document.getElementById('metro-sections');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                Scroll to explore
+                <ChevronDown className="w-4 h-4 animate-bounce" />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="metro-sections" className="py-16 md:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-20">
             {metros.map((metro, i) => (
               <motion.div
                 key={metro.name}
+                id={`metro-${metro.slug}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start scroll-mt-28"
               >
                 <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
                   <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
