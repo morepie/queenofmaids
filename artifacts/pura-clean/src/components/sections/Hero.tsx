@@ -51,7 +51,7 @@ export default function Hero() {
     <section className="relative flex flex-col pt-28 pb-0 md:pt-36 md:pb-0 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 md:pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-10 md:pb-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <motion.div
             initial="hidden"
@@ -157,7 +157,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" as const }}
-        className="relative z-10 w-full border-t border-border bg-white/70 backdrop-blur-sm"
+        className="relative z-10 w-full border-t border-border/60 bg-white/80 backdrop-blur-sm"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
           <div className="flex flex-col items-center gap-5">
