@@ -111,14 +111,18 @@ Marketing website for Pura Drip mobile IV therapy. React + Vite + Tailwind CSS.
 
 ### `artifacts/pura-clean` (`@workspace/pura-clean`)
 
-Marketing website for PuraClean house cleaning service in the Phoenix AZ metro area. React + Vite + Tailwind CSS. Shares design DNA with Pura Drip (same color palette, Inter font, rounded cards).
+Marketing website for PuraClean house cleaning service. React + Vite + Tailwind CSS. Shares design DNA with Pura Drip (same color palette, Inter font, rounded cards).
 
-- **Sections**: Hero, Cleaning Plans (3 tiers), Service Area Map (Leaflet/OpenStreetMap), Reviews (horizontally scrollable), CTA, Footer
+- **Pages**: Home (`/`), Services (`/services`), Plans (`/plans`), Service Areas (`/service-areas`), City Landing Pages (`/house-cleaning/:city`)
+- **Routing**: wouter with `import.meta.env.BASE_URL` prefix
+- **SEO**: react-helmet-async for per-page title/description/OG/canonical meta tags on city landing pages
+- **Sections**: Hero (team photo + trust strip + badges), Cleaning Plans (3 tiers), Reviews (vertical grid with View More), CTA, Footer
 - **Color palette**: primary = bubblegum pink `#FC6471`, teal accent `#4BA8A8`
 - **Font**: Inter
-- **Data**: Static data in `src/data/content.ts` — 3 cleaning plans, 8 reviews, 13 service cities, aggregate rating
-- **Map**: Leaflet + OpenStreetMap with custom pink pin markers for Phoenix metro service cities
+- **Data**: `src/data/content.ts` — cleaning plans, reviews, aggregate rating; `src/data/metros.ts` — 4 metro areas (Phoenix, Salt Lake City, Las Vegas, Denver) with city slugs
+- **Maps**: Leaflet + OpenStreetMap with custom pink pin markers
+- **City Landing Pages**: 47 city-specific SEO landing pages at `/house-cleaning/[city-slug]` (e.g. `/house-cleaning/phoenix`, `/house-cleaning/scottsdale`). Each has localized hero, services list, pricing, "Why Choose Us", contact card, and nearby cities cross-linking
 - **Cleaning Plans**: Partial Clean ($99/biweekly), Full Clean ($149/biweekly, most popular), Full Premium ($179/biweekly)
-- **Reviews**: Horizontally scrollable review cards with aggregate 4.9 rating (431 reviews)
+- **Reviews**: Vertical 4-col grid, 2 rows initially, "View More Reviews" reveals more
 - **Layout**: `overflow-x: clip` on Layout (NOT `overflow-x: hidden`) to preserve CSS sticky positioning
 - **No backend**: Static marketing site with CTA buttons ("Get a Quote") — no booking flow
