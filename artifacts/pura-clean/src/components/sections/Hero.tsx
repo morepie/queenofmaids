@@ -86,8 +86,9 @@ export default function Hero() {
 
             <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8">
               {[
-                { icon: Sparkles, text: 'Eco-Friendly Products' },
                 { icon: Shield, text: 'Insured & Bonded' },
+                { icon: Sparkles, text: 'Happiness Guarantee' },
+                { icon: CheckCircle, text: 'Vetted Cleaners' },
                 { icon: Clock, text: 'Flexible Scheduling' },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 text-muted-foreground">
