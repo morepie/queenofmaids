@@ -5,24 +5,14 @@ import CleaningPlans from '@/components/sections/CleaningPlans';
 import CTA from '@/components/sections/CTA';
 
 const comparisonFeatures = [
-  { feature: 'Kitchen counters & sink', partial: true, full: true, premium: true },
-  { feature: 'Bathroom sanitization', partial: true, full: true, premium: true },
-  { feature: 'Floors vacuumed & mopped', partial: true, full: true, premium: true },
-  { feature: 'Dusting of main surfaces', partial: true, full: true, premium: true },
-  { feature: 'Trash removal', partial: true, full: true, premium: true },
-  { feature: 'All rooms cleaned top to bottom', partial: false, full: true, premium: true },
-  { feature: 'Appliance exterior wipe-down', partial: false, full: true, premium: true },
-  { feature: 'Mirror & glass cleaning', partial: false, full: true, premium: true },
-  { feature: 'Baseboard dusting', partial: false, full: true, premium: true },
-  { feature: 'Bed making & linen straightening', partial: false, full: true, premium: true },
-  { feature: 'Interior door wipe-down', partial: false, full: true, premium: true },
-  { feature: 'Inside oven & microwave cleaning', partial: false, full: false, premium: true },
-  { feature: 'Inside refrigerator cleaning', partial: false, full: false, premium: true },
-  { feature: 'Interior window cleaning', partial: false, full: false, premium: true },
-  { feature: 'Ceiling fan & vent dusting', partial: false, full: false, premium: true },
-  { feature: 'Cabinet front wipe-down', partial: false, full: false, premium: true },
-  { feature: 'Laundry wash, dry & fold (1 load)', partial: false, full: false, premium: true },
-  { feature: 'Organizing & declutter assist', partial: false, full: false, premium: true },
+  { feature: 'Kitchen & Dining', partial: true, full: true, premium: true },
+  { feature: 'All Bathrooms', partial: true, full: true, premium: true },
+  { feature: 'All Bedrooms', partial: false, full: true, premium: true },
+  { feature: 'Living Areas', partial: false, full: true, premium: true },
+  { feature: 'Dusting & Vacuuming', partial: false, full: true, premium: true },
+  { feature: 'Deep Detailing', partial: false, full: false, premium: true },
+  { feature: 'Ceiling Fans & Vents', partial: false, full: false, premium: true },
+  { feature: 'Priority Scheduling', partial: false, full: false, premium: true },
 ];
 
 const benefits = [

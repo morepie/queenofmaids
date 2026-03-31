@@ -31,12 +31,10 @@ export const cleaningPlans: CleaningPlan[] = [
     frequency: 'biweekly',
     description: 'Essential cleaning for high-traffic areas',
     features: [
-      'Kitchen counters & sink',
-      'Bathroom sanitization',
+      'Kitchen & Dining',
+      'All Bathrooms',
       'Floors vacuumed & mopped',
-      'Dusting of main surfaces',
       'Trash removal',
-      'Quick tidy of living areas',
     ],
   },
   {
@@ -48,12 +46,9 @@ export const cleaningPlans: CleaningPlan[] = [
     description: 'Comprehensive cleaning for the whole home',
     features: [
       'Everything in Partial Clean',
-      'All rooms cleaned top to bottom',
-      'Appliance exterior wipe-down',
-      'Mirror & glass cleaning',
-      'Baseboard dusting',
-      'Bed making & linen straightening',
-      'Interior door wipe-down',
+      'All Bedrooms',
+      'Living Areas',
+      'Dusting & Vacuuming',
     ],
   },
   {
@@ -64,13 +59,9 @@ export const cleaningPlans: CleaningPlan[] = [
     description: 'White-glove service with extra attention to detail',
     features: [
       'Everything in Full Clean',
-      'Inside oven & microwave cleaning',
-      'Inside refrigerator cleaning',
-      'Interior window cleaning',
-      'Ceiling fan & vent dusting',
-      'Cabinet front wipe-down',
-      'Laundry wash, dry & fold (1 load)',
-      'Organizing & declutter assist',
+      'Deep Detailing',
+      'Ceiling Fans & Vents',
+      'Priority Scheduling',
     ],
   },
 ];
