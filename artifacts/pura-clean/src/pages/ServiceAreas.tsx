@@ -197,7 +197,7 @@ export default function ServiceAreas() {
                   </div>
                 </div>
 
-                <div className={`flex flex-col gap-6 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div className={`flex flex-col justify-center gap-5 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div>
                     <h2 className="text-3xl font-bold text-foreground mb-1">
                       {metro.name} <span className="text-primary">Metro</span>
@@ -217,33 +217,28 @@ export default function ServiceAreas() {
                     ))}
                   </div>
 
-                  <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
-                    <h3 className="text-sm font-bold text-foreground uppercase tracking-wider mb-4">
-                      Contact {metro.name} Office
-                    </h3>
-                    <div className="flex flex-col gap-3">
-                      <a
-                        href={`tel:${metro.phone.replace(/\D/g, '')}`}
-                        className="flex items-center gap-3 text-sm text-foreground/80 hover:text-primary transition-colors"
-                      >
-                        <div className="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
-                          <Phone className="w-4 h-4 text-teal" />
-                        </div>
-                        {metro.phone}
-                      </a>
-                      <a
-                        href={`mailto:${metro.email}`}
-                        className="flex items-center gap-3 text-sm text-foreground/80 hover:text-primary transition-colors"
-                      >
-                        <div className="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
-                          <Mail className="w-4 h-4 text-teal" />
-                        </div>
-                        {metro.email}
-                      </a>
-                    </div>
+                  <div className="flex flex-wrap items-center gap-4">
                     <a
                       href={`tel:${metro.phone.replace(/\D/g, '')}`}
-                      className="mt-5 w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                      className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      <Phone className="w-4 h-4 text-teal" />
+                      {metro.phone}
+                    </a>
+                    <span className="text-border">|</span>
+                    <a
+                      href={`mailto:${metro.email}`}
+                      className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      <Mail className="w-4 h-4 text-teal" />
+                      {metro.email}
+                    </a>
+                  </div>
+
+                  <div>
+                    <a
+                      href={`tel:${metro.phone.replace(/\D/g, '')}`}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                     >
                       Get a Quote in {metro.name}
                     </a>
