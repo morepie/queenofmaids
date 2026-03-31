@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Sparkles, Shield, Clock, SprayCan, Home, ArrowRight } from 'lucide-react';
+import { Sparkles, Shield, Clock, ArrowRight, Star } from 'lucide-react';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -65,45 +65,33 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 40 }}
+            initial={{ opacity: 0, scale: 0.95, x: 40 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" as const, delay: 0.3 }}
             className="hidden lg:flex items-center justify-center relative"
           >
-            <div className="relative w-full max-w-md mx-auto">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full bg-primary/10 animate-pulse" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[290px] h-[290px] rounded-full border-2 border-dashed border-primary/20" />
-              <div className="absolute -top-2 -right-2 w-16 h-16 rounded-full bg-teal/20 blur-sm" />
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full bg-secondary/40 blur-sm" />
-              <div className="absolute top-10 -left-6 w-10 h-10 rounded-full bg-muted/80 border border-primary/10" />
-              <div className="absolute -bottom-1 right-6 w-14 h-14 rounded-full bg-primary/8 border border-primary/15" />
-              <div className="absolute top-1/4 -right-4 w-3 h-3 rounded-full bg-teal/60" />
-              <div className="absolute bottom-1/4 -left-2 w-2 h-2 rounded-full bg-primary/50" />
-              <div className="absolute top-6 right-1/4 w-4 h-4 rounded-full bg-secondary/60" />
-
-              <div className="relative z-10 flex items-center justify-center">
-                <div className="w-56 h-56 rounded-full bg-gradient-to-br from-primary/20 via-primary/10 to-teal/10 flex items-center justify-center shadow-2xl border border-primary/10">
-                  <div className="w-44 h-44 rounded-full bg-white/80 flex items-center justify-center shadow-inner">
-                    <div className="text-center">
-                      <Home className="w-16 h-16 text-primary mx-auto mb-2" strokeWidth={1.5} />
-                      <SprayCan className="w-10 h-10 text-teal mx-auto -mt-1" strokeWidth={1.5} />
-                    </div>
-                  </div>
-                </div>
+            <div className="relative w-full max-w-lg mx-auto">
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80">
+                <img
+                  src={import.meta.env.BASE_URL + "images/cleaners.png"}
+                  alt="PuraClean professional house cleaners"
+                  className="w-full h-auto object-cover"
+                />
               </div>
 
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" as const }}
-                className="absolute top-4 right-8 bg-white rounded-2xl shadow-lg px-4 py-3 border border-border"
+                className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-lg px-4 py-3 border border-border z-20"
               >
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-teal" />
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
+                    ))}
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-foreground">Eco-Friendly</p>
-                    <p className="text-[10px] text-muted-foreground">Safe products</p>
+                    <p className="text-xs font-bold text-foreground">1,500+ Reviews</p>
                   </div>
                 </div>
               </motion.div>
@@ -111,15 +99,15 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" as const, delay: 0.5 }}
-                className="absolute bottom-8 left-0 bg-white rounded-2xl shadow-lg px-4 py-3 border border-border"
+                className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-4 py-3 border border-border z-20"
               >
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Shield className="w-4 h-4 text-primary" />
+                  <div className="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center">
+                    <Shield className="w-4 h-4 text-teal" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-foreground">Insured & Bonded</p>
-                    <p className="text-[10px] text-muted-foreground">100% protected</p>
+                    <p className="text-xs font-bold text-foreground">14 Years Strong</p>
+                    <p className="text-[10px] text-muted-foreground">Family owned</p>
                   </div>
                 </div>
               </motion.div>
