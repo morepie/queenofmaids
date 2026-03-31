@@ -1,24 +1,18 @@
+import { Route, Switch } from 'wouter';
 import Layout from '@/components/layout/Layout';
-import Hero from '@/components/sections/Hero';
-import OurServices from '@/components/sections/OurServices';
-import HowToBook from '@/components/sections/HowToBook';
-import CleaningPlans from '@/components/sections/CleaningPlans';
-import ServiceAreaMap from '@/components/sections/ServiceAreaMap';
-import Reviews from '@/components/sections/Reviews';
-import FAQ from '@/components/sections/FAQ';
-import CTA from '@/components/sections/CTA';
+import Home from '@/pages/Home';
+import Services from '@/pages/Services';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 function App() {
   return (
     <Layout>
-      <Hero />
-      <CleaningPlans />
-      <OurServices />
-      <HowToBook />
-      <ServiceAreaMap />
-      <Reviews />
-      <FAQ />
-      <CTA />
+      <Switch>
+        <Route path={base + '/services'} component={Services} />
+        <Route path={base + '/'} component={Home} />
+        <Route component={Home} />
+      </Switch>
     </Layout>
   );
 }
