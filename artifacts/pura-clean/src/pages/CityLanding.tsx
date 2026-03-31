@@ -1,13 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'wouter';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Star, Shield, CheckCircle, Clock, Sparkles, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Star, Shield, CheckCircle, Clock, Sparkles, Phone, Mail, MapPin, ArrowRight, ChevronDown, Users, Calendar, Repeat, Award } from 'lucide-react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLocation } from 'wouter';
 import { findCityBySlug } from '@/data/metros';
-import { cleaningPlans } from '@/data/content';
+import { cleaningPlans, reviews, aggregateRating } from '@/data/content';
 import { cn } from '@/lib/utils';
 import CTA from '@/components/sections/CTA';
 
@@ -49,13 +49,40 @@ function CityMap({ lat, lng, cityName }: { lat: number; lng: number; cityName: s
   return <div ref={mapRef} className="w-full h-[300px] md:h-[400px]" />;
 }
 
+function FAQItem({ question, answer, defaultOpen = false }: { question: string; answer: string; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div className="border border-border rounded-xl overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-muted/30 transition-colors"
+      >
+        <span className="font-semibold text-sm text-foreground">{question}</span>
+        <ChevronDown className={cn("w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200", open && "rotate-180")} />
+      </button>
+      {open && (
+        <div className="px-5 pb-4">
+          <p className="text-sm text-muted-foreground leading-relaxed">{answer}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 const services = [
-  'Standard House Cleaning',
-  'Deep Cleaning',
-  'Move In/Out Cleaning',
-  'Recurring Cleaning',
-  'Vacation Rental Cleaning',
-  'Custom Cleanings',
+  { name: 'Standard House Cleaning', desc: 'Regular upkeep for a consistently clean home' },
+  { name: 'Deep Cleaning', desc: 'Thorough top-to-bottom cleaning of every room' },
+  { name: 'Move In/Out Cleaning', desc: 'Get your deposit back or start fresh' },
+  { name: 'Recurring Cleaning', desc: 'Weekly, biweekly, or monthly service' },
+  { name: 'Vacation Rental Cleaning', desc: 'Turnover cleaning between guests' },
+  { name: 'Custom Cleanings', desc: 'Tailored to your specific needs' },
+];
+
+const howItWorks = [
+  { icon: Phone, title: 'Get a Free Quote', desc: 'Call us or request a quote online. We\'ll discuss your home and needs.' },
+  { icon: Calendar, title: 'Schedule Your Clean', desc: 'Pick a date and time that works for you. Same-week availability.' },
+  { icon: Users, title: 'Meet Your Cleaner', desc: 'Your vetted, background-checked cleaner arrives on time, every time.' },
+  { icon: Sparkles, title: 'Enjoy Your Clean Home', desc: 'Come home to a spotless space. Backed by our 200% Happiness Guarantee.' },
 ];
 
 export default function CityLanding() {
@@ -87,6 +114,43 @@ export default function CityLanding() {
   const pageTitle = `House Cleaning in ${city.name}, ${metro.stateAbbr} | PuraClean`;
   const pageDescription = `Professional house cleaning services in ${city.name}, ${metro.state}. Vetted cleaners, flexible scheduling, and a 200% Happiness Guarantee. Serving the ${metro.name} metro area for 14+ years.`;
 
+  const cityReviews = reviews.slice(0, 6);
+
+  const faqs = [
+    {
+      q: `How much does house cleaning cost in ${city.name}?`,
+      a: `Our house cleaning plans in ${city.name}, ${metro.stateAbbr} start at $99/biweekly for a Partial Clean. Our most popular plan is the Full Clean at $149/biweekly, which covers every room top to bottom. We also offer a Full Premium plan at $179/biweekly with extras like oven, fridge, and window cleaning. One-time deep cleans and move in/out cleans are quoted based on home size.`,
+    },
+    {
+      q: `Do you provide cleaning supplies and equipment in ${city.name}?`,
+      a: `Yes! Our ${city.name} cleaning teams bring all supplies and professional-grade equipment. We use eco-friendly, non-toxic cleaning products that are safe for kids, pets, and the environment. If you have preferred products you'd like us to use, just let us know.`,
+    },
+    {
+      q: `Are your ${city.name} cleaners background-checked?`,
+      a: `Absolutely. Every PuraClean cleaner serving ${city.name} and the ${metro.name} metro area undergoes a thorough background check, identity verification, and in-person interview. All cleaners are fully insured and bonded for your protection.`,
+    },
+    {
+      q: `How do I schedule a house cleaning in ${city.name}?`,
+      a: `Getting started is easy. Call our ${metro.name} office at ${metro.phone} or request a quote online. We'll discuss your home, your needs, and find a time that works for you. Most ${city.name} homes can be scheduled within the same week.`,
+    },
+    {
+      q: `What is your cancellation policy for ${city.name} cleanings?`,
+      a: `We understand plans change. You can cancel or reschedule your ${city.name} cleaning with at least 24 hours' notice at no charge. Our recurring plans have no long-term contracts — you can pause or cancel anytime.`,
+    },
+    {
+      q: `What does your Happiness Guarantee cover in ${city.name}?`,
+      a: `Our 200% Happiness Guarantee means if you're not satisfied with any cleaning in your ${city.name} home, we'll come back and redo it for free within 24 hours. If you're still not happy after the redo, we'll give you a full refund — no questions asked.`,
+    },
+    {
+      q: `Do you offer one-time cleaning services in ${city.name}?`,
+      a: `Yes! While many ${city.name} homeowners choose our recurring biweekly plans, we also offer one-time deep cleans, move in/out cleans, post-construction cleans, and vacation rental turnovers. Call us for a custom quote based on your home size and needs.`,
+    },
+    {
+      q: `Will I get the same cleaner each visit in ${city.name}?`,
+      a: `Yes. We assign each ${city.name} home a dedicated cleaner who learns your space, preferences, and priorities. Consistency means better results with every visit. If you ever want to switch cleaners, just let us know — no questions asked.`,
+    },
+  ];
+
   return (
     <>
       <Helmet>
@@ -100,6 +164,8 @@ export default function CityLanding() {
         <meta name="twitter:description" content={pageDescription} />
         <link rel="canonical" href={`https://puraclean.com/house-cleaning/${city.slug}`} />
       </Helmet>
+
+      {/* HERO */}
       <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,13 +192,14 @@ export default function CityLanding() {
                 >
                   Get a Free Quote
                 </a>
-                <button
-                  onClick={() => setLocation(base + '/plans')}
+                <a
+                  href={base + '/plans'}
+                  onClick={(e) => { e.preventDefault(); setLocation(base + '/plans'); }}
                   className="px-8 py-3.5 rounded-full bg-card text-foreground text-base font-bold shadow-lg border border-border flex items-center gap-2 group hover:-translate-y-1 transition-all duration-300"
                 >
                   View Plans
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
@@ -164,9 +231,52 @@ export default function CityLanding() {
         </div>
       </section>
 
+      {/* HOW IT WORKS */}
       <section className="py-14 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+              Simple Process
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight">
+              How House Cleaning Works in {city.name}
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+              Getting a clean home in {city.name} is easy. Here's how it works.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {howItWorks.map((step, i) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center relative">
+                  <step.icon className="w-6 h-6 text-primary" />
+                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-teal text-white text-xs font-bold flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                </div>
+                <h3 className="font-semibold text-foreground text-sm mb-1">{step.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="py-14 md:py-20 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+              Our Services
+            </span>
             <h2 className="text-3xl font-bold tracking-tight">
               House Cleaning Services in {city.name}
             </h2>
@@ -177,25 +287,38 @@ export default function CityLanding() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {services.map((service, i) => (
-              <motion.div
-                key={service}
+              <motion.a
+                key={service.name}
+                href={base + '/services'}
+                onClick={(e) => { e.preventDefault(); setLocation(base + '/services'); }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="bg-card rounded-xl border border-border p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-                onClick={() => setLocation(base + '/services')}
+                className="bg-card rounded-xl border border-border p-5 shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
               >
                 <CheckCircle className="w-5 h-5 text-teal mb-2" />
-                <p className="text-sm font-semibold text-foreground">{service}</p>
-                <p className="text-xs text-muted-foreground mt-1">in {city.name}, {metro.stateAbbr}</p>
-              </motion.div>
+                <p className="text-sm font-semibold text-foreground">{service.name}</p>
+                <p className="text-xs text-muted-foreground mt-1">{service.desc}</p>
+                <p className="text-xs text-primary font-medium mt-2">in {city.name}, {metro.stateAbbr}</p>
+              </motion.a>
             ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <a
+              href={base + '/services'}
+              onClick={(e) => { e.preventDefault(); setLocation(base + '/services'); }}
+              className="text-sm font-semibold text-primary hover:underline"
+            >
+              View all services in detail &rarr;
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-muted/30">
+      {/* PRICING */}
+      <section className="py-14 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
@@ -223,7 +346,7 @@ export default function CityLanding() {
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1 px-4 py-1 rounded-full bg-teal text-white text-xs font-bold uppercase tracking-wider">
-                      <Star className="w-3 h-3 fill-current" /> Most Popular
+                      <Star className="w-3 h-3 fill-current" /> Most Popular in {city.name}
                     </span>
                   </div>
                 )}
@@ -256,32 +379,40 @@ export default function CityLanding() {
           </div>
 
           <div className="mt-6 text-center">
-            <button
-              onClick={() => setLocation(base + '/plans')}
+            <a
+              href={base + '/plans'}
+              onClick={(e) => { e.preventDefault(); setLocation(base + '/plans'); }}
               className="text-sm font-semibold text-primary hover:underline"
             >
               View full plan comparison &rarr;
-            </button>
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-background">
+      {/* WHY CHOOSE US */}
+      <section className="py-14 md:py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+                Why PuraClean
+              </span>
+              <h2 className="text-3xl font-bold tracking-tight mb-6">
                 Why {city.name} Homeowners Choose PuraClean
               </h2>
               <div className="space-y-5">
                 {[
-                  { title: '14+ Years of Experience', desc: `We've been cleaning homes in the ${metro.name} metro area for over 14 years. We know what ${city.name} homeowners expect and we deliver every time.` },
-                  { title: 'Vetted & Background-Checked', desc: 'Every cleaner on our team is thoroughly vetted, background-checked, insured, and bonded for your peace of mind.' },
-                  { title: '200% Happiness Guarantee', desc: "Not happy with a clean? We'll come back and redo it for free. Still not satisfied? Full refund — no questions asked." },
-                  { title: 'Same Cleaner Every Visit', desc: `Your assigned cleaner learns your ${city.name} home inside and out, so each visit is better than the last.` },
+                  { icon: Award, title: '14+ Years of Experience', desc: `We've been cleaning homes in the ${metro.name} metro area for over 14 years. We know what ${city.name} homeowners expect and we deliver every time.` },
+                  { icon: Shield, title: 'Vetted & Background-Checked', desc: `Every cleaner serving ${city.name} is thoroughly vetted, background-checked, insured, and bonded for your peace of mind.` },
+                  { icon: Sparkles, title: '200% Happiness Guarantee', desc: `Not happy with a clean in your ${city.name} home? We'll come back and redo it for free. Still not satisfied? Full refund — no questions asked.` },
+                  { icon: Repeat, title: 'Same Cleaner Every Visit', desc: `Your assigned cleaner learns your ${city.name} home inside and out, so each visit is better than the last.` },
+                  { icon: Clock, title: 'Flexible Scheduling', desc: `We work around your schedule. Morning, afternoon, or evening — we'll find a time that works for your ${city.name} household.` },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-teal mt-1 flex-shrink-0" />
+                    <div className="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <item.icon className="w-4 h-4 text-teal" />
+                    </div>
                     <div>
                       <h3 className="font-semibold text-foreground text-sm">{item.title}</h3>
                       <p className="text-sm text-muted-foreground mt-0.5">{item.desc}</p>
@@ -312,17 +443,124 @@ export default function CityLanding() {
               >
                 Call for a Free Quote
               </a>
+
+              <div className="mt-6 pt-5 border-t border-border">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                  <span className="text-sm font-bold">{aggregateRating.score}/5</span>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Rated {aggregateRating.score}/5 based on {aggregateRating.totalReviews.toLocaleString()}+ reviews from {metro.name} area homeowners
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* REVIEWS */}
+      <section className="py-14 md:py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+              Reviews
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight">
+              What {metro.name} Area Homeowners Say
+            </h2>
+            <div className="mt-4 flex items-center justify-center gap-3">
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className={cn(
+                      "w-5 h-5",
+                      i < Math.floor(aggregateRating.score) ? "text-yellow-400 fill-yellow-400" : "text-yellow-400/30"
+                    )}
+                  />
+                ))}
+              </div>
+              <span className="text-lg font-bold text-foreground">{aggregateRating.score}</span>
+              <span className="text-muted-foreground text-sm">({aggregateRating.totalReviews.toLocaleString()}+ reviews)</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {cityReviews.map((review, i) => (
+              <motion.div
+                key={review.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="bg-card rounded-xl border border-border p-5 shadow-sm"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-sm font-bold text-primary">{review.initials}</span>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{review.name}</p>
+                    <p className="text-xs text-muted-foreground">{review.date}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-0.5 mb-2">
+                  {[...Array(5)].map((_, j) => (
+                    <Star
+                      key={j}
+                      className={cn(
+                        "w-3.5 h-3.5",
+                        j < review.rating ? "text-yellow-400 fill-yellow-400" : "text-yellow-400/30"
+                      )}
+                    />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{review.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-14 md:py-20 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+                FAQ
+              </span>
+              <h2 className="text-3xl font-bold tracking-tight">
+                House Cleaning FAQ for {city.name}, {metro.stateAbbr}
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                Common questions about our cleaning services in {city.name}.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <FAQItem key={i} question={faq.q} answer={faq.a} defaultOpen={i === 0} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEARBY CITIES */}
       {nearbyCities.length > 0 && (
-        <section className="py-14 md:py-20 bg-muted/30">
+        <section className="py-14 md:py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold tracking-tight text-center mb-8">
+            <h2 className="text-2xl font-bold tracking-tight text-center mb-3">
               Also Serving Nearby {metro.name} Cities
             </h2>
+            <p className="text-center text-muted-foreground text-sm mb-8 max-w-xl mx-auto">
+              PuraClean proudly serves homes across the entire {metro.name} metro area. Click any city below to learn more about our services there.
+            </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               {nearbyCities.map(c => (
                 <a
