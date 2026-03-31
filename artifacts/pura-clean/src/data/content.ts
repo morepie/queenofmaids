@@ -240,5 +240,5 @@ export const serviceCities: ServiceCity[] = [
 
 export const aggregateRating = {
   score: 4.9,
-  totalReviews: 431,
+  totalReviews: 1500,
 };
