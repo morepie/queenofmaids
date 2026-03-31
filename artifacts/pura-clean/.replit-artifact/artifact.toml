@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/pura-clean/"
+title = "PuraClean"
+version = "1.0.0"
+id = "artifacts/pura-clean"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/pura-clean/" ]
+localPort = 20411
+
+[services.development]
+run = "pnpm --filter @workspace/pura-clean run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/pura-clean", "run", "build" ]
+publicDir = "artifacts/pura-clean/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20411"
+BASE_PATH = "/pura-clean/"

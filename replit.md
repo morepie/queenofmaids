@@ -108,3 +108,17 @@ Marketing website for Pura Drip mobile IV therapy. React + Vite + Tailwind CSS.
 - **Cart state**: `CartContext` tracks selected treatments; cart badge shown in navbar; "Add to Cart" buttons on treatment cards and detail pages
 - **Booking**: `BookingContext` navigates to `/cart` page; all "Book Now" buttons across the site navigate to booking
 - **Images**: `public/images/pura-iv-placeholder.png` (product + hero)
+
+### `artifacts/pura-clean` (`@workspace/pura-clean`)
+
+Marketing website for PuraClean house cleaning service in the Phoenix AZ metro area. React + Vite + Tailwind CSS. Shares design DNA with Pura Drip (same color palette, Inter font, rounded cards).
+
+- **Sections**: Hero, Cleaning Plans (3 tiers), Service Area Map (Leaflet/OpenStreetMap), Reviews (horizontally scrollable), CTA, Footer
+- **Color palette**: primary = bubblegum pink `#FC6471`, teal accent `#4BA8A8`
+- **Font**: Inter
+- **Data**: Static data in `src/data/content.ts` — 3 cleaning plans, 8 reviews, 13 service cities, aggregate rating
+- **Map**: Leaflet + OpenStreetMap with custom pink pin markers for Phoenix metro service cities
+- **Cleaning Plans**: Partial Clean ($99/biweekly), Full Clean ($149/biweekly, most popular), Full Premium ($179/biweekly)
+- **Reviews**: Horizontally scrollable review cards with aggregate 4.9 rating (431 reviews)
+- **Layout**: `overflow-x: clip` on Layout (NOT `overflow-x: hidden`) to preserve CSS sticky positioning
+- **No backend**: Static marketing site with CTA buttons ("Get a Quote") — no booking flow
