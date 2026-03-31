@@ -1,23 +1,48 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'wouter';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
+import { dropdownServices } from '@/data/services';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location, setLocation] = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   const isHome = location === base + '/' || location === base || location === '/';
+  const isServicesPage = location.startsWith(base + '/services');
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
+  };
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
@@ -42,19 +67,11 @@ export default function Navbar() {
     }
   };
 
-  const goToServices = () => {
+  const navigate = (path: string) => {
     setMobileOpen(false);
-    setLocation(base + '/services');
-  };
-
-  const goToPlans = () => {
-    setMobileOpen(false);
-    setLocation(base + '/plans');
-  };
-
-  const goToServiceAreas = () => {
-    setMobileOpen(false);
-    setLocation(base + '/service-areas');
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
+    setLocation(base + path);
   };
 
   return (
@@ -73,17 +90,64 @@ export default function Navbar() {
           </button>
 
           <nav className="hidden md:flex items-center gap-8">
-            <button
-              onClick={goToServices}
-              className={cn(
-                "text-sm font-semibold transition-colors hover:text-primary",
-                location === base + '/services' ? "text-primary" : "text-foreground/80"
-              )}
+            <div
+              ref={dropdownRef}
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              Services
-            </button>
+              <button
+                onClick={() => navigate('/services')}
+                className={cn(
+                  "text-sm font-semibold transition-colors hover:text-primary flex items-center gap-1",
+                  isServicesPage ? "text-primary" : "text-foreground/80"
+                )}
+              >
+                Services
+                <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", servicesOpen && "rotate-180")} />
+              </button>
+
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[420px] bg-card rounded-xl border border-border shadow-xl p-4"
+                  >
+                    <a
+                      href={base + '/services'}
+                      onClick={(e) => { e.preventDefault(); navigate('/services'); }}
+                      className="block px-3 py-2 rounded-lg text-sm font-bold text-foreground hover:bg-muted transition-colors mb-1"
+                    >
+                      View All Services
+                    </a>
+                    <hr className="border-border mb-2" />
+                    <div className="grid grid-cols-2 gap-1">
+                      {dropdownServices.map(s => (
+                        <a
+                          key={s.slug}
+                          href={base + '/services/' + s.slug}
+                          onClick={(e) => { e.preventDefault(); navigate('/services/' + s.slug); }}
+                          className={cn(
+                            "block px-3 py-2 rounded-lg text-sm transition-colors",
+                            location === base + '/services/' + s.slug
+                              ? "text-primary font-semibold bg-primary/5"
+                              : "text-foreground/70 hover:text-foreground hover:bg-muted"
+                          )}
+                        >
+                          {s.label}
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <button
-              onClick={goToPlans}
+              onClick={() => navigate('/plans')}
               className={cn(
                 "text-sm font-semibold transition-colors hover:text-primary",
                 location === base + '/plans' ? "text-primary" : "text-foreground/80"
@@ -92,10 +156,11 @@ export default function Navbar() {
               Plans
             </button>
             <button
-              onClick={goToServiceAreas}
+              onClick={() => navigate('/service-areas')}
               className={cn(
                 "text-sm font-semibold transition-colors hover:text-primary",
-                location === base + '/service-areas' ? "text-primary" : "text-foreground/80"
+                location === base + '/service-areas' || location.startsWith(base + '/house-cleaning/')
+                  ? "text-primary" : "text-foreground/80"
               )}
             >
               Service Areas
@@ -107,7 +172,7 @@ export default function Navbar() {
               Reviews
             </button>
             <button
-              onClick={goToPlans}
+              onClick={() => navigate('/plans')}
               className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               Get a Quote
@@ -134,21 +199,57 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background border-b border-border overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 flex flex-col gap-4">
+            <div className="px-4 pt-2 pb-6 flex flex-col gap-1">
               <button
-                onClick={goToServices}
-                className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left"
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left flex items-center justify-between"
               >
                 Services
+                <ChevronDown className={cn("w-4 h-4 transition-transform", mobileServicesOpen && "rotate-180")} />
               </button>
+
+              <AnimatePresence>
+                {mobileServicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pl-6 flex flex-col gap-1 mb-1">
+                      <button
+                        onClick={() => navigate('/services')}
+                        className="px-4 py-2.5 rounded-xl text-sm font-bold text-foreground hover:bg-muted text-left"
+                      >
+                        View All Services
+                      </button>
+                      {dropdownServices.map(s => (
+                        <button
+                          key={s.slug}
+                          onClick={() => navigate('/services/' + s.slug)}
+                          className={cn(
+                            "px-4 py-2.5 rounded-xl text-sm text-left transition-colors",
+                            location === base + '/services/' + s.slug
+                              ? "text-primary font-semibold"
+                              : "text-foreground/70 hover:bg-muted"
+                          )}
+                        >
+                          {s.label}
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <button
-                onClick={goToPlans}
+                onClick={() => navigate('/plans')}
                 className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left"
               >
                 Plans
               </button>
               <button
-                onClick={goToServiceAreas}
+                onClick={() => navigate('/service-areas')}
                 className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left"
               >
                 Service Areas
@@ -160,7 +261,7 @@ export default function Navbar() {
                 Reviews
               </button>
               <button
-                onClick={goToPlans}
+                onClick={() => navigate('/plans')}
                 className="mt-4 px-4 py-4 rounded-xl bg-primary text-primary-foreground font-semibold shadow-md w-full text-center"
               >
                 Get a Quote

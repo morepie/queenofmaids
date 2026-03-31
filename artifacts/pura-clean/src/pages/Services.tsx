@@ -1,95 +1,15 @@
 import { useEffect } from 'react';
+import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import {
-  SprayCan, Sparkles, Truck, CalendarClock, Home,
-  Calendar, CalendarDays, CalendarCheck, ClipboardList, Settings
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { services } from '@/data/services';
 import CTA from '@/components/sections/CTA';
 
-const services = [
-  {
-    icon: SprayCan,
-    slug: 'standard-cleaning',
-    title: 'Standard Cleaning',
-    tagline: 'The essentials, done right every time.',
-    description: 'Our Standard Cleaning covers all the basics your home needs to stay fresh and tidy. We dust surfaces, vacuum and mop all floors, clean and sanitize bathrooms, wipe down kitchen counters and appliances, and take out trash. Perfect for homes that are already in good shape and just need regular upkeep.',
-    includes: ['Dusting all reachable surfaces', 'Vacuuming & mopping floors', 'Bathroom cleaning & sanitization', 'Kitchen counter & sink wipe-down', 'Trash removal', 'General tidying'],
-  },
-  {
-    icon: Sparkles,
-    slug: 'deep-cleaning',
-    title: 'Deep Cleaning',
-    tagline: 'A top-to-bottom reset for your home.',
-    description: 'Our Deep Cleaning service goes beyond the surface. We scrub grout, clean inside appliances, detail baseboards, wipe light fixtures, deep-clean behind furniture, and tackle all the areas that get missed during regular cleaning. Ideal for first-time clients or homes that haven\'t been professionally cleaned in a while.',
-    includes: ['Everything in Standard Cleaning', 'Inside oven & microwave', 'Baseboard & door frame detailing', 'Light fixture & ceiling fan dusting', 'Behind & under furniture', 'Cabinet exterior wipe-down', 'Window sill & track cleaning'],
-  },
-  {
-    icon: Truck,
-    slug: 'move-in-out-cleaning',
-    title: 'Move In/Out Cleaning',
-    tagline: 'Start fresh or leave it spotless.',
-    description: 'Moving is stressful enough — let us handle the cleaning. Our Move In/Out service ensures every inch of the home is spotless, from inside closets and cabinets to appliance interiors and all flooring. Whether you\'re preparing a home for new tenants or moving into a new place, we\'ll make sure it\'s move-in ready.',
-    includes: ['Full deep clean of all rooms', 'Inside all cabinets & closets', 'Inside refrigerator, oven & dishwasher', 'Window cleaning (interior)', 'Garage sweep (if applicable)', 'Baseboard & trim detailing', 'Light fixture cleaning'],
-  },
-  {
-    icon: CalendarClock,
-    slug: 'recurring-cleaning',
-    title: 'Recurring Cleaning',
-    tagline: 'Consistent cleaning on your schedule.',
-    description: 'Set it and forget it. Our Recurring Cleaning plans keep your home consistently clean with regularly scheduled visits. Choose weekly, biweekly, or monthly frequency — and enjoy savings over one-time bookings. We assign the same trusted cleaner to your home so they learn your preferences over time.',
-    includes: ['Customizable frequency', 'Same cleaner assigned', 'Priority scheduling', 'Plan member discounts', 'Flexible rescheduling', 'All Standard Cleaning tasks'],
-  },
-  {
-    icon: Home,
-    slug: 'vacation-rental-cleaning',
-    title: 'Vacation Rental Cleaning',
-    tagline: '5-star turnover, every time.',
-    description: 'Keep your Airbnb, VRBO, or vacation rental guest-ready with our turnover cleaning service. We handle linens, restock essentials, deep-clean kitchens and bathrooms, and make sure every detail is perfect for your next guest. Fast turnaround times to fit between bookings.',
-    includes: ['Full property cleaning', 'Linen change & bed making', 'Restocking toiletries & supplies', 'Kitchen & appliance cleaning', 'Bathroom deep clean', 'Trash removal & dishwasher run', 'Checklist photo verification'],
-  },
-  {
-    icon: Calendar,
-    slug: 'monthly-cleaning',
-    title: 'Monthly Cleaning',
-    tagline: 'Once a month, thoroughly done.',
-    description: 'Our Monthly Cleaning plan is perfect for homeowners who maintain their own home day-to-day but want a professional deep touch once a month. Each visit includes a thorough cleaning of all rooms with extra attention to detail — keeping your home in great shape without the weekly commitment.',
-    includes: ['Thorough whole-home clean', 'Extra attention to detail areas', 'Baseboard & surface dusting', 'Bathroom & kitchen deep clean', 'Floor care throughout', 'Flexible date scheduling'],
-  },
-  {
-    icon: CalendarDays,
-    slug: 'biweekly-cleaning',
-    title: 'Biweekly Cleaning',
-    tagline: 'The sweet spot for most homes.',
-    description: 'Our most popular frequency. Biweekly cleaning keeps your home consistently clean without overdoing it. Every two weeks, your assigned cleaner arrives and handles everything — dusting, mopping, bathrooms, kitchen, and more. Most clients find this is the perfect balance of clean and convenient.',
-    includes: ['All Standard Cleaning tasks', 'Same cleaner each visit', 'Biweekly scheduling', 'Plan member pricing', 'Priority rebooking', 'Customizable task list'],
-  },
-  {
-    icon: CalendarCheck,
-    slug: 'weekly-cleaning',
-    title: 'Weekly Cleaning',
-    tagline: 'A spotless home, every single week.',
-    description: 'For busy families, pet owners, or anyone who loves coming home to a perfectly clean house — our Weekly Cleaning plan is the ultimate convenience. Your cleaner visits the same day each week, handling all standard tasks plus any special requests. The most hands-off way to keep your home pristine.',
-    includes: ['All Standard Cleaning tasks', 'Dedicated weekly cleaner', 'Best per-visit pricing', 'Priority scheduling', 'Custom preferences saved', 'Add-on services available'],
-  },
-  {
-    icon: ClipboardList,
-    slug: 'basic-cleaning',
-    title: 'Basic Cleaning',
-    tagline: 'Quick, efficient, and affordable.',
-    description: 'Need a quick refresh without the full service? Our Basic Cleaning covers the high-traffic essentials — bathrooms, kitchen surfaces, and floors. Great for small apartments, between deeper cleans, or when you just need a helping hand. In and out, with visible results.',
-    includes: ['Bathroom sanitization', 'Kitchen counters & sink', 'Floor vacuuming & mopping', 'Surface dusting', 'Trash removal', 'Quick tidy of living areas'],
-  },
-  {
-    icon: Settings,
-    slug: 'custom-cleanings',
-    title: 'Custom Cleanings',
-    tagline: 'Your home, your rules.',
-    description: 'Have specific needs that don\'t fit a standard package? Our Custom Cleaning service lets you build your own cleaning plan. Tell us exactly which rooms, tasks, or areas you want us to focus on, and we\'ll tailor a visit just for you. Perfect for post-party cleanups, seasonal deep cleans, or unique requests.',
-    includes: ['Choose specific rooms & tasks', 'Custom scheduling', 'Post-event cleanup', 'Seasonal deep clean', 'Organizing & decluttering add-on', 'Flexible pricing based on scope'],
-  },
-];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 export default function Services() {
+  const [, setLocation] = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -110,7 +30,7 @@ export default function Services() {
               Cleaning Services for <span className="text-primary">Every Need</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              From quick refreshes to full deep cleans, we offer a range of professional cleaning services across the Phoenix metro area. Every service comes with our 200% Happiness Guarantee.
+              From quick refreshes to full deep cleans, we offer a range of professional cleaning services. Every service comes with our 200% Happiness Guarantee.
             </p>
           </motion.div>
         </div>
@@ -142,6 +62,14 @@ export default function Services() {
                   <p className="text-muted-foreground leading-relaxed mt-4">
                     {service.description}
                   </p>
+                  <a
+                    href={base + '/services/' + service.slug}
+                    onClick={(e) => { e.preventDefault(); setLocation(base + '/services/' + service.slug); }}
+                    className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-primary hover:underline group"
+                  >
+                    Learn more about {service.title}
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </div>
 
                 <div className="lg:col-span-2">
