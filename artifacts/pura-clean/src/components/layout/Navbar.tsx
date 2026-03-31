@@ -52,6 +52,11 @@ export default function Navbar() {
     setLocation(base + '/plans');
   };
 
+  const goToServiceAreas = () => {
+    setMobileOpen(false);
+    setLocation(base + '/service-areas');
+  };
+
   return (
     <header
       className={cn(
@@ -87,8 +92,11 @@ export default function Navbar() {
               Plans
             </button>
             <button
-              onClick={() => scrollTo('service-areas')}
-              className="text-sm font-semibold transition-colors hover:text-primary text-foreground/80"
+              onClick={goToServiceAreas}
+              className={cn(
+                "text-sm font-semibold transition-colors hover:text-primary",
+                location === base + '/service-areas' ? "text-primary" : "text-foreground/80"
+              )}
             >
               Service Areas
             </button>
@@ -140,7 +148,7 @@ export default function Navbar() {
                 Plans
               </button>
               <button
-                onClick={() => scrollTo('service-areas')}
+                onClick={goToServiceAreas}
                 className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left"
               >
                 Service Areas
