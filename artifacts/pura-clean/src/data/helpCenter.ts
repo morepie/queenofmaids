@@ -30,7 +30,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'What forms of payment are accepted?',
-        a: 'All major credit cards and debit cards can be used to reserve and pay for your cleaning. Payment will only be collected on the day of your appointment. We are unable to create an appointment without a valid credit card at the time of booking. Cash, Venmo, PayPal, and checks are not accepted.',
+        a: 'All major credit cards and debit cards can be used to reserve and pay for your cleaning. A card is required at booking to hold your spot since our services are in high demand. Payment will only be collected on the day of your appointment. Cash, Venmo, PayPal, and checks are not accepted.',
       },
       {
         q: 'What areas do you cover?',
@@ -74,7 +74,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'When will my credit card be charged?',
-        a: 'A credit card is required to make and reserve an appointment, but your card will not be charged until the day of your appointment.',
+        a: 'A credit card is required to hold your spot when booking — our services are in high demand and this ensures your appointment is reserved. Your card will not be charged until the day of your appointment. Please note that if you cancel within 24 hours of your scheduled cleaning, a late cancellation fee applies. Late cancellations result in lost income for our cleaning professionals who work hard to make a living, so we ask for as much notice as possible if your plans change.',
       },
       {
         q: 'I have a coupon code or gift code. How do I use it?',
@@ -98,7 +98,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'Are there any cancellation fees?',
-        a: 'If you need to cancel or reschedule your appointment, you can do so online at queenofmaids.com/book/update-booking/. There is a late cancellation fee that is automatically charged if you cancel or reschedule your appointment with less than 24 hours notice. We recommend making changes as early as possible to avoid any fees.',
+        a: 'If you need to cancel or reschedule your appointment, you can do so online at queenofmaids.com/book/update-booking/. There is a late cancellation fee if you cancel or reschedule with less than 24 hours notice. This is because a late cancellation results in lost income for our cleaning professionals who depend on these appointments to make a living. We ask for as much notice as possible if your plans change.',
       },
       {
         q: 'I am not happy with my cleaning. What can be done?',
