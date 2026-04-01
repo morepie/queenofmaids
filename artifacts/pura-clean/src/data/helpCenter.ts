@@ -42,7 +42,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'How do I contact Queen of Maids?',
-        a: 'You can reach your local team by phone during business hours (8 AM to 5 PM, Monday through Friday). Phoenix & Scottsdale: (480) 999-5044. Salt Lake City: (801) 477-7221. Las Vegas: (702) 903-2917. Denver: (720) 809-7784. You can also email us at contact@queenofmaids.com.',
+        a: 'Head to our Service Areas page to find the phone number for your local team. Our business hours are 8 AM to 5 PM, Monday through Friday, in each local time zone. You can also email us anytime at contact@queenofmaids.com.',
       },
     ],
   },
