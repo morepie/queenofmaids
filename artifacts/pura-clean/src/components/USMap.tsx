@@ -7,11 +7,17 @@ interface USMapProps {
   onMetroClick: (slug: string) => void;
 }
 
+const ICON_W = 160;
+const LABEL_H = 30;
+const STEM_H = 8;
+const DOT_H = 10;
+const TOTAL_H = LABEL_H + STEM_H + DOT_H;
+
 function createMetroIcon(name: string, isActive: boolean) {
   return L.divIcon({
     className: '',
     html: `
-      <div style="display:flex;flex-direction:column;align-items:center;position:relative;left:-50%;width:max-content;">
+      <div style="width:${ICON_W}px;height:${TOTAL_H}px;display:flex;flex-direction:column;align-items:center;">
         <div style="
           background:hsl(355,97%,69%);
           color:white;
@@ -27,23 +33,12 @@ function createMetroIcon(name: string, isActive: boolean) {
           transition:transform 0.2s;
           ${isActive ? 'transform:scale(1.1);' : ''}
         ">${name}</div>
-        <div style="
-          width:2px;
-          height:8px;
-          background:hsl(355,97%,69%);
-        "></div>
-        <div style="
-          width:10px;
-          height:10px;
-          background:hsl(355,97%,69%);
-          border:2px solid white;
-          border-radius:50%;
-          box-shadow:0 2px 6px rgba(0,0,0,0.3);
-        "></div>
+        <div style="width:2px;height:${STEM_H}px;background:hsl(355,97%,69%);"></div>
+        <div style="width:${DOT_H}px;height:${DOT_H}px;background:hsl(355,97%,69%);border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>
       </div>
     `,
-    iconSize: [0, 0],
-    iconAnchor: [0, 48],
+    iconSize: [ICON_W, TOTAL_H],
+    iconAnchor: [ICON_W / 2, TOTAL_H - DOT_H / 2],
   });
 }
 
