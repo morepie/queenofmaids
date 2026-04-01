@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import {
   Check, X, Star, ArrowRight, Sparkles, DollarSign,
-  Crown, FileText, Users, CalendarClock
+  Crown, FileText, Users, CalendarClock, CalendarCheck, Clock, Home
 } from 'lucide-react';
 import { cleaningPlans } from '@/data/content';
 import { cn } from '@/lib/utils';
@@ -24,22 +24,38 @@ const howItWorks = [
   {
     step: 1,
     title: 'Choose Your Clean',
-    description: 'Book a one-time deep clean or pick a monthly membership that matches your home size and cleaning preferences. Not sure which fits? Give us a call — we\'ll walk you through it.',
+    description: 'Book a one-time deep clean or pick a weekly, biweekly, or monthly membership that matches your home size and cleaning preferences. Not sure which fits? Give us a call — we\'ll walk you through it.',
+    icon: CalendarCheck,
+    gradient: 'from-fuchsia-500 to-purple-600',
+    iconBg: 'bg-fuchsia-100',
+    iconColor: 'text-fuchsia-600',
   },
   {
     step: 2,
     title: 'Save Big on Your First Deep Clean',
     description: 'Your first cleaning is always a deep clean — and members get it at a fraction of the regular price. Lock in your discounted rate from day one and start saving right away.',
+    icon: Sparkles,
+    gradient: 'from-violet-500 to-indigo-600',
+    iconBg: 'bg-violet-100',
+    iconColor: 'text-violet-600',
   },
   {
     step: 3,
     title: 'Lock In Your Preferred Day',
     description: 'Tell us which day works best. We\'ll reserve that slot for you every month, so your cleaning happens like clockwork — no rebooking required.',
+    icon: Clock,
+    gradient: 'from-purple-500 to-pink-600',
+    iconBg: 'bg-purple-100',
+    iconColor: 'text-purple-600',
   },
   {
     step: 4,
     title: 'Come Home to Clean',
     description: 'That\'s it. Every month, our team arrives and takes care of everything. You focus on the things that matter — we\'ll keep your home spotless.',
+    icon: Home,
+    gradient: 'from-indigo-500 to-blue-600',
+    iconBg: 'bg-indigo-100',
+    iconColor: 'text-indigo-600',
   },
 ];
 
@@ -144,72 +160,74 @@ export default function Memberships() {
       </section>
 
       {/* HOW MEMBERSHIP WORKS */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-[hsl(270,30%,97%)] via-white to-[hsl(270,30%,94%)] relative overflow-hidden">
+        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px] bg-purple-300/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[600px] h-[600px] bg-fuchsia-300/20 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold uppercase tracking-wide mb-4">
               Getting Started
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
               How Membership Works
             </h2>
-            <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-              Four simple steps from signup to a spotless home every month.
-            </p>
           </div>
 
-          <div className="relative max-w-3xl mx-auto">
-            <div className="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/30 to-primary/0 hidden md:block" />
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/30 to-primary/0 md:hidden" />
+          <div className="relative">
+            <div className="hidden lg:block absolute top-[52px] left-[12.5%] right-[12.5%] h-1 bg-gradient-to-r from-fuchsia-200 via-purple-300 to-indigo-200 rounded-full z-0" />
 
-            {howItWorks.map((item, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <motion.div
-                  key={item.step}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative flex items-start gap-5 mb-14 last:mb-0 md:gap-0"
-                >
-                  <div className={cn(
-                    "hidden md:flex md:w-1/2 md:pr-10",
-                    isLeft ? "justify-end" : "justify-end opacity-0 pointer-events-none"
-                  )}>
-                    {isLeft && (
-                      <div className="text-right max-w-xs">
-                        <h3 className="text-lg font-bold text-foreground mb-1.5">{item.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                      </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative z-10">
+              {howItWorks.map((step, index) => {
+                const isEven = index % 2 !== 0;
+                const Icon = step.icon;
+                return (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className={cn(
+                      "relative flex flex-col pt-0 px-6 pb-10 rounded-[2rem] shadow-xl transition-all hover:-translate-y-2 duration-300 group mt-16 lg:mt-0",
+                      isEven ? "bg-[hsl(270,30%,97%)] border border-purple-100/50" : "bg-white border border-transparent"
                     )}
-                  </div>
+                  >
+                    <div className={cn(
+                      "absolute top-0 left-0 right-0 h-2 rounded-t-[2rem] bg-gradient-to-r opacity-90 group-hover:opacity-100 transition-opacity",
+                      step.gradient
+                    )} />
 
-                  <div className="relative z-10 shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2">
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg shadow-primary/25 ring-4 ring-background">
-                      {item.step}
+                    <div className="relative z-10 flex justify-center -mt-14 mb-8">
+                      <div className="relative">
+                        <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[116px] h-[116px] rounded-full bg-white shadow-sm -z-10" />
+                        <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[124px] h-[124px] rounded-full bg-gradient-to-r from-purple-200 to-fuchsia-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-20 blur-md" />
+                        <div className={cn(
+                          "w-[104px] h-[104px] rounded-full flex items-center justify-center shadow-lg ring-8 ring-white transition-transform duration-500 group-hover:scale-110",
+                          step.iconBg
+                        )}>
+                          <Icon className={cn("w-10 h-10 transition-transform duration-500 group-hover:rotate-6", step.iconColor)} strokeWidth={2} />
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className={cn(
-                    "hidden md:flex md:w-1/2 md:pl-10",
-                    !isLeft ? "justify-start" : "justify-start opacity-0 pointer-events-none"
-                  )}>
-                    {!isLeft && (
-                      <div className="text-left max-w-xs">
-                        <h3 className="text-lg font-bold text-foreground mb-1.5">{item.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                    <div className="text-center flex-grow flex flex-col items-center">
+                      <div className="mb-5 flex flex-col items-center">
+                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground font-bold text-base mb-4 shadow-md ring-4 ring-purple-50">
+                          {step.step}
+                        </span>
+                        <h3 className="text-xl font-bold text-foreground leading-tight min-h-[56px] flex items-center justify-center px-2">
+                          {step.title}
+                        </h3>
                       </div>
-                    )}
-                  </div>
-
-                  <div className="md:hidden flex-1">
-                    <h3 className="text-lg font-bold text-foreground mb-1">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
+                      <p className="text-muted-foreground leading-relaxed text-[15px] flex-grow px-2">
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
