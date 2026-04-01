@@ -90,11 +90,13 @@ export default function Navbar() {
           ? "bg-background/90 backdrop-blur-md shadow-sm border-border py-4"
           : useLightTheme
             ? "bg-transparent py-6"
-            : "py-6",
-        !isScrolled && !useLightTheme && "before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/90 before:via-white/60 before:to-transparent before:pointer-events-none"
+            : "py-6"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {!isScrolled && !useLightTheme && (
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/60 to-transparent pointer-events-none" />
+      )}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between">
           <button onClick={goHome} className="flex items-center gap-2 group">
             <img
