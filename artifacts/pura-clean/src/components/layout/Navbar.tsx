@@ -18,6 +18,9 @@ export default function Navbar() {
 
   const isHome = location === base + '/' || location === base || location === '/';
   const isServicesPage = location.startsWith(base + '/services');
+  const isServiceDetail = /\/services\/[^/]+$/.test(location);
+
+  const useLightTheme = isServiceDetail && !isScrolled;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -74,6 +77,11 @@ export default function Navbar() {
     setLocation(base + path);
   };
 
+  const linkColor = useLightTheme ? 'text-white/90' : 'text-foreground/80';
+  const linkHover = useLightTheme ? 'hover:text-white' : 'hover:text-primary';
+  const linkActive = useLightTheme ? 'text-white font-bold' : 'text-primary';
+  const hamburgerColor = useLightTheme ? 'text-white' : 'text-foreground';
+
   return (
     <header
       className={cn(
@@ -85,9 +93,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <button onClick={goHome} className="flex items-center gap-2 group">
             <img
-              src={`${base}/images/logo-colored.png`}
+              src={`${base}/images/${useLightTheme ? 'logo-white.png' : 'logo-colored.png'}`}
               alt="Queen of Maids"
-              className="h-[22px] w-auto"
+              className="h-[22px] w-auto transition-opacity duration-300"
             />
           </button>
 
@@ -101,8 +109,9 @@ export default function Navbar() {
               <button
                 onClick={() => navigate('/services')}
                 className={cn(
-                  "text-sm font-semibold transition-colors hover:text-primary flex items-center gap-1",
-                  isServicesPage ? "text-primary" : "text-foreground/80"
+                  "text-sm font-semibold transition-colors flex items-center gap-1",
+                  linkHover,
+                  isServicesPage ? linkActive : linkColor
                 )}
               >
                 Services
@@ -151,8 +160,9 @@ export default function Navbar() {
             <button
               onClick={() => navigate('/memberships')}
               className={cn(
-                "text-sm font-semibold transition-colors hover:text-primary",
-                location === base + '/memberships' ? "text-primary" : "text-foreground/80"
+                "text-sm font-semibold transition-colors",
+                linkHover,
+                location === base + '/memberships' ? linkActive : linkColor
               )}
             >
               Memberships
@@ -160,22 +170,32 @@ export default function Navbar() {
             <button
               onClick={() => navigate('/service-areas')}
               className={cn(
-                "text-sm font-semibold transition-colors hover:text-primary",
+                "text-sm font-semibold transition-colors",
+                linkHover,
                 location === base + '/service-areas' || location.startsWith(base + '/house-cleaning/')
-                  ? "text-primary" : "text-foreground/80"
+                  ? linkActive : linkColor
               )}
             >
               Service Areas
             </button>
             <button
               onClick={() => scrollTo('reviews')}
-              className="text-sm font-semibold transition-colors hover:text-primary text-foreground/80"
+              className={cn(
+                "text-sm font-semibold transition-colors",
+                linkHover,
+                linkColor
+              )}
             >
               Reviews
             </button>
             <button
               onClick={() => navigate('/memberships')}
-              className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+              className={cn(
+                "px-6 py-2.5 rounded-full font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200",
+                useLightTheme
+                  ? "bg-white text-primary hover:bg-purple-50"
+                  : "bg-primary text-primary-foreground"
+              )}
             >
               Get a Quote
             </button>
@@ -183,7 +203,7 @@ export default function Navbar() {
 
           <div className="md:hidden">
             <button
-              className="p-2 text-foreground"
+              className={cn("p-2", hamburgerColor)}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
