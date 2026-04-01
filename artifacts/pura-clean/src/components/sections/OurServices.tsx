@@ -66,7 +66,7 @@ export default function OurServices() {
                   Professional results, every time.
                 </p>
                 <p className="text-white/60 text-sm mt-1">
-                  Trusted by 1,500+ families across 4 metro areas.
+                  Trusted by 1,500+ neighbors across 4 metro areas.
                 </p>
               </div>
             </div>

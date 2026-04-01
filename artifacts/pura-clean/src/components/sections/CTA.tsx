@@ -20,7 +20,7 @@ export default function CTA() {
             Ready for a Spotless Home?
           </h2>
           <p className="mt-4 text-white/80 text-lg max-w-2xl mx-auto">
-            Join hundreds of happy families across four major metro areas. Book your first cleaning today and see the Queen of Maids difference.
+            Join hundreds of happy neighbors across four major metro areas. Book your first cleaning today and see the Queen of Maids difference.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

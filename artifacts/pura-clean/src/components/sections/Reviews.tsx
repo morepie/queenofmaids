@@ -26,7 +26,7 @@ export default function Reviews() {
             What Our Clients Say
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Loved by Families
+            Loved by Your Neighbors
           </h2>
           <div className="mt-4 flex items-center justify-center gap-3">
             <div className="flex items-center gap-1">

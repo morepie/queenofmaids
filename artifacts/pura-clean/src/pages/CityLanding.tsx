@@ -440,11 +440,11 @@ export default function CityLanding() {
                 Why Queen of Maids
               </span>
               <h2 className="text-3xl font-bold tracking-tight mb-6">
-                Why {city.name} Families Choose Queen of Maids
+                Why {city.name} Residents Choose Queen of Maids
               </h2>
               <div className="space-y-5">
                 {[
-                  { icon: Award, title: '14+ Years of Experience', desc: `We've been cleaning homes in the ${metro.name} metro area for over 14 years. We know what ${city.name} families expect and we deliver every time.` },
+                  { icon: Award, title: '14+ Years of Experience', desc: `We've been cleaning homes in the ${metro.name} metro area for over 14 years. We know what ${city.name} residents expect and we deliver every time.` },
                   { icon: Shield, title: 'Vetted & Background-Checked', desc: `Every cleaner serving ${city.name} is thoroughly vetted, background-checked, insured, and bonded for your peace of mind.` },
                   { icon: Sparkles, title: '200% Happiness Guarantee', desc: `Not happy with a clean in your ${city.name} home? We'll come back and redo it for free. Still not satisfied? Full refund — no questions asked.` },
                   { icon: Repeat, title: 'Same Cleaner Every Visit', desc: `Your assigned cleaner learns your ${city.name} home inside and out, so each visit is better than the last.` },
@@ -513,7 +513,7 @@ export default function CityLanding() {
                   <span className="text-sm font-bold">{aggregateRating.score}/5</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Rated {aggregateRating.score}/5 based on {aggregateRating.totalReviews.toLocaleString()}+ reviews from {metro.name} area families
+                  Rated {aggregateRating.score}/5 based on {aggregateRating.totalReviews.toLocaleString()}+ reviews from {metro.name} area residents
                 </p>
               </div>
             </div>
