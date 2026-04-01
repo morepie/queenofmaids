@@ -165,9 +165,18 @@ export default function HelpCenter() {
           <section className="py-5 md:py-6 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-14">
-                {helpTopics.map(topic => {
+                {helpTopics.map((topic, idx) => {
                   const Icon = topic.icon;
                   const isActive = activeTopic === topic.id;
+                  const colorSchemes = [
+                    { bg: 'bg-purple-50', iconBg: 'bg-purple-100', iconText: 'text-purple-600', border: 'border-purple-200', hoverBorder: 'hover:border-purple-300' },
+                    { bg: 'bg-blue-50', iconBg: 'bg-blue-100', iconText: 'text-blue-600', border: 'border-blue-200', hoverBorder: 'hover:border-blue-300' },
+                    { bg: 'bg-amber-50', iconBg: 'bg-amber-100', iconText: 'text-amber-600', border: 'border-amber-200', hoverBorder: 'hover:border-amber-300' },
+                    { bg: 'bg-emerald-50', iconBg: 'bg-emerald-100', iconText: 'text-emerald-600', border: 'border-emerald-200', hoverBorder: 'hover:border-emerald-300' },
+                    { bg: 'bg-rose-50', iconBg: 'bg-rose-100', iconText: 'text-rose-600', border: 'border-rose-200', hoverBorder: 'hover:border-rose-300' },
+                    { bg: 'bg-indigo-50', iconBg: 'bg-indigo-100', iconText: 'text-indigo-600', border: 'border-indigo-200', hoverBorder: 'hover:border-indigo-300' },
+                  ];
+                  const scheme = colorSchemes[idx % colorSchemes.length];
                   return (
                     <button
                       key={topic.id}
@@ -176,12 +185,12 @@ export default function HelpCenter() {
                         "flex flex-col items-center gap-2.5 p-5 rounded-2xl border transition-all duration-200 text-center",
                         isActive
                           ? "bg-primary/10 border-primary/30 shadow-md"
-                          : "bg-card border-border hover:border-primary/20 hover:shadow-sm"
+                          : `${scheme.bg} ${scheme.border} ${scheme.hoverBorder} hover:shadow-sm`
                       )}
                     >
                       <div className={cn(
                         "w-11 h-11 rounded-xl flex items-center justify-center transition-colors",
-                        isActive ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                        isActive ? "bg-primary text-primary-foreground" : `${scheme.iconBg} ${scheme.iconText}`
                       )}>
                         <Icon className="w-5 h-5" />
                       </div>
