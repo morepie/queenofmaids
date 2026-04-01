@@ -29,17 +29,17 @@ export default function ServiceAreaMap() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: "easeOut" as const }}
         >
-          <USMap onMetroClick={(slug) => navigate(`${base}/service-areas#metro-${slug}`)} />
+          <USMap onMetroClick={(slug) => navigate(`${base}/house-cleaning/${slug}`)} />
         </motion.div>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           {metros.map(metro => (
             <a
               key={metro.slug}
-              href={`${base}/service-areas#metro-${metro.slug}`}
+              href={`${base}/house-cleaning/${metro.slug}`}
               onClick={(e) => {
                 e.preventDefault();
-                navigate(`${base}/service-areas#metro-${metro.slug}`);
+                navigate(`${base}/house-cleaning/${metro.slug}`);
               }}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-card border border-border text-sm text-foreground/80 font-medium hover:border-primary hover:text-primary transition-colors"
             >
