@@ -5,8 +5,8 @@ const steps = [
   {
     number: '1',
     icon: MousePointerClick,
-    title: 'Choose Your Membership',
-    description: 'Browse our Partial, Full, or Premium monthly memberships and pick the one that fits your home.',
+    title: 'Choose Your Clean',
+    description: 'Book a one-time deep clean or pick a monthly membership that fits your home and budget.',
   },
   {
     number: '2',

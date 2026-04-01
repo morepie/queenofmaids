@@ -301,7 +301,7 @@ export default function ServiceLanding() {
               Membership Tiers
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-              Choose Your Membership
+              Choose Your Clean
             </h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
               All memberships include monthly service by our trained, background-checked professionals. Start with a 3-month commitment, then stay as long as you like.

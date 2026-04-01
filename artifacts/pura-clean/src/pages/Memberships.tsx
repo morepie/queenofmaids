@@ -23,8 +23,8 @@ const comparisonFeatures = [
 const howItWorks = [
   {
     step: 1,
-    title: 'Pick Your Membership',
-    description: 'Browse our monthly tiers and choose the one that matches your home size and cleaning preferences. Not sure which fits? Give us a call — we\'ll walk you through it.',
+    title: 'Choose Your Clean',
+    description: 'Book a one-time deep clean or pick a monthly membership that matches your home size and cleaning preferences. Not sure which fits? Give us a call — we\'ll walk you through it.',
   },
   {
     step: 2,
