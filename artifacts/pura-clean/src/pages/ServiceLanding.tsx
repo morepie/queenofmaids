@@ -195,28 +195,39 @@ export default function ServiceLanding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="lg:col-span-3 bg-gradient-to-br from-[hsl(355,60%,96%)] to-card rounded-2xl border border-border p-8 shadow-md"
+              className="lg:col-span-3 space-y-6"
             >
-              <p className="text-muted-foreground leading-relaxed text-[15px] mb-8">
-                {service.longDescription}
-              </p>
+              <div className="rounded-2xl overflow-hidden shadow-lg border border-border">
+                <img
+                  src={base + '/images/cleaner-kitchen.png'}
+                  alt="Professional PuraClean cleaner at work in a modern kitchen"
+                  className="w-full h-[260px] md:h-[320px] object-cover"
+                  loading="lazy"
+                />
+              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {service.benefits.map((b, i) => (
-                  <motion.div
-                    key={b}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: i * 0.05 }}
-                    className="flex items-start gap-3 bg-white/80 rounded-xl p-3 border border-border/50"
-                  >
-                    <div className="w-7 h-7 rounded-lg bg-teal/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle className="w-4 h-4 text-teal" />
-                    </div>
-                    <span className="text-sm font-medium text-foreground/80">{b}</span>
-                  </motion.div>
-                ))}
+              <div className="bg-gradient-to-br from-[hsl(355,60%,96%)] to-card rounded-2xl border border-border p-8 shadow-md">
+                <p className="text-muted-foreground leading-relaxed text-[15px] mb-8">
+                  {service.longDescription}
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {service.benefits.map((b, i) => (
+                    <motion.div
+                      key={b}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: i * 0.05 }}
+                      className="flex items-start gap-3 bg-white/80 rounded-xl p-3 border border-border/50"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-teal/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle className="w-4 h-4 text-teal" />
+                      </div>
+                      <span className="text-sm font-medium text-foreground/80">{b}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
@@ -259,6 +270,15 @@ export default function ServiceLanding() {
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-md border border-border">
+                <img
+                  src={base + '/images/cleaning-team.png'}
+                  alt="PuraClean professional cleaning team"
+                  className="w-full h-[200px] object-cover"
+                  loading="lazy"
+                />
               </div>
 
               <a

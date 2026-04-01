@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "bat5w7dAvqm4hMdlEkmLS"
+uri = "file://artifacts/pura-clean/public/images/cleaner-kitchen.png"
+type = "image"
+title = "cleaner working in kitchen"
+
+[[generated]]
+id = "b68f9JZUSLpnR9XRrDtML"
+uri = "file://artifacts/pura-clean/public/images/clean-living-room.png"
+type = "image"
+title = "clean living room result"
+
+[[generated]]
+id = "PceJt3-_c7BFweKrHezPJ"
+uri = "file://artifacts/pura-clean/public/images/cleaning-team.png"
+type = "image"
+title = "professional cleaning team"

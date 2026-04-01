@@ -270,6 +270,36 @@ export default function CityLanding() {
         </div>
       </section>
 
+      {/* LIFESTYLE IMAGE BANNER */}
+      <section className="py-0 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-0">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-2xl overflow-hidden shadow-xl border border-border"
+          >
+            <img
+              src={base + '/images/clean-living-room.png'}
+              alt={`Sparkling clean living room after professional house cleaning in ${city.name}`}
+              className="w-full h-[220px] md:h-[320px] object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground/60 via-foreground/20 to-transparent flex items-center">
+              <div className="px-8 md:px-12 max-w-lg">
+                <h3 className="text-white text-2xl md:text-3xl font-bold mb-2">
+                  Come Home to Clean
+                </h3>
+                <p className="text-white/80 text-sm md:text-base">
+                  Professional results your {city.name} home deserves. Every surface, every room — spotless.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="py-14 md:py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -422,6 +452,21 @@ export default function CityLanding() {
               </div>
             </div>
 
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="rounded-2xl overflow-hidden shadow-lg border border-border"
+              >
+                <img
+                  src={base + '/images/cleaning-team.png'}
+                  alt={`PuraClean professional cleaning team serving ${city.name}`}
+                  className="w-full h-[240px] md:h-[280px] object-cover"
+                />
+              </motion.div>
+
             <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
               <h3 className="text-lg font-bold text-foreground mb-4">
                 Get a Free Quote in {city.name}
@@ -457,6 +502,7 @@ export default function CityLanding() {
                   Rated {aggregateRating.score}/5 based on {aggregateRating.totalReviews.toLocaleString()}+ reviews from {metro.name} area homeowners
                 </p>
               </div>
+            </div>
             </div>
           </div>
         </div>
