@@ -93,12 +93,14 @@ export default function HowToBook() {
             <p className="text-white/65 text-sm leading-relaxed">
               Choose a membership below and we'll follow up within the hour to confirm your appointment.
             </p>
-            <button
-              onClick={scrollToMemberships}
-              className="mt-5 px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+            <a
+              href="http://quote.queenofmaids.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-block px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               View Memberships & Get a Quote
-            </button>
+            </a>
           </div>
 
           <div className="w-full md:w-px h-px md:h-24 bg-white/20" />

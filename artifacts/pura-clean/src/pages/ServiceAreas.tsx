@@ -221,7 +221,9 @@ export default function ServiceAreas() {
 
                   <div>
                     <a
-                      href={`tel:${metro.phone.replace(/\D/g, '')}`}
+                      href="http://quote.queenofmaids.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                     >
                       Get a Quote in {metro.name}

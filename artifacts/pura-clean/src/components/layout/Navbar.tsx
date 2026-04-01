@@ -193,8 +193,10 @@ export default function Navbar() {
             >
               Reviews
             </button>
-            <button
-              onClick={() => navigate('/memberships')}
+            <a
+              href="http://quote.queenofmaids.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className={cn(
                 "px-6 py-2.5 rounded-full font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200",
                 useLightTheme
@@ -203,7 +205,7 @@ export default function Navbar() {
               )}
             >
               Get a Quote
-            </button>
+            </a>
           </nav>
 
           <div className="md:hidden">
@@ -287,12 +289,14 @@ export default function Navbar() {
               >
                 Reviews
               </button>
-              <button
-                onClick={() => navigate('/memberships')}
-                className="mt-4 px-4 py-4 rounded-xl bg-primary text-primary-foreground font-semibold shadow-md w-full text-center"
+              <a
+                href="http://quote.queenofmaids.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 px-4 py-4 rounded-xl bg-primary text-primary-foreground font-semibold shadow-md w-full text-center block"
               >
                 Get a Quote
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

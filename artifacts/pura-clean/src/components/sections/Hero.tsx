@@ -97,13 +97,15 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
-              <button
-                onClick={scrollToMemberships}
+              <a
+                href="http://quote.queenofmaids.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
               >
                 Get a Quote
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
               <button
                 onClick={scrollToMemberships}
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/80 hover:bg-white text-foreground border-2 border-border hover:border-primary/30 font-bold text-lg transition-all shadow-sm flex items-center justify-center"

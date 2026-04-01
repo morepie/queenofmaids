@@ -131,7 +131,9 @@ export default function ServiceLanding() {
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
-                href="tel:4806483441"
+                href="http://quote.queenofmaids.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-4 rounded-full bg-white text-primary text-base font-bold shadow-xl hover:bg-purple-50 hover:-translate-y-1 transition-all duration-300"
               >
                 Get a Free Quote
@@ -366,7 +368,9 @@ export default function ServiceLanding() {
                 </ul>
 
                 <a
-                  href="tel:6025551234"
+                  href="http://quote.queenofmaids.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={cn(
                     "w-full py-3.5 rounded-full font-semibold text-sm text-center transition-all duration-200 hover:-translate-y-0.5 block",
                     plan.popular

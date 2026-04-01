@@ -24,12 +24,14 @@ export default function CTA() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => document.getElementById('memberships')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href="http://quote.queenofmaids.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-semibold text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               Get a Quote <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
             <a
               href="tel:6025551234"
               className="px-8 py-4 rounded-full border-2 border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all duration-200"
