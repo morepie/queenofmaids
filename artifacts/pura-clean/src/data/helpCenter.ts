@@ -58,7 +58,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'What is the difference between Standard, Deep, and Move In/Out cleanings?',
-        a: 'We offer three levels of service designed to suit the most common home cleaning needs. A Standard cleaning maintains your home\'s cleanliness with regular surface cleaning. A Deep cleaning goes further — inside appliances, behind furniture, baseboards, window tracks, and more. A Move In/Out cleaning covers every detail landlords and property managers check, including inside all cabinets, closets, and appliances.',
+        a: 'We offer three levels of service. A Standard cleaning maintains your home\'s cleanliness with regular surface cleaning — this is generally only available for recurring customers. A Deep cleaning goes further — inside appliances, behind furniture, baseboards, window tracks, and more. Most initial cleanings are required to be deep cleanings so we can get your home to a great baseline, unless you\'re switching over from another cleaning service. A Move In/Out cleaning covers every detail landlords and property managers check, including inside all cabinets, closets, and appliances.',
       },
       {
         q: 'What are add-on services and how do they work?',
@@ -174,7 +174,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'Do members get a discount on their first deep clean?',
-        a: 'Yes. Your first cleaning is always a deep clean, and as a member, you pay a deeply discounted rate instead of the full one-time price. It\'s one of the biggest perks of membership.',
+        a: 'Yes. Your first cleaning is typically a deep clean so we can get your home to a great baseline — and as a member, you pay a discounted rate instead of the full one-time price. It\'s one of the biggest perks of membership. If you\'re switching from another cleaning service and your home is already in good shape, we may be able to start with a standard cleaning instead.',
       },
       {
         q: 'Can I pause my membership?',
