@@ -565,7 +565,6 @@ export default function CityLanding() {
                     >
                       <MapPin className={cn("w-4 h-4 shrink-0", isCurrent ? "text-primary-foreground" : "text-primary")} />
                       <span>{c.name}</span>
-                      {isCurrent && <span className="ml-auto text-[10px] uppercase tracking-wider opacity-80">You're here</span>}
                     </a>
                   );
                 })}
