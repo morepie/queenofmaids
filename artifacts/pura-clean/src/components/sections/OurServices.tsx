@@ -1,40 +1,13 @@
 import { motion } from 'framer-motion';
-import { SprayCan, Sofa, Refrigerator, Wind, Brush, Droplets } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { services } from '@/data/services';
+import { useLocation } from 'wouter';
 
-const services = [
-  {
-    icon: SprayCan,
-    title: 'Kitchen Deep Clean',
-    description: 'Counters, sinks, stovetops, and appliance exteriors scrubbed and sanitized to a shine.',
-  },
-  {
-    icon: Sofa,
-    title: 'Living Areas',
-    description: 'Dusting, vacuuming, mopping, and tidying all common spaces so they feel welcoming.',
-  },
-  {
-    icon: Droplets,
-    title: 'Bathroom Sanitization',
-    description: 'Toilets, showers, tubs, mirrors, and floors deep-cleaned with eco-friendly products.',
-  },
-  {
-    icon: Refrigerator,
-    title: 'Appliance Cleaning',
-    description: 'Inside and out — oven, microwave, and refrigerator cleaned on our Premium plan.',
-  },
-  {
-    icon: Wind,
-    title: 'Dusting & Air Quality',
-    description: 'Ceiling fans, vents, baseboards, and blinds dusted to keep your air fresh and clean.',
-  },
-  {
-    icon: Brush,
-    title: 'Floors & Surfaces',
-    description: 'All hard floors mopped, carpets vacuumed, and surfaces wiped down throughout the home.',
-  },
-];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 export default function OurServices() {
+  const [, setLocation] = useLocation();
+
   return (
     <section id="services" className="py-20 md:py-28 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,26 +19,31 @@ export default function OurServices() {
             Our Services
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            From kitchens to bedrooms, we handle every corner of your home with care. Here's what a PuraClean visit covers.
+            From one-time deep cleans to weekly memberships, we have a cleaning solution for every home.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, i) => (
-            <motion.div
-              key={service.title}
+            <motion.a
+              key={service.slug}
+              href={`${base}/services/${service.slug}`}
+              onClick={(e) => { e.preventDefault(); setLocation(`${base}/services/${service.slug}`); }}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" as const }}
-              className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
+              transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" as const }}
+              className="group bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                 <service.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">{service.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-            </motion.div>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{service.tagline}</p>
+              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-2.5 transition-all duration-200">
+                Learn more <ArrowRight className="w-4 h-4" />
+              </span>
+            </motion.a>
           ))}
         </div>
       </div>
