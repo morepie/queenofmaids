@@ -202,7 +202,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'Will I get the same cleaner each visit?',
-        a: 'We do our best to assign consistent cleaning professionals to your home. Consistency means they learn your space, preferences, and priorities for better results with every visit. If you\'d like to request a different cleaner at any time, just let us know.',
+        a: 'That is always our goal. We assign a dedicated cleaner to your home so they can learn your space, preferences, and priorities. In most cases, you will see the same person every visit. However, life happens — if your regular cleaner is sick, on vacation, or unavailable, we have trained backup cleaners ready to step in so your appointment is never missed. If you ever want to request a different cleaner permanently, just let us know.',
       },
       {
         q: 'How do you handle keys and home access?',

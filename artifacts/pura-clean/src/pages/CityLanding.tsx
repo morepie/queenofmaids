@@ -152,7 +152,7 @@ export default function CityLanding() {
     },
     {
       q: `Will I get the same cleaner each visit in ${city.name}?`,
-      a: `Yes. We assign each ${city.name} home a dedicated cleaner who learns your space, preferences, and priorities. Consistency means better results with every visit. If you ever want to switch cleaners, just let us know.`,
+      a: `That is always our goal. We assign a dedicated cleaner to your ${city.name} home so they can learn your space and preferences. In most cases, you will see the same person every visit. If your regular cleaner is ever unavailable due to illness or vacation, we have trained backup cleaners ready to step in so your appointment is never missed.`,
     },
   ];
 
@@ -462,7 +462,7 @@ export default function CityLanding() {
                   { icon: Award, title: '14+ Years of Experience', desc: `We've been cleaning homes in the ${metro.name} metro area for over 14 years. We know what ${city.name} residents expect and we deliver every time.` },
                   { icon: Shield, title: 'Vetted & Background-Checked', desc: `Every cleaner serving ${city.name} is thoroughly vetted, background-checked, insured, and bonded for your peace of mind.` },
                   { icon: Sparkles, title: '200% Happiness Guarantee', desc: `Not happy with a clean in your ${city.name} home? We'll come back and redo it for free. Still not satisfied? Full refund, no questions asked.` },
-                  { icon: Repeat, title: 'Same Cleaner Every Visit', desc: `Your assigned cleaner learns your ${city.name} home inside and out, so each visit is better than the last.` },
+                  { icon: Repeat, title: 'Consistent Cleaning Team', desc: `We assign a dedicated cleaner to your ${city.name} home who learns your space and preferences, with trained backups ready if needed.` },
                   { icon: Clock, title: 'Flexible Scheduling', desc: `We work around your schedule. Morning, afternoon, or evening, we'll find a time that works for your ${city.name} household.` },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-3">
