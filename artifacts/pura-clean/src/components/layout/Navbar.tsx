@@ -20,9 +20,10 @@ export default function Navbar() {
   const isServicesPage = location.startsWith(base + '/services');
   const isServiceDetail = /\/services\/[^/]+$/.test(location);
   const isMemberships = location === base + '/memberships';
+  const isServicesIndex = location === base + '/services' || location === base + '/services/';
 
   const useLightTheme = isServiceDetail && !isScrolled;
-  const alwaysWhiteBg = isMemberships;
+  const alwaysWhiteBg = isMemberships || isServicesIndex;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);

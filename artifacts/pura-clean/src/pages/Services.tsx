@@ -21,20 +21,28 @@ export default function Services() {
         <title>Cleaning Services | Queen of Maids</title>
         <meta name="description" content="Browse all cleaning services from Queen of Maids — standard cleaning, deep cleaning, move in/out, recurring, and more. Serving Phoenix, Salt Lake City, Las Vegas, and Denver." />
       </Helmet>
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section
+        className="relative pt-32 pb-14 md:pt-40 md:pb-16 overflow-hidden"
+        style={{
+          backgroundImage: `url(${base}/images/photos/cleaning-supplies.webp)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-[hsl(270,50%,12%)]/80" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white/80 text-sm font-semibold mb-4 backdrop-blur-sm">
               Our Services
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-              Cleaning Services for <span className="text-primary">Every Need</span>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white">
+              Cleaning Services for <span className="text-purple-300">Every Need</span>
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            <p className="text-white/75 max-w-2xl mx-auto text-lg">
               From quick refreshes to full deep cleans, we offer a range of professional cleaning services. Every service comes with our 200% Happiness Guarantee.
             </p>
           </motion.div>
