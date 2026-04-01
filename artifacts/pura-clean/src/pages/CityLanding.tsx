@@ -518,8 +518,59 @@ export default function CityLanding() {
         </div>
       </section>
 
-      {/* REVIEWS */}
+      {/* SERVICE AREA */}
       <section className="py-14 md:py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
+            <div className="lg:col-span-2">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+                Service Area
+              </span>
+              <h2 className="text-3xl font-bold tracking-tight mb-4">
+                {metro.name} Metro Area Coverage
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                We proudly serve {city.name} and {metro.cities.length - 1} other communities across the {metro.name} metro area in {metro.state}. Wherever you are in the {metro.name} area, our professional cleaning teams are ready to help.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Don't see your city? Give us a call at{' '}
+                <a href={`tel:${metro.phone.replace(/\D/g, '')}`} className="text-primary font-medium hover:underline">
+                  {metro.phone}
+                </a>{' '}
+                — we may still be able to serve you.
+              </p>
+            </div>
+
+            <div className="lg:col-span-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {metro.cities.map((c) => {
+                  const isCurrent = c.slug === city.slug;
+                  return (
+                    <a
+                      key={c.slug}
+                      href={`${base}/house-cleaning/${c.slug}`}
+                      onClick={(e) => { e.preventDefault(); setLocation(`${base}/house-cleaning/${c.slug}`); }}
+                      className={cn(
+                        "flex items-center gap-2.5 px-4 py-3 rounded-xl border text-sm font-medium transition-all duration-200",
+                        isCurrent
+                          ? "bg-primary text-primary-foreground border-primary shadow-md"
+                          : "bg-card text-foreground border-border hover:border-primary/40 hover:shadow-sm"
+                      )}
+                    >
+                      <MapPin className={cn("w-4 h-4 shrink-0", isCurrent ? "text-primary-foreground" : "text-primary")} />
+                      <span>{c.name}</span>
+                      {isCurrent && <span className="ml-auto text-[10px] uppercase tracking-wider opacity-80">You're here</span>}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REVIEWS */}
+      <section className="py-14 md:py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
