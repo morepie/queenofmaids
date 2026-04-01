@@ -342,25 +342,25 @@ export default function Memberships() {
           >
             <table className="w-full min-w-[600px] border-collapse">
               <thead>
-                <tr className="border-b-2 border-border">
-                  <th className="text-left py-4 pr-4 text-sm font-semibold text-foreground w-1/2">Feature</th>
-                  <th className="text-center py-4 px-4 text-sm font-semibold text-foreground">Partial<br/><span className="text-primary font-bold">From $99/mo</span></th>
-                  <th className="text-center py-4 px-4 text-sm font-semibold text-foreground bg-primary/5 rounded-t-xl">Full<br/><span className="text-primary font-bold">From $149/mo</span></th>
-                  <th className="text-center py-4 px-4 text-sm font-semibold text-foreground">Premium<br/><span className="text-primary font-bold">From $179/mo</span></th>
+                <tr>
+                  <th className="text-left py-4 pr-4 text-sm font-semibold text-foreground w-1/2 border-b-2 border-border">Feature</th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold text-white bg-violet-400 rounded-t-xl">Partial<br/><span className="font-bold">From $99/mo</span></th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold text-white bg-primary rounded-t-xl">Full<br/><span className="font-bold">From $149/mo</span></th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold text-white bg-[hsl(270,50%,25%)] rounded-t-xl">Premium<br/><span className="font-bold">From $179/mo</span></th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonFeatures.map((row, i) => (
                   <tr key={row.feature} className={i % 2 === 0 ? 'bg-background' : 'bg-muted/20'}>
-                    <td className="py-3 pr-4 text-sm text-foreground/80">{row.feature}</td>
-                    <td className="text-center py-3 px-4">
-                      {row.partial ? <Check className="w-5 h-5 text-teal mx-auto" /> : <X className="w-5 h-5 text-muted-foreground/30 mx-auto" />}
+                    <td className="py-3.5 pr-4 text-sm text-foreground/80 font-medium">{row.feature}</td>
+                    <td className="text-center py-3.5 px-4 bg-violet-50/50">
+                      {row.partial ? <Check className="w-5 h-5 text-violet-500 mx-auto" /> : <X className="w-5 h-5 text-muted-foreground/25 mx-auto" />}
                     </td>
-                    <td className="text-center py-3 px-4 bg-primary/5">
-                      {row.full ? <Check className="w-5 h-5 text-teal mx-auto" /> : <X className="w-5 h-5 text-muted-foreground/30 mx-auto" />}
+                    <td className="text-center py-3.5 px-4 bg-primary/5">
+                      {row.full ? <Check className="w-5 h-5 text-primary mx-auto" /> : <X className="w-5 h-5 text-muted-foreground/25 mx-auto" />}
                     </td>
-                    <td className="text-center py-3 px-4">
-                      {row.premium ? <Check className="w-5 h-5 text-teal mx-auto" /> : <X className="w-5 h-5 text-muted-foreground/30 mx-auto" />}
+                    <td className="text-center py-3.5 px-4 bg-[hsl(270,30%,96%)]">
+                      {row.premium ? <Check className="w-5 h-5 text-[hsl(270,50%,30%)] mx-auto" /> : <X className="w-5 h-5 text-muted-foreground/25 mx-auto" />}
                     </td>
                   </tr>
                 ))}
@@ -383,22 +383,33 @@ export default function Memberships() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {whyMembership.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="bg-card rounded-2xl p-6 border border-border shadow-sm"
-              >
-                <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-teal" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-              </motion.div>
-            ))}
+            {whyMembership.map((item, i) => {
+              const accents = [
+                { bg: 'bg-violet-100', text: 'text-violet-600', border: 'border-violet-200' },
+                { bg: 'bg-purple-100', text: 'text-purple-600', border: 'border-purple-200' },
+                { bg: 'bg-fuchsia-100', text: 'text-fuchsia-600', border: 'border-fuchsia-200' },
+                { bg: 'bg-indigo-100', text: 'text-indigo-600', border: 'border-indigo-200' },
+                { bg: 'bg-pink-100', text: 'text-pink-600', border: 'border-pink-200' },
+                { bg: 'bg-amber-100', text: 'text-amber-600', border: 'border-amber-200' },
+              ];
+              const accent = accents[i % accents.length];
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className={`bg-card rounded-2xl p-6 border ${accent.border} shadow-sm hover:shadow-md transition-shadow duration-200`}
+                >
+                  <div className={`w-12 h-12 rounded-xl ${accent.bg} flex items-center justify-center mb-4`}>
+                    <item.icon className={`w-6 h-6 ${accent.text}`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
