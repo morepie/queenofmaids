@@ -19,8 +19,10 @@ export default function Navbar() {
   const isHome = location === base + '/' || location === base || location === '/';
   const isServicesPage = location.startsWith(base + '/services');
   const isServiceDetail = /\/services\/[^/]+$/.test(location);
+  const isMemberships = location === base + '/memberships';
 
   const useLightTheme = isServiceDetail && !isScrolled;
+  const alwaysWhiteBg = isMemberships;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -88,12 +90,14 @@ export default function Navbar() {
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-transparent",
         isScrolled
           ? "bg-background/90 backdrop-blur-md shadow-sm border-border py-4"
-          : useLightTheme
-            ? "bg-transparent py-6"
-            : "py-6"
+          : alwaysWhiteBg
+            ? "bg-white shadow-sm border-border py-4"
+            : useLightTheme
+              ? "bg-transparent py-6"
+              : "py-6"
       )}
     >
-      {!isScrolled && !useLightTheme && (
+      {!isScrolled && !useLightTheme && !alwaysWhiteBg && (
         <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/60 to-transparent pointer-events-none" />
       )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
