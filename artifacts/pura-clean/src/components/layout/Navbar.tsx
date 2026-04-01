@@ -87,7 +87,7 @@ export default function Navbar() {
             <img
               src={`${base}/images/logo-colored.png`}
               alt="Queen of Maids"
-              className="h-8 w-auto"
+              className="h-[22px] w-auto"
             />
           </button>
 
