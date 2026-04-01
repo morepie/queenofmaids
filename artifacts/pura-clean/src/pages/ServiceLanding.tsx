@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Star, CheckCircle, ChevronDown, Phone, ArrowRight, Users, Target, Award, Sparkles } from 'lucide-react';
+import { Star, CheckCircle, ChevronDown, Phone, ArrowRight, Users, Target, Award, Sparkles, Shield, Leaf, CalendarCheck } from 'lucide-react';
 import { findServiceBySlug, services as allServices } from '@/data/services';
 import { cleaningPlans, reviews, aggregateRating } from '@/data/content';
 import { cn } from '@/lib/utils';
@@ -155,23 +155,51 @@ export default function ServiceLanding() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-card rounded-2xl border border-border p-7 shadow-lg"
+              className="relative overflow-hidden rounded-2xl border border-primary/20 shadow-xl bg-gradient-to-br from-card via-card to-primary/5 backdrop-blur-sm"
             >
-              <h3 className="text-lg font-bold text-foreground mb-4">What's Included</h3>
-              <ul className="space-y-3 mb-6">
-                {service.includes.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm">
-                    <CheckCircle className="w-4 h-4 text-teal mt-0.5 shrink-0" />
-                    <span className="text-foreground/80">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="tel:6025551234"
-                className="w-full inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Book {service.title}
-              </a>
+              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl" />
+
+              <div className="relative p-7">
+                <div className="grid grid-cols-3 gap-4 mb-6">
+                  {[
+                    { value: '31,159+', label: 'Customers Served', icon: Users },
+                    { value: '127K+', label: 'Cleanings Completed', icon: CalendarCheck },
+                    { value: '1,500+', label: '5-Star Reviews', icon: Star },
+                  ].map(({ value, label, icon: StatIcon }) => (
+                    <div key={label} className="text-center">
+                      <div className="w-10 h-10 mx-auto mb-2 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <StatIcon className="w-5 h-5 text-primary" />
+                      </div>
+                      <p className="text-xl font-bold text-foreground leading-tight">{value}</p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent mb-5" />
+
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { icon: Shield, text: '200% Happiness Guarantee' },
+                    { icon: CheckCircle, text: 'Background-Checked Teams' },
+                    { icon: Leaf, text: 'Eco-Friendly Products' },
+                    { icon: Award, text: '14+ Years Experience' },
+                  ].map(({ icon: BadgeIcon, text }) => (
+                    <div key={text} className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-muted/50 border border-border/50">
+                      <BadgeIcon className="w-4 h-4 text-primary shrink-0" />
+                      <span className="text-xs font-medium text-foreground/80">{text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="tel:4806483441"
+                  className="mt-5 w-full inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  Book {service.title}
+                </a>
+              </div>
             </motion.div>
           </div>
         </div>
