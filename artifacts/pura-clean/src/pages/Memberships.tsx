@@ -131,7 +131,7 @@ export default function Memberships() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white/80 text-sm font-semibold mb-4 backdrop-blur-sm">
-              Monthly Memberships
+              Cleaning Plans
             </span>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white">
               Your Home, <span className="text-purple-300">Always Clean</span>
@@ -329,7 +329,7 @@ export default function Memberships() {
               Side-by-Side
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-              Compare Monthly Memberships
+              Compare Cleaning Plans
             </h2>
           </div>
 
