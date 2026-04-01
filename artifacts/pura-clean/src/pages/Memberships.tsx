@@ -107,7 +107,7 @@ const membershipFaqs = [
   },
   {
     q: 'Do I have to be home for the cleaning?',
-    a: 'Nope. Most members share a key, garage code, or smart lock access. Your cleaning crew will secure everything when they\'re finished.',
+    a: 'Nope. Most members share a garage code, door code, or smart lock access. Your cleaning crew will secure everything when they\'re finished.',
   },
   {
     q: 'How does the 200% Happiness Guarantee work for members?',

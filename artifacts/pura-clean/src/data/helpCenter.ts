@@ -118,7 +118,7 @@ export const helpTopics: HelpTopic[] = [
     questions: [
       {
         q: 'Do I need to be home during the cleaning?',
-        a: 'No, you do not have to be home during the cleaning. You can simply provide entry and lock instructions via our online booking form, or you can send them via email, text, or by calling us. Many clients provide a key, garage code, or smart lock access.',
+        a: 'No, you do not have to be home during the cleaning. You can provide entry instructions via our online booking form, or send them via email, text, or by calling us. Most clients share a garage code, door code, or smart lock access so we can clean while they\'re away.',
       },
       {
         q: 'How many cleaners will arrive for my appointment?',
@@ -206,7 +206,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'How do you handle keys and home access?',
-        a: 'We have strict protocols for key management. All keys and access codes are stored securely and only accessible to your assigned cleaner. We never share your access information with anyone else.',
+        a: 'Most clients share entry instructions like a garage code, door code, or smart lock access so we can clean while they\'re away. We generally do not hold or manage physical keys. In rare cases where key management is needed, please call our office to get set up.',
       },
     ],
   },

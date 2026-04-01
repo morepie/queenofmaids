@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     question: 'Do I need to be home during the cleaning?',
-    answer: 'Not at all. Many of our clients provide a key, garage code, or smart lock access so we can clean while they\'re at work or running errands. We treat every home with the utmost care and respect.',
+    answer: 'Not at all. Most clients share a garage code, door code, or smart lock access so we can clean while they\'re at work or running errands. We treat every home with the utmost care and respect.',
   },
   {
     question: 'What if I\'m not satisfied with a cleaning?',
