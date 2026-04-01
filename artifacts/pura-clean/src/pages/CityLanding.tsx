@@ -220,7 +220,7 @@ export default function CityLanding() {
               </a>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
               {[
                 { icon: Shield, text: 'Insured & Bonded' },
                 { icon: Sparkles, text: 'Happiness Guarantee' },
@@ -228,7 +228,7 @@ export default function CityLanding() {
                 { icon: Clock, text: 'Flexible Scheduling' },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 text-muted-foreground">
-                  <div className="w-9 h-9 rounded-full bg-teal/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-teal/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
                     <Icon className="w-4 h-4 text-teal" />
                   </div>
                   <span className="text-sm font-medium">{text}</span>

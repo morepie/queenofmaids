@@ -114,18 +114,18 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-y-4 gap-x-6">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
               {[
                 { icon: Shield, text: 'Insured & Bonded' },
-                { icon: CheckCircle, text: '200% Happiness Guarantee' },
+                { icon: CheckCircle, text: 'Happiness Guarantee' },
                 { icon: Shield, text: 'Vetted Cleaners' },
                 { icon: Clock, text: 'Flexible Scheduling' },
               ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-3 group cursor-default">
-                  <div className="w-10 h-10 rounded-full bg-white shadow-sm border border-border flex items-center justify-center group-hover:scale-110 group-hover:border-primary/30 transition-all flex-shrink-0">
-                    <Icon className="w-5 h-5 text-primary" />
+                <div key={text} className="flex items-center gap-1.5 group cursor-default">
+                  <div className="w-7 h-7 rounded-full bg-white shadow-sm border border-border flex items-center justify-center group-hover:scale-110 group-hover:border-primary/30 transition-all flex-shrink-0">
+                    <Icon className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <span className="text-sm sm:text-base font-semibold text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
+                  <span className="text-xs font-semibold text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                     {text}
                   </span>
                 </div>
