@@ -77,10 +77,6 @@ export const helpTopics: HelpTopic[] = [
         a: 'A credit card is required to hold your spot when booking — our services are in high demand and this ensures your appointment is reserved. Your card will not be charged until the day of your appointment. Please note that if you cancel within 24 hours of your scheduled cleaning, a late cancellation fee applies. Late cancellations result in lost income for our cleaning professionals who work hard to make a living, so we ask for as much notice as possible if your plans change.',
       },
       {
-        q: 'I have a coupon code or gift code. How do I use it?',
-        a: 'You can enter your coupon code or gift code when booking online during checkout. Please note that only one discount can be applied per cleaning, and a discount or coupon code can only be used once per household. If you have a Yelp code voucher, please include the six-digit voucher number in the comments section of your booking.',
-      },
-      {
         q: 'Can I book a cleaning for a vacation rental?',
         a: 'Of course! We love helping vacation rental owners. We know that having a quality cleaning plays a big part in receiving great guest ratings. Our vacation rental cleaning service includes full property cleaning, linen changes, supply restocking, and can work within tight turnover windows between guests.',
       },
