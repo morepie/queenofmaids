@@ -32,7 +32,11 @@ export default function Footer() {
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
 
           <div className="lg:col-span-1 space-y-4">
-            <h3 className="text-2xl font-sans font-bold text-background">PuraClean</h3>
+            <img
+              src={`${base}/images/logo-white.png`}
+              alt="Queen of Maids"
+              className="h-7 w-auto"
+            />
             <p className="text-background/60 text-sm leading-relaxed">
               Professional house cleaning across four major metro areas. We bring the sparkle so you can enjoy your home.
             </p>
@@ -148,7 +152,7 @@ export default function Footer() {
 
         <div className="py-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-background/40 text-xs">
-            &copy; {new Date().getFullYear()} PuraClean. All rights reserved.
+            &copy; {new Date().getFullYear()} Queen of Maids. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href={`${base}/privacy`} className="text-background/40 text-xs hover:text-primary transition-colors">Privacy Policy</Link>
