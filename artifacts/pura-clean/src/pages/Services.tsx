@@ -24,7 +24,7 @@ export default function Services() {
       <section
         className="relative pt-32 pb-14 md:pt-40 md:pb-16 overflow-hidden"
         style={{
-          backgroundImage: `url(${base}/images/photos/cleaning-supplies.webp)`,
+          backgroundImage: `url(${base}/images/photos/cleaner-kitchen.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
