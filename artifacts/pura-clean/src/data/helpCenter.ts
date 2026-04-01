@@ -38,7 +38,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'Who are the cleaning professionals that work with Queen of Maids?',
-        a: 'We exclusively work with contracted solo cleaners and contracted small cleaning companies. We only work with people and companies that have built their career around house cleaning, rather than employees doing house cleaning work on a temporary basis. This approach ensures we\'ve found the most talented and dedicated cleaners to serve your home.',
+        a: 'Every cleaning professional on our team is thoroughly vetted, background-checked, and trained to meet our high standards. We only work with experienced cleaners who have built their career around house cleaning. This approach ensures the most talented, dedicated, and trustworthy professionals are the ones serving your home.',
       },
       {
         q: 'How do I contact Queen of Maids?',
