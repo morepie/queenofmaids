@@ -137,7 +137,7 @@ export default function Memberships() {
               Your Home, <span className="text-purple-300">Always Clean</span>
             </h1>
             <p className="text-white/75 max-w-2xl mx-auto text-lg">
-              Join a monthly membership and get professional cleaning on autopilot. Save big on your first deep clean, enjoy discounted recurring cleanings, and never think about scheduling again.
+              Join a weekly, biweekly, or monthly membership and get professional cleaning on autopilot. Save big on your first deep clean, enjoy discounted recurring cleanings, and never think about scheduling again.
             </p>
           </motion.div>
         </div>
