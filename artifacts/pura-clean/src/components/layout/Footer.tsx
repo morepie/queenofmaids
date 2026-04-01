@@ -122,7 +122,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href={`${base}/memberships#faq`} className="text-background/60 hover:text-primary transition-colors text-sm">
+                <Link href={`${base}/help`} className="text-background/60 hover:text-primary transition-colors text-sm">
                   FAQ
                 </Link>
               </li>
