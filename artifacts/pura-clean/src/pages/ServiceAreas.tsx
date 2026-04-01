@@ -92,21 +92,29 @@ export default function ServiceAreas() {
         <title>Service Areas | Queen of Maids</title>
         <meta name="description" content="Queen of Maids proudly serves Phoenix, Salt Lake City, Las Vegas, and Denver metro areas. Find professional house cleaning near you." />
       </Helmet>
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section
+        className="relative pt-32 pb-14 md:pt-40 md:pb-16 overflow-hidden"
+        style={{
+          backgroundImage: `url(${base}/images/photos/happy-family.webp)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
+        }}
+      >
+        <div className="absolute inset-0 bg-[hsl(270,50%,12%)]/80" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white/80 text-sm font-semibold mb-4 backdrop-blur-sm">
               Where We Clean
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-              Service Areas Across the <span className="text-primary">West</span>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white">
+              Service Areas Across the <span className="text-purple-300">West</span>
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              PuraClean proudly serves four major metro areas. Click a pin on the map to explore our coverage.
+            <p className="text-white/75 max-w-2xl mx-auto text-lg">
+              Queen of Maids proudly serves four major metro areas. Click a pin on the map to explore our coverage.
             </p>
           </motion.div>
         </div>

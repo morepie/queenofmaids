@@ -23,7 +23,8 @@ export default function Navbar() {
   const isServicesIndex = location === base + '/services' || location === base + '/services/';
 
   const useLightTheme = isServiceDetail && !isScrolled;
-  const alwaysWhiteBg = isMemberships || isServicesIndex;
+  const isServiceAreas = location === base + '/service-areas' || location === base + '/service-areas/';
+  const alwaysWhiteBg = isMemberships || isServicesIndex || isServiceAreas;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
