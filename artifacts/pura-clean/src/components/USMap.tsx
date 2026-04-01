@@ -19,7 +19,7 @@ function createMetroIcon(name: string, isActive: boolean) {
     html: `
       <div style="width:${ICON_W}px;height:${TOTAL_H}px;display:flex;flex-direction:column;align-items:center;">
         <div style="
-          background:hsl(355,97%,69%);
+          background:hsl(270,50%,36%);
           color:white;
           font-family:Inter,system-ui,sans-serif;
           font-size:12px;
@@ -27,14 +27,14 @@ function createMetroIcon(name: string, isActive: boolean) {
           padding:6px 14px;
           border-radius:20px;
           white-space:nowrap;
-          box-shadow:0 4px 12px rgba(252,100,113,0.4);
+          box-shadow:0 4px 12px rgba(91,45,142,0.4);
           border:2px solid white;
           cursor:pointer;
           transition:transform 0.2s;
           ${isActive ? 'transform:scale(1.1);' : ''}
         ">${name}</div>
-        <div style="width:2px;height:${STEM_H}px;background:hsl(355,97%,69%);"></div>
-        <div style="width:${DOT_H}px;height:${DOT_H}px;background:hsl(355,97%,69%);border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>
+        <div style="width:2px;height:${STEM_H}px;background:hsl(270,50%,36%);"></div>
+        <div style="width:${DOT_H}px;height:${DOT_H}px;background:hsl(270,50%,36%);border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>
       </div>
     `,
     iconSize: [ICON_W, TOTAL_H],

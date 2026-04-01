@@ -32,7 +32,7 @@ function CityMap({ lat, lng, cityName }: { lat: number; lng: number; cityName: s
 
     const icon = L.divIcon({
       className: '',
-      html: `<div style="width:28px;height:28px;background:hsl(355,97%,69%);border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.25);"></div>`,
+      html: `<div style="width:28px;height:28px;background:hsl(270,50%,36%);border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.25);"></div>`,
       iconSize: [28, 28],
       iconAnchor: [14, 14],
     });
@@ -167,7 +167,7 @@ export default function CityLanding() {
 
       {/* HERO */}
       <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <motion.div

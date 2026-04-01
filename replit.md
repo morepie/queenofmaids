@@ -117,10 +117,10 @@ Marketing website for PuraClean house cleaning service. React + Vite + Tailwind 
 - **Routing**: wouter with `import.meta.env.BASE_URL` prefix
 - **SEO**: react-helmet-async for per-page title/description/OG/canonical meta tags on city landing pages
 - **Sections**: Hero (team photo + trust strip + badges), Cleaning Plans (3 tiers), Reviews (vertical grid with View More), CTA, Footer
-- **Color palette**: primary = bubblegum pink `#FC6471`, teal accent `#4BA8A8`
+- **Color palette**: primary = deep purple `hsl(270,50%,36%)`, lavender background `hsl(270,30%,97%)`, purple accents
 - **Font**: Inter
 - **Data**: `src/data/content.ts` — cleaning plans, reviews, aggregate rating; `src/data/metros.ts` — 4 metro areas (Phoenix, Salt Lake City, Las Vegas, Denver) with city slugs
-- **Maps**: Leaflet + OpenStreetMap with custom pink pin markers
+- **Maps**: Leaflet + OpenStreetMap with custom purple pin markers
 - **City Landing Pages**: 47 city-specific SEO landing pages at `/house-cleaning/[city-slug]` (e.g. `/house-cleaning/phoenix`, `/house-cleaning/scottsdale`). Each has localized hero, services list, pricing, "Why Choose Us", contact card, and nearby cities cross-linking
 - **Cleaning Plans**: Partial Clean ($99/biweekly), Full Clean ($149/biweekly, most popular), Full Premium ($179/biweekly)
 - **Reviews**: Vertical 4-col grid, 2 rows initially, "View More Reviews" reveals more

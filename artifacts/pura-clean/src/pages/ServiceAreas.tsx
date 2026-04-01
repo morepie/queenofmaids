@@ -14,7 +14,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 function createPinIcon() {
   return L.divIcon({
     className: '',
-    html: `<div style="width:24px;height:24px;background:hsl(355,97%,69%);border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.25);"></div>`,
+    html: `<div style="width:24px;height:24px;background:hsl(270,50%,36%);border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.25);"></div>`,
     iconSize: [24, 24],
     iconAnchor: [12, 12],
     popupAnchor: [0, -14],
@@ -92,7 +92,7 @@ export default function ServiceAreas() {
         <title>Service Areas | Queen of Maids</title>
         <meta name="description" content="Queen of Maids proudly serves Phoenix, Salt Lake City, Las Vegas, and Denver metro areas. Find professional house cleaning near you." />
       </Helmet>
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

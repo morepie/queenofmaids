@@ -101,7 +101,7 @@ export default function ServiceLanding() {
 
       {/* HERO */}
       <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <motion.div
@@ -206,7 +206,7 @@ export default function ServiceLanding() {
                 />
               </div>
 
-              <div className="bg-gradient-to-br from-[hsl(355,60%,96%)] to-card rounded-2xl border border-border p-8 shadow-md">
+              <div className="bg-gradient-to-br from-[hsl(270,35%,95%)] to-card rounded-2xl border border-border p-8 shadow-md">
                 <p className="text-muted-foreground leading-relaxed text-[15px] mb-8">
                   {service.longDescription}
                 </p>

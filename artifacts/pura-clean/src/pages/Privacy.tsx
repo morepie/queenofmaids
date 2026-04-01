@@ -11,7 +11,7 @@ export default function Privacy() {
         <meta name="description" content="Queen of Maids Privacy Policy. Learn how we collect, use, and protect your personal information." />
       </Helmet>
 
-      <div className="pt-32 pb-20 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background">
+      <div className="pt-32 pb-20 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-center mb-4">Privacy Policy</h1>
           <p className="text-muted-foreground text-center">Last updated: March 2026</p>

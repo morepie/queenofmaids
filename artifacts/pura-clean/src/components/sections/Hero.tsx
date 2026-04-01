@@ -49,7 +49,7 @@ export default function Hero() {
 
   return (
     <section className="relative flex flex-col pt-28 pb-0 md:pt-36 md:pb-0 overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-10 md:pb-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
