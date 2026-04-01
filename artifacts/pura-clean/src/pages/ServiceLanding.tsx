@@ -155,54 +155,56 @@ export default function ServiceLanding() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative overflow-hidden rounded-2xl shadow-xl"
+              className="relative flex items-center justify-center"
             >
-              <img
-                src={`${base}/images/cleaner-kitchen.png`}
-                alt="Professional house cleaning"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(270,30%,15%)/0.95] via-[hsl(270,30%,15%)/0.85] to-[hsl(270,30%,15%)/0.78]" />
+              <div className="relative w-[420px] h-[420px] mx-auto scale-[0.78] sm:scale-[0.85] lg:scale-100 origin-center">
+                <div className="absolute inset-[90px] rounded-full bg-primary/8 border border-primary/15" />
+                <div className="absolute inset-[60px] rounded-full border border-primary/8" />
+                <div className="absolute inset-0 rounded-full border border-primary/5" />
 
-              <div className="relative p-7">
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  {[
-                    { value: '31,159+', label: 'Customers Served', icon: Users },
-                    { value: '127K+', label: 'Cleanings Completed', icon: CalendarCheck },
-                    { value: '1,500+', label: '5-Star Reviews', icon: Star },
-                  ].map(({ value, label, icon: StatIcon }) => (
-                    <div key={label} className="text-center">
-                      <div className="w-10 h-10 mx-auto mb-2 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center">
-                        <StatIcon className="w-5 h-5 text-white" />
+                <div className="absolute inset-[100px] rounded-full bg-gradient-to-br from-primary to-accent flex flex-col items-center justify-center text-center shadow-xl">
+                  <img
+                    src={`${base}/images/cleaner-kitchen.png`}
+                    alt="Professional house cleaning"
+                    className="absolute inset-0 w-full h-full object-cover rounded-full opacity-30"
+                  />
+                  <div className="relative">
+                    <p className="text-3xl font-bold text-white leading-none">127K+</p>
+                    <p className="text-xs text-white/80 mt-1 font-medium">Cleanings<br/>Completed</p>
+                  </div>
+                </div>
+
+                {[
+                  { icon: Users, value: '31,159+', label: 'Customers', angle: -30 },
+                  { icon: Star, value: '1,500+', label: '5-Star Reviews', angle: 30 },
+                  { icon: Shield, value: '200%', label: 'Happiness\nGuarantee', angle: 90 },
+                  { icon: Award, value: '14+', label: 'Years\nExperience', angle: 150 },
+                  { icon: CheckCircle, value: '', label: 'Background\nChecked', angle: 210 },
+                  { icon: Leaf, value: '', label: 'Eco-Friendly\nProducts', angle: 270 },
+                ].map(({ icon: ItemIcon, value, label, angle }) => {
+                  const r = 185;
+                  const rad = (angle * Math.PI) / 180;
+                  const x = 210 + r * Math.cos(rad);
+                  const y = 210 + r * Math.sin(rad);
+                  return (
+                    <div
+                      key={label}
+                      className="absolute flex flex-col items-center text-center"
+                      style={{
+                        left: `${x}px`,
+                        top: `${y}px`,
+                        transform: 'translate(-50%, -50%)',
+                        width: '90px',
+                      }}
+                    >
+                      <div className="w-12 h-12 rounded-full bg-card border-2 border-primary/20 shadow-md flex items-center justify-center mb-1.5">
+                        <ItemIcon className="w-5 h-5 text-primary" />
                       </div>
-                      <p className="text-xl font-bold text-white leading-tight">{value}</p>
-                      <p className="text-[11px] text-white/70 mt-0.5 leading-tight">{label}</p>
+                      {value && <p className="text-sm font-bold text-foreground leading-tight">{value}</p>}
+                      <p className="text-[10px] text-muted-foreground leading-tight whitespace-pre-line mt-0.5">{label}</p>
                     </div>
-                  ))}
-                </div>
-
-                <div className="h-px bg-gradient-to-r from-transparent via-white/25 to-transparent mb-5" />
-
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    { icon: Shield, text: '200% Happiness Guarantee' },
-                    { icon: CheckCircle, text: 'Background-Checked Teams' },
-                    { icon: Leaf, text: 'Eco-Friendly Products' },
-                    { icon: Award, text: '14+ Years Experience' },
-                  ].map(({ icon: BadgeIcon, text }) => (
-                    <div key={text} className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10">
-                      <BadgeIcon className="w-4 h-4 text-white/90 shrink-0" />
-                      <span className="text-xs font-medium text-white/85">{text}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href="tel:4806483441"
-                  className="mt-5 w-full inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-primary font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-                >
-                  Book {service.title}
-                </a>
+                  );
+                })}
               </div>
             </motion.div>
           </div>
