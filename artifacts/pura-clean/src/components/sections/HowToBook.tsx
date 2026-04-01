@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { MousePointerClick, Phone, CalendarCheck } from 'lucide-react';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const steps = [
   {
     number: '1',
@@ -28,16 +30,26 @@ export default function HowToBook() {
   };
 
   return (
-    <section id="how-to-book" className="py-20 md:py-28 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="how-to-book"
+      className="py-20 md:py-28 relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${base}/images/photos/living-space.webp)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="absolute inset-0 bg-[hsl(270,30%,12%)]/85" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white/90 text-sm font-semibold mb-4">
             Simple & Easy
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             How to Book
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-white/70 max-w-2xl mx-auto">
             Getting started is easy — book online or give us a call. We'll take care of the rest.
           </p>
         </div>
@@ -53,18 +65,18 @@ export default function HowToBook() {
               className="text-center relative"
             >
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 border-t-2 border-dashed border-border" />
+                <div className="hidden md:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 border-t-2 border-dashed border-white/20" />
               )}
               <div className="relative inline-flex items-center justify-center mb-6">
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-                  <step.icon className="w-9 h-9 text-primary" />
+                <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                  <step.icon className="w-9 h-9 text-white" />
                 </div>
-                <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-teal text-white text-xs font-bold flex items-center justify-center shadow-md">
+                <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center shadow-md">
                   {step.number}
                 </span>
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{step.description}</p>
+              <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+              <p className="text-sm text-white/65 leading-relaxed max-w-xs mx-auto">{step.description}</p>
             </motion.div>
           ))}
         </div>
@@ -74,11 +86,11 @@ export default function HowToBook() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" as const }}
-          className="bg-card rounded-2xl border border-border shadow-sm p-8 md:p-10 flex flex-col md:flex-row items-center gap-8"
+          className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 shadow-lg p-8 md:p-10 flex flex-col md:flex-row items-center gap-8"
         >
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-xl font-bold text-foreground mb-2">Book Online</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-white mb-2">Book Online</h3>
+            <p className="text-white/65 text-sm leading-relaxed">
               Choose a membership below and we'll follow up within the hour to confirm your appointment.
             </p>
             <button
@@ -89,18 +101,18 @@ export default function HowToBook() {
             </button>
           </div>
 
-          <div className="w-full md:w-px h-px md:h-24 bg-border" />
+          <div className="w-full md:w-px h-px md:h-24 bg-white/20" />
 
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-xl font-bold text-foreground mb-2">Prefer to Call?</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-white mb-2">Prefer to Call?</h3>
+            <p className="text-white/65 text-sm leading-relaxed">
               Speak with our friendly team directly. We're happy to answer any questions and schedule your cleaning over the phone.
             </p>
             <a
               href="tel:4806483441"
-              className="mt-5 inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-primary/20 text-foreground font-semibold text-sm hover:bg-primary/5 transition-all duration-200"
+              className="mt-5 inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-white/25 text-white font-semibold text-sm hover:bg-white/10 transition-all duration-200"
             >
-              <Phone className="w-4 h-4 text-primary" />
+              <Phone className="w-4 h-4 text-white" />
               (480) 648-3441
             </a>
           </div>
