@@ -86,7 +86,12 @@ export default function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-transparent",
-        isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm border-border py-4" : "bg-transparent py-6"
+        isScrolled
+          ? "bg-background/90 backdrop-blur-md shadow-sm border-border py-4"
+          : useLightTheme
+            ? "bg-transparent py-6"
+            : "py-6",
+        !isScrolled && !useLightTheme && "before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/90 before:via-white/60 before:to-transparent before:pointer-events-none"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
