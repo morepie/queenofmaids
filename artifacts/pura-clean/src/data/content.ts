@@ -129,7 +129,7 @@ export const reviews: Review[] = [
     initials: 'CB',
     rating: 5,
     date: 'Nov 2025',
-    text: 'Moved to Chandler recently and found Queen of Maids through a neighbor. So glad I did — their attention to detail is unmatched. The team is incredibly respectful of our space.',
+    text: 'Moved to Chandler recently and found Queen of Maids through a neighbor. So glad I did. Their attention to detail is unmatched. The team is incredibly respectful of our space.',
   },
   {
     id: 9,
@@ -145,7 +145,7 @@ export const reviews: Review[] = [
     initials: 'TH',
     rating: 4,
     date: 'Jan 2026',
-    text: 'Solid cleaning crew. They showed up right on time and did a great job on our Mesa townhome. Only minor note — wish they could come weekly instead of biweekly!',
+    text: 'Solid cleaning crew. They showed up right on time and did a great job on our Mesa townhome. Only minor note: wish they could come weekly instead of biweekly!',
   },
   {
     id: 11,
@@ -161,7 +161,7 @@ export const reviews: Review[] = [
     initials: 'MJ',
     rating: 5,
     date: 'Dec 2025',
-    text: 'Excellent value for what you get. The Full Premium plan covers everything — even laundry! My Peoria house has never been this organized.',
+    text: 'Excellent value for what you get. The Full Premium plan covers everything, even laundry! My Peoria house has never been this organized.',
   },
   {
     id: 13,

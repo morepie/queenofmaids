@@ -69,7 +69,7 @@ export default function ServiceLanding() {
     },
     {
       q: `What's included in your ${service.title.toLowerCase()} service?`,
-      a: `Our ${service.title.toLowerCase()} includes: ${service.includes.join(', ')}. Every service is backed by our 200% Happiness Guarantee — if you're not satisfied, we'll redo it for free or give you a full refund.`,
+      a: `Our ${service.title.toLowerCase()} includes: ${service.includes.join(', ')}. Every service is backed by our 200% Happiness Guarantee. If you're not satisfied, we'll redo it for free or give you a full refund.`,
     },
     {
       q: `How do I book a ${service.title.toLowerCase()}?`,
@@ -85,7 +85,7 @@ export default function ServiceLanding() {
     },
     {
       q: `What if I'm not satisfied with my ${service.title.toLowerCase()}?`,
-      a: `We stand behind our work with a 200% Happiness Guarantee. If you're not satisfied with any ${service.title.toLowerCase()} visit, we'll come back within 24 hours and redo it for free. If you're still not happy, we'll issue a full refund — no questions asked.`,
+      a: `We stand behind our work with a 200% Happiness Guarantee. If you're not satisfied with any ${service.title.toLowerCase()} visit, we'll come back within 24 hours and redo it for free. If you're still not happy, we'll issue a full refund, no questions asked.`,
     },
   ];
 
@@ -397,7 +397,7 @@ export default function ServiceLanding() {
                 Not sure about a membership? Try a one-time clean first.
               </p>
               <p className="text-sm text-muted-foreground mt-1">
-                Members save on every visit and skip the initial deep-clean fee — but there's no pressure.
+                Members save on every visit and skip the initial deep-clean fee, but there's no pressure.
               </p>
             </div>
             <a
@@ -489,7 +489,7 @@ export default function ServiceLanding() {
                 FAQ
               </span>
               <h2 className="text-3xl font-bold tracking-tight text-white">
-                {service.title} — Frequently Asked Questions
+                {service.title}: Frequently Asked Questions
               </h2>
             </div>
 

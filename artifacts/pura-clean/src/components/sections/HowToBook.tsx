@@ -50,7 +50,7 @@ export default function HowToBook() {
             How to Book
           </h2>
           <p className="mt-4 text-white/70 max-w-2xl mx-auto">
-            Getting started is easy — book online or give us a call. We'll take care of the rest.
+            Getting started is easy. Book online or give us a call and we'll take care of the rest.
           </p>
         </div>
 

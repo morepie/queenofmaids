@@ -24,7 +24,7 @@ const howItWorks = [
   {
     step: 1,
     title: 'Choose Your Clean',
-    description: 'Book a one-time deep clean or pick a weekly, biweekly, or monthly membership that matches your home size and cleaning preferences. Not sure which fits? Give us a call — we\'ll walk you through it.',
+    description: 'Book a one-time deep clean or pick a weekly, biweekly, or monthly membership that matches your home size and cleaning preferences. Not sure which fits? Give us a call and we\'ll walk you through it.',
     icon: CalendarCheck,
     gradient: 'from-fuchsia-500 to-purple-600',
     iconBg: 'bg-fuchsia-100',
@@ -33,7 +33,7 @@ const howItWorks = [
   {
     step: 2,
     title: 'Save Big on Your First Deep Clean',
-    description: 'Your first cleaning is always a deep clean — and members get it at a fraction of the regular price. Lock in your discounted rate from day one and start saving right away.',
+    description: 'Your first cleaning is always a deep clean, and members get it at a fraction of the regular price. Lock in your discounted rate from day one and start saving right away.',
     icon: Sparkles,
     gradient: 'from-violet-500 to-indigo-600',
     iconBg: 'bg-violet-100',
@@ -42,7 +42,7 @@ const howItWorks = [
   {
     step: 3,
     title: 'Lock In Your Preferred Day',
-    description: 'Tell us which day works best. We\'ll reserve that slot for you every month, so your cleaning happens like clockwork — no rebooking required.',
+    description: 'Tell us which day works best. We\'ll reserve that slot for you every month, so your cleaning happens like clockwork with no rebooking required.',
     icon: Clock,
     gradient: 'from-purple-500 to-pink-600',
     iconBg: 'bg-purple-100',
@@ -51,7 +51,7 @@ const howItWorks = [
   {
     step: 4,
     title: 'Come Home to Clean',
-    description: 'That\'s it. Every month, our team arrives and takes care of everything. You focus on the things that matter — we\'ll keep your home spotless.',
+    description: 'That\'s it. Every month, our team arrives and takes care of everything. You focus on the things that matter. We\'ll keep your home spotless.',
     icon: Home,
     gradient: 'from-indigo-500 to-blue-600',
     iconBg: 'bg-indigo-100',
@@ -63,12 +63,12 @@ const whyMembership = [
   {
     icon: Sparkles,
     title: 'A Clean Home on Autopilot',
-    description: 'Your home gets a full professional cleaning every month. No scheduling reminders, no back-and-forth — it just happens.',
+    description: 'Your home gets a full professional cleaning every month. No scheduling reminders, no back-and-forth. It just happens.',
   },
   {
     icon: DollarSign,
     title: 'Huge Savings from Day One',
-    description: 'Your first visit is a thorough deep clean — and as a member, you pay a deeply discounted rate instead of the full price. Then keep saving month after month with discounted recurring cleanings.',
+    description: 'Your first visit is a thorough deep clean, and as a member, you pay a deeply discounted rate instead of the full price. Then keep saving month after month with discounted recurring cleanings.',
   },
   {
     icon: Crown,
@@ -78,12 +78,12 @@ const whyMembership = [
   {
     icon: FileText,
     title: 'Commitment-Light',
-    description: 'We ask for a simple 3-month starter period so we can get to know your home. After that, you\'re free to cancel with 30 days notice — no penalties, no hassle.',
+    description: 'We ask for a simple 3-month starter period so we can get to know your home. After that, you\'re free to cancel with 30 days notice. No penalties, no hassle.',
   },
   {
     icon: Users,
     title: 'Your Team Knows Your Home',
-    description: 'We send the same cleaning crew every time. They learn your layout, your trouble spots, and your preferences — which means better results each visit.',
+    description: 'We send the same cleaning crew every time. They learn your layout, your trouble spots, and your preferences, which means better results each visit.',
   },
   {
     icon: CalendarClock,
@@ -95,11 +95,11 @@ const whyMembership = [
 const membershipFaqs = [
   {
     q: 'What\'s the difference between Partial, Full, and Premium memberships?',
-    a: 'Partial focuses on high-impact zones — kitchen, bathrooms, and floors. Full covers every room in your home from top to bottom. Premium adds deep detailing, ceiling fans, vents, and priority scheduling on top of everything in Full.',
+    a: 'Partial focuses on high-impact zones like kitchen, bathrooms, and floors. Full covers every room in your home from top to bottom. Premium adds deep detailing, ceiling fans, vents, and priority scheduling on top of everything in Full.',
   },
   {
     q: 'Can I change my membership tier later?',
-    a: 'Of course. Upgrade or downgrade whenever you\'d like — the change kicks in on your next scheduled cleaning.',
+    a: 'Of course. Upgrade or downgrade whenever you\'d like. The change kicks in on your next scheduled cleaning.',
   },
   {
     q: 'What happens if I need to reschedule?',
@@ -111,7 +111,7 @@ const membershipFaqs = [
   },
   {
     q: 'How does the 200% Happiness Guarantee work for members?',
-    a: 'If any visit doesn\'t meet your expectations, contact us within 24 hours. We\'ll send a crew back to redo it at no charge. Still not right? We refund that month\'s cleaning — no questions asked.',
+    a: 'If any visit doesn\'t meet your expectations, contact us within 24 hours. We\'ll send a crew back to redo it at no charge. Still not right? We refund that month\'s cleaning, no questions asked.',
   },
   {
     q: 'Can I book one-time cleans without a membership?',
@@ -128,7 +128,7 @@ export default function Memberships() {
     <>
       <Helmet>
         <title>Memberships & Pricing | Queen of Maids</title>
-        <meta name="description" content="Choose your Queen of Maids membership — Partial, Full, or Premium monthly plans. Save big on your first deep clean and enjoy discounted recurring cleanings every month." />
+        <meta name="description" content="Choose your Queen of Maids membership. Partial, Full, or Premium monthly plans. Save big on your first deep clean and enjoy discounted recurring cleanings every month." />
       </Helmet>
       {/* HERO */}
       <section
@@ -346,7 +346,7 @@ export default function Memberships() {
                 Not sure about a membership? Try a one-time clean first.
               </p>
               <p className="text-sm text-muted-foreground mt-1">
-                Members save on every visit and skip the initial deep-clean fee — but there's no pressure.
+                Members save on every visit and skip the initial deep-clean fee, but there's no pressure.
               </p>
             </div>
             <a

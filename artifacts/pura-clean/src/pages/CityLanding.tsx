@@ -142,7 +142,7 @@ export default function CityLanding() {
     },
     {
       q: `What does your Happiness Guarantee cover in ${city.name}?`,
-      a: `Our 200% Happiness Guarantee means if you're not satisfied with any cleaning in your ${city.name} home, we'll come back and redo it for free within 24 hours. If you're still not happy after the redo, we'll give you a full refund — no questions asked.`,
+      a: `Our 200% Happiness Guarantee means if you're not satisfied with any cleaning in your ${city.name} home, we'll come back and redo it for free within 24 hours. If you're still not happy after the redo, we'll give you a full refund, no questions asked.`,
     },
     {
       q: `Do you offer one-time cleaning services in ${city.name}?`,
@@ -150,7 +150,7 @@ export default function CityLanding() {
     },
     {
       q: `Will I get the same cleaner each visit in ${city.name}?`,
-      a: `Yes. We assign each ${city.name} home a dedicated cleaner who learns your space, preferences, and priorities. Consistency means better results with every visit. If you ever want to switch cleaners, just let us know — no questions asked.`,
+      a: `Yes. We assign each ${city.name} home a dedicated cleaner who learns your space, preferences, and priorities. Consistency means better results with every visit. If you ever want to switch cleaners, just let us know.`,
     },
   ];
 
@@ -300,7 +300,7 @@ export default function CityLanding() {
                   Come Home to Clean
                 </h3>
                 <p className="text-white/80 text-sm md:text-base">
-                  Professional results your {city.name} home deserves. Every surface, every room — spotless.
+                  Professional results your {city.name} home deserves. Every surface, every room, spotless.
                 </p>
               </div>
             </div>
@@ -446,9 +446,9 @@ export default function CityLanding() {
                 {[
                   { icon: Award, title: '14+ Years of Experience', desc: `We've been cleaning homes in the ${metro.name} metro area for over 14 years. We know what ${city.name} residents expect and we deliver every time.` },
                   { icon: Shield, title: 'Vetted & Background-Checked', desc: `Every cleaner serving ${city.name} is thoroughly vetted, background-checked, insured, and bonded for your peace of mind.` },
-                  { icon: Sparkles, title: '200% Happiness Guarantee', desc: `Not happy with a clean in your ${city.name} home? We'll come back and redo it for free. Still not satisfied? Full refund — no questions asked.` },
+                  { icon: Sparkles, title: '200% Happiness Guarantee', desc: `Not happy with a clean in your ${city.name} home? We'll come back and redo it for free. Still not satisfied? Full refund, no questions asked.` },
                   { icon: Repeat, title: 'Same Cleaner Every Visit', desc: `Your assigned cleaner learns your ${city.name} home inside and out, so each visit is better than the last.` },
-                  { icon: Clock, title: 'Flexible Scheduling', desc: `We work around your schedule. Morning, afternoon, or evening — we'll find a time that works for your ${city.name} household.` },
+                  { icon: Clock, title: 'Flexible Scheduling', desc: `We work around your schedule. Morning, afternoon, or evening, we'll find a time that works for your ${city.name} household.` },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-3">
                     <div className="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -574,7 +574,7 @@ export default function CityLanding() {
                 <a href={`tel:${metro.phone.replace(/\D/g, '')}`} className="text-primary font-medium hover:underline">
                   {metro.phone}
                 </a>{' '}
-                — we may still be able to serve you.
+                and we may still be able to serve you.
               </p>
             </div>
           </div>

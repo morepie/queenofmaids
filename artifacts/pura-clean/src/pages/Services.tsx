@@ -19,7 +19,7 @@ export default function Services() {
     <>
       <Helmet>
         <title>Cleaning Services | Queen of Maids</title>
-        <meta name="description" content="Browse all cleaning services from Queen of Maids — standard cleaning, deep cleaning, move in/out, recurring, and more. Serving Phoenix, Salt Lake City, Las Vegas, and Denver." />
+        <meta name="description" content="Browse all cleaning services from Queen of Maids including standard cleaning, deep cleaning, move in/out, recurring, and more. Serving Phoenix, Salt Lake City, Las Vegas, and Denver." />
       </Helmet>
       <section
         className="relative pt-32 pb-14 md:pt-40 md:pb-16 overflow-hidden"

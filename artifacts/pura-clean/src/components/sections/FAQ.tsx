@@ -6,15 +6,15 @@ import { cn } from '@/lib/utils';
 const faqs = [
   {
     question: 'What areas do you serve?',
-    answer: 'We serve four major metro areas across the West — Phoenix, Salt Lake City, Las Vegas, and Denver. Each metro includes dozens of surrounding cities and suburbs. Visit our Service Areas page to see if we cover your neighborhood, or give us a call and we\'ll let you know.',
+    answer: 'We serve four major metro areas across the West: Phoenix, Salt Lake City, Las Vegas, and Denver. Each metro includes dozens of surrounding cities and suburbs. Visit our Service Areas page to see if we cover your neighborhood, or give us a call and we\'ll let you know.',
   },
   {
     question: 'How does membership pricing work?',
-    answer: 'Our listed prices are per month on a recurring membership. You\'re billed monthly — start with a 3-month commitment, then stay as long as you like. You can pause or cancel anytime with at least 48 hours\' notice before your next scheduled visit.',
+    answer: 'Our listed prices are per month on a recurring membership. You\'re billed monthly. Start with a 3-month commitment, then stay as long as you like. You can pause or cancel anytime with at least 48 hours\' notice before your next scheduled visit.',
   },
   {
     question: 'Do you offer one-time or deep cleanings?',
-    answer: 'Yes! In addition to our monthly memberships, we offer one-time deep cleans for move-ins, move-outs, post-renovation, or special occasions. One-time pricing varies based on home size and condition — call us for a custom quote.',
+    answer: 'Yes! In addition to our monthly memberships, we offer one-time deep cleans for move-ins, move-outs, post-renovation, or special occasions. One-time pricing varies based on home size and condition. Call us for a custom quote.',
   },
   {
     question: 'What cleaning products do you use?',
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     question: 'Can I customize what gets cleaned?',
-    answer: 'Yes. While each plan covers specific areas, you can always add notes or special requests when booking. We\'re happy to focus on areas that matter most to you — just let your team know.',
+    answer: 'Yes. While each plan covers specific areas, you can always add notes or special requests when booking. We\'re happy to focus on areas that matter most to you. Just let your team know.',
   },
   {
     question: 'How do I reschedule or cancel a visit?',
