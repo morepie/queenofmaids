@@ -176,16 +176,26 @@ export default function ServiceAreas() {
                 className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start scroll-mt-28"
               >
                 <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
+                  <a
+                    href={base + '/house-cleaning/' + metro.cities[0].slug}
+                    onClick={(e) => { e.preventDefault(); setLocation(base + '/house-cleaning/' + metro.cities[0].slug); }}
+                    className="block rounded-2xl overflow-hidden shadow-xl border border-border cursor-pointer hover:shadow-2xl transition-shadow duration-200"
+                  >
                     <MetroMap metro={metro} />
-                  </div>
+                  </a>
                 </div>
 
                 <div className={`flex flex-col justify-center gap-5 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div>
-                    <h2 className="text-3xl font-bold text-foreground mb-1">
-                      {metro.name} <span className="text-primary">Metro</span>
-                    </h2>
+                    <a
+                      href={base + '/house-cleaning/' + metro.cities[0].slug}
+                      onClick={(e) => { e.preventDefault(); setLocation(base + '/house-cleaning/' + metro.cities[0].slug); }}
+                      className="hover:text-primary transition-colors"
+                    >
+                      <h2 className="text-3xl font-bold text-foreground mb-1">
+                        {metro.name} <span className="text-primary">Metro</span>
+                      </h2>
+                    </a>
                     <p className="text-muted-foreground">{metro.state}</p>
                   </div>
 
