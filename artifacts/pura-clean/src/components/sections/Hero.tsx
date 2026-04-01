@@ -93,7 +93,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-lg font-medium">
-              Family-owned professional cleaning across Phoenix, Salt Lake City, Las Vegas, and Denver. We make your home sparkle so you can focus on what matters most.
+              Family-owned professional cleaning you can trust. We make your home sparkle so you can focus on what matters most.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
