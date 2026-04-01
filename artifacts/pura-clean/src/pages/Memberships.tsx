@@ -115,28 +115,20 @@ export default function Memberships() {
         <meta name="description" content="Choose your Queen of Maids membership — Partial, Full, or Premium monthly plans. Save big on your first deep clean and enjoy discounted recurring cleanings every month." />
       </Helmet>
       {/* HERO */}
-      <section
-        className="relative pt-32 pb-14 md:pt-40 md:pb-16 overflow-hidden"
-        style={{
-          backgroundImage: `url(${import.meta.env.BASE_URL}images/photos/living-area.webp)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="absolute inset-0 bg-[hsl(270,50%,12%)]/80" />
+      <section className="relative pt-32 pb-14 md:pt-40 md:pb-16 overflow-hidden bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white/80 text-sm font-semibold mb-4 backdrop-blur-sm">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
               Monthly Memberships
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white">
-              Your Home, <span className="text-purple-300">Always Clean</span>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-foreground">
+              Your Home, <span className="text-primary">Always Clean</span>
             </h1>
-            <p className="text-white/75 max-w-2xl mx-auto text-lg">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Join a monthly membership and get professional cleaning on autopilot. Save big on your first deep clean, enjoy discounted recurring cleanings, and never think about scheduling again.
             </p>
           </motion.div>
