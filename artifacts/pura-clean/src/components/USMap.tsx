@@ -11,7 +11,7 @@ function createMetroIcon(name: string, isActive: boolean) {
   return L.divIcon({
     className: '',
     html: `
-      <div style="display:flex;flex-direction:column;align-items:center;transform:translateX(-50%);">
+      <div style="display:flex;flex-direction:column;align-items:center;position:relative;left:-50%;width:max-content;">
         <div style="
           background:hsl(355,97%,69%);
           color:white;
@@ -42,8 +42,8 @@ function createMetroIcon(name: string, isActive: boolean) {
         "></div>
       </div>
     `,
-    iconSize: [120, 50],
-    iconAnchor: [60, 50],
+    iconSize: [0, 0],
+    iconAnchor: [0, 48],
   });
 }
 
