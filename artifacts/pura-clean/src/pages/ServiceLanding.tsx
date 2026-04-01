@@ -81,7 +81,7 @@ export default function ServiceLanding() {
     },
     {
       q: `Are your cleaners background-checked?`,
-      a: `Absolutely. Every PuraClean cleaner undergoes a thorough background check, identity verification, and in-person interview before they're assigned to any home. All cleaners are fully insured and bonded for your complete protection.`,
+      a: `Absolutely. Every Queen of Maids cleaner undergoes a thorough background check, identity verification, and in-person interview before they're assigned to any home. All cleaners are fully insured and bonded for your complete protection.`,
     },
     {
       q: `What if I'm not satisfied with my ${service.title.toLowerCase()}?`,
@@ -97,7 +97,7 @@ export default function ServiceLanding() {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href={`https://puraclean.com/services/${service.slug}`} />
+        <link rel="canonical" href={`https://queenofmaids.com/services/${service.slug}`} />
       </Helmet>
 
       {/* HERO — Immersive dark overlay */}
@@ -205,7 +205,7 @@ export default function ServiceLanding() {
               <div className="rounded-2xl overflow-hidden shadow-lg border border-border">
                 <img
                   src={base + '/images/cleaner-kitchen.png'}
-                  alt="Professional PuraClean cleaner at work in a modern kitchen"
+                  alt="Professional Queen of Maids cleaner at work in a modern kitchen"
                   className="w-full h-[260px] md:h-[320px] object-cover"
                   loading="lazy"
                 />
@@ -280,7 +280,7 @@ export default function ServiceLanding() {
               <div className="rounded-2xl overflow-hidden shadow-md border border-border">
                 <img
                   src={base + '/images/cleaning-team.png'}
-                  alt="PuraClean professional cleaning team"
+                  alt="Queen of Maids professional cleaning team"
                   className="w-full h-[200px] object-cover"
                   loading="lazy"
                 />

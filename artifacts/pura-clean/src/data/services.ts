@@ -39,7 +39,7 @@ export const services: ServiceData[] = [
     includes: ['Everything in Standard Cleaning', 'Inside oven & microwave', 'Baseboard & door frame detailing', 'Light fixture & ceiling fan dusting', 'Behind & under furniture', 'Cabinet exterior wipe-down', 'Window sill & track cleaning'],
     longDescription: 'A Deep Cleaning is a comprehensive, top-to-bottom reset for your home. We go far beyond surface-level cleaning to tackle built-up grime, dust, and dirt in areas that regular cleaning doesn\'t reach. Our team scrubs grout lines, cleans inside your oven and microwave, details baseboards and door frames, dusts light fixtures and ceiling fans, cleans behind and under furniture, wipes down cabinet exteriors, and cleans window sills and tracks. This service is perfect as a first-time clean or seasonal refresh.',
     benefits: ['Reaches areas regular cleaning misses', 'Removes built-up grime and allergens', 'Perfect as a seasonal refresh', 'Makes ongoing maintenance easier', 'Leaves your home feeling brand new'],
-    idealFor: ['First-time PuraClean clients', 'Homes not cleaned professionally recently', 'Seasonal or spring cleaning', 'Allergy sufferers wanting a thorough clean', 'Pre-event or post-renovation cleanup'],
+    idealFor: ['First-time Queen of Maids clients', 'Homes not cleaned professionally recently', 'Seasonal or spring cleaning', 'Allergy sufferers wanting a thorough clean', 'Pre-event or post-renovation cleanup'],
     heroImage: 'cleaner-kitchen.png',
   },
   {
@@ -50,8 +50,8 @@ export const services: ServiceData[] = [
     description: 'Don\'t need recurring service? No problem. Our One Time Cleaning delivers a thorough, professional clean in a single visit. Whether you\'re prepping for guests, recovering from a busy season, or just want your home refreshed — we\'ll handle everything from top to bottom without any commitment.',
     includes: ['Full home cleaning', 'Bathroom deep clean & sanitization', 'Kitchen thorough cleaning', 'All floors vacuumed & mopped', 'Dusting throughout', 'Trash removal', 'No contracts or commitments'],
     longDescription: 'Sometimes you just need one great clean. Our One Time Cleaning service delivers professional-grade results in a single visit with no strings attached. There\'s no recurring commitment, no subscription — just a thorough, top-to-bottom clean when you need it. We cover every room in your home with the same attention to detail as our recurring clients. Bathrooms are deep-cleaned and sanitized, kitchens get a thorough scrub, floors are vacuumed and mopped, and every surface is dusted. Many clients book a one-time clean and love it so much they sign up for recurring service.',
-    benefits: ['No contracts or long-term commitment', 'Same professional quality as recurring service', 'Great way to try PuraClean risk-free', 'Perfect for special occasions', 'Backed by our 200% Happiness Guarantee'],
-    idealFor: ['Preparing for guests or holidays', 'Post-party or event cleanup', 'Trying PuraClean for the first time', 'Between regular cleaning services', 'Seasonal home refreshes'],
+    benefits: ['No contracts or long-term commitment', 'Same professional quality as recurring service', 'Great way to try Queen of Maids risk-free', 'Perfect for special occasions', 'Backed by our 200% Happiness Guarantee'],
+    idealFor: ['Preparing for guests or holidays', 'Post-party or event cleanup', 'Trying Queen of Maids for the first time', 'Between regular cleaning services', 'Seasonal home refreshes'],
     heroImage: 'clean-living-room.png',
   },
   {

@@ -130,7 +130,7 @@ export default function CityLanding() {
     },
     {
       q: `Are your ${city.name} cleaners background-checked?`,
-      a: `Absolutely. Every PuraClean cleaner serving ${city.name} and the ${metro.name} metro area undergoes a thorough background check, identity verification, and in-person interview. All cleaners are fully insured and bonded for your protection.`,
+      a: `Absolutely. Every Queen of Maids cleaner serving ${city.name} and the ${metro.name} metro area undergoes a thorough background check, identity verification, and in-person interview. All cleaners are fully insured and bonded for your protection.`,
     },
     {
       q: `How do I schedule a house cleaning in ${city.name}?`,
@@ -165,7 +165,7 @@ export default function CityLanding() {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
-        <link rel="canonical" href={`https://puraclean.com/house-cleaning/${city.slug}`} />
+        <link rel="canonical" href={`https://queenofmaids.com/house-cleaning/${city.slug}`} />
       </Helmet>
 
       {/* HERO */}
@@ -437,7 +437,7 @@ export default function CityLanding() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
-                Why PuraClean
+                Why Queen of Maids
               </span>
               <h2 className="text-3xl font-bold tracking-tight mb-6">
                 Why {city.name} Families Choose Queen of Maids
@@ -473,7 +473,7 @@ export default function CityLanding() {
               >
                 <img
                   src={base + '/images/cleaning-team.png'}
-                  alt={`PuraClean professional cleaning team serving ${city.name}`}
+                  alt={`Queen of Maids professional cleaning team serving ${city.name}`}
                   className="w-full h-[240px] md:h-[280px] object-cover"
                 />
               </motion.div>
@@ -679,7 +679,7 @@ export default function CityLanding() {
               Also Serving Nearby {metro.name} Cities
             </h2>
             <p className="text-center text-muted-foreground text-sm mb-8 max-w-xl mx-auto">
-              PuraClean proudly serves homes across the entire {metro.name} metro area. Click any city below to learn more about our services there.
+              Queen of Maids proudly serves homes across the entire {metro.name} metro area. Click any city below to learn more about our services there.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               {nearbyCities.map(c => (

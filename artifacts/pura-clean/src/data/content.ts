@@ -73,7 +73,7 @@ export const reviews: Review[] = [
     initials: 'SM',
     rating: 5,
     date: 'Feb 2026',
-    text: 'PuraClean has been amazing! My house is spotless every time they come. The team is friendly, professional, and always on time. I love coming home to a fresh, clean space.',
+    text: 'Queen of Maids has been amazing! My house is spotless every time they come. The team is friendly, professional, and always on time. I love coming home to a fresh, clean space.',
   },
   {
     id: 2,
@@ -81,7 +81,7 @@ export const reviews: Review[] = [
     initials: 'JK',
     rating: 5,
     date: 'Jan 2026',
-    text: "Best cleaning service in the Valley! We've tried several companies and PuraClean is hands down the most thorough. Worth every penny for the Full Premium plan.",
+    text: "Best cleaning service in the Valley! We've tried several companies and Queen of Maids is hands down the most thorough. Worth every penny for the Full Premium plan.",
   },
   {
     id: 3,
@@ -89,7 +89,7 @@ export const reviews: Review[] = [
     initials: 'ML',
     rating: 5,
     date: 'Mar 2026',
-    text: 'I switched to PuraClean three months ago and the difference is night and day. They pay attention to the little details that other services miss. Highly recommend!',
+    text: 'I switched to Queen of Maids three months ago and the difference is night and day. They pay attention to the little details that other services miss. Highly recommend!',
   },
   {
     id: 4,
@@ -97,7 +97,7 @@ export const reviews: Review[] = [
     initials: 'DR',
     rating: 5,
     date: 'Dec 2025',
-    text: 'As a busy dad of three, having PuraClean come biweekly has been a game changer. The house stays clean and I get to spend more time with my kids instead of scrubbing floors.',
+    text: 'As a busy dad of three, having Queen of Maids come biweekly has been a game changer. The house stays clean and I get to spend more time with my kids instead of scrubbing floors.',
   },
   {
     id: 5,
@@ -113,7 +113,7 @@ export const reviews: Review[] = [
     initials: 'RP',
     rating: 5,
     date: 'Jan 2026',
-    text: 'PuraClean transformed our home in Gilbert. The premium plan includes oven and fridge cleaning which is such a nice touch. Professional crew every single time.',
+    text: 'Queen of Maids transformed our home in Gilbert. The premium plan includes oven and fridge cleaning which is such a nice touch. Professional crew every single time.',
   },
   {
     id: 7,
@@ -121,7 +121,7 @@ export const reviews: Review[] = [
     initials: 'NW',
     rating: 5,
     date: 'Mar 2026',
-    text: "I've been using PuraClean for six months now. They're reliable, trustworthy, and do an excellent job. My Tempe apartment sparkles after every visit!",
+    text: "I've been using Queen of Maids for six months now. They're reliable, trustworthy, and do an excellent job. My Tempe apartment sparkles after every visit!",
   },
   {
     id: 8,
@@ -129,7 +129,7 @@ export const reviews: Review[] = [
     initials: 'CB',
     rating: 5,
     date: 'Nov 2025',
-    text: 'Moved to Chandler recently and found PuraClean through a neighbor. So glad I did — their attention to detail is unmatched. The team is incredibly respectful of our space.',
+    text: 'Moved to Chandler recently and found Queen of Maids through a neighbor. So glad I did — their attention to detail is unmatched. The team is incredibly respectful of our space.',
   },
   {
     id: 9,
@@ -153,7 +153,7 @@ export const reviews: Review[] = [
     initials: 'LG',
     rating: 5,
     date: 'Feb 2026',
-    text: 'PuraClean is the only service I trust with my Scottsdale home. They use eco-friendly products, which is huge for me since I have two dogs and a toddler.',
+    text: 'Queen of Maids is the only service I trust with my Scottsdale home. They use eco-friendly products, which is huge for me since I have two dogs and a toddler.',
   },
   {
     id: 12,
@@ -169,7 +169,7 @@ export const reviews: Review[] = [
     initials: 'EC',
     rating: 5,
     date: 'Nov 2025',
-    text: 'After trying three different cleaning companies in Glendale, PuraClean is the one that stuck. Consistent quality every single visit. Cannot recommend them enough.',
+    text: 'After trying three different cleaning companies in Glendale, Queen of Maids is the one that stuck. Consistent quality every single visit. Cannot recommend them enough.',
   },
   {
     id: 14,
@@ -185,7 +185,7 @@ export const reviews: Review[] = [
     initials: 'SF',
     rating: 5,
     date: 'Jan 2026',
-    text: 'We hosted Thanksgiving and called PuraClean for a post-holiday cleanup. They handled the chaos like pros. Now we are loyal biweekly members in Surprise.',
+    text: 'We hosted Thanksgiving and called Queen of Maids for a post-holiday cleanup. They handled the chaos like pros. Now we are loyal biweekly members in Surprise.',
   },
   {
     id: 16,
@@ -193,7 +193,7 @@ export const reviews: Review[] = [
     initials: 'KD',
     rating: 5,
     date: 'Feb 2026',
-    text: 'I work from home in Tempe and having a clean workspace matters. PuraClean keeps my home office and the rest of the house immaculate. Five stars all the way.',
+    text: 'I work from home in Tempe and having a clean workspace matters. Queen of Maids keeps my home office and the rest of the house immaculate. Five stars all the way.',
   },
   {
     id: 17,
@@ -201,7 +201,7 @@ export const reviews: Review[] = [
     initials: 'AV',
     rating: 5,
     date: 'Dec 2025',
-    text: 'The crew that comes to our Queen Creek home is fantastic. They remember our preferences and always go the extra mile. PuraClean is worth every penny.',
+    text: 'The crew that comes to our Queen Creek home is fantastic. They remember our preferences and always go the extra mile. Queen of Maids is worth every penny.',
   },
   {
     id: 18,
