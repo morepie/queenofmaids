@@ -16,6 +16,7 @@ export interface MetroArea {
   center: [number, number];
   zoom: number;
   cities: CityData[];
+  heroImage: string;
 }
 
 function slugify(name: string): string {
@@ -37,6 +38,7 @@ export const metros: MetroArea[] = [
     hours: 'Mon–Fri 8am to 5pm',
     center: [33.4484, -111.97],
     zoom: 10,
+    heroImage: 'city-phoenix.png',
     cities: citiesWithSlugs([
       { name: 'Phoenix', lat: 33.4484, lng: -112.074 },
       { name: 'Scottsdale', lat: 33.4942, lng: -111.9261 },
@@ -63,6 +65,7 @@ export const metros: MetroArea[] = [
     hours: 'Mon–Fri 8am to 5pm',
     center: [40.7608, -111.891],
     zoom: 10,
+    heroImage: 'city-salt-lake-city.png',
     cities: citiesWithSlugs([
       { name: 'Salt Lake City', lat: 40.7608, lng: -111.8910 },
       { name: 'Sandy', lat: 40.5649, lng: -111.8590 },
@@ -88,6 +91,7 @@ export const metros: MetroArea[] = [
     hours: 'Mon–Fri 8am to 5pm',
     center: [36.1699, -115.1398],
     zoom: 11,
+    heroImage: 'city-las-vegas.png',
     cities: citiesWithSlugs([
       { name: 'Las Vegas', lat: 36.1699, lng: -115.1398 },
       { name: 'Henderson', lat: 36.0395, lng: -114.9817 },
@@ -111,6 +115,7 @@ export const metros: MetroArea[] = [
     hours: 'Mon–Fri 8am to 5pm',
     center: [39.7392, -104.9903],
     zoom: 10,
+    heroImage: 'city-denver.png',
     cities: citiesWithSlugs([
       { name: 'Denver', lat: 39.7392, lng: -104.9903 },
       { name: 'Aurora', lat: 39.7294, lng: -104.8319 },

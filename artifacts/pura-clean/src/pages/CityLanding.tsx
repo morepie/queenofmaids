@@ -168,6 +168,12 @@ export default function CityLanding() {
       {/* HERO */}
       <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background" />
+        <img
+          src={`${base}/images/${metro.heroImage}`}
+          alt={`${metro.name} skyline`}
+          className="absolute inset-0 w-full h-full object-cover z-[1] hidden md:block"
+          style={{ maskImage: 'linear-gradient(to right, transparent 10%, transparent 30%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.55) 100%)' }}
+        />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <motion.div

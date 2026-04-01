@@ -18,3 +18,27 @@ id = "PceJt3-_c7BFweKrHezPJ"
 uri = "file://artifacts/pura-clean/public/images/cleaning-team.png"
 type = "image"
 title = "professional cleaning team"
+
+[[generated]]
+id = "vUoYQ3FCwoQeoaWyCQttT"
+uri = "file://artifacts/pura-clean/public/images/city-phoenix.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "FKZYSkA22W9lm6jlohcqS"
+uri = "file://artifacts/pura-clean/public/images/city-salt-lake-city.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "1KV3t_WFlGo1xMzmAKj8A"
+uri = "file://artifacts/pura-clean/public/images/city-las-vegas.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "ZF48PVS-A9cqGpM3lYUfU"
+uri = "file://artifacts/pura-clean/public/images/city-denver.png"
+type = "image"
+title = "generated_image"
