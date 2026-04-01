@@ -20,6 +20,17 @@ export default function Services() {
       <Helmet>
         <title>Cleaning Services | Queen of Maids</title>
         <meta name="description" content="Browse all cleaning services from Queen of Maids including standard cleaning, deep cleaning, move in/out, recurring, and more. Serving Phoenix, Salt Lake City, Las Vegas, and Denver." />
+        <meta property="og:title" content="Cleaning Services | Queen of Maids" />
+        <meta property="og:description" content="Professional house cleaning services including deep cleaning, move in/out, recurring plans, and more. 200% happiness guarantee." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://queenofmaids.com/services" />
+        <meta property="og:image" content="https://queenofmaids.com/opengraph.jpg" />
+        <meta property="og:site_name" content="Queen of Maids" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Cleaning Services | Queen of Maids" />
+        <meta name="twitter:description" content="Professional house cleaning services. 200% happiness guarantee." />
+        <meta name="twitter:image" content="https://queenofmaids.com/opengraph.jpg" />
+        <link rel="canonical" href="https://queenofmaids.com/services" />
       </Helmet>
       <section
         className="relative pt-32 pb-14 md:pt-40 md:pb-16 overflow-hidden"

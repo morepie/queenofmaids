@@ -127,8 +127,19 @@ export default function Memberships() {
   return (
     <>
       <Helmet>
-        <title>Memberships & Pricing | Queen of Maids</title>
+        <title>Memberships &amp; Pricing | Queen of Maids</title>
         <meta name="description" content="Choose your Queen of Maids membership. Partial, Full, or Premium monthly plans. Save big on your first deep clean and enjoy discounted recurring cleanings every month." />
+        <meta property="og:title" content="Memberships &amp; Pricing | Queen of Maids" />
+        <meta property="og:description" content="Monthly cleaning memberships starting at $99. Partial, Full, or Premium plans. 200% happiness guarantee." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://queenofmaids.com/memberships" />
+        <meta property="og:image" content="https://queenofmaids.com/opengraph.jpg" />
+        <meta property="og:site_name" content="Queen of Maids" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Memberships &amp; Pricing | Queen of Maids" />
+        <meta name="twitter:description" content="Monthly cleaning memberships starting at $99. 200% happiness guarantee." />
+        <meta name="twitter:image" content="https://queenofmaids.com/opengraph.jpg" />
+        <link rel="canonical" href="https://queenofmaids.com/memberships" />
       </Helmet>
       {/* HERO */}
       <section

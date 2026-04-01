@@ -7,6 +7,8 @@ import { findServiceBySlug, services as allServices } from '@/data/services';
 import { cleaningPlans, reviews, aggregateRating } from '@/data/content';
 import { cn } from '@/lib/utils';
 import CTA from '@/components/sections/CTA';
+import SchemaMarkup from '@/components/SchemaMarkup';
+import { serviceSchema, faqSchema, breadcrumbSchema } from '@/lib/schema';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -97,8 +99,24 @@ export default function ServiceLanding() {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://queenofmaids.com/services/${service.slug}`} />
+        <meta property="og:image" content="https://queenofmaids.com/opengraph.jpg" />
+        <meta property="og:site_name" content="Queen of Maids" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content="https://queenofmaids.com/opengraph.jpg" />
         <link rel="canonical" href={`https://queenofmaids.com/services/${service.slug}`} />
       </Helmet>
+      <SchemaMarkup schemas={[
+        serviceSchema(service),
+        faqSchema(faqs.map(f => ({ q: f.q, a: f.a }))),
+        breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+          { name: service.title, url: `/services/${service.slug}` },
+        ]),
+      ]} />
 
       {/* HERO — Immersive dark overlay */}
       <section className="relative min-h-[70vh] flex flex-col justify-center overflow-hidden">

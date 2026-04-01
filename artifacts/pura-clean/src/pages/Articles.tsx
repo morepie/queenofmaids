@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, BookOpen } from 'lucide-react';
+import { ArrowRight, BookOpen } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { articles, articleCategories } from '@/data/articles';
 import { cn } from '@/lib/utils';
@@ -66,50 +66,46 @@ export default function Articles() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((article, i) => {
-              const Icon = article.icon;
-              return (
-                <motion.a
-                  key={article.slug}
-                  href={`${base}/articles/${article.slug}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setLocation(`${base}/articles/${article.slug}`);
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="group rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
-                >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-colors">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-medium mb-2">
-                        {articleCategories.find(c => c.value === article.category)?.label}
-                      </span>
-                      <h3 className="text-base font-bold text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2">
-                        {article.title}
-                      </h3>
-                    </div>
+            {filtered.map((article, i) => (
+              <motion.a
+                key={article.slug}
+                href={`${base}/articles/${article.slug}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation(`${base}/articles/${article.slug}`);
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: Math.min(i * 0.03, 0.5) }}
+                className="group rounded-2xl border border-border bg-card shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden"
+              >
+                {article.heroImage && (
+                  <div className="aspect-[16/9] overflow-hidden bg-muted">
+                    <img
+                      src={article.heroImage}
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow line-clamp-3">
+                )}
+                <div className="p-5 flex flex-col flex-grow">
+                  <span className="inline-block self-start px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
+                    {articleCategories.find(c => c.value === article.category)?.label}
+                  </span>
+                  <h3 className="text-base font-bold text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-2 mb-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow line-clamp-2">
                     {article.excerpt}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <Clock className="w-3.5 h-3.5" />
-                      {article.readTime}
-                    </div>
-                    <span className="flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                      Read
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </motion.a>
-              );
-            })}
+                  <span className="flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                    Read Article
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </motion.a>
+            ))}
           </div>
 
           {filtered.length === 0 && (

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, BookOpen } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { articles, articleCategories } from '@/data/articles';
 import CTA from '@/components/sections/CTA';
@@ -28,7 +28,6 @@ export default function ArticleDetail() {
     );
   }
 
-  const Icon = article.icon;
   const categoryLabel = articleCategories.find(c => c.value === article.category)?.label;
   const relatedArticles = articles.filter(a => a.slug !== article.slug && a.category === article.category).slice(0, 3);
 
@@ -39,33 +38,35 @@ export default function ArticleDetail() {
         <meta name="description" content={article.excerpt} />
       </Helmet>
 
-      <section className="relative pt-32 pb-10 md:pt-40 md:pb-14 bg-gradient-to-b from-[hsl(270,30%,95%)] to-background">
+      {article.heroImage && (
+        <div className="relative w-full h-[300px] md:h-[400px] mt-[72px]">
+          <img
+            src={article.heroImage}
+            alt={article.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        </div>
+      )}
+
+      <section className={article.heroImage ? "relative -mt-24 z-10 pb-10" : "relative pt-32 pb-10 md:pt-40 md:pb-14 bg-gradient-to-b from-[hsl(270,30%,95%)] to-background"}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className={article.heroImage ? "bg-card rounded-2xl shadow-xl p-8 md:p-10" : ""}
           >
             <button
               onClick={() => setLocation(base + '/articles')}
-              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-8"
+              className={`inline-flex items-center gap-2 text-sm font-medium ${article.heroImage ? 'text-muted-foreground' : 'text-muted-foreground'} hover:text-primary transition-colors mb-6`}
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Articles
             </button>
 
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Icon className="w-5 h-5 text-primary" />
-              </div>
-              <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <span className="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-medium">{categoryLabel}</span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5" />
-                  {article.readTime}
-                </span>
-                <span>{article.publishedDate}</span>
-              </div>
+              <span className="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-sm font-medium">{categoryLabel}</span>
             </div>
 
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
@@ -83,11 +84,30 @@ export default function ArticleDetail() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="prose prose-lg max-w-none"
           >
-            {article.content.map((paragraph, i) => (
-              <p key={i} className="text-foreground/80 leading-relaxed mb-6 text-[16px]">
-                {paragraph}
-              </p>
-            ))}
+            {article.content.map((paragraph, i) => {
+              if (paragraph.startsWith('# ') && !paragraph.startsWith('## ')) {
+                return <h2 key={i} className="text-2xl font-bold text-foreground mt-10 mb-4">{paragraph.replace('# ', '')}</h2>;
+              }
+              if (paragraph.startsWith('## ')) {
+                return <h2 key={i} className="text-2xl font-bold text-foreground mt-10 mb-4">{paragraph.replace('## ', '')}</h2>;
+              }
+              if (paragraph.startsWith('### ')) {
+                return <h3 key={i} className="text-xl font-bold text-foreground mt-8 mb-3">{paragraph.replace('### ', '')}</h3>;
+              }
+              if (paragraph.startsWith('- ') || paragraph.startsWith('* ')) {
+                return (
+                  <div key={i} className="flex gap-2 mb-2 ml-4">
+                    <span className="text-primary font-bold mt-0.5 shrink-0">&bull;</span>
+                    <p className="text-foreground/80 leading-relaxed text-[16px]">{paragraph.replace(/^[-*] /, '')}</p>
+                  </div>
+                );
+              }
+              return (
+                <p key={i} className="text-foreground/80 leading-relaxed mb-6 text-[16px]">
+                  {paragraph}
+                </p>
+              );
+            })}
           </motion.div>
 
           {relatedArticles.length > 0 && (
@@ -103,12 +123,23 @@ export default function ArticleDetail() {
                       setLocation(`${base}/articles/${related.slug}`);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="group p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all"
+                    className="group rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all overflow-hidden"
                   >
-                    <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
-                      {related.title}
-                    </h4>
-                    <span className="text-xs text-muted-foreground">{related.readTime}</span>
+                    {related.heroImage && (
+                      <div className="aspect-[16/9] overflow-hidden bg-muted">
+                        <img
+                          src={related.heroImage}
+                          alt={related.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div className="p-4">
+                      <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                        {related.title}
+                      </h4>
+                    </div>
                   </a>
                 ))}
               </div>

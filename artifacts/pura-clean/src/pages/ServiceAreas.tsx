@@ -91,6 +91,17 @@ export default function ServiceAreas() {
       <Helmet>
         <title>Service Areas | Queen of Maids</title>
         <meta name="description" content="Queen of Maids proudly serves Phoenix, Salt Lake City, Las Vegas, and Denver metro areas. Find professional house cleaning near you." />
+        <meta property="og:title" content="Service Areas | Queen of Maids" />
+        <meta property="og:description" content="Queen of Maids serves Phoenix, Salt Lake City, Las Vegas, and Denver. Find professional house cleaning in your city." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://queenofmaids.com/service-areas" />
+        <meta property="og:image" content="https://queenofmaids.com/opengraph.jpg" />
+        <meta property="og:site_name" content="Queen of Maids" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Service Areas | Queen of Maids" />
+        <meta name="twitter:description" content="Find professional house cleaning in Phoenix, Salt Lake City, Las Vegas, and Denver." />
+        <meta name="twitter:image" content="https://queenofmaids.com/opengraph.jpg" />
+        <link rel="canonical" href="https://queenofmaids.com/service-areas" />
       </Helmet>
       <section
         className="relative pt-32 pb-14 md:pt-40 md:pb-16 overflow-hidden"

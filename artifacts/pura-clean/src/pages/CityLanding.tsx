@@ -11,6 +11,8 @@ import type { MetroArea, CityData } from '@/data/metros';
 import { cleaningPlans, reviews, aggregateRating } from '@/data/content';
 import { cn } from '@/lib/utils';
 import CTA from '@/components/sections/CTA';
+import SchemaMarkup from '@/components/SchemaMarkup';
+import { localBusinessSchema, faqSchema, breadcrumbSchema } from '@/lib/schema';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -162,11 +164,24 @@ export default function CityLanding() {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:url" content={`https://queenofmaids.com/house-cleaning/${city.slug}`} />
+        <meta property="og:image" content="https://queenofmaids.com/opengraph.jpg" />
+        <meta property="og:site_name" content="Queen of Maids" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content="https://queenofmaids.com/opengraph.jpg" />
         <link rel="canonical" href={`https://queenofmaids.com/house-cleaning/${city.slug}`} />
       </Helmet>
+      <SchemaMarkup schemas={[
+        localBusinessSchema(metro, city),
+        faqSchema(faqs),
+        breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Locations', url: '/service-areas' },
+          { name: `${city.name}, ${metro.stateAbbr}`, url: `/house-cleaning/${city.slug}` },
+        ]),
+      ]} />
 
       {/* HERO */}
       <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden min-h-[520px]">
