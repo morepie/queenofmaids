@@ -169,14 +169,21 @@ export default function CityLanding() {
       </Helmet>
 
       {/* HERO */}
-      <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden">
+      <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden min-h-[520px]">
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background" />
-        <img
-          src={`${base}/images/${metro.heroImage}`}
-          alt={`${metro.name} skyline`}
-          className="absolute inset-0 w-full h-full object-cover z-[1] hidden md:block"
-          style={{ maskImage: 'linear-gradient(to right, transparent 10%, transparent 30%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.55) 100%)' }}
-        />
+        <div className="absolute top-0 right-0 bottom-0 w-[65%] z-[1] hidden md:block overflow-hidden">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${base}/images/${metro.heroImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center 80%',
+              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.7) 40%, black 60%)',
+            }}
+          />
+          <div className="absolute inset-x-0 top-0 h-60 bg-gradient-to-b from-[hsl(270,25%,96%)] from-20% via-[hsl(270,25%,96%)]/70 via-50% to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[hsl(270,30%,97%)] to-transparent" />
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
