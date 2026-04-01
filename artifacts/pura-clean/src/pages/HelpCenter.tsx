@@ -87,7 +87,7 @@ export default function HelpCenter() {
         <meta name="description" content="Find answers to common questions about Queen of Maids cleaning services, memberships, scheduling, pricing, and more." />
       </Helmet>
 
-      <section className="relative pt-32 pb-14 md:pt-40 md:pb-16 bg-gradient-to-b from-[hsl(270,30%,95%)] to-background">
+      <section className="relative pt-32 pb-6 md:pt-40 md:pb-6 bg-gradient-to-b from-[hsl(270,30%,95%)] to-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -162,7 +162,7 @@ export default function HelpCenter() {
         </section>
       ) : (
         <>
-          <section className="py-12 md:py-16 bg-background">
+          <section className="py-5 md:py-6 bg-background">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-14">
                 {helpTopics.map(topic => {
