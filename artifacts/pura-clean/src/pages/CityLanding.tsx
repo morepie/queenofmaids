@@ -476,6 +476,9 @@ export default function CityLanding() {
                 Ready to experience the best house cleaning in {city.name}, {metro.stateAbbr}? Contact our {metro.name} office today.
               </p>
               <div className="flex flex-col gap-3 mb-5">
+                <div className="flex items-center gap-3 text-sm text-foreground/80">
+                  <Clock className="w-4 h-4 text-teal" /> {metro.hours}
+                </div>
                 <a href={`tel:${metro.phone.replace(/\D/g, '')}`} className="flex items-center gap-3 text-sm text-foreground/80 hover:text-primary transition-colors">
                   <Phone className="w-4 h-4 text-teal" /> {metro.phone}
                 </a>

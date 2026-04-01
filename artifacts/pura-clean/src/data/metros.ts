@@ -12,6 +12,7 @@ export interface MetroArea {
   stateAbbr: string;
   phone: string;
   email: string;
+  hours: string;
   center: [number, number];
   zoom: number;
   cities: CityData[];
@@ -31,8 +32,9 @@ export const metros: MetroArea[] = [
     slug: 'phoenix',
     state: 'Arizona',
     stateAbbr: 'AZ',
-    phone: '(602) 555-1234',
-    email: 'phoenix@puraclean.com',
+    phone: '(480) 648-3441',
+    email: 'contact@queenofmaids.com',
+    hours: 'Mon–Fri 8am to 5pm',
     center: [33.4484, -111.97],
     zoom: 10,
     cities: citiesWithSlugs([
@@ -56,8 +58,9 @@ export const metros: MetroArea[] = [
     slug: 'salt-lake-city',
     state: 'Utah',
     stateAbbr: 'UT',
-    phone: '(801) 555-2345',
-    email: 'saltlake@puraclean.com',
+    phone: '(385) 213-3150',
+    email: 'contact@queenofmaids.com',
+    hours: 'Mon–Fri 8am to 5pm',
     center: [40.7608, -111.891],
     zoom: 10,
     cities: citiesWithSlugs([
@@ -80,8 +83,9 @@ export const metros: MetroArea[] = [
     slug: 'las-vegas',
     state: 'Nevada',
     stateAbbr: 'NV',
-    phone: '(702) 555-3456',
-    email: 'lasvegas@puraclean.com',
+    phone: '(702) 553-3809',
+    email: 'contact@queenofmaids.com',
+    hours: 'Mon–Fri 8am to 5pm',
     center: [36.1699, -115.1398],
     zoom: 11,
     cities: citiesWithSlugs([
@@ -103,7 +107,8 @@ export const metros: MetroArea[] = [
     state: 'Colorado',
     stateAbbr: 'CO',
     phone: '(720) 555-4567',
-    email: 'denver@puraclean.com',
+    email: 'contact@queenofmaids.com',
+    hours: 'Mon–Fri 8am to 5pm',
     center: [39.7392, -104.9903],
     zoom: 10,
     cities: citiesWithSlugs([

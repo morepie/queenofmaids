@@ -97,11 +97,11 @@ export default function HowToBook() {
               Speak with our friendly team directly. We're happy to answer any questions and schedule your cleaning over the phone.
             </p>
             <a
-              href="tel:6025551234"
+              href="tel:4806483441"
               className="mt-5 inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-primary/20 text-foreground font-semibold text-sm hover:bg-primary/5 transition-all duration-200"
             >
               <Phone className="w-4 h-4 text-primary" />
-              (602) 555-1234
+              (480) 648-3441
             </a>
           </div>
         </motion.div>

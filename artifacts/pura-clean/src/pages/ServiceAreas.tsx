@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, ChevronDown } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ChevronDown } from 'lucide-react';
 import { useLocation } from 'wouter';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -190,22 +190,28 @@ export default function ServiceAreas() {
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4">
-                    <a
-                      href={`tel:${metro.phone.replace(/\D/g, '')}`}
-                      className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors"
-                    >
-                      <Phone className="w-4 h-4 text-teal" />
-                      {metro.phone}
-                    </a>
-                    <span className="text-border">|</span>
-                    <a
-                      href={`mailto:${metro.email}`}
-                      className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors"
-                    >
-                      <Mail className="w-4 h-4 text-teal" />
-                      {metro.email}
-                    </a>
+                  <div className="flex flex-col gap-2">
+                    <div className="inline-flex items-center gap-2 text-sm text-foreground/80">
+                      <Clock className="w-4 h-4 text-teal" />
+                      {metro.hours}
+                    </div>
+                    <div className="flex flex-wrap items-center gap-4">
+                      <a
+                        href={`tel:${metro.phone.replace(/\D/g, '')}`}
+                        className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors"
+                      >
+                        <Phone className="w-4 h-4 text-teal" />
+                        {metro.phone}
+                      </a>
+                      <span className="text-border">|</span>
+                      <a
+                        href={`mailto:${metro.email}`}
+                        className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors"
+                      >
+                        <Mail className="w-4 h-4 text-teal" />
+                        {metro.email}
+                      </a>
+                    </div>
                   </div>
 
                   <div>

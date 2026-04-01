@@ -37,13 +37,13 @@ export default function Footer() {
               Professional house cleaning across four major metro areas. We bring the sparkle so you can enjoy your home.
             </p>
             <div className="space-y-3 pt-2">
-              <a href="tel:6025551234" className="flex items-center gap-2.5 text-sm text-background/70 hover:text-primary transition-colors">
+              <a href="tel:4806483441" className="flex items-center gap-2.5 text-sm text-background/70 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4 text-primary" />
-                (602) 555-1234
+                (480) 648-3441
               </a>
-              <a href="mailto:hello@puraclean.com" className="flex items-center gap-2.5 text-sm text-background/70 hover:text-primary transition-colors">
+              <a href="mailto:contact@queenofmaids.com" className="flex items-center gap-2.5 text-sm text-background/70 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4 text-primary" />
-                hello@puraclean.com
+                contact@queenofmaids.com
               </a>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function Footer() {
               Ready for a cleaner home? Get a free, no-obligation quote today.
             </p>
             <a
-              href="tel:6025551234"
+              href="tel:4806483441"
               className="inline-flex items-center justify-center w-full px-5 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors"
             >
               Call for a Free Quote
