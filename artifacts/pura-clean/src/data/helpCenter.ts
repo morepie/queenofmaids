@@ -54,7 +54,7 @@ export const helpTopics: HelpTopic[] = [
     questions: [
       {
         q: 'How do I book a cleaning online?',
-        a: 'Booking online is simple: 1) Visit queenofmaids.com to use our online booking application. 2) Enter the details about your home (square footage, beds, baths, etc). 3) Select service options for your home. 4) Select an available date and time. 5) Enter your contact information and payment method. 6) Confirm your booking. Once confirmed, you\'ll receive a confirmation email with all the details.',
+        a: 'Booking online is simple: 1) Visit queenofmaids.com to use our online booking application. 2) Enter the details about your home (square footage, beds, baths, etc). 3) Select service options for your home. 4) Select an available date and time. 5) Enter your contact information and payment method. 6) Confirm your booking. After submitting, we\'ll schedule a quick 5-minute phone call to confirm everything — because every home is different and we want to make sure we set you up with exactly the cleaning you need.',
       },
       {
         q: 'What is the difference between Standard, Deep, and Move In/Out cleanings?',

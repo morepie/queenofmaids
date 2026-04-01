@@ -75,7 +75,7 @@ export default function ServiceLanding() {
     },
     {
       q: `How do I book a ${service.title.toLowerCase()}?`,
-      a: `Booking is easy! Call us or request a quote online. We'll discuss your home, your specific needs, and find a time that works for your schedule. Most homes can be scheduled within the same week.`,
+      a: `Booking is easy! Request a quote online, then we'll schedule a quick 5-minute call to go over your home and specific needs. Every home is different, so we want to make sure we set you up with exactly the right cleaning. Most homes can be scheduled within the same week.`,
     },
     {
       q: `Do you bring your own cleaning supplies for ${service.title.toLowerCase()}?`,

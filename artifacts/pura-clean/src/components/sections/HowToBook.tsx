@@ -19,8 +19,8 @@ const steps = [
   {
     number: '3',
     icon: Phone,
-    title: 'We Handle the Rest',
-    description: 'Our vetted, insured team arrives on time and leaves your home sparkling clean.',
+    title: 'Quick Confirmation Call',
+    description: 'We\'ll call for a quick 5-minute chat to confirm your details and make sure you get exactly the cleaning you need.',
   },
 ];
 
@@ -91,7 +91,7 @@ export default function HowToBook() {
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-xl font-bold text-white mb-2">Book Online</h3>
             <p className="text-white/65 text-sm leading-relaxed">
-              Choose a membership below and we'll follow up within the hour to confirm your appointment.
+              Get a quote online, then we'll follow up with a quick 5-minute call to confirm everything and get you on the schedule.
             </p>
             <a
               href="https://quote.queenofmaids.com/"
