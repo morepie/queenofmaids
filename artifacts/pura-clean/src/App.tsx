@@ -6,6 +6,7 @@ import ServiceLanding from '@/pages/ServiceLanding';
 import Memberships from '@/pages/Memberships';
 import ServiceAreas from '@/pages/ServiceAreas';
 import CityLanding from '@/pages/CityLanding';
+import CityServiceLanding from '@/pages/CityServiceLanding';
 import Articles from '@/pages/Articles';
 import ArticleDetail from '@/pages/ArticleDetail';
 import HelpCenter from '@/pages/HelpCenter';
@@ -23,6 +24,7 @@ function App() {
         <Route path={base + '/memberships'} component={Memberships} />
         <Route path={base + '/plans'}>{() => <Redirect to={base + '/memberships'} />}</Route>
         <Route path={base + '/service-areas'} component={ServiceAreas} />
+        <Route path={base + '/house-cleaning/:city/:service'} component={CityServiceLanding} />
         <Route path={base + '/house-cleaning/:city'} component={CityLanding} />
         <Route path={base + '/articles/:slug'} component={ArticleDetail} />
         <Route path={base + '/articles'} component={Articles} />
