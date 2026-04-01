@@ -22,19 +22,19 @@ function MiniStars({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'md'
   const w = size === 'md' ? 'w-5 h-5' : 'w-3 h-3';
   return (
     <div className="flex items-center gap-0.5">
-      {[...Array(5)].map((_, i) => (
-        <Star
-          key={i}
-          className={cn(
-            w,
-            i < Math.floor(rating)
-              ? "text-yellow-400 fill-yellow-400"
-              : i < rating
-              ? "text-yellow-400 fill-yellow-400/50"
-              : "text-yellow-400/30"
-          )}
-        />
-      ))}
+      {[...Array(5)].map((_, i) => {
+        const fill = Math.min(1, Math.max(0, rating - i));
+        if (fill >= 1) return <Star key={i} className={cn(w, "text-yellow-400 fill-yellow-400")} />;
+        if (fill <= 0) return <Star key={i} className={cn(w, "text-yellow-400/30")} />;
+        return (
+          <span key={i} className={cn("relative", w)}>
+            <Star className={cn(w, "text-yellow-400/30 absolute inset-0")} />
+            <span className="absolute inset-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
+              <Star className={cn(w, "text-yellow-400 fill-yellow-400")} />
+            </span>
+          </span>
+        );
+      })}
     </div>
   );
 }
@@ -77,9 +77,18 @@ export default function Hero() {
 
               <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm border border-white/50">
                 <div className="flex gap-0.5 text-yellow-500">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
+                  {[0, 1, 2, 3, 4].map((i) => {
+                    const fill = Math.min(1, Math.max(0, 4.9 - i));
+                    if (fill >= 1) return <Star key={i} className="w-4 h-4 fill-current" />;
+                    return (
+                      <span key={i} className="relative w-4 h-4">
+                        <Star className="w-4 h-4 text-yellow-500/30 absolute inset-0" />
+                        <span className="absolute inset-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
+                          <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                        </span>
+                      </span>
+                    );
+                  })}
                 </div>
                 <span className="text-sm font-bold text-foreground">4.9/5</span>
                 <span className="text-sm text-muted-foreground">(1,500+ Reviews)</span>

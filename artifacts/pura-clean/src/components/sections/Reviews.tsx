@@ -30,17 +30,23 @@ export default function Reviews() {
           </h2>
           <div className="mt-4 flex items-center justify-center gap-3">
             <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={cn(
-                    "w-5 h-5",
-                    i < Math.floor(aggregateRating.score)
-                      ? "text-yellow-400 fill-yellow-400"
-                      : "text-yellow-400/30"
-                  )}
-                />
-              ))}
+              {[...Array(5)].map((_, i) => {
+                const fill = Math.min(1, Math.max(0, aggregateRating.score - i));
+                if (fill >= 1) {
+                  return <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />;
+                }
+                if (fill <= 0) {
+                  return <Star key={i} className="w-5 h-5 text-yellow-400/30" />;
+                }
+                return (
+                  <span key={i} className="relative w-5 h-5">
+                    <Star className="w-5 h-5 text-yellow-400/30 absolute inset-0" />
+                    <span className="absolute inset-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
+                      <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    </span>
+                  </span>
+                );
+              })}
             </div>
             <span className="text-lg font-bold text-foreground">{aggregateRating.score}</span>
             <span className="text-muted-foreground text-sm">({aggregateRating.totalReviews} reviews)</span>
