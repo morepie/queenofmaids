@@ -62,7 +62,19 @@ export default function ServiceAreas() {
   const [activeMetro, setActiveMetro] = useState<string | null>(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      const metroSlug = hash.replace('metro-', '');
+      setActiveMetro(metroSlug);
+      requestAnimationFrame(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   const scrollToMetro = (slug: string) => {
