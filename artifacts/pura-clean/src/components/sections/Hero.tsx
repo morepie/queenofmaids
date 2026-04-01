@@ -112,7 +112,7 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-y-4 gap-x-6">
+            <div className="grid grid-cols-2 gap-y-4 gap-x-4 max-w-sm">
               {[
                 { icon: Shield, text: 'Insured & Bonded' },
                 { icon: CheckCircle, text: '200% Happiness Guarantee' },
