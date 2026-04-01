@@ -123,8 +123,7 @@ export default function Memberships() {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-[hsl(270,50%,15%)]/75 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[hsl(270,50%,10%)]/90" />
+        <div className="absolute inset-0 bg-[hsl(270,50%,12%)]/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
