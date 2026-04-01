@@ -14,7 +14,7 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location, setLocation] = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isHome = location === base + '/' || location === base || location === '/';
   const isServicesPage = location.startsWith(base + '/services');
@@ -24,7 +24,9 @@ export default function Navbar() {
 
   const useLightTheme = isServiceDetail && !isScrolled;
   const isServiceAreas = location === base + '/service-areas' || location === base + '/service-areas/';
-  const alwaysWhiteBg = isMemberships || isServicesIndex || isServiceAreas;
+  const isArticles = location.startsWith(base + '/articles');
+  const isHelp = location === base + '/help' || location === base + '/help/';
+  const alwaysWhiteBg = isMemberships || isServicesIndex || isServiceAreas || isArticles || isHelp;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -43,26 +45,12 @@ export default function Navbar() {
   }, []);
 
   const handleMouseEnter = () => {
-    clearTimeout(timeoutRef.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setServicesOpen(true);
   };
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
-  };
-
-  const scrollTo = (id: string) => {
-    setMobileOpen(false);
-    if (!isHome) {
-      setLocation(base + '/');
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   const goHome = () => {
@@ -192,14 +180,24 @@ export default function Navbar() {
               Service Areas
             </button>
             <button
-              onClick={() => scrollTo('reviews')}
+              onClick={() => navigate('/articles')}
               className={cn(
                 "text-sm font-semibold transition-colors",
                 linkHover,
-                linkColor
+                isArticles ? linkActive : linkColor
               )}
             >
-              Reviews
+              Articles
+            </button>
+            <button
+              onClick={() => navigate('/help')}
+              className={cn(
+                "text-sm font-semibold transition-colors",
+                linkHover,
+                isHelp ? linkActive : linkColor
+              )}
+            >
+              Help Center
             </button>
             <a
               href="https://quote.queenofmaids.com/"
@@ -292,10 +290,16 @@ export default function Navbar() {
                 Service Areas
               </button>
               <button
-                onClick={() => scrollTo('reviews')}
+                onClick={() => navigate('/articles')}
                 className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left"
               >
-                Reviews
+                Articles
+              </button>
+              <button
+                onClick={() => navigate('/help')}
+                className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left"
+              >
+                Help Center
               </button>
               <a
                 href="https://quote.queenofmaids.com/"

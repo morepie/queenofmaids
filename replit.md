@@ -113,16 +113,20 @@ Marketing website for Pura Drip mobile IV therapy. React + Vite + Tailwind CSS.
 
 Marketing website for PuraClean house cleaning service. React + Vite + Tailwind CSS. Shares design DNA with Pura Drip (same color palette, Inter font, rounded cards).
 
-- **Pages**: Home (`/`), Services (`/services`), Plans (`/plans`), Service Areas (`/service-areas`), City Landing Pages (`/house-cleaning/:city`)
+- **Brand name**: "Queen of Maids" — canonical URLs → queenofmaids.com
+- **Pages**: Home (`/`), Services (`/services`), ServiceLanding (`/services/:service`), Memberships (`/memberships`), Service Areas (`/service-areas`), City Landing Pages (`/house-cleaning/:city`), Articles (`/articles`), ArticleDetail (`/articles/:slug`), HelpCenter (`/help`), Terms, Privacy
 - **Routing**: wouter with `import.meta.env.BASE_URL` prefix
-- **SEO**: react-helmet-async for per-page title/description/OG/canonical meta tags on city landing pages
+- **SEO**: react-helmet-async for per-page title/description/OG/canonical meta tags
 - **Sections**: Hero (team photo + trust strip + badges), Cleaning Plans (3 tiers), Reviews (vertical grid with View More), CTA, Footer
 - **Color palette**: primary = deep purple `hsl(270,50%,36%)`, lavender background `hsl(270,30%,97%)`, purple accents
 - **Font**: Inter
-- **Data**: `src/data/content.ts` — cleaning plans, reviews, aggregate rating; `src/data/metros.ts` — 4 metro areas (Phoenix, Salt Lake City, Las Vegas, Denver) with city slugs
+- **Data**: `src/data/content.ts` — cleaning plans, reviews; `src/data/metros.ts` — 4 metro areas (Phoenix, Salt Lake City, Las Vegas, Denver); `src/data/articles.ts` — 12 knowledge base articles across 5 categories; `src/data/helpCenter.ts` — 6 FAQ topics with ~35 questions
 - **Maps**: Leaflet + OpenStreetMap with custom purple pin markers
-- **City Landing Pages**: 47 city-specific SEO landing pages at `/house-cleaning/[city-slug]` (e.g. `/house-cleaning/phoenix`, `/house-cleaning/scottsdale`). Each has localized hero, services list, pricing, "Why Choose Us", contact card, and nearby cities cross-linking
+- **City Landing Pages**: 47 city-specific SEO landing pages at `/house-cleaning/[city-slug]` with home interior hero images
+- **Articles (Knowledge Base)**: 12 articles across categories (Cleaning Tips, Home Care, Membership Guide, Seasonal, Pet & Family) with filterable grid, detail pages, and related articles
+- **Help Center**: Searchable FAQ organized by 6 topics (Booking, Memberships, Services, Trust & Safety, Service Areas, Satisfaction), with accordion UI and live search
 - **Cleaning Plans**: Partial Clean ($99/biweekly), Full Clean ($149/biweekly, most popular), Full Premium ($179/biweekly)
-- **Reviews**: Vertical 4-col grid, 2 rows initially, "View More Reviews" reveals more
+- **Reviews**: Vertical 4-col grid, 2 rows initially, "View More Reviews" reveals more; partial star rating (4.9 shows 90% filled 5th star)
 - **Layout**: `overflow-x: clip` on Layout (NOT `overflow-x: hidden`) to preserve CSS sticky positioning
-- **No backend**: Static marketing site with CTA buttons ("Get a Quote") — no booking flow
+- **Quote URL**: All CTA buttons → `https://quote.queenofmaids.com/` (target="_blank")
+- **No backend**: Static marketing site with CTA buttons ("Get a Quote")

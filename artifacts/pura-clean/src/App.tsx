@@ -6,6 +6,9 @@ import ServiceLanding from '@/pages/ServiceLanding';
 import Memberships from '@/pages/Memberships';
 import ServiceAreas from '@/pages/ServiceAreas';
 import CityLanding from '@/pages/CityLanding';
+import Articles from '@/pages/Articles';
+import ArticleDetail from '@/pages/ArticleDetail';
+import HelpCenter from '@/pages/HelpCenter';
 import Terms from '@/pages/Terms';
 import Privacy from '@/pages/Privacy';
 
@@ -21,6 +24,9 @@ function App() {
         <Route path={base + '/plans'}>{() => <Redirect to={base + '/memberships'} />}</Route>
         <Route path={base + '/service-areas'} component={ServiceAreas} />
         <Route path={base + '/house-cleaning/:city'} component={CityLanding} />
+        <Route path={base + '/articles/:slug'} component={ArticleDetail} />
+        <Route path={base + '/articles'} component={Articles} />
+        <Route path={base + '/help'} component={HelpCenter} />
         <Route path={base + '/terms'} component={Terms} />
         <Route path={base + '/privacy'} component={Privacy} />
         <Route path={base + '/'} component={Home} />

@@ -103,11 +103,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href={`${base}/reviews`} className="text-background/60 hover:text-primary transition-colors text-sm">
-                  Reviews
-                </Link>
-              </li>
-              <li>
                 <Link href={`${base}/services`} className="text-background/60 hover:text-primary transition-colors text-sm">
                   All Services
                 </Link>
@@ -117,13 +112,18 @@ export default function Footer() {
             <h4 className="font-semibold text-background mb-5 text-sm tracking-wider uppercase mt-8">Resources</h4>
             <ul className="space-y-2.5">
               <li>
-                <Link href={`${base}/memberships#faq`} className="text-background/60 hover:text-primary transition-colors text-sm">
-                  FAQ
+                <Link href={`${base}/articles`} className="text-background/60 hover:text-primary transition-colors text-sm">
+                  Articles
                 </Link>
               </li>
               <li>
-                <Link href={`${base}/memberships#comparison`} className="text-background/60 hover:text-primary transition-colors text-sm">
-                  Compare Memberships
+                <Link href={`${base}/help`} className="text-background/60 hover:text-primary transition-colors text-sm">
+                  Help Center
+                </Link>
+              </li>
+              <li>
+                <Link href={`${base}/memberships#faq`} className="text-background/60 hover:text-primary transition-colors text-sm">
+                  FAQ
                 </Link>
               </li>
             </ul>
