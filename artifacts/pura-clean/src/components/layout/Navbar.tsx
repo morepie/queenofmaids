@@ -26,7 +26,8 @@ export default function Navbar() {
   const isServiceAreas = location === base + '/service-areas' || location === base + '/service-areas/';
   const isArticles = location.startsWith(base + '/articles');
   const isHelp = location === base + '/help' || location === base + '/help/';
-  const alwaysWhiteBg = isMemberships || isServicesIndex || isServiceAreas || isArticles || isHelp;
+  const isContact = location === base + '/contact' || location === base + '/contact/';
+  const alwaysWhiteBg = isMemberships || isServicesIndex || isServiceAreas || isArticles || isHelp || isContact;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -223,6 +224,16 @@ export default function Navbar() {
             >
               Help Center
             </button>
+            <button
+              onClick={() => navigate('/contact')}
+              className={cn(
+                "text-sm font-semibold transition-colors",
+                linkHover,
+                isContact ? linkActive : linkColor
+              )}
+            >
+              Contact
+            </button>
             <a
               href="https://quote.queenofmaids.com/"
               target="_blank"
@@ -331,6 +342,12 @@ export default function Navbar() {
                 className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left"
               >
                 Help Center
+              </button>
+              <button
+                onClick={() => navigate('/contact')}
+                className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left"
+              >
+                Contact
               </button>
               <a
                 href="https://quote.queenofmaids.com/"

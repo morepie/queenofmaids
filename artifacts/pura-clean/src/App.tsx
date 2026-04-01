@@ -10,6 +10,7 @@ import CityServiceLanding from '@/pages/CityServiceLanding';
 import Articles from '@/pages/Articles';
 import ArticleDetail from '@/pages/ArticleDetail';
 import HelpCenter from '@/pages/HelpCenter';
+import Contact from '@/pages/Contact';
 import Terms from '@/pages/Terms';
 import Privacy from '@/pages/Privacy';
 
@@ -29,6 +30,7 @@ function App() {
         <Route path={base + '/articles/:slug'} component={ArticleDetail} />
         <Route path={base + '/articles'} component={Articles} />
         <Route path={base + '/help'} component={HelpCenter} />
+        <Route path={base + '/contact'} component={Contact} />
         <Route path={base + '/terms'} component={Terms} />
         <Route path={base + '/privacy'} component={Privacy} />
         <Route path={base + '/'} component={Home} />

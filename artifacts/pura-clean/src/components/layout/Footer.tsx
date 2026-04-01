@@ -107,6 +107,11 @@ export default function Footer() {
                   All Services
                 </Link>
               </li>
+              <li>
+                <Link href={`${base}/contact`} className="text-background/60 hover:text-primary transition-colors text-sm">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
 
             <h4 className="font-semibold text-background mb-5 text-sm tracking-wider uppercase mt-8">Resources</h4>
