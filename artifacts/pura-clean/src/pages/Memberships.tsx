@@ -228,12 +228,32 @@ export default function Memberships() {
                 );
               })}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex justify-center mt-16"
+            >
+              <a
+                href="#membership-tiers"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('membership-tiers')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                View Membership Plans
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* MEMBERSHIP TIERS */}
-      <section id="memberships" className="py-20 md:py-28 bg-muted/30">
+      <section id="membership-tiers" className="py-20 md:py-28 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
