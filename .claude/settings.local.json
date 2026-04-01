@@ -5,7 +5,12 @@
       "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\); const p=JSON.parse\\(d\\); console.log\\(JSON.stringify\\({exports:Object.keys\\(p.exports||{}\\), main:p.main, module:p.module, version:p.version},null,2\\)\\)\")",
       "Bash(node_modules/.bin/tsx:*)",
       "Bash(python3 -c ':*)",
-      "Bash(cp /tmp/backup-index.html dist/public/index.html)"
+      "Bash(cp /tmp/backup-index.html dist/public/index.html)",
+      "Bash(git push:*)",
+      "Bash(git remote:*)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(env)",
+      "Bash(replit-git-askpass --help)"
     ]
   }
 }
