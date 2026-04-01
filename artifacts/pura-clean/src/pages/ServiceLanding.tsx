@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Star, CheckCircle, ChevronDown, Phone, ArrowRight, Users, Target, Award, Sparkles, Shield, Leaf, CalendarCheck } from 'lucide-react';
+import { Star, CheckCircle, ChevronDown, Phone, ArrowRight, Users, Target, Award, Sparkles, Shield, Leaf } from 'lucide-react';
 import { findServiceBySlug, services as allServices } from '@/data/services';
 import { cleaningPlans, reviews, aggregateRating } from '@/data/content';
 import { cn } from '@/lib/utils';
@@ -102,112 +102,60 @@ export default function ServiceLanding() {
       {/* HERO */}
       <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background" />
+        <img
+          src={`${base}/images/clean-living-room.png`}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover z-[1] hidden md:block"
+          style={{ maskImage: 'linear-gradient(to right, transparent 10%, transparent 30%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.7) 100%)' }}
+        />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-primary" />
-                </div>
-                <span className="text-sm font-bold text-teal uppercase tracking-widest">{service.tagline}</span>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-xl"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 backdrop-blur-sm flex items-center justify-center">
+                <Icon className="w-6 h-6 text-primary" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.1] mb-5">
-                Professional{' '}
-                <span className="text-primary">{service.title}</span>{' '}
-                Services
-              </h1>
-              <p className="text-base md:text-lg text-muted-foreground mb-7 max-w-xl leading-relaxed">
-                {service.description}
-              </p>
-              <div className="flex flex-col sm:flex-row items-start gap-3">
-                <a
-                  href="tel:6025551234"
-                  className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-                >
-                  Get a Free Quote
-                </a>
-                <a
-                  href={base + '/memberships'}
-                  onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
-                  className="px-8 py-3.5 rounded-full bg-card text-foreground text-base font-bold shadow-lg border border-border flex items-center gap-2 group hover:-translate-y-1 transition-all duration-300"
-                >
-                  View Memberships
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+              <span className="text-sm font-bold text-teal uppercase tracking-widest">{service.tagline}</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.1] mb-5">
+              Professional{' '}
+              <span className="text-primary">{service.title}</span>{' '}
+              Services
+            </h1>
+            <p className="text-base md:text-lg text-muted-foreground mb-7 max-w-xl leading-relaxed">
+              {service.description}
+            </p>
+            <div className="flex flex-col sm:flex-row items-start gap-3">
+              <a
+                href="tel:4806483441"
+                className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              >
+                Get a Free Quote
+              </a>
+              <a
+                href={base + '/memberships'}
+                onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
+                className="px-8 py-3.5 rounded-full bg-card/80 backdrop-blur-sm text-foreground text-base font-bold shadow-lg border border-border flex items-center gap-2 group hover:-translate-y-1 transition-all duration-300"
+              >
+                View Memberships
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+
+            <div className="mt-6 flex items-center gap-3">
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                ))}
               </div>
-
-              <div className="mt-6 flex items-center gap-3">
-                <div className="flex items-center gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <span className="text-sm font-bold">{aggregateRating.score}/5</span>
-                <span className="text-xs text-muted-foreground">({aggregateRating.totalReviews.toLocaleString()}+ reviews)</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative flex items-center justify-center"
-            >
-              <div className="relative w-[420px] h-[420px] mx-auto scale-[0.78] sm:scale-[0.85] lg:scale-100 origin-center">
-                <div className="absolute inset-[90px] rounded-full bg-primary/8 border border-primary/15" />
-                <div className="absolute inset-[60px] rounded-full border border-primary/8" />
-                <div className="absolute inset-0 rounded-full border border-primary/5" />
-
-                <div className="absolute inset-[100px] rounded-full bg-gradient-to-br from-primary to-accent flex flex-col items-center justify-center text-center shadow-xl">
-                  <img
-                    src={`${base}/images/cleaner-kitchen.png`}
-                    alt="Professional house cleaning"
-                    className="absolute inset-0 w-full h-full object-cover rounded-full opacity-30"
-                  />
-                  <div className="relative">
-                    <p className="text-3xl font-bold text-white leading-none">127K+</p>
-                    <p className="text-xs text-white/80 mt-1 font-medium">Cleanings<br/>Completed</p>
-                  </div>
-                </div>
-
-                {[
-                  { icon: Users, value: '31,159+', label: 'Customers', angle: -30 },
-                  { icon: Star, value: '1,500+', label: '5-Star Reviews', angle: 30 },
-                  { icon: Shield, value: '200%', label: 'Happiness\nGuarantee', angle: 90 },
-                  { icon: Award, value: '14+', label: 'Years\nExperience', angle: 150 },
-                  { icon: CheckCircle, value: '', label: 'Background\nChecked', angle: 210 },
-                  { icon: Leaf, value: '', label: 'Eco-Friendly\nProducts', angle: 270 },
-                ].map(({ icon: ItemIcon, value, label, angle }) => {
-                  const r = 185;
-                  const rad = (angle * Math.PI) / 180;
-                  const x = 210 + r * Math.cos(rad);
-                  const y = 210 + r * Math.sin(rad);
-                  return (
-                    <div
-                      key={label}
-                      className="absolute flex flex-col items-center text-center"
-                      style={{
-                        left: `${x}px`,
-                        top: `${y}px`,
-                        transform: 'translate(-50%, -50%)',
-                        width: '90px',
-                      }}
-                    >
-                      <div className="w-12 h-12 rounded-full bg-card border-2 border-primary/20 shadow-md flex items-center justify-center mb-1.5">
-                        <ItemIcon className="w-5 h-5 text-primary" />
-                      </div>
-                      {value && <p className="text-sm font-bold text-foreground leading-tight">{value}</p>}
-                      <p className="text-[10px] text-muted-foreground leading-tight whitespace-pre-line mt-0.5">{label}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </div>
+              <span className="text-sm font-bold">{aggregateRating.score}/5</span>
+              <span className="text-xs text-muted-foreground">({aggregateRating.totalReviews.toLocaleString()}+ reviews)</span>
+            </div>
+          </motion.div>
         </div>
       </section>
 
