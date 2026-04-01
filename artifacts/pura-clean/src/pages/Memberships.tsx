@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import {
   Check, X, Star, ArrowRight, Sparkles, DollarSign,
@@ -109,6 +110,10 @@ export default function Memberships() {
 
   return (
     <>
+      <Helmet>
+        <title>Memberships & Pricing | Queen of Maids</title>
+        <meta name="description" content="Choose your Queen of Maids membership — Partial, Full, or Premium monthly plans. No first-visit surcharges for members. Flexible scheduling and a 200% Happiness Guarantee." />
+      </Helmet>
       {/* HERO */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

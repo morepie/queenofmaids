@@ -7,8 +7,8 @@ export default function Privacy() {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy | PuraClean</title>
-        <meta name="description" content="PuraClean Privacy Policy. Learn how we collect, use, and protect your personal information." />
+        <title>Privacy Policy | Queen of Maids</title>
+        <meta name="description" content="Queen of Maids Privacy Policy. Learn how we collect, use, and protect your personal information." />
       </Helmet>
 
       <div className="pt-32 pb-20 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background">

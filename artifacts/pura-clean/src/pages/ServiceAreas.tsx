@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, ChevronDown } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'wouter';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -87,6 +88,10 @@ export default function ServiceAreas() {
 
   return (
     <>
+      <Helmet>
+        <title>Service Areas | Queen of Maids</title>
+        <meta name="description" content="Queen of Maids proudly serves Phoenix, Salt Lake City, Las Vegas, and Denver metro areas. Find professional house cleaning near you." />
+      </Helmet>
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

@@ -111,7 +111,7 @@ export default function CityLanding() {
 
   const { metro, city } = result;
   const nearbyCities = metro.cities.filter(c => c.slug !== city.slug);
-  const pageTitle = `House Cleaning in ${city.name}, ${metro.stateAbbr} | PuraClean`;
+  const pageTitle = `House Cleaning in ${city.name}, ${metro.stateAbbr} | Queen of Maids`;
   const pageDescription = `Professional house cleaning services in ${city.name}, ${metro.state}. Vetted cleaners, flexible scheduling, and a 200% Happiness Guarantee. Serving the ${metro.name} metro area for 14+ years.`;
 
   const cityReviews = reviews.slice(0, 6);

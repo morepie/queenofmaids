@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'wouter';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { services } from '@/data/services';
@@ -16,6 +17,10 @@ export default function Services() {
 
   return (
     <>
+      <Helmet>
+        <title>Cleaning Services | Queen of Maids</title>
+        <meta name="description" content="Browse all cleaning services from Queen of Maids — standard cleaning, deep cleaning, move in/out, recurring, and more. Serving Phoenix, Salt Lake City, Las Vegas, and Denver." />
+      </Helmet>
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

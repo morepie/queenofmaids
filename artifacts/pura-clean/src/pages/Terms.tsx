@@ -7,8 +7,8 @@ export default function Terms() {
   return (
     <>
       <Helmet>
-        <title>Terms of Service | PuraClean</title>
-        <meta name="description" content="PuraClean Terms of Service. Read our terms and conditions for using PuraClean house cleaning services." />
+        <title>Terms of Service | Queen of Maids</title>
+        <meta name="description" content="Queen of Maids Terms of Service. Read our terms and conditions for using our house cleaning services." />
       </Helmet>
 
       <div className="pt-32 pb-20 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background">

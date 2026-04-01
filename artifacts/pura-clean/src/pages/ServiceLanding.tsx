@@ -58,8 +58,8 @@ export default function ServiceLanding() {
   const otherServices = allServices.filter(s => s.slug !== service.slug).slice(0, 6);
   const serviceReviews = reviews.slice(0, 4);
 
-  const pageTitle = `${service.title} Services | PuraClean`;
-  const pageDescription = `Professional ${service.title.toLowerCase()} services from PuraClean. ${service.tagline} Vetted cleaners, flexible scheduling, and a 200% Happiness Guarantee.`;
+  const pageTitle = `${service.title} Services | Queen of Maids`;
+  const pageDescription = `Professional ${service.title.toLowerCase()} services from Queen of Maids. ${service.tagline} Vetted cleaners, flexible scheduling, and a 200% Happiness Guarantee.`;
 
   const faqs = [
     {
