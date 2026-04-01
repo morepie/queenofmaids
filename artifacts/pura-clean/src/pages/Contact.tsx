@@ -49,7 +49,7 @@ export default function Contact() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
-              Local Numbers
+              Contact Us
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
               Reach Your Local Office
