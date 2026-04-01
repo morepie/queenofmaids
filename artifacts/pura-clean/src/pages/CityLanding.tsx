@@ -1,16 +1,56 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'wouter';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Star, Shield, CheckCircle, Clock, Sparkles, Phone, Mail, MapPin, ArrowRight, ChevronDown, Users, Calendar, Repeat, Award } from 'lucide-react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { useLocation } from 'wouter';
 import { findCityBySlug } from '@/data/metros';
+import type { MetroArea, CityData } from '@/data/metros';
 import { cleaningPlans, reviews, aggregateRating } from '@/data/content';
 import { cn } from '@/lib/utils';
 import CTA from '@/components/sections/CTA';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
+function MetroMap({ metro, currentCity }: { metro: MetroArea; currentCity: CityData }) {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const mapInstance = useRef<L.Map | null>(null);
+
+  useEffect(() => {
+    if (!mapRef.current || mapInstance.current) return;
+
+    const map = L.map(mapRef.current, {
+      center: metro.center,
+      zoom: metro.zoom,
+      scrollWheelZoom: false,
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+
+    metro.cities.forEach((c) => {
+      const isCurrent = c.slug === currentCity.slug;
+      const icon = L.divIcon({
+        className: '',
+        html: `<div style="width:${isCurrent ? 24 : 18}px;height:${isCurrent ? 24 : 18}px;background:hsl(270,50%,${isCurrent ? '36%' : '56%'});border:${isCurrent ? 3 : 2}px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.3);${isCurrent ? 'z-index:999;' : ''}"></div>`,
+        iconSize: [isCurrent ? 24 : 18, isCurrent ? 24 : 18],
+        iconAnchor: [isCurrent ? 12 : 9, isCurrent ? 12 : 9],
+      });
+
+      L.marker([c.lat, c.lng], { icon, zIndexOffset: isCurrent ? 1000 : 0 })
+        .addTo(map)
+        .bindPopup(`<strong style="font-family:Inter,sans-serif;font-size:13px;">${c.name}</strong>`);
+    });
+
+    mapInstance.current = map;
+    return () => { map.remove(); mapInstance.current = null; };
+  }, [metro, currentCity]);
+
+  return <div ref={mapRef} className="w-full h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg border border-border" />;
+}
 
 function FAQItem({ question, answer, defaultOpen = false }: { question: string; answer: string; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -472,30 +512,32 @@ export default function CityLanding() {
       </section>
 
       {/* SERVICE AREA */}
-      <section className="py-14 md:py-20 bg-background">
+      <section id="service-area" className="py-14 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
-            <div className="lg:col-span-2">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
-                Service Area
-              </span>
-              <h2 className="text-3xl font-bold tracking-tight mb-4">
-                {metro.name} Metro Area Coverage
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                We proudly serve {city.name} and {metro.cities.length - 1} other communities across the {metro.name} metro area in {metro.state}. Wherever you are in the {metro.name} area, our professional cleaning teams are ready to help.
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Don't see your city? Give us a call at{' '}
-                <a href={`tel:${metro.phone.replace(/\D/g, '')}`} className="text-primary font-medium hover:underline">
-                  {metro.phone}
-                </a>{' '}
-                — we may still be able to serve you.
-              </p>
-            </div>
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+              Service Area
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight mb-3">
+              {metro.name} Metro Area Coverage
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We proudly serve {city.name} and {metro.cities.length - 1} other communities across the {metro.name} metro area in {metro.state}.
+            </p>
+          </div>
 
-            <div className="lg:col-span-3">
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <MetroMap metro={metro} currentCity={city} />
+            </motion.div>
+
+            <div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3">
                 {metro.cities.map((c) => {
                   const isCurrent = c.slug === city.slug;
                   return (
@@ -517,6 +559,13 @@ export default function CityLanding() {
                   );
                 })}
               </div>
+              <p className="mt-5 text-sm text-muted-foreground">
+                Don't see your city? Give us a call at{' '}
+                <a href={`tel:${metro.phone.replace(/\D/g, '')}`} className="text-primary font-medium hover:underline">
+                  {metro.phone}
+                </a>{' '}
+                — we may still be able to serve you.
+              </p>
             </div>
           </div>
         </div>
