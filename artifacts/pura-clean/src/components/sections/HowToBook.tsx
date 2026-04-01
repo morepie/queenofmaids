@@ -94,7 +94,7 @@ export default function HowToBook() {
               Choose a membership below and we'll follow up within the hour to confirm your appointment.
             </p>
             <a
-              href="http://quote.queenofmaids.com/"
+              href="https://quote.queenofmaids.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-block px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"

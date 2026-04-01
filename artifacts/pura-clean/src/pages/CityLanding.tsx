@@ -196,7 +196,7 @@ export default function CityLanding() {
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-3">
               <a
-                href="http://quote.queenofmaids.com/"
+                href="https://quote.queenofmaids.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
@@ -396,7 +396,7 @@ export default function CityLanding() {
                   ))}
                 </ul>
                 <a
-                  href="http://quote.queenofmaids.com/"
+                  href="https://quote.queenofmaids.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(

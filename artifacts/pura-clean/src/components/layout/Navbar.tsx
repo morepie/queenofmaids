@@ -196,7 +196,7 @@ export default function Navbar() {
               Reviews
             </button>
             <a
-              href="http://quote.queenofmaids.com/"
+              href="https://quote.queenofmaids.com/"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
@@ -292,7 +292,7 @@ export default function Navbar() {
                 Reviews
               </button>
               <a
-                href="http://quote.queenofmaids.com/"
+                href="https://quote.queenofmaids.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 px-4 py-4 rounded-xl bg-primary text-primary-foreground font-semibold shadow-md w-full text-center block"

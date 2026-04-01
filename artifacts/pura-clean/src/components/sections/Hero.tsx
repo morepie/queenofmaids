@@ -98,7 +98,7 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
               <a
-                href="http://quote.queenofmaids.com/"
+                href="https://quote.queenofmaids.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 group"

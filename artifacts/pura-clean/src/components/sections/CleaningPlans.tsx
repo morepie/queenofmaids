@@ -92,7 +92,7 @@ export default function CleaningPlans() {
                 ))}
               </ul>
 
-              <a href="http://quote.queenofmaids.com/" target="_blank" rel="noopener noreferrer" className={cn(
+              <a href="https://quote.queenofmaids.com/" target="_blank" rel="noopener noreferrer" className={cn(
                 "w-full py-3.5 rounded-full font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 block text-center",
                 plan.popular
                   ? "bg-white text-primary shadow-md hover:shadow-lg"
