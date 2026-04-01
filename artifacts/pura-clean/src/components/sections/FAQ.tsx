@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 const faqs = [
   {
     question: 'What areas do you serve?',
-    answer: 'We serve the entire Phoenix metro area including Phoenix, Scottsdale, Tempe, Mesa, Chandler, Gilbert, Glendale, Peoria, Surprise, Queen Creek, Avondale, Goodyear, and Fountain Hills. If you\'re unsure whether we cover your area, give us a call and we\'ll let you know.',
+    answer: 'We serve four major metro areas across the West — Phoenix, Salt Lake City, Las Vegas, and Denver. Each metro includes dozens of surrounding cities and suburbs. Visit our Service Areas page to see if we cover your neighborhood, or give us a call and we\'ll let you know.',
   },
   {
     question: 'How does membership pricing work?',

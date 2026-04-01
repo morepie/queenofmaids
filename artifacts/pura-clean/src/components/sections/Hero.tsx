@@ -60,13 +60,13 @@ export default function Hero() {
             className="text-center lg:text-left"
           >
             <span className="inline-block py-1.5 px-4 rounded-full bg-teal/10 text-teal text-sm font-bold tracking-widest uppercase mb-5 border border-teal/20 shadow-sm">
-              Phoenix Metro's Trusted Cleaning Team
+              Your Trusted Cleaning Team
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-foreground leading-[1.1] mb-5">
               A Cleaner Home, <span className="text-primary block mt-1">Without the Hassle</span>
             </h1>
             <p className="text-base md:text-lg text-muted-foreground mb-7 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-              Professional, reliable house cleaning across the Phoenix metro area. From Scottsdale to Chandler, we make your home sparkle so you can focus on what matters most.
+              Professional, reliable house cleaning across four major metro areas. We make your home sparkle so you can focus on what matters most.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <button
