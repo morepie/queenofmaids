@@ -3,8 +3,8 @@ import { ArrowRight } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-primary via-primary to-accent relative overflow-hidden">
-      <div className="absolute inset-0">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-primary via-primary to-accent relative overflow-hidden" aria-label="Get started with Queen of Maids">
+      <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-white/5 blur-2xl" />
         <div className="absolute bottom-10 right-10 w-48 h-48 rounded-full bg-white/10 blur-2xl" />
       </div>
@@ -28,13 +28,15 @@ export default function CTA() {
               href="https://quote.queenofmaids.com/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Get a Quote (opens in new tab)"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-primary font-semibold text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
-              Get a Quote <ArrowRight className="w-4 h-4" />
+              Get a Quote <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
             <a
-              href="tel:6025551234"
+              href="tel:4806483441"
               className="px-8 py-4 rounded-full border-2 border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all duration-200"
+              aria-label="Call us at (480) 648-3441"
             >
               Call Us Now
             </a>

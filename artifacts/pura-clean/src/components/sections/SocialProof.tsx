@@ -34,9 +34,9 @@ const stats = [
 
 export default function SocialProof() {
   return (
-    <section className="py-10 md:py-14 bg-card border-y border-border">
+    <section className="py-10 md:py-14 bg-card border-y border-border" aria-label="Company statistics">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" role="list">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -45,9 +45,10 @@ export default function SocialProof() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1, ease: "easeOut" as const }}
               className="flex flex-col items-center text-center gap-2"
+              role="listitem"
             >
               <div className={`w-12 h-12 rounded-full ${stat.bg} flex items-center justify-center`}>
-                <stat.icon className={`w-6 h-6 ${stat.accent} ${stat.icon === Star ? 'fill-yellow-500' : ''}`} />
+                <stat.icon className={`w-6 h-6 ${stat.accent} ${stat.icon === Star ? 'fill-yellow-500' : ''}`} aria-hidden="true" />
               </div>
               <p className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">{stat.value}</p>
               <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>

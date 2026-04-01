@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 export default function CleaningPlans() {
   return (
-    <section id="memberships" className="py-20 md:py-28 bg-background">
+    <section id="memberships" className="py-20 md:py-28 bg-background" aria-label="Membership plans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
@@ -19,7 +19,7 @@ export default function CleaningPlans() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8" role="list" aria-label="Cleaning plan options">
           {cleaningPlans.map((plan, i) => (
             <motion.div
               key={plan.id}
@@ -33,11 +33,13 @@ export default function CleaningPlans() {
                   ? "bg-primary text-primary-foreground shadow-xl ring-2 ring-primary/20 scale-[1.02]"
                   : "bg-card border border-border shadow-md"
               )}
+              role="listitem"
+              aria-label={`${plan.name} plan starting at $${plan.price} per ${plan.frequency}`}
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="inline-flex items-center gap-1 px-4 py-1 rounded-full bg-teal text-white text-xs font-bold uppercase tracking-wider">
-                    <Star className="w-3 h-3 fill-current" /> Most Popular
+                    <Star className="w-3 h-3 fill-current" aria-hidden="true" /> Most Popular
                   </span>
                 </div>
               )}
@@ -78,13 +80,13 @@ export default function CleaningPlans() {
                 </span>
               </div>
 
-              <ul className="space-y-3 mb-8 flex-1">
+              <ul className="space-y-3 mb-8 flex-1" aria-label={`${plan.name} features`}>
                 {plan.features.map(feature => (
                   <li key={feature} className="flex items-start gap-3 text-sm">
                     <Check className={cn(
                       "w-4 h-4 mt-0.5 shrink-0",
                       plan.popular ? "text-primary-foreground" : "text-teal"
-                    )} />
+                    )} aria-hidden="true" />
                     <span className={plan.popular ? "text-primary-foreground/90" : "text-foreground/80"}>
                       {feature}
                     </span>
@@ -92,12 +94,18 @@ export default function CleaningPlans() {
                 ))}
               </ul>
 
-              <a href="https://quote.queenofmaids.com/" target="_blank" rel="noopener noreferrer" className={cn(
-                "w-full py-3.5 rounded-full font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 block text-center",
-                plan.popular
-                  ? "bg-white text-primary shadow-md hover:shadow-lg"
-                  : "bg-primary text-primary-foreground shadow-md hover:shadow-lg"
-              )}>
+              <a
+                href="https://quote.queenofmaids.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Get a quote for ${plan.name} (opens in new tab)`}
+                className={cn(
+                  "w-full py-3.5 rounded-full font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 block text-center",
+                  plan.popular
+                    ? "bg-white text-primary shadow-md hover:shadow-lg"
+                    : "bg-primary text-primary-foreground shadow-md hover:shadow-lg"
+                )}
+              >
                 Get a Quote
               </a>
             </motion.div>
@@ -123,9 +131,10 @@ export default function CleaningPlans() {
             href="https://quote.queenofmaids.com/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Book a one-time clean (opens in new tab)"
             className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
           >
-            Book One-Time Clean <ArrowRight className="w-4 h-4" />
+            Book One-Time Clean <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
         </motion.div>
       </div>

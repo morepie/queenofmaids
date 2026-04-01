@@ -9,7 +9,7 @@ export default function ServiceAreaMap() {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   return (
-    <section id="service-areas" className="py-20 md:py-28 bg-muted/30">
+    <section id="service-areas" className="py-20 md:py-28 bg-muted/30" aria-label="Service areas map">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
@@ -28,11 +28,13 @@ export default function ServiceAreaMap() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: "easeOut" as const }}
+          role="img"
+          aria-label="Interactive map showing service areas in Phoenix, Salt Lake City, Las Vegas, and Denver"
         >
           <USMap onMetroClick={(slug) => navigate(`${base}/house-cleaning/${slug}`)} />
         </motion.div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <nav className="mt-10 flex flex-wrap items-center justify-center gap-3" aria-label="Service area links">
           {metros.map(metro => (
             <a
               key={metro.slug}
@@ -43,11 +45,11 @@ export default function ServiceAreaMap() {
               }}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-card border border-border text-sm text-foreground/80 font-medium hover:border-primary hover:text-primary transition-colors"
             >
-              <MapPin className="w-3.5 h-3.5 text-primary" />
+              <MapPin className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
               {metro.name}, {metro.stateAbbr}
             </a>
           ))}
-        </div>
+        </nav>
       </div>
     </section>
   );

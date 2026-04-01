@@ -21,13 +21,13 @@ const trustBadges = [
 function MiniStars({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'md' }) {
   const w = size === 'md' ? 'w-5 h-5' : 'w-3 h-3';
   return (
-    <div className="flex items-center gap-0.5">
+    <div className="flex items-center gap-0.5" role="img" aria-label={`${rating} out of 5 stars`}>
       {[...Array(5)].map((_, i) => {
         const fill = Math.min(1, Math.max(0, rating - i));
-        if (fill >= 1) return <Star key={i} className={cn(w, "text-yellow-400 fill-yellow-400")} />;
-        if (fill <= 0) return <Star key={i} className={cn(w, "text-yellow-400/30")} />;
+        if (fill >= 1) return <Star key={i} className={cn(w, "text-yellow-400 fill-yellow-400")} aria-hidden="true" />;
+        if (fill <= 0) return <Star key={i} className={cn(w, "text-yellow-400/30")} aria-hidden="true" />;
         return (
-          <span key={i} className={cn("relative", w)}>
+          <span key={i} className={cn("relative", w)} aria-hidden="true">
             <Star className={cn(w, "text-yellow-400/30 absolute inset-0")} />
             <span className="absolute inset-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
               <Star className={cn(w, "text-yellow-400 fill-yellow-400")} />
@@ -46,17 +46,18 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative flex flex-col pt-24 pb-14 md:pt-28 md:pb-20 overflow-hidden bg-background">
+      <section className="relative flex flex-col pt-24 pb-14 md:pt-28 md:pb-20 overflow-hidden bg-background" aria-label="Welcome to Queen of Maids">
         <div
           className="absolute inset-y-0 right-0 w-full lg:w-[65%] h-full z-0 hidden md:block"
           style={{
             maskImage: 'linear-gradient(to right, transparent, black 30%, black)',
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 30%, black)',
           }}
+          aria-hidden="true"
         >
           <img
             src={`${base}/images/photos/living-space.webp`}
-            alt="Clean bright living room"
+            alt=""
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
@@ -71,12 +72,12 @@ export default function Hero() {
           >
             <div className="flex flex-wrap items-center gap-4 mb-8">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide">
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-4 h-4" aria-hidden="true" />
                 Your Trusted Cleaning Team
               </span>
 
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm border border-white/50">
-                <div className="flex gap-0.5 text-yellow-500">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm border border-white/50" role="img" aria-label="4.9 out of 5 stars from over 1,500 reviews">
+                <div className="flex gap-0.5 text-yellow-500" aria-hidden="true">
                   {[0, 1, 2, 3, 4].map((i) => {
                     const fill = Math.min(1, Math.max(0, 4.9 - i));
                     if (fill >= 1) return <Star key={i} className="w-4 h-4 fill-current" />;
@@ -110,10 +111,11 @@ export default function Hero() {
                 href="https://quote.queenofmaids.com/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Get a Quote (opens in new tab)"
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
               >
                 Get a Quote
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </a>
               <button
                 onClick={scrollToMemberships}
@@ -123,16 +125,16 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-3" role="list" aria-label="Trust features">
               {[
                 { icon: Shield, text: 'Insured & Bonded' },
                 { icon: CheckCircle, text: 'Happiness Guarantee' },
                 { icon: Shield, text: 'Vetted Cleaners' },
                 { icon: Clock, text: 'Flexible Scheduling' },
               ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-1.5 group cursor-default">
+                <div key={text} className="flex items-center gap-1.5 group cursor-default" role="listitem">
                   <div className="w-7 h-7 rounded-full bg-white shadow-sm border border-border flex items-center justify-center group-hover:scale-110 group-hover:border-primary/30 transition-all flex-shrink-0">
-                    <Icon className="w-3.5 h-3.5 text-primary" />
+                    <Icon className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
                   </div>
                   <span className="text-xs font-semibold text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                     {text}
@@ -143,7 +145,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
       </section>
 
       <motion.section
@@ -151,6 +153,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
         className="bg-background"
+        aria-label="Review ratings across platforms"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           <div className="flex flex-col items-center gap-5">
@@ -160,9 +163,9 @@ export default function Hero() {
               <span className="text-muted-foreground text-sm">from 1,500+ verified reviews</span>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10" role="list" aria-label="Ratings by platform">
               {platforms.map((p) => (
-                <div key={p.name} className="flex flex-col items-center gap-1">
+                <div key={p.name} className="flex flex-col items-center gap-1" role="listitem">
                   <span className="text-sm font-semibold text-foreground">{p.name}</span>
                   <div className="flex items-center gap-1.5">
                     <MiniStars rating={p.rating} />
@@ -173,10 +176,10 @@ export default function Hero() {
             </div>
 
             <div className="w-full border-t border-border pt-4 mt-1">
-              <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+              <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10" role="list" aria-label="Trust badges">
                 {trustBadges.map((badge) => (
-                  <div key={badge} className="flex items-center gap-1.5">
-                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <div key={badge} className="flex items-center gap-1.5" role="listitem">
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true" />
                     <span className="text-sm font-medium text-muted-foreground">{badge}</span>
                   </div>
                 ))}

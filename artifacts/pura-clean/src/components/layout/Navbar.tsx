@@ -44,6 +44,17 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (servicesOpen) setServicesOpen(false);
+        if (mobileOpen) setMobileOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [servicesOpen, mobileOpen]);
+
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setServicesOpen(true);
@@ -76,6 +87,7 @@ export default function Navbar() {
 
   return (
     <header
+      role="banner"
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-transparent",
         isScrolled
@@ -88,11 +100,11 @@ export default function Navbar() {
       )}
     >
       {!isScrolled && !useLightTheme && !alwaysWhiteBg && (
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/60 to-transparent pointer-events-none" aria-hidden="true" />
       )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between">
-          <button onClick={goHome} className="flex items-center gap-2 group">
+          <button onClick={goHome} className="flex items-center gap-2 group" aria-label="Queen of Maids - Go to homepage">
             <img
               src={`${base}/images/${useLightTheme ? 'logo-white.png' : 'logo-colored.png'}`}
               alt="Queen of Maids"
@@ -100,7 +112,7 @@ export default function Navbar() {
             />
           </button>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
             <div
               ref={dropdownRef}
               className="relative"
@@ -109,6 +121,14 @@ export default function Navbar() {
             >
               <button
                 onClick={() => navigate('/services')}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setServicesOpen(!servicesOpen);
+                  }
+                }}
+                aria-expanded={servicesOpen}
+                aria-haspopup="true"
                 className={cn(
                   "text-sm font-semibold transition-colors flex items-center gap-1",
                   linkHover,
@@ -116,7 +136,7 @@ export default function Navbar() {
                 )}
               >
                 Services
-                <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", servicesOpen && "rotate-180")} />
+                <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", servicesOpen && "rotate-180")} aria-hidden="true" />
               </button>
 
               <AnimatePresence>
@@ -127,15 +147,18 @@ export default function Navbar() {
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.15 }}
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[420px] bg-card rounded-xl border border-border shadow-xl p-4"
+                    role="menu"
+                    aria-label="Services submenu"
                   >
                     <a
                       href={base + '/services'}
                       onClick={(e) => { e.preventDefault(); navigate('/services'); }}
                       className="block px-3 py-2 rounded-lg text-sm font-bold text-foreground hover:bg-muted transition-colors mb-1"
+                      role="menuitem"
                     >
                       View All Services
                     </a>
-                    <hr className="border-border mb-2" />
+                    <hr className="border-border mb-2" aria-hidden="true" />
                     <div className="grid grid-cols-2 gap-1">
                       {dropdownServices.map(s => (
                         <a
@@ -148,6 +171,7 @@ export default function Navbar() {
                               ? "text-primary font-semibold bg-primary/5"
                               : "text-foreground/70 hover:text-foreground hover:bg-muted"
                           )}
+                          role="menuitem"
                         >
                           {s.label}
                         </a>
@@ -203,6 +227,7 @@ export default function Navbar() {
               href="https://quote.queenofmaids.com/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Get a Quote (opens in new tab)"
               className={cn(
                 "px-6 py-2.5 rounded-full font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200",
                 useLightTheme
@@ -218,9 +243,11 @@ export default function Navbar() {
             <button
               className={cn("p-2", hamburgerColor)}
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
+              aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
             </button>
           </div>
         </div>
@@ -233,14 +260,18 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background border-b border-border overflow-hidden"
+            id="mobile-nav"
+            role="navigation"
+            aria-label="Mobile navigation"
           >
             <div className="px-4 pt-2 pb-6 flex flex-col gap-1">
               <button
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                aria-expanded={mobileServicesOpen}
                 className="px-4 py-3 rounded-xl text-base font-semibold transition-colors text-foreground hover:bg-muted text-left flex items-center justify-between"
               >
                 Services
-                <ChevronDown className={cn("w-4 h-4 transition-transform", mobileServicesOpen && "rotate-180")} />
+                <ChevronDown className={cn("w-4 h-4 transition-transform", mobileServicesOpen && "rotate-180")} aria-hidden="true" />
               </button>
 
               <AnimatePresence>
@@ -305,6 +336,7 @@ export default function Navbar() {
                 href="https://quote.queenofmaids.com/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Get a Quote (opens in new tab)"
                 className="mt-4 px-4 py-4 rounded-xl bg-primary text-primary-foreground font-semibold shadow-md w-full text-center block"
               >
                 Get a Quote

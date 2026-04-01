@@ -46,29 +46,38 @@ const faqs = [
   },
 ];
 
-function FAQItem({ question, answer, isOpen, onToggle }: {
+function FAQItem({ question, answer, isOpen, onToggle, id }: {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
+  id: string;
 }) {
+  const headingId = `faq-heading-${id}`;
+  const panelId = `faq-panel-${id}`;
+
   return (
     <div className="border-b border-border last:border-b-0">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between py-5 px-1 text-left group"
-      >
-        <span className={cn(
-          "text-base font-semibold transition-colors pr-4",
-          isOpen ? "text-primary" : "text-foreground group-hover:text-primary"
-        )}>
-          {question}
-        </span>
-        <ChevronDown className={cn(
-          "w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-200",
-          isOpen && "rotate-180 text-primary"
-        )} />
-      </button>
+      <h3>
+        <button
+          onClick={onToggle}
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          id={headingId}
+          className="w-full flex items-center justify-between py-5 px-1 text-left group"
+        >
+          <span className={cn(
+            "text-base font-semibold transition-colors pr-4",
+            isOpen ? "text-primary" : "text-foreground group-hover:text-primary"
+          )}>
+            {question}
+          </span>
+          <ChevronDown className={cn(
+            "w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-200",
+            isOpen && "rotate-180 text-primary"
+          )} aria-hidden="true" />
+        </button>
+      </h3>
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
@@ -77,6 +86,9 @@ function FAQItem({ question, answer, isOpen, onToggle }: {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" as const }}
             className="overflow-hidden"
+            role="region"
+            id={panelId}
+            aria-labelledby={headingId}
           >
             <p className="px-1 pb-5 text-sm text-muted-foreground leading-relaxed">
               {answer}
@@ -96,7 +108,7 @@ export default function FAQ() {
   const rightColumn = faqs.slice(midpoint);
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-muted/30">
+    <section id="faq" className="py-20 md:py-28 bg-muted/30" aria-label="Frequently Asked Questions">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
@@ -115,6 +127,7 @@ export default function FAQ() {
             {leftColumn.map((faq, i) => (
               <FAQItem
                 key={i}
+                id={`left-${i}`}
                 question={faq.question}
                 answer={faq.answer}
                 isOpen={openIndex === i}
@@ -128,6 +141,7 @@ export default function FAQ() {
               return (
                 <FAQItem
                   key={globalIndex}
+                  id={`right-${i}`}
                   question={faq.question}
                   answer={faq.answer}
                   isOpen={openIndex === globalIndex}

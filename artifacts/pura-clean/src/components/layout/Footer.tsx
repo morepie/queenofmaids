@@ -7,24 +7,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-foreground text-background" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="py-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-background/10">
-          <div className="flex items-center gap-3">
-            <Shield className="w-5 h-5 text-primary shrink-0" />
+        <div className="py-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-background/10" role="list" aria-label="Trust badges">
+          <div className="flex items-center gap-3" role="listitem">
+            <Shield className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
             <span className="text-sm text-background/80">Insured & Bonded</span>
           </div>
-          <div className="flex items-center gap-3">
-            <Star className="w-5 h-5 text-primary shrink-0" />
+          <div className="flex items-center gap-3" role="listitem">
+            <Star className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
             <span className="text-sm text-background/80">200% Happiness Guarantee</span>
           </div>
-          <div className="flex items-center gap-3">
-            <Clock className="w-5 h-5 text-primary shrink-0" />
+          <div className="flex items-center gap-3" role="listitem">
+            <Clock className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
             <span className="text-sm text-background/80">Flexible Scheduling</span>
           </div>
-          <div className="flex items-center gap-3">
-            <Shield className="w-5 h-5 text-primary shrink-0" />
+          <div className="flex items-center gap-3" role="listitem">
+            <Shield className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
             <span className="text-sm text-background/80">Background-Checked Teams</span>
           </div>
         </div>
@@ -41,18 +41,18 @@ export default function Footer() {
               Professional house cleaning across four major metro areas. We bring the sparkle so you can enjoy your home.
             </p>
             <div className="space-y-3 pt-2">
-              <a href="tel:4806483441" className="flex items-center gap-2.5 text-sm text-background/70 hover:text-primary transition-colors">
-                <Phone className="w-4 h-4 text-primary" />
+              <a href="tel:4806483441" className="flex items-center gap-2.5 text-sm text-background/70 hover:text-primary transition-colors" aria-label="Call us at (480) 648-3441">
+                <Phone className="w-4 h-4 text-primary" aria-hidden="true" />
                 (480) 648-3441
               </a>
-              <a href="mailto:contact@queenofmaids.com" className="flex items-center gap-2.5 text-sm text-background/70 hover:text-primary transition-colors">
-                <Mail className="w-4 h-4 text-primary" />
+              <a href="mailto:contact@queenofmaids.com" className="flex items-center gap-2.5 text-sm text-background/70 hover:text-primary transition-colors" aria-label="Email us at contact@queenofmaids.com">
+                <Mail className="w-4 h-4 text-primary" aria-hidden="true" />
                 contact@queenofmaids.com
               </a>
             </div>
           </div>
 
-          <div>
+          <nav aria-label="Services">
             <h4 className="font-semibold text-background mb-5 text-sm tracking-wider uppercase">Services</h4>
             <ul className="space-y-2.5">
               {dropdownServices.map(s => (
@@ -66,9 +66,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
+          <nav aria-label="Service Areas">
             <h4 className="font-semibold text-background mb-5 text-sm tracking-wider uppercase">Service Areas</h4>
             <ul className="space-y-4">
               {metros.map(metro => (
@@ -77,7 +77,7 @@ export default function Footer() {
                     href={`${base}/service-areas#metro-${metro.slug}`}
                     className="text-background/80 hover:text-primary transition-colors text-sm font-medium flex items-center gap-2"
                   >
-                    <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <MapPin className="w-3.5 h-3.5 text-primary shrink-0" aria-hidden="true" />
                     {metro.name}, {metro.stateAbbr}
                   </Link>
                   <p className="text-background/40 text-xs mt-1 ml-5.5 pl-[22px]">
@@ -87,9 +87,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
+          <nav aria-label="Company and Resources">
             <h4 className="font-semibold text-background mb-5 text-sm tracking-wider uppercase">Company</h4>
             <ul className="space-y-2.5">
               <li>
@@ -127,7 +127,7 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           <div>
             <h4 className="font-semibold text-background mb-5 text-sm tracking-wider uppercase">Get Started</h4>
@@ -137,6 +137,7 @@ export default function Footer() {
             <a
               href="tel:4806483441"
               className="inline-flex items-center justify-center w-full px-5 py-3 rounded-xl bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors"
+              aria-label="Call for a free quote at (480) 648-3441"
             >
               Call for a Free Quote
             </a>

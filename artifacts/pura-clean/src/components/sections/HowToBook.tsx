@@ -25,10 +25,6 @@ const steps = [
 ];
 
 export default function HowToBook() {
-  const scrollToMemberships = () => {
-    document.getElementById('memberships')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section
       id="how-to-book"
@@ -38,8 +34,9 @@ export default function HowToBook() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
+      aria-label="How to book a cleaning"
     >
-      <div className="absolute inset-0 bg-[hsl(270,30%,12%)]/85" />
+      <div className="absolute inset-0 bg-[hsl(270,30%,12%)]/85" aria-hidden="true" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -54,9 +51,9 @@ export default function HowToBook() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-14">
+        <ol className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-14 list-none p-0 m-0">
           {steps.map((step, i) => (
-            <motion.div
+            <motion.li
               key={step.title}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -65,21 +62,24 @@ export default function HowToBook() {
               className="text-center relative"
             >
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 border-t-2 border-dashed border-white/20" />
+                <div className="hidden md:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 border-t-2 border-dashed border-white/20" aria-hidden="true" />
               )}
               <div className="relative inline-flex items-center justify-center mb-6">
                 <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                  <step.icon className="w-9 h-9 text-white" />
+                  <step.icon className="w-9 h-9 text-white" aria-hidden="true" />
                 </div>
-                <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center shadow-md">
+                <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center shadow-md" aria-hidden="true">
                   {step.number}
                 </span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+              <h3 className="text-lg font-bold text-white mb-2">
+                <span className="sr-only">Step {step.number}: </span>
+                {step.title}
+              </h3>
               <p className="text-sm text-white/65 leading-relaxed max-w-xs mx-auto">{step.description}</p>
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ol>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -97,13 +97,14 @@ export default function HowToBook() {
               href="https://quote.queenofmaids.com/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="View Memberships and Get a Quote (opens in new tab)"
               className="mt-5 inline-block px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               View Memberships & Get a Quote
             </a>
           </div>
 
-          <div className="w-full md:w-px h-px md:h-24 bg-white/20" />
+          <div className="w-full md:w-px h-px md:h-24 bg-white/20" role="separator" aria-hidden="true" />
 
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-xl font-bold text-white mb-2">Prefer to Call?</h3>
@@ -113,8 +114,9 @@ export default function HowToBook() {
             <a
               href="tel:4806483441"
               className="mt-5 inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-white/25 text-white font-semibold text-sm hover:bg-white/10 transition-all duration-200"
+              aria-label="Call us at (480) 648-3441"
             >
-              <Phone className="w-4 h-4 text-white" />
+              <Phone className="w-4 h-4 text-white" aria-hidden="true" />
               (480) 648-3441
             </a>
           </div>

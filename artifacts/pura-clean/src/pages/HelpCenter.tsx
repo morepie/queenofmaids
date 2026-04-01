@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useId } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
@@ -7,29 +7,38 @@ import { cn } from '@/lib/utils';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-function Accordion({ question, answer, isOpen, onToggle }: {
+function Accordion({ question, answer, isOpen, onToggle, id }: {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
+  id: string;
 }) {
+  const headingId = `hc-heading-${id}`;
+  const panelId = `hc-panel-${id}`;
+
   return (
     <div className="border border-border rounded-xl overflow-hidden">
-      <button
-        onClick={onToggle}
-        className={cn(
-          "w-full flex items-center justify-between gap-4 px-5 py-4 text-left transition-colors",
-          isOpen ? "bg-primary/5" : "bg-card hover:bg-muted/50"
-        )}
-      >
-        <span className={cn("text-sm font-semibold", isOpen ? "text-primary" : "text-foreground")}>
-          {question}
-        </span>
-        <ChevronDown className={cn(
-          "w-4 h-4 shrink-0 transition-transform duration-200",
-          isOpen ? "rotate-180 text-primary" : "text-muted-foreground"
-        )} />
-      </button>
+      <h3>
+        <button
+          onClick={onToggle}
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          id={headingId}
+          className={cn(
+            "w-full flex items-center justify-between gap-4 px-5 py-4 text-left transition-colors",
+            isOpen ? "bg-primary/5" : "bg-card hover:bg-muted/50"
+          )}
+        >
+          <span className={cn("text-sm font-semibold", isOpen ? "text-primary" : "text-foreground")}>
+            {question}
+          </span>
+          <ChevronDown className={cn(
+            "w-4 h-4 shrink-0 transition-transform duration-200",
+            isOpen ? "rotate-180 text-primary" : "text-muted-foreground"
+          )} aria-hidden="true" />
+        </button>
+      </h3>
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
@@ -37,6 +46,9 @@ function Accordion({ question, answer, isOpen, onToggle }: {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
+            role="region"
+            id={panelId}
+            aria-labelledby={headingId}
           >
             <div className="px-5 py-4 bg-card border-t border-border">
               <p className="text-sm text-muted-foreground leading-relaxed">{answer}</p>
@@ -52,6 +64,7 @@ export default function HelpCenter() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTopic, setActiveTopic] = useState<string | null>(null);
   const [openQuestions, setOpenQuestions] = useState<Set<string>>(new Set());
+  const searchInputId = useId();
 
   const toggleQuestion = (id: string) => {
     setOpenQuestions(prev => {
@@ -87,7 +100,7 @@ export default function HelpCenter() {
         <meta name="description" content="Find answers to common questions about Queen of Maids cleaning services, memberships, scheduling, pricing, and more." />
       </Helmet>
 
-      <section className="relative pt-32 pb-6 md:pt-40 md:pb-6 bg-gradient-to-b from-[hsl(270,30%,95%)] to-background">
+      <section className="relative pt-32 pb-6 md:pt-40 md:pb-6 bg-gradient-to-b from-[hsl(270,30%,95%)] to-background" aria-label="Help Center search">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -96,7 +109,7 @@ export default function HelpCenter() {
             className="text-center"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-              <HelpCircle className="w-4 h-4" />
+              <HelpCircle className="w-4 h-4" aria-hidden="true" />
               Help Center
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4">
@@ -107,9 +120,11 @@ export default function HelpCenter() {
             </p>
 
             <div className="relative max-w-xl mx-auto">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <label htmlFor={searchInputId} className="sr-only">Search for answers</label>
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" aria-hidden="true" />
               <input
-                type="text"
+                id={searchInputId}
+                type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for answers..."
@@ -121,10 +136,10 @@ export default function HelpCenter() {
       </section>
 
       {searchResults !== null ? (
-        <section className="py-12 md:py-16 bg-background">
+        <section className="py-12 md:py-16 bg-background" aria-label="Search results">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-6">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground" role="status" aria-live="polite">
                 {searchResults.length} result{searchResults.length !== 1 ? 's' : ''} for "{searchQuery}"
               </p>
               <button
@@ -139,6 +154,7 @@ export default function HelpCenter() {
                 {searchResults.map((result, i) => (
                   <Accordion
                     key={`search-${i}`}
+                    id={`search-${i}`}
                     question={result.q}
                     answer={result.a}
                     isOpen={openQuestions.has(`search-${i}`)}
@@ -152,9 +168,10 @@ export default function HelpCenter() {
                 <a
                   href="tel:6023131444"
                   className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
+                  aria-label="Call us for help at (602) 313-1444"
                 >
                   Call us for help
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </a>
               </div>
             )}
@@ -162,9 +179,9 @@ export default function HelpCenter() {
         </section>
       ) : (
         <>
-          <section className="py-5 md:py-6 bg-background">
+          <section className="py-5 md:py-6 bg-background" aria-label="Help topics">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-14">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-14" role="group" aria-label="Filter by topic">
                 {helpTopics.map((topic, idx) => {
                   const Icon = topic.icon;
                   const isActive = activeTopic === topic.id;
@@ -181,6 +198,7 @@ export default function HelpCenter() {
                     <button
                       key={topic.id}
                       onClick={() => setActiveTopic(isActive ? null : topic.id)}
+                      aria-pressed={isActive}
                       className={cn(
                         "flex flex-col items-center gap-2.5 p-5 rounded-2xl border transition-all duration-200 text-center",
                         isActive
@@ -192,7 +210,7 @@ export default function HelpCenter() {
                         "w-11 h-11 rounded-xl flex items-center justify-center transition-colors",
                         isActive ? "bg-primary text-primary-foreground" : `${scheme.iconBg} ${scheme.iconText}`
                       )}>
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <span className={cn(
                         "text-xs font-semibold leading-tight",
@@ -218,7 +236,7 @@ export default function HelpCenter() {
                     >
                       <div className="flex items-center gap-3 mb-5">
                         <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                          <Icon className="w-4.5 h-4.5 text-primary" />
+                          <Icon className="w-4.5 h-4.5 text-primary" aria-hidden="true" />
                         </div>
                         <div>
                           <h2 className="text-lg font-bold text-foreground">{topic.title}</h2>
@@ -229,6 +247,7 @@ export default function HelpCenter() {
                         {topic.questions.map((faq, i) => (
                           <Accordion
                             key={`${topic.id}-${i}`}
+                            id={`${topic.id}-${i}`}
                             question={faq.q}
                             answer={faq.a}
                             isOpen={openQuestions.has(`${topic.id}-${i}`)}
@@ -243,7 +262,7 @@ export default function HelpCenter() {
             </div>
           </section>
 
-          <section className="py-14 bg-muted/30">
+          <section className="py-14 bg-muted/30" aria-label="Contact us for more help">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h3 className="text-2xl font-bold text-foreground mb-3">Still have questions?</h3>
               <p className="text-muted-foreground mb-6">
@@ -253,6 +272,7 @@ export default function HelpCenter() {
                 <a
                   href="tel:6023131444"
                   className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+                  aria-label="Call us at (602) 313-1444"
                 >
                   Call Us
                 </a>
@@ -260,6 +280,7 @@ export default function HelpCenter() {
                   href="https://quote.queenofmaids.com/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Get a free quote (opens in new tab)"
                   className="px-6 py-3 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary/5 transition-all duration-200"
                 >
                   Get a Free Quote
