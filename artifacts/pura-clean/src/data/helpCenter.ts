@@ -194,7 +194,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'What if something is damaged during a cleaning?',
-        a: 'If anything is accidentally damaged during a cleaning, contact us right away. We\'ll work with you to make it right. Our insurance covers accidental damage caused by our team.',
+        a: 'Please contact us within 48 hours of your cleaning so we can get an accurate account of what happened. Our insurance covers accidental damage caused by our team, but they require that claims are reported as close to the cleaning date as possible — claims reported well after the fact may not be covered. The sooner you reach out, the faster we can work with you to make it right.',
       },
       {
         q: 'Will I get the same cleaner each visit?',
