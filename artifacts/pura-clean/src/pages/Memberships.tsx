@@ -158,28 +158,58 @@ export default function Memberships() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {howItWorks.map((item, i) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative bg-card rounded-2xl p-6 border border-border shadow-sm"
-              >
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-lg mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                {i < howItWorks.length - 1 && (
-                  <div className="hidden lg:block absolute top-10 -right-4 z-10">
-                    <ArrowRight className="w-5 h-5 text-primary/40" />
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/30 to-primary/0 hidden md:block" />
+            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/0 via-primary/30 to-primary/0 md:hidden" />
+
+            {howItWorks.map((item, i) => {
+              const isLeft = i % 2 === 0;
+              return (
+                <motion.div
+                  key={item.step}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="relative flex items-start gap-5 mb-14 last:mb-0 md:gap-0"
+                >
+                  <div className={cn(
+                    "hidden md:flex md:w-1/2 md:pr-10",
+                    isLeft ? "justify-end" : "justify-end opacity-0 pointer-events-none"
+                  )}>
+                    {isLeft && (
+                      <div className="text-right max-w-xs">
+                        <h3 className="text-lg font-bold text-foreground mb-1.5">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                      </div>
+                    )}
                   </div>
-                )}
-              </motion.div>
-            ))}
+
+                  <div className="relative z-10 shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg shadow-primary/25 ring-4 ring-background">
+                      {item.step}
+                    </div>
+                  </div>
+
+                  <div className={cn(
+                    "hidden md:flex md:w-1/2 md:pl-10",
+                    !isLeft ? "justify-start" : "justify-start opacity-0 pointer-events-none"
+                  )}>
+                    {!isLeft && (
+                      <div className="text-left max-w-xs">
+                        <h3 className="text-lg font-bold text-foreground mb-1.5">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="md:hidden flex-1">
+                    <h3 className="text-lg font-bold text-foreground mb-1">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
