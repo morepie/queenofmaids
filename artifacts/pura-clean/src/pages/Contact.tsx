@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, MessageSquare, Clock, MapPin, Shield, Heart, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MessageSquare, Clock, MapPin, Shield, Heart, CheckCircle, BookOpen, ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'wouter';
 import { metros } from '@/data/metros';
 import CTA from '@/components/sections/CTA';
 
@@ -118,7 +119,36 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-muted/30" aria-label="Response time expectations">
+      <section className="py-10 md:py-14 bg-muted/30" aria-label="Help Center suggestion">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="bg-card rounded-2xl border border-primary/20 p-6 md:p-8 flex flex-col sm:flex-row items-center gap-5 shadow-sm"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+              <BookOpen className="w-7 h-7 text-primary" aria-hidden="true" />
+            </div>
+            <div className="flex-1 text-center sm:text-left">
+              <h2 className="text-lg font-bold text-foreground mb-1">Have a Quick Question?</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Our Help Center has answers to common questions about services, pricing, scheduling, memberships, and more — no waiting required.
+              </p>
+            </div>
+            <Link
+              href={`${base}/help`}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap shrink-0"
+            >
+              Visit Help Center
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-background" aria-label="Response time expectations">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
