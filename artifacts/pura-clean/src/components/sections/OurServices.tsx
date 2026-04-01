@@ -56,7 +56,7 @@ export default function OurServices() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/5]">
               <img
-                src={`${base}/images/photos/living-space.webp`}
+                src={`${base}/images/photos/cleaner-kitchen.png`}
                 alt="A beautifully clean living space"
                 className="w-full h-full object-cover"
               />

@@ -34,7 +34,7 @@ export default function HowToBook() {
       id="how-to-book"
       className="py-20 md:py-28 relative overflow-hidden"
       style={{
-        backgroundImage: `url(${base}/images/photos/living-space.webp)`,
+        backgroundImage: `url(${base}/images/photos/team-photo-1.png)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
