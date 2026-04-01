@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Star, CheckCircle, ChevronDown, Phone, ArrowRight, Users, Target, Award, Sparkles, Shield, Leaf } from 'lucide-react';
+import { Star, CheckCircle, ChevronDown, Phone, ArrowRight, Users, Target, Award, Sparkles, Shield, Leaf, Clock } from 'lucide-react';
 import { findServiceBySlug, services as allServices } from '@/data/services';
 import { cleaningPlans, reviews, aggregateRating } from '@/data/content';
 import { cn } from '@/lib/utils';
@@ -99,63 +99,83 @@ export default function ServiceLanding() {
         <link rel="canonical" href={`https://puraclean.com/services/${service.slug}`} />
       </Helmet>
 
-      {/* HERO */}
-      <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background" />
-        <img
-          src={`${base}/images/${service.heroImage}`}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover z-[1] hidden md:block"
-          style={{ maskImage: 'linear-gradient(to right, transparent 10%, transparent 30%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.7) 100%)' }}
+      {/* HERO — Immersive dark overlay */}
+      <section className="relative min-h-[70vh] flex flex-col justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${base}/images/${service.heroImage})` }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 z-0 bg-[hsl(270,50%,15%)]/75 mix-blend-multiply" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/40 via-transparent to-[hsl(270,50%,10%)]/90" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 pb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-xl"
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="max-w-3xl"
           >
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 backdrop-blur-sm flex items-center justify-center">
-                <Icon className="w-6 h-6 text-primary" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                <Icon className="w-6 h-6 text-purple-200" />
               </div>
-              <span className="text-sm font-bold text-teal uppercase tracking-widest">{service.tagline}</span>
+              <span className="text-sm font-bold text-white/80 uppercase tracking-widest">{service.tagline}</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.1] mb-5">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-5">
               Professional{' '}
-              <span className="text-primary">{service.title}</span>{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-white">{service.title}</span>{' '}
               Services
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground mb-7 max-w-xl leading-relaxed">
+            <p className="text-base md:text-lg text-white/80 mb-8 max-w-2xl leading-relaxed">
               {service.description}
             </p>
-            <div className="flex flex-col sm:flex-row items-start gap-3">
+            <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
                 href="tel:4806483441"
-                className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                className="px-8 py-4 rounded-full bg-white text-primary text-base font-bold shadow-xl hover:bg-purple-50 hover:-translate-y-1 transition-all duration-300"
               >
                 Get a Free Quote
               </a>
               <a
                 href={base + '/memberships'}
                 onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
-                className="px-8 py-3.5 rounded-full bg-card/80 backdrop-blur-sm text-foreground text-base font-bold shadow-lg border border-border flex items-center gap-2 group hover:-translate-y-1 transition-all duration-300"
+                className="px-8 py-4 rounded-full bg-white/10 text-white backdrop-blur-md border border-white/30 text-base font-bold shadow-lg hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 group"
               >
                 View Memberships
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
 
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-8 flex items-center gap-3">
               <div className="flex items-center gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <span className="text-sm font-bold">{aggregateRating.score}/5</span>
-              <span className="text-xs text-muted-foreground">({aggregateRating.totalReviews.toLocaleString()}+ reviews)</span>
+              <span className="text-lg font-bold text-white">{aggregateRating.score}/5</span>
+              <span className="text-sm text-white/70">({aggregateRating.totalReviews.toLocaleString()}+ reviews)</span>
             </div>
           </motion.div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/10 bg-black/20 backdrop-blur-xl">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-8 gap-y-3">
+              {[
+                { icon: Shield, text: 'Insured & Bonded' },
+                { icon: Sparkles, text: 'Happiness Guarantee' },
+                { icon: CheckCircle, text: 'Vetted Cleaners' },
+                { icon: Clock, text: 'Flexible Scheduling' },
+              ].map(({ icon: TrustIcon, text }) => (
+                <div key={text} className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <TrustIcon className="w-4 h-4 text-purple-200" />
+                  </div>
+                  <span className="text-sm font-medium text-white/90">{text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
