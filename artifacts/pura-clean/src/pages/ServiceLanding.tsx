@@ -341,6 +341,9 @@ export default function ServiceLanding() {
                 </div>
 
                 <div className="mb-6">
+                  <span className={cn("text-xs font-medium uppercase tracking-wide block mb-1", plan.popular ? "text-primary-foreground/70" : "text-muted-foreground")}>
+                    Starting at
+                  </span>
                   <span className={cn("text-4xl font-bold", plan.popular ? "text-primary-foreground" : "text-foreground")}>
                     ${plan.price}
                   </span>

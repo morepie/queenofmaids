@@ -382,6 +382,7 @@ export default function CityLanding() {
                 )}
                 <h3 className={cn("text-lg font-bold mb-1", plan.popular ? "text-primary-foreground" : "text-foreground")}>{plan.name}</h3>
                 <div className="mb-4">
+                  <span className={cn("text-xs font-medium uppercase tracking-wide block mb-1", plan.popular ? "text-primary-foreground/70" : "text-muted-foreground")}>Starting at</span>
                   <span className={cn("text-3xl font-bold", plan.popular ? "text-primary-foreground" : "text-foreground")}>${plan.price}</span>
                   <span className={cn("text-sm ml-1", plan.popular ? "text-primary-foreground/70" : "text-muted-foreground")}>/{plan.frequency}</span>
                 </div>

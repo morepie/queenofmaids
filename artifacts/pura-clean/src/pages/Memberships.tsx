@@ -219,6 +219,9 @@ export default function Memberships() {
                 </div>
 
                 <div className="mb-6">
+                  <span className={cn("text-xs font-medium uppercase tracking-wide block mb-1", plan.popular ? "text-primary-foreground/70" : "text-muted-foreground")}>
+                    Starting at
+                  </span>
                   <span className={cn("text-4xl font-bold", plan.popular ? "text-primary-foreground" : "text-foreground")}>
                     ${plan.price}
                   </span>
@@ -298,9 +301,9 @@ export default function Memberships() {
               <thead>
                 <tr className="border-b-2 border-border">
                   <th className="text-left py-4 pr-4 text-sm font-semibold text-foreground w-1/2">Feature</th>
-                  <th className="text-center py-4 px-4 text-sm font-semibold text-foreground">Partial<br/><span className="text-primary font-bold">$99/mo</span></th>
-                  <th className="text-center py-4 px-4 text-sm font-semibold text-foreground bg-primary/5 rounded-t-xl">Full<br/><span className="text-primary font-bold">$149/mo</span></th>
-                  <th className="text-center py-4 px-4 text-sm font-semibold text-foreground">Premium<br/><span className="text-primary font-bold">$179/mo</span></th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold text-foreground">Partial<br/><span className="text-primary font-bold">From $99/mo</span></th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold text-foreground bg-primary/5 rounded-t-xl">Full<br/><span className="text-primary font-bold">From $149/mo</span></th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold text-foreground">Premium<br/><span className="text-primary font-bold">From $179/mo</span></th>
                 </tr>
               </thead>
               <tbody>
