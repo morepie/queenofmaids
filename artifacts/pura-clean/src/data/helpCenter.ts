@@ -34,7 +34,7 @@ export const helpTopics: HelpTopic[] = [
       },
       {
         q: 'What areas do you cover?',
-        a: 'Our expert cleaning teams provide house cleanings in: Arizona (Phoenix, Scottsdale, Chandler, and more), Utah (Salt Lake City, Park City, West Jordan, Sandy, and more), Colorado (Denver, Aurora, Lakewood, and more), and Nevada (Las Vegas, Henderson, Spring Valley, and more). Visit our Service Areas page for a complete listing of all the areas we serve.',
+        a: 'Our expert cleaning teams provide house cleanings in: Arizona (Phoenix, Scottsdale, Chandler, and more), Utah (Salt Lake City, Park City, West Jordan, Sandy, and more), Colorado (Denver, Aurora, Lakewood, and more), and Nevada (Las Vegas, Henderson, Spring Valley, and more). Head to the Service Areas page in the navigation to see every city and suburb we cover.',
       },
       {
         q: 'Who are the cleaning professionals that work with Queen of Maids?',

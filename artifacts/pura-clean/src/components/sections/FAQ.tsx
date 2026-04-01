@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 const faqs = [
   {
     question: 'What areas do you serve?',
-    answer: 'We serve four major metro areas across the West: Phoenix, Salt Lake City, Las Vegas, and Denver. Each metro includes dozens of surrounding cities and suburbs. Visit our Service Areas page to see if we cover your neighborhood, or give us a call and we\'ll let you know.',
+    answer: 'We serve four major metro areas across the West: Phoenix, Salt Lake City, Las Vegas, and Denver. Each metro includes dozens of surrounding cities and suburbs. Check out our Service Areas page in the navigation above to see all the cities we cover, or give us a call and we\'ll let you know.',
   },
   {
     question: 'How does membership pricing work?',

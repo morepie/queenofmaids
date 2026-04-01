@@ -19,7 +19,7 @@ const homepageFaqs = [
   { q: 'Can I switch plans or cancel?', a: "Absolutely. Memberships start with a 3-month commitment, after which you can pause, downgrade, upgrade, or cancel anytime with at least 48 hours' notice before your next scheduled visit. We make it easy to adjust as your life changes." },
   { q: 'When am I charged?', a: "You're billed monthly, starting on your first cleaning date. Recurring charges happen on the same date each month. We accept all major credit cards and process payments securely." },
   { q: 'Do you bring your own supplies?', a: "Yes! Our teams bring all supplies and professional-grade equipment to every visit. If you have preferred products or allergies, just let us know and we'll accommodate." },
-  { q: 'What areas do you serve?', a: "We currently serve four major metro areas: Phoenix, AZ (13 cities including Scottsdale, Tempe, Mesa, and Chandler), Salt Lake City, UT (12 cities including Sandy, Provo, and Draper), Las Vegas, NV (10 cities including Henderson and Summerlin), and Denver, CO (12 cities including Aurora, Lakewood, and Arvada). Visit our Service Areas page for the full list." },
+  { q: 'What areas do you serve?', a: "We currently serve four major metro areas: Phoenix, AZ (13 cities including Scottsdale, Tempe, Mesa, and Chandler), Salt Lake City, UT (12 cities including Sandy, Provo, and Draper), Las Vegas, NV (10 cities including Henderson and Summerlin), and Denver, CO (12 cities including Aurora, Lakewood, and Arvada). Check out our Service Areas page in the menu to see every city and suburb we cover." },
 ];
 
 export default function Home() {
