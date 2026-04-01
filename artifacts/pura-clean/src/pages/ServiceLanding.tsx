@@ -79,7 +79,7 @@ export default function ServiceLanding() {
     },
     {
       q: `Do you bring your own cleaning supplies for ${service.title.toLowerCase()}?`,
-      a: `Yes! Our cleaning teams bring all supplies and professional-grade equipment for every ${service.title.toLowerCase()} visit. We use eco-friendly, non-toxic products that are safe for kids, pets, and the environment. If you have preferred products, just let us know.`,
+      a: `Yes! Our cleaning teams bring all supplies and professional-grade equipment for every ${service.title.toLowerCase()} visit. If you have preferred products, just let us know.`,
     },
     {
       q: `Are your cleaners background-checked?`,

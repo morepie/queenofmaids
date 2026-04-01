@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: 'What cleaning products do you use?',
-    answer: 'We use eco-friendly, non-toxic cleaning products that are safe for kids, pets, and the environment. If you have specific product preferences or allergies, let us know and we\'ll accommodate your needs.',
+    answer: 'Our cleaners come equipped with professional-grade cleaning supplies. If you have specific product preferences or allergies, let us know and we\'ll accommodate your needs.',
   },
   {
     question: 'Are your cleaners background-checked and insured?',

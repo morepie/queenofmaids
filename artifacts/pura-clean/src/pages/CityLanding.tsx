@@ -128,7 +128,7 @@ export default function CityLanding() {
     },
     {
       q: `Do you provide cleaning supplies and equipment in ${city.name}?`,
-      a: `Yes! Our ${city.name} cleaning teams bring all supplies and professional-grade equipment. We use eco-friendly, non-toxic cleaning products that are safe for kids, pets, and the environment. If you have preferred products you'd like us to use, just let us know.`,
+      a: `Yes! Our ${city.name} cleaning teams bring all supplies and professional-grade equipment needed for your cleaning. If you have preferred products you'd like us to use, just let us know.`,
     },
     {
       q: `Are your ${city.name} cleaners background-checked?`,

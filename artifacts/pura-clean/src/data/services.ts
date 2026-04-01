@@ -26,7 +26,7 @@ export const services: ServiceData[] = [
     description: 'Our Standard Cleaning covers all the basics your home needs to stay fresh and tidy. We dust surfaces, vacuum and mop all floors, clean and sanitize bathrooms, wipe down kitchen counters and appliances, and take out trash. Perfect for homes that are already in good shape and just need regular upkeep.',
     includes: ['Dusting all reachable surfaces', 'Vacuuming & mopping floors', 'Bathroom cleaning & sanitization', 'Kitchen counter & sink wipe-down', 'Trash removal', 'General tidying'],
     longDescription: 'Our Standard Cleaning is the foundation of a well-maintained home. Each visit follows a detailed checklist to ensure nothing gets missed. Your dedicated cleaner will dust all reachable surfaces, vacuum carpets and rugs, mop hard floors, thoroughly clean and sanitize bathrooms, wipe down kitchen counters and appliances, empty trash bins, and do a general tidy of living spaces. This service is designed for homes that are in reasonable condition and need consistent upkeep to stay looking their best.',
-    benefits: ['Consistent, reliable results every visit', 'Detailed checklist ensures nothing is missed', 'Eco-friendly, non-toxic products', 'Same dedicated cleaner each time', 'Flexible scheduling options'],
+    benefits: ['Consistent, reliable results every visit', 'Detailed checklist ensures nothing is missed', 'Professional-grade cleaning products', 'Same dedicated cleaner each time', 'Flexible scheduling options'],
     idealFor: ['Busy professionals who need regular upkeep', 'Families maintaining a tidy home', 'Homes that are already in good shape', 'Anyone who wants more free time'],
     heroImage: 'clean-living-room.png',
   },

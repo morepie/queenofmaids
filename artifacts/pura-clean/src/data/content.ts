@@ -153,7 +153,7 @@ export const reviews: Review[] = [
     initials: 'LG',
     rating: 5,
     date: 'Feb 2026',
-    text: 'Queen of Maids is the only service I trust with my Scottsdale home. They use eco-friendly products, which is huge for me since I have two dogs and a toddler.',
+    text: 'Queen of Maids is the only service I trust with my Scottsdale home. Their cleaners are thorough and careful, which is huge for me since I have two dogs and a toddler.',
   },
   {
     id: 12,
