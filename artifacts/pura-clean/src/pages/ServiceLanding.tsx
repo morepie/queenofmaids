@@ -238,17 +238,17 @@ export default function ServiceLanding() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="lg:col-span-2 space-y-5"
             >
-              <div className="bg-primary rounded-2xl p-6 shadow-lg text-primary-foreground">
+              <div className="bg-card rounded-2xl p-6 shadow-lg border border-border">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                    <Target className="w-5 h-5 text-primary-foreground" />
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Target className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-lg font-bold">Key Benefits</h3>
+                  <h3 className="text-lg font-bold text-foreground">Key Benefits</h3>
                 </div>
                 <ul className="space-y-2.5">
                   {service.benefits.slice(0, 3).map(b => (
-                    <li key={b} className="flex items-start gap-2.5 text-sm text-primary-foreground/90">
-                      <Sparkles className="w-4 h-4 mt-0.5 shrink-0 text-primary-foreground/70" />
+                    <li key={b} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                      <Sparkles className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
                       {b}
                     </li>
                   ))}
