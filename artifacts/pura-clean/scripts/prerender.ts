@@ -100,8 +100,9 @@ async function main() {
           if (pageHtml.includes('<!--ssr-outlet-->')) {
             pageHtml = pageHtml.replace('<!--ssr-outlet-->', html);
           } else {
+            // Replace root div regardless of existing content
             pageHtml = pageHtml.replace(
-              '<div id="root"></div>',
+              /<div id="root">[^]*?<\/div>/,
               `<div id="root">${html}</div>`,
             );
           }
@@ -110,8 +111,8 @@ async function main() {
           if (pageHtml.includes('<!--ssr-head-->')) {
             pageHtml = pageHtml.replace('<!--ssr-head-->', head);
           } else {
-            // Strip any existing <title> tag so Helmet's takes over
-            pageHtml = pageHtml.replace(/<title>[^<]*<\/title>/, '');
+            // Strip any existing <title> tags so Helmet's takes over
+            pageHtml = pageHtml.replace(/<title>[^<]*<\/title>/g, '');
             pageHtml = pageHtml.replace('</head>', `  ${head}\n  </head>`);
           }
 
