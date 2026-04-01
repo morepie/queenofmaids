@@ -20,94 +20,44 @@ export default function Privacy() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 prose prose-sm sm:prose-base prose-headings:text-foreground prose-p:text-foreground/80 prose-li:text-foreground/80 prose-strong:text-foreground">
 
-        <p>PuraClean, Inc. ("PuraClean," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, mobile application, and use our services (collectively, the "Platform"). Please read this Privacy Policy carefully. By using the Platform, you agree to the collection and use of information in accordance with this policy.</p>
+        <h2>1. What Information We Collect</h2>
+        <p>When you visit our Site or use our Service you may provide us with personal information you actively choose to disclose ("Active Information"), information voluntarily provided within the Service ("Voluntary Information"), and/or non-personally identifiable information collected on an aggregate basis as you and others use our Site ("Passive Information"). These three types of information are referred to collectively as "User Information".</p>
 
-        <h2>1. Information We Collect</h2>
-        <h3>Personal Information</h3>
-        <p>We may collect personal information that you voluntarily provide to us when you register on the Platform, express an interest in obtaining information about us or our services, or otherwise contact us. This information may include:</p>
-        <ul>
-          <li>Name, email address, phone number, and mailing address;</li>
-          <li>Billing and payment information (credit card numbers, billing address);</li>
-          <li>Account credentials (username and password);</li>
-          <li>Service preferences and scheduling information;</li>
-          <li>Communications between you and PuraClean or Service Providers;</li>
-          <li>Any other information you choose to provide.</li>
-        </ul>
+        <h2>2. Active Information</h2>
+        <p>In order to use the Service, we require you to disclose the following information: full name, a credit card to hold a reservation, and a valid e-mail address. Additionally, if you choose to post information through our Service or engage in email, regular mail, telephone or other contact with us, we may retain information disclosed thereby as well.</p>
 
-        <h3>Automatically Collected Information</h3>
-        <p>When you access the Platform, we may automatically collect certain information, including:</p>
-        <ul>
-          <li>Device information (device type, operating system, unique device identifiers);</li>
-          <li>Log information (access times, pages viewed, IP address, referring URL);</li>
-          <li>Location information (with your consent, we may collect precise geolocation data);</li>
-          <li>Cookies and similar tracking technologies.</li>
-        </ul>
+        <h2>3. Voluntary Information</h2>
+        <p>Within the Service, User may collect information related to User. This could include name, contact information, property details, etc.</p>
 
-        <h2>2. How We Use Your Information</h2>
-        <p>We may use the information we collect for various purposes, including to:</p>
-        <ul>
-          <li>Provide, operate, and maintain the Platform and our services;</li>
-          <li>Process transactions and send related information, including booking confirmations and invoices;</li>
-          <li>Match you with appropriate Service Providers;</li>
-          <li>Send you marketing and promotional communications (with your consent, where required);</li>
-          <li>Respond to your comments, questions, and requests, and provide customer service;</li>
-          <li>Monitor and analyze usage patterns and trends to improve the Platform;</li>
-          <li>Detect, prevent, and address technical issues, fraud, and security concerns;</li>
-          <li>Comply with legal obligations and enforce our terms of service;</li>
-          <li>Communicate with you about products, services, offers, promotions, and events;</li>
-          <li>Personalize your experience on the Platform.</li>
-        </ul>
+        <h2>4. Passive Information</h2>
+        <p>Our Site and the Service utilize a standard technology called cookies to collect information about how our Site and Service is used. Passive Information gathered may include but is not limited to the date and time of visits, the Site pages viewed, time spent at our Site, a logging of activities, and the sites visited just before and just after our Site.</p>
 
-        <h2>3. How We Share Your Information</h2>
-        <p>We may share the information we collect in the following situations:</p>
-        <ul>
-          <li><strong>With Service Providers:</strong> We share your information with cleaning professionals who provide services to you, including your name, address, contact information, and service details;</li>
-          <li><strong>With Third-Party Service Providers:</strong> We may share your information with third-party vendors who provide services on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing;</li>
-          <li><strong>For Business Transfers:</strong> We may share or transfer your information in connection with a merger, acquisition, reorganization, sale of assets, or bankruptcy;</li>
-          <li><strong>With Your Consent:</strong> We may share your personal information for any other purpose with your consent;</li>
-          <li><strong>For Legal Purposes:</strong> We may disclose your information where required to do so by law or in response to valid requests by public authorities.</li>
-        </ul>
+        <h2>5. Cookies</h2>
+        <p>Cookies are a feature of web browser software that allow web servers to recognize the computer used to access a Site. They are small pieces of data that we transfer to your computer's hard drive to enable our systems to recognize your browser, simplify subsequent interactions with our Site and streamline your use of the Site.</p>
 
-        <h2>4. Cookies and Tracking Technologies</h2>
-        <p>We use cookies and similar tracking technologies to track activity on our Platform and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Platform.</p>
+        <h2>6. Use of Information Collected</h2>
+        <p>Individuals we employ directly, or as contractors or agents at our direction, use Active Information for purposes of administering our business activities, providing User services such as support, and making available other products or services we think may be of interest to our users and to job candidates. We may use the Active Information or Passive Information you provide to us to contact you about changes to our Site and Service, new services, features or products we offer, or other information we think you might find valuable, as well as to provide or enhance features of our Site and Service. If at any time you do not wish to receive such information from us, please send us an email to that effect to hello@puraclean.com.</p>
+        <p>Voluntary Information provided by User is for the exclusive use of the User and/or their authorized agents. We also use Passive Information to gather information about our users and to enhance and design our Site to make it easier and friendlier to use. Cookies help us know information about how many people visit our Site, when they visit our site, and how they use our service. We do not connect any of this information to your personal information or email address.</p>
 
-        <h2>5. Data Security</h2>
-        <p>We use administrative, technical, and physical security measures to protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
+        <h2>7. Sharing Information with Others</h2>
+        <p>In addition to as described above, we may share User Information with others in the following situations without additional notice to or consent by you:</p>
 
-        <h2>6. Data Retention</h2>
-        <p>We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.</p>
+        <h2>8. Business Transactions</h2>
+        <p>As we continue to develop our business, we might become involved in financing transactions or business transactions involving the sale or license of our assets or business units. In either case, User Information often is disclosed on a confidential basis or is one of the transferred business assets but remains subject to the promises made in any pre-existing Privacy Policy (unless, of course, the User consents otherwise). Also, in the event PuraClean is merged with another company or acquired, or substantially all of its assets are acquired, User Information will be one of the transferred assets.</p>
+        <p><strong>Protection of PuraClean and Others:</strong> We also may be required to disclose an individual's personal information in response to a lawful request by public authorities, including to meet national security or law enforcement requirements. This includes exchanging information with other companies and organizations for fraud protection and credit risk reduction. This does not, however, include selling, renting, sharing, or otherwise disclosing personally identifiable information from Users for commercial purposes in violation of the commitments set forth in this Privacy Policy.</p>
+        <p><strong>Non-Personally Identifiable Information:</strong> We may disclose anonymous Passive Information about user habits, characteristics and user patterns, based on aggregate user statistics to advertisers on our Site or others.</p>
 
-        <h2>7. Your Privacy Rights</h2>
-        <p>Depending on your location, you may have the following rights regarding your personal information:</p>
-        <ul>
-          <li><strong>Access:</strong> You may request access to the personal information we hold about you;</li>
-          <li><strong>Correction:</strong> You may request that we correct inaccurate or incomplete personal information;</li>
-          <li><strong>Deletion:</strong> You may request that we delete your personal information, subject to certain exceptions;</li>
-          <li><strong>Opt-Out:</strong> You may opt out of receiving marketing communications from us at any time;</li>
-          <li><strong>Data Portability:</strong> You may request a copy of your personal information in a structured, commonly used format;</li>
-          <li><strong>Non-Discrimination:</strong> We will not discriminate against you for exercising your privacy rights.</li>
-        </ul>
-        <p>To exercise any of these rights, please contact us at the information provided below.</p>
+        <h2>9. Security of User Information</h2>
+        <p>We secure your User Information by using commercially reasonable, industry-standard measures to prevent unauthorized access or disclosure, or accidental loss, disclosure or destruction thereof. However, even very good security measures may fail to prevent computer hacking or other breaches of security, and we can provide no guarantees that the same will not occur. Additionally, our postings on this Site and other communications you may have with us via email or regular mail may not be secure unless we advise you that security measures are in place prior to your sending information. Therefore, if you choose to communicate with us through these means, you are assuming the risk of doing so and we request that you do not send or post sensitive information through those means.</p>
 
-        <h2>8. California Privacy Rights</h2>
-        <p>If you are a California resident, you have certain additional rights under the California Consumer Privacy Act (CCPA). These include the right to know what personal information we collect, use, disclose, and sell; the right to request deletion of your personal information; the right to opt-out of the sale of your personal information; and the right to non-discrimination for exercising your CCPA rights.</p>
+        <h2>10. Other Websites</h2>
+        <p>You may be able to access other websites through our Site and/or Service. When you do so you are thereby subject to those other sites' policies regarding privacy and data collection and you should read those sites' privacy policies to make sure you agree to them before using such sites. When you choose to visit such sites, you should read their privacy policies and terms of use to make sure you agree with them.</p>
 
-        <h2>9. Children's Privacy</h2>
-        <p>Our Platform is not intended for children under the age of 18. We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we can take necessary actions.</p>
+        <h2>11. Opting Out / Correcting or Deleting Personal Information</h2>
+        <p>If you desire not to receive information about products or services we think may be of interest to you or if you wish to delete or correct your information, please contact us at hello@puraclean.com.</p>
 
-        <h2>10. Third-Party Links</h2>
-        <p>Our Platform may contain links to third-party websites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the privacy policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
-
-        <h2>11. Changes to This Privacy Policy</h2>
-        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. You are advised to review this Privacy Policy periodically for any changes.</p>
-
-        <h2>12. Contact Us</h2>
-        <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
-        <ul>
-          <li>Email: hello@puraclean.com</li>
-          <li>Phone: (602) 555-1234</li>
-          <li>Mail: PuraClean, Inc., Phoenix, AZ</li>
-        </ul>
+        <h2>12. Changes to Our Privacy Policy</h2>
+        <p>Our Privacy Policy and Terms of Service may change from time to time. PuraClean, Inc. reserves the right, at its discretion, to modify this Privacy Policy at any time by posting a notice on the Site, or by sending you a notice via email. You will be responsible for reviewing and becoming familiar with any such modifications. Your use of the Site and/or the Service following such notification constitutes User's acceptance of the terms and conditions of this Agreement as modified. Unless stated otherwise, our current Privacy Policy applies to all information that we have about you and your account. We stand behind the promises we make, and will never materially change our policies and practices to make them less protective of User information collected in the past without the consent of affected Users.</p>
       </div>
     </>
   );
