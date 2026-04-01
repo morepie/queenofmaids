@@ -35,7 +35,7 @@ export default function Footer() {
             <img
               src={`${base}/images/logo-white.png`}
               alt="Queen of Maids"
-              className="h-7 w-auto"
+              className="h-auto w-48 object-contain"
             />
             <p className="text-background/60 text-sm leading-relaxed">
               Professional house cleaning across four major metro areas. We bring the sparkle so you can enjoy your home.
