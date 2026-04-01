@@ -151,9 +151,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} PuraClean. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <span className="text-background/40 text-xs cursor-pointer hover:text-primary transition-colors">Privacy Policy</span>
-            <span className="text-background/40 text-xs cursor-pointer hover:text-primary transition-colors">Terms of Service</span>
-            <span className="text-background/40 text-xs cursor-pointer hover:text-primary transition-colors">Sitemap</span>
+            <Link href={`${base}/privacy`} className="text-background/40 text-xs hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href={`${base}/terms`} className="text-background/40 text-xs hover:text-primary transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

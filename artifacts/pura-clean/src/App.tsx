@@ -6,6 +6,8 @@ import ServiceLanding from '@/pages/ServiceLanding';
 import Memberships from '@/pages/Memberships';
 import ServiceAreas from '@/pages/ServiceAreas';
 import CityLanding from '@/pages/CityLanding';
+import Terms from '@/pages/Terms';
+import Privacy from '@/pages/Privacy';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -19,6 +21,8 @@ function App() {
         <Route path={base + '/plans'}>{() => <Redirect to={base + '/memberships'} />}</Route>
         <Route path={base + '/service-areas'} component={ServiceAreas} />
         <Route path={base + '/house-cleaning/:city'} component={CityLanding} />
+        <Route path={base + '/terms'} component={Terms} />
+        <Route path={base + '/privacy'} component={Privacy} />
         <Route path={base + '/'} component={Home} />
         <Route component={Home} />
       </Switch>
