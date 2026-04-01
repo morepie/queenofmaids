@@ -33,6 +33,7 @@ function FAQItem({ question, answer, defaultOpen = false }: { question: string; 
 export default function ServiceLanding() {
   const params = useParams<{ service: string }>();
   const [, setLocation] = useLocation();
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
   const service = findServiceBySlug(params.service || '');
 
   useEffect(() => {
@@ -480,21 +481,34 @@ export default function ServiceLanding() {
       </section>
 
       {/* FAQ */}
-      <section className="py-14 md:py-20 bg-muted/30">
+      <section className="py-14 md:py-20 bg-[hsl(270,50%,20%)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white/80 text-sm font-semibold mb-4">
                 FAQ
               </span>
-              <h2 className="text-3xl font-bold tracking-tight">
+              <h2 className="text-3xl font-bold tracking-tight text-white">
                 {service.title} — Frequently Asked Questions
               </h2>
             </div>
 
             <div className="space-y-3">
               {faqs.map((faq, i) => (
-                <FAQItem key={i} question={faq.q} answer={faq.a} defaultOpen={i === 0} />
+                <div key={i} className="border border-white/15 rounded-xl overflow-hidden">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-white/5 transition-colors"
+                  >
+                    <span className="font-semibold text-sm text-white">{faq.q}</span>
+                    <ChevronDown className={cn("w-4 h-4 text-white/50 shrink-0 transition-transform duration-200", openFaq === i && "rotate-180")} />
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-5 pb-4">
+                      <p className="text-sm text-white/70 leading-relaxed">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
