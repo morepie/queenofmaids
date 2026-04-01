@@ -28,8 +28,8 @@ const howItWorks = [
   },
   {
     step: 2,
-    title: 'Skip the First-Visit Surcharge',
-    description: 'New customers typically pay a higher rate for their first deep clean. Members bypass that completely — you lock in your monthly rate starting with your very first appointment.',
+    title: 'Save Big on Your First Deep Clean',
+    description: 'Your first cleaning is always a deep clean — and members get it at a fraction of the regular price. Lock in your discounted rate from day one and start saving right away.',
   },
   {
     step: 3,
@@ -51,8 +51,8 @@ const whyMembership = [
   },
   {
     icon: DollarSign,
-    title: 'First-Visit Fee? Gone.',
-    description: 'Non-members pay extra for their initial deep clean. Members start at their regular monthly rate from day one — that\'s real savings before you even start.',
+    title: 'Huge Savings from Day One',
+    description: 'Your first visit is a thorough deep clean — and as a member, you pay a deeply discounted rate instead of the full price. Then keep saving month after month with discounted recurring cleanings.',
   },
   {
     icon: Crown,
@@ -112,7 +112,7 @@ export default function Memberships() {
     <>
       <Helmet>
         <title>Memberships & Pricing | Queen of Maids</title>
-        <meta name="description" content="Choose your Queen of Maids membership — Partial, Full, or Premium monthly plans. No first-visit surcharges for members. Flexible scheduling and a 200% Happiness Guarantee." />
+        <meta name="description" content="Choose your Queen of Maids membership — Partial, Full, or Premium monthly plans. Save big on your first deep clean and enjoy discounted recurring cleanings every month." />
       </Helmet>
       {/* HERO */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-[hsl(355,60%,95%)] via-[hsl(350,30%,97%)] to-background">
@@ -129,7 +129,7 @@ export default function Memberships() {
               Your Home, <span className="text-primary">Always Clean</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Join a monthly membership and get professional cleaning on autopilot. Skip the first-visit surcharge, lock in your rate, and never think about scheduling again.
+              Join a monthly membership and get professional cleaning on autopilot. Save big on your first deep clean, enjoy discounted recurring cleanings, and never think about scheduling again.
             </p>
           </motion.div>
         </div>
