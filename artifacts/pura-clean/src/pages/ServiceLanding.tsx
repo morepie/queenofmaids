@@ -180,29 +180,64 @@ export default function ServiceLanding() {
       {/* DETAILED DESCRIPTION */}
       <section className="py-14 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
-                About This Service
-              </span>
-              <h2 className="text-3xl font-bold tracking-tight mb-5">
-                What to Expect from Our {service.title}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
+          <div className="text-center mb-14">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-teal/10 text-teal text-sm font-semibold mb-4">
+              About This Service
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+              What to Expect from Our {service.title}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="lg:col-span-3 bg-gradient-to-br from-[hsl(355,60%,96%)] to-card rounded-2xl border border-border p-8 shadow-md"
+            >
+              <p className="text-muted-foreground leading-relaxed text-[15px] mb-8">
                 {service.longDescription}
               </p>
-            </div>
 
-            <div className="space-y-6">
-              <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
-                <h3 className="flex items-center gap-2 font-bold text-foreground mb-4">
-                  <Target className="w-5 h-5 text-teal" />
-                  Key Benefits
-                </h3>
-                <ul className="space-y-3">
-                  {service.benefits.map(b => (
-                    <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <CheckCircle className="w-4 h-4 text-teal mt-0.5 shrink-0" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {service.benefits.map((b, i) => (
+                  <motion.div
+                    key={b}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.05 }}
+                    className="flex items-start gap-3 bg-white/80 rounded-xl p-3 border border-border/50"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-teal/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle className="w-4 h-4 text-teal" />
+                    </div>
+                    <span className="text-sm font-medium text-foreground/80">{b}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="lg:col-span-2 space-y-5"
+            >
+              <div className="bg-primary rounded-2xl p-6 shadow-lg text-primary-foreground">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+                    <Target className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-lg font-bold">Key Benefits</h3>
+                </div>
+                <ul className="space-y-2.5">
+                  {service.benefits.slice(0, 3).map(b => (
+                    <li key={b} className="flex items-start gap-2.5 text-sm text-primary-foreground/90">
+                      <Sparkles className="w-4 h-4 mt-0.5 shrink-0 text-primary-foreground/70" />
                       {b}
                     </li>
                   ))}
@@ -210,47 +245,61 @@ export default function ServiceLanding() {
               </div>
 
               <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
-                <h3 className="flex items-center gap-2 font-bold text-foreground mb-4">
-                  <Users className="w-5 h-5 text-primary" />
-                  Ideal For
-                </h3>
-                <ul className="space-y-3">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center">
+                    <Users className="w-5 h-5 text-teal" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground">Perfect For</h3>
+                </div>
+                <ul className="space-y-2.5">
                   {service.idealFor.map(item => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <ArrowRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                      <ArrowRight className="w-4 h-4 text-teal mt-0.5 shrink-0" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+
+              <a
+                href="tel:6025551234"
+                className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl bg-teal text-white font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+              >
+                <Phone className="w-4 h-4" />
+                Schedule Your {service.title}
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* PRICING */}
-      <section className="py-14 md:py-20 bg-muted/30">
+      {/* MEMBERSHIP TIERS */}
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-              Pricing
+              Membership Tiers
             </span>
-            <h2 className="text-3xl font-bold tracking-tight">
-              Memberships & Pricing
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+              Choose Your Membership
             </h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-              All memberships include monthly service. Start with a 3-month commitment, then stay as long as you like.
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              All memberships include monthly service by our trained, background-checked professionals. Start with a 3-month commitment, then stay as long as you like.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {cleaningPlans.map((plan) => (
-              <div
+            {cleaningPlans.map((plan, i) => (
+              <motion.div
                 key={plan.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 className={cn(
-                  "relative rounded-2xl p-7 flex flex-col",
+                  "relative rounded-2xl p-8 flex flex-col",
                   plan.popular
-                    ? "bg-primary text-primary-foreground shadow-xl ring-2 ring-primary/20"
+                    ? "bg-primary text-primary-foreground shadow-xl ring-2 ring-primary/20 scale-[1.02]"
                     : "bg-card border border-border shadow-md"
                 )}
               >
@@ -261,31 +310,73 @@ export default function ServiceLanding() {
                     </span>
                   </div>
                 )}
-                <h3 className={cn("text-lg font-bold mb-1", plan.popular ? "text-primary-foreground" : "text-foreground")}>{plan.name}</h3>
-                <div className="mb-4">
-                  <span className={cn("text-3xl font-bold", plan.popular ? "text-primary-foreground" : "text-foreground")}>${plan.price}</span>
-                  <span className={cn("text-sm ml-1", plan.popular ? "text-primary-foreground/70" : "text-muted-foreground")}>/{plan.frequency}</span>
+
+                <div className="mb-6">
+                  <h3 className={cn("text-xl font-bold mb-1", plan.popular ? "text-primary-foreground" : "text-foreground")}>
+                    {plan.name}
+                  </h3>
+                  <p className={cn("text-sm", plan.popular ? "text-primary-foreground/80" : "text-muted-foreground")}>
+                    {plan.description}
+                  </p>
                 </div>
-                <ul className="space-y-2 mb-6 flex-1">
-                  {plan.features.slice(0, 4).map(f => (
-                    <li key={f} className="flex items-start gap-2 text-sm">
+
+                <div className="mb-6">
+                  <span className={cn("text-4xl font-bold", plan.popular ? "text-primary-foreground" : "text-foreground")}>
+                    ${plan.price}
+                  </span>
+                  <span className={cn("text-sm ml-1", plan.popular ? "text-primary-foreground/70" : "text-muted-foreground")}>
+                    /month
+                  </span>
+                </div>
+
+                <ul className="space-y-3 mb-8 flex-1">
+                  {plan.features.map(feature => (
+                    <li key={feature} className="flex items-start gap-3 text-sm">
                       <CheckCircle className={cn("w-4 h-4 mt-0.5 shrink-0", plan.popular ? "text-primary-foreground" : "text-teal")} />
-                      <span className={plan.popular ? "text-primary-foreground/90" : "text-foreground/80"}>{f}</span>
+                      <span className={plan.popular ? "text-primary-foreground/90" : "text-foreground/80"}>
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
+
                 <a
                   href="tel:6025551234"
                   className={cn(
-                    "w-full py-3 rounded-full font-semibold text-sm text-center transition-all duration-200 hover:-translate-y-0.5 block",
-                    plan.popular ? "bg-white text-primary shadow-md" : "bg-primary text-primary-foreground shadow-md"
+                    "w-full py-3.5 rounded-full font-semibold text-sm text-center transition-all duration-200 hover:-translate-y-0.5 block",
+                    plan.popular
+                      ? "bg-white text-primary shadow-md hover:shadow-lg"
+                      : "bg-primary text-primary-foreground shadow-md hover:shadow-lg"
                   )}
                 >
                   Get a Quote
                 </a>
-              </div>
+              </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-10 rounded-2xl border border-border bg-card shadow-sm p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5"
+          >
+            <div>
+              <p className="text-base font-bold text-foreground">
+                Not sure about a membership? Try a one-time clean first.
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Members save on every visit and skip the initial deep-clean fee — but there's no pressure.
+              </p>
+            </div>
+            <a
+              href="tel:6025551234"
+              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+            >
+              Book a One-Time Clean <ArrowRight className="w-4 h-4" />
+            </a>
+          </motion.div>
 
           <div className="mt-6 text-center">
             <a
@@ -293,7 +384,7 @@ export default function ServiceLanding() {
               onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
               className="text-sm font-semibold text-primary hover:underline"
             >
-              View all memberships &rarr;
+              Compare all memberships side-by-side &rarr;
             </a>
           </div>
         </div>
