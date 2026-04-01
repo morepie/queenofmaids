@@ -146,7 +146,7 @@ export default function CityLanding() {
     },
     {
       q: `Do you offer one-time cleaning services in ${city.name}?`,
-      a: `Yes! While many ${city.name} homeowners choose our monthly memberships, we also offer one-time deep cleans, move in/out cleans, post-construction cleans, and vacation rental turnovers. Call us for a custom quote based on your home size and needs.`,
+      a: `Yes! While many ${city.name} residents choose our monthly memberships, we also offer one-time deep cleans, move in/out cleans, post-construction cleans, and vacation rental turnovers. Call us for a custom quote based on your home size and needs.`,
     },
     {
       q: `Will I get the same cleaner each visit in ${city.name}?`,
@@ -440,11 +440,11 @@ export default function CityLanding() {
                 Why PuraClean
               </span>
               <h2 className="text-3xl font-bold tracking-tight mb-6">
-                Why {city.name} Homeowners Choose PuraClean
+                Why {city.name} Families Choose Queen of Maids
               </h2>
               <div className="space-y-5">
                 {[
-                  { icon: Award, title: '14+ Years of Experience', desc: `We've been cleaning homes in the ${metro.name} metro area for over 14 years. We know what ${city.name} homeowners expect and we deliver every time.` },
+                  { icon: Award, title: '14+ Years of Experience', desc: `We've been cleaning homes in the ${metro.name} metro area for over 14 years. We know what ${city.name} families expect and we deliver every time.` },
                   { icon: Shield, title: 'Vetted & Background-Checked', desc: `Every cleaner serving ${city.name} is thoroughly vetted, background-checked, insured, and bonded for your peace of mind.` },
                   { icon: Sparkles, title: '200% Happiness Guarantee', desc: `Not happy with a clean in your ${city.name} home? We'll come back and redo it for free. Still not satisfied? Full refund — no questions asked.` },
                   { icon: Repeat, title: 'Same Cleaner Every Visit', desc: `Your assigned cleaner learns your ${city.name} home inside and out, so each visit is better than the last.` },
@@ -513,7 +513,7 @@ export default function CityLanding() {
                   <span className="text-sm font-bold">{aggregateRating.score}/5</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Rated {aggregateRating.score}/5 based on {aggregateRating.totalReviews.toLocaleString()}+ reviews from {metro.name} area homeowners
+                  Rated {aggregateRating.score}/5 based on {aggregateRating.totalReviews.toLocaleString()}+ reviews from {metro.name} area families
                 </p>
               </div>
             </div>
@@ -590,7 +590,7 @@ export default function CityLanding() {
               Reviews
             </span>
             <h2 className="text-3xl font-bold tracking-tight">
-              What {metro.name} Area Homeowners Say
+              What {metro.name} Area Clients Say
             </h2>
             <div className="mt-4 flex items-center justify-center gap-3">
               <div className="flex items-center gap-0.5">
