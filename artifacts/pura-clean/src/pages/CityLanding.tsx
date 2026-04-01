@@ -472,7 +472,7 @@ export default function CityLanding() {
                 className="rounded-2xl overflow-hidden shadow-lg border border-border"
               >
                 <img
-                  src={base + '/images/cleaning-team.png'}
+                  src={base + '/images/photos/team-photo-2.png'}
                   alt={`Queen of Maids professional cleaning team serving ${city.name}`}
                   className="w-full h-[240px] md:h-[280px] object-cover"
                 />

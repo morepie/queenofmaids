@@ -279,7 +279,7 @@ export default function ServiceLanding() {
 
               <div className="rounded-2xl overflow-hidden shadow-md border border-border">
                 <img
-                  src={base + '/images/cleaning-team.png'}
+                  src={base + '/images/photos/team-photo-1.png'}
                   alt="Queen of Maids professional cleaning team"
                   className="w-full h-[200px] object-cover"
                   loading="lazy"
