@@ -103,7 +103,7 @@ export default function ServiceLanding() {
       <section className="relative pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-[hsl(270,40%,93%)] via-[hsl(270,25%,96%)] to-background" />
         <img
-          src={`${base}/images/clean-living-room.png`}
+          src={`${base}/images/${service.heroImage}`}
           alt=""
           className="absolute inset-0 w-full h-full object-cover z-[1] hidden md:block"
           style={{ maskImage: 'linear-gradient(to right, transparent 10%, transparent 30%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.7) 100%)' }}

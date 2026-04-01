@@ -14,6 +14,7 @@ export interface ServiceData {
   longDescription: string;
   benefits: string[];
   idealFor: string[];
+  heroImage: string;
 }
 
 export const services: ServiceData[] = [
@@ -27,6 +28,7 @@ export const services: ServiceData[] = [
     longDescription: 'Our Standard Cleaning is the foundation of a well-maintained home. Each visit follows a detailed checklist to ensure nothing gets missed. Your dedicated cleaner will dust all reachable surfaces, vacuum carpets and rugs, mop hard floors, thoroughly clean and sanitize bathrooms, wipe down kitchen counters and appliances, empty trash bins, and do a general tidy of living spaces. This service is designed for homes that are in reasonable condition and need consistent upkeep to stay looking their best.',
     benefits: ['Consistent, reliable results every visit', 'Detailed checklist ensures nothing is missed', 'Eco-friendly, non-toxic products', 'Same dedicated cleaner each time', 'Flexible scheduling options'],
     idealFor: ['Busy professionals who need regular upkeep', 'Families maintaining a tidy home', 'Homes that are already in good shape', 'Anyone who wants more free time'],
+    heroImage: 'clean-living-room.png',
   },
   {
     icon: Sparkles,
@@ -38,6 +40,7 @@ export const services: ServiceData[] = [
     longDescription: 'A Deep Cleaning is a comprehensive, top-to-bottom reset for your home. We go far beyond surface-level cleaning to tackle built-up grime, dust, and dirt in areas that regular cleaning doesn\'t reach. Our team scrubs grout lines, cleans inside your oven and microwave, details baseboards and door frames, dusts light fixtures and ceiling fans, cleans behind and under furniture, wipes down cabinet exteriors, and cleans window sills and tracks. This service is perfect as a first-time clean or seasonal refresh.',
     benefits: ['Reaches areas regular cleaning misses', 'Removes built-up grime and allergens', 'Perfect as a seasonal refresh', 'Makes ongoing maintenance easier', 'Leaves your home feeling brand new'],
     idealFor: ['First-time PuraClean clients', 'Homes not cleaned professionally recently', 'Seasonal or spring cleaning', 'Allergy sufferers wanting a thorough clean', 'Pre-event or post-renovation cleanup'],
+    heroImage: 'cleaner-kitchen.png',
   },
   {
     icon: Clock,
@@ -49,6 +52,7 @@ export const services: ServiceData[] = [
     longDescription: 'Sometimes you just need one great clean. Our One Time Cleaning service delivers professional-grade results in a single visit with no strings attached. There\'s no recurring commitment, no subscription — just a thorough, top-to-bottom clean when you need it. We cover every room in your home with the same attention to detail as our recurring clients. Bathrooms are deep-cleaned and sanitized, kitchens get a thorough scrub, floors are vacuumed and mopped, and every surface is dusted. Many clients book a one-time clean and love it so much they sign up for recurring service.',
     benefits: ['No contracts or long-term commitment', 'Same professional quality as recurring service', 'Great way to try PuraClean risk-free', 'Perfect for special occasions', 'Backed by our 200% Happiness Guarantee'],
     idealFor: ['Preparing for guests or holidays', 'Post-party or event cleanup', 'Trying PuraClean for the first time', 'Between regular cleaning services', 'Seasonal home refreshes'],
+    heroImage: 'clean-living-room.png',
   },
   {
     icon: CalendarClock,
@@ -60,6 +64,7 @@ export const services: ServiceData[] = [
     longDescription: 'Our Recurring Cleaning service is the most popular way to keep your home consistently clean. Choose from weekly, biweekly, or monthly visits and enjoy the peace of mind that comes with knowing your home is always professionally maintained. We assign the same trusted, vetted cleaner to your home so they learn your layout, preferences, and priorities over time — meaning each visit gets better. Recurring clients enjoy lower per-visit rates, priority scheduling, and flexible rescheduling when life gets busy.',
     benefits: ['Lower per-visit pricing vs. one-time cleans', 'Same dedicated cleaner learns your home', 'Priority scheduling and rebooking', 'Flexible — pause, skip, or cancel anytime', 'Home stays consistently clean'],
     idealFor: ['Busy families and professionals', 'Dual-income households', 'Pet owners', 'Anyone who values consistent cleanliness', 'Homes that need regular maintenance'],
+    heroImage: 'cleaning-team.png',
   },
   {
     icon: Truck,
@@ -71,6 +76,7 @@ export const services: ServiceData[] = [
     longDescription: 'Moving into a new home should feel exciting, not stressful. Our Move In Cleaning service ensures your new space is completely spotless before you start unpacking. We go through every room with meticulous attention — cleaning inside all cabinets and closets, scrubbing and sanitizing bathrooms, cleaning inside the refrigerator, oven, and dishwasher, washing interior windows, detailing baseboards and trim, and sweeping the garage. You deserve to start fresh in a home that\'s truly clean, not just someone else\'s version of clean.',
     benefits: ['Move into a truly clean home', 'Every surface sanitized and refreshed', 'Inside all storage spaces cleaned', 'Appliances cleaned inside and out', 'Peace of mind from day one'],
     idealFor: ['New homeowners', 'Renters moving into a new apartment', 'Anyone relocating', 'Before furniture delivery', 'When you want a completely fresh start'],
+    heroImage: 'cleaners.png',
   },
   {
     icon: PackageOpen,
@@ -82,6 +88,7 @@ export const services: ServiceData[] = [
     longDescription: 'Our Move Out Cleaning is designed to help you leave your old home in perfect condition. Whether you\'re a renter trying to get your security deposit back or a homeowner preparing to sell, we\'ll deep-clean every inch of the property. Our team cleans inside all cabinets and closets, scrubs and sanitizes every bathroom, cleans inside all appliances, washes interior windows, details baseboards and trim, spot-cleans walls, and ensures every surface shines. Many of our clients report getting their full deposit back after our move-out service.',
     benefits: ['Maximize your security deposit return', 'Property left in showing condition', 'Every detail handled professionally', 'Stress-free moving experience', 'Landlord/property manager ready'],
     idealFor: ['Renters moving out', 'Homeowners selling a property', 'End of lease cleanings', 'Preparing a property for new tenants', 'Landlords between tenants'],
+    heroImage: 'cleaners.png',
   },
   {
     icon: Home,
@@ -93,6 +100,7 @@ export const services: ServiceData[] = [
     longDescription: 'Our Vacation Rental Cleaning service is built specifically for Airbnb, VRBO, and short-term rental hosts who need fast, reliable turnovers between guests. We don\'t just clean — we prepare your property for a 5-star experience. Our team changes all linens and makes beds hotel-style, restocks toiletries and supplies, deep-cleans kitchens and bathrooms, runs the dishwasher, removes all trash, and verifies everything against a detailed checklist with photos. We work within tight turnover windows and communicate proactively so you always know your property is guest-ready.',
     benefits: ['Fast turnaround between bookings', 'Checklist photo verification for hosts', 'Consistent 5-star guest experience', 'Linen and supply restocking included', 'Reliable team you can count on'],
     idealFor: ['Airbnb and VRBO hosts', 'Short-term rental property managers', 'Vacation home owners', 'Anyone renting on booking platforms', 'Multi-property hosts'],
+    heroImage: 'clean-living-room.png',
   },
   {
     icon: Calendar,
@@ -104,6 +112,7 @@ export const services: ServiceData[] = [
     longDescription: 'Our Monthly Cleaning membership strikes the perfect balance for homeowners who handle day-to-day tidying but want a professional touch to keep things in top shape. Once a month, your dedicated cleaner arrives for a thorough cleaning that goes beyond the basics. We pay extra attention to detail areas — baseboards, door frames, light switches, and corners. Bathrooms and kitchens get a deeper clean, all floors are vacuumed and mopped, and surfaces throughout the home are dusted and wiped. It\'s the maintenance clean that keeps your home from ever getting too far behind.',
     benefits: ['Professional results without weekly visits', 'Prevents dirt and grime buildup', 'Affordable entry point for professional cleaning', 'Same cleaner learns your home', 'Flexible monthly scheduling'],
     idealFor: ['Self-maintaining homeowners', 'Budget-conscious households', 'Small homes and apartments', 'Anyone wanting a monthly refresh', 'Homes that stay relatively tidy'],
+    heroImage: 'cleaner-kitchen.png',
   },
   {
     icon: CalendarDays,
@@ -115,6 +124,7 @@ export const services: ServiceData[] = [
     longDescription: 'Biweekly cleaning is our most popular service frequency — and for good reason. Every two weeks, your dedicated cleaner arrives and handles a complete cleaning of your home. Dusting, vacuuming, mopping, bathroom sanitization, kitchen cleaning, trash removal, and general tidying are all included. Your cleaner learns your home, your preferences, and your priorities, so each visit is tailored to you. Most families find that biweekly service keeps their home consistently clean and comfortable without the cost of weekly visits.',
     benefits: ['Most popular frequency for families', 'Great balance of cost and cleanliness', 'Home never gets too dirty between visits', 'Same cleaner builds familiarity', 'Flexible rescheduling when needed'],
     idealFor: ['Families with children', 'Working professionals', 'Homes with pets', 'Most standard-sized homes', 'Anyone wanting consistent cleanliness'],
+    heroImage: 'cleaning-team.png',
   },
   {
     icon: CalendarCheck,
@@ -126,6 +136,7 @@ export const services: ServiceData[] = [
     longDescription: 'Our Weekly Cleaning membership is the ultimate in home maintenance. Every week, on the same day, your dedicated cleaner arrives and handles everything — so you never have to think about cleaning again. All standard tasks are covered: dusting, vacuuming, mopping, bathrooms, kitchen, trash, and tidying. Plus, your cleaner saves your custom preferences and handles any special requests. Weekly clients enjoy our best per-visit pricing, priority scheduling, and first access to add-on services. It\'s the most hands-off way to enjoy a perfectly clean home.',
     benefits: ['Best per-visit pricing of any membership', 'Truly hands-off home maintenance', 'Home is always company-ready', 'Custom preferences remembered', 'Priority access to add-on services'],
     idealFor: ['Large families', 'Pet owners (especially multiple pets)', 'Home entertainers', 'Anyone who wants a spotless home always', 'High-traffic households'],
+    heroImage: 'clean-living-room.png',
   },
   {
     icon: ClipboardList,
@@ -137,6 +148,7 @@ export const services: ServiceData[] = [
     longDescription: 'Our Basic Cleaning is designed for speed and efficiency. We focus on the areas that matter most — bathrooms, kitchen surfaces, and floors — delivering visible results in less time than a full standard clean. Bathrooms are sanitized, kitchen counters and sinks are scrubbed, floors throughout are vacuumed and mopped, main surfaces are dusted, trash is removed, and living areas get a quick tidy. It\'s the perfect option for smaller spaces, between deeper cleans, or when you need a fast refresh before guests arrive.',
     benefits: ['Most affordable cleaning option', 'Fast in-and-out service', 'Focuses on high-impact areas', 'Perfect for smaller homes', 'Great between deeper cleans'],
     idealFor: ['Studio and one-bedroom apartments', 'Between regular deep cleans', 'Quick pre-guest refreshes', 'Budget-conscious homeowners', 'Minimalists who need less'],
+    heroImage: 'cleaner-kitchen.png',
   },
   {
     icon: Settings,
@@ -148,6 +160,7 @@ export const services: ServiceData[] = [
     longDescription: 'Our Custom Cleaning service puts you in complete control. Instead of choosing from a set package, you tell us exactly what you need — and we build a cleaning schedule around it. Need just the bathrooms and kitchen done? We can do that. Want a post-party cleanup focusing on the living room and dining area? No problem. Need seasonal window washing and vent cleaning? We\'ve got you covered. Custom cleanings are quoted based on scope, and you can schedule them as a one-time visit or recurring service. It\'s cleaning on your terms.',
     benefits: ['Complete control over what gets cleaned', 'Pay only for what you need', 'Handles unique and unusual requests', 'Can be one-time or recurring', 'Flexible pricing based on scope'],
     idealFor: ['Post-party or event cleanup', 'Seasonal deep cleaning projects', 'Homes with specific focus areas', 'Anyone with unique cleaning needs', 'Organizing and decluttering assistance'],
+    heroImage: 'cleaning-team.png',
   },
 ];
 
