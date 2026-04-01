@@ -1,10 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'wouter';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Star, Shield, CheckCircle, Clock, Sparkles, Phone, Mail, MapPin, ArrowRight, ChevronDown, Users, Calendar, Repeat, Award } from 'lucide-react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import { useLocation } from 'wouter';
 import { findCityBySlug } from '@/data/metros';
 import { cleaningPlans, reviews, aggregateRating } from '@/data/content';
@@ -13,41 +11,6 @@ import CTA from '@/components/sections/CTA';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-function CityMap({ lat, lng, cityName }: { lat: number; lng: number; cityName: string }) {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<L.Map | null>(null);
-
-  useEffect(() => {
-    if (!mapRef.current || mapInstance.current) return;
-
-    const map = L.map(mapRef.current, {
-      center: [lat, lng],
-      zoom: 12,
-      scrollWheelZoom: false,
-    });
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(map);
-
-    const icon = L.divIcon({
-      className: '',
-      html: `<div style="width:28px;height:28px;background:hsl(270,50%,36%);border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.25);"></div>`,
-      iconSize: [28, 28],
-      iconAnchor: [14, 14],
-    });
-
-    L.marker([lat, lng], { icon })
-      .addTo(map)
-      .bindPopup(`<strong style="font-family:Inter,sans-serif;">${cityName}</strong>`)
-      .openPopup();
-
-    mapInstance.current = map;
-    return () => { map.remove(); mapInstance.current = null; };
-  }, [lat, lng, cityName]);
-
-  return <div ref={mapRef} className="w-full h-[300px] md:h-[400px]" />;
-}
 
 function FAQItem({ question, answer, defaultOpen = false }: { question: string; answer: string; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -175,65 +138,55 @@ export default function CityLanding() {
           style={{ maskImage: 'linear-gradient(to right, transparent 10%, transparent 30%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.55) 100%)' }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-block py-1.5 px-4 rounded-full bg-teal/10 text-teal text-sm font-bold tracking-widest uppercase mb-5 border border-teal/20">
-                House Cleaning in {city.name}, {metro.stateAbbr}
-              </span>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.1] mb-5">
-                Professional House Cleaning in{' '}
-                <span className="text-primary">{city.name}</span>
-              </h1>
-              <p className="text-base md:text-lg text-muted-foreground mb-7 max-w-xl leading-relaxed">
-                Looking for reliable house cleaning in {city.name}, {metro.state}? PuraClean provides trusted, professional cleaning services with vetted cleaners, flexible scheduling, and a 200% Happiness Guarantee. Serving {city.name} and the greater {metro.name} metro area for over 14 years.
-              </p>
-              <div className="flex flex-col sm:flex-row items-start gap-3">
-                <a
-                  href={`tel:${metro.phone.replace(/\D/g, '')}`}
-                  className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-                >
-                  Get a Free Quote
-                </a>
-                <a
-                  href={base + '/memberships'}
-                  onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
-                  className="px-8 py-3.5 rounded-full bg-card text-foreground text-base font-bold shadow-lg border border-border flex items-center gap-2 group hover:-translate-y-1 transition-all duration-300"
-                >
-                  View Memberships
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-xl"
+          >
+            <span className="inline-block py-1.5 px-4 rounded-full bg-teal/10 text-teal text-sm font-bold tracking-widest uppercase mb-5 border border-teal/20">
+              House Cleaning in {city.name}, {metro.stateAbbr}
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.1] mb-5">
+              Professional House Cleaning in{' '}
+              <span className="text-primary">{city.name}</span>
+            </h1>
+            <p className="text-base md:text-lg text-muted-foreground mb-7 max-w-xl leading-relaxed">
+              Looking for reliable house cleaning in {city.name}, {metro.state}? Queen of Maids provides trusted, professional cleaning services with vetted cleaners, flexible scheduling, and a 200% Happiness Guarantee. Serving {city.name} and the greater {metro.name} metro area for over 14 years.
+            </p>
+            <div className="flex flex-col sm:flex-row items-start gap-3">
+              <a
+                href={`tel:${metro.phone.replace(/\D/g, '')}`}
+                className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground text-base font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              >
+                Get a Free Quote
+              </a>
+              <a
+                href={base + '/memberships'}
+                onClick={(e) => { e.preventDefault(); setLocation(base + '/memberships'); }}
+                className="px-8 py-3.5 rounded-full bg-card/80 backdrop-blur-sm text-foreground text-base font-bold shadow-lg border border-border flex items-center gap-2 group hover:-translate-y-1 transition-all duration-300"
+              >
+                View Memberships
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
 
-              <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
-                {[
-                  { icon: Shield, text: 'Insured & Bonded' },
-                  { icon: Sparkles, text: 'Happiness Guarantee' },
-                  { icon: CheckCircle, text: 'Vetted Cleaners' },
-                  { icon: Clock, text: 'Flexible Scheduling' },
-                ].map(({ icon: Icon, text }) => (
-                  <div key={text} className="flex items-center gap-2 text-muted-foreground">
-                    <div className="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-4 h-4 text-teal" />
-                    </div>
-                    <span className="text-sm font-medium">{text}</span>
+            <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
+              {[
+                { icon: Shield, text: 'Insured & Bonded' },
+                { icon: Sparkles, text: 'Happiness Guarantee' },
+                { icon: CheckCircle, text: 'Vetted Cleaners' },
+                { icon: Clock, text: 'Flexible Scheduling' },
+              ].map(({ icon: Icon, text }) => (
+                <div key={text} className="flex items-center gap-2 text-muted-foreground">
+                  <div className="w-9 h-9 rounded-full bg-teal/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-4 h-4 text-teal" />
                   </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="rounded-2xl overflow-hidden shadow-xl border border-border"
-            >
-              <CityMap lat={city.lat} lng={city.lng} cityName={city.name} />
-            </motion.div>
-          </div>
+                  <span className="text-sm font-medium">{text}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
